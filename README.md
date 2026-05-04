@@ -1,3 +1,3 @@
 # cca-website
 Call Centers Academy — Main Website
-# Call Centers Academy Website
+# Call Centers Academy
