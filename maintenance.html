@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>We'll Be Right Back | Call Centers Academy</title>
+  <meta name="description" content="Call Centers Academy is currently undergoing scheduled maintenance. We'll be back shortly."/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="canonical" href="https://callcentersacademy.com/maintenance.html"/>
+  <meta property="og:title" content="We'll Be Right Back | Call Centers Academy"/>
+  <meta property="og:description" content="Call Centers Academy is undergoing maintenance. Back shortly."/>
+  <meta property="og:url" content="https://callcentersacademy.com/maintenance.html"/>
+  <meta property="og:image" content="https://callcentersacademy.github.io/cca-website/images/og-image.jpg"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Call Centers Academy"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="We'll Be Right Back | Call Centers Academy"/>
+  <meta name="twitter:description" content="Call Centers Academy is undergoing maintenance. Back shortly."/>
+  <meta name="twitter:image" content="https://callcentersacademy.github.io/cca-website/images/og-image.jpg"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23253166'/><text y='62' x='50' text-anchor='middle' font-size='52' font-family='Arial'>🎧</text><rect x='30' y='18' width='40' height='8' rx='4' fill='%23ffcc00'/><polygon points='50,10 35,26 65,26' fill='%23ffcc00'/></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=MuseoModerno:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJXKFG2L');</script>
+  <style>
+    :root {
+      --cca-indigo:     #253166;
+      --cca-sky:        #00a1de;
+      --cca-carmine:    #cd171a;
+      --cca-yellow:     #ffcc00;
+      --cca-dark:       #0a2a3f;
+      --cca-light-gray: #f9fafb;
+      --cca-gray:       #dedee2;
+      --cca-white:      #ffffff;
+      --font-brand:     'MuseoModerno', cursive;
+      --font-body:      'Josefin Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--cca-indigo);
+      color: var(--cca-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 60%, rgba(0,161,222,0.1) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 25%, rgba(255,204,0,0.06) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 95%, rgba(205,23,26,0.05) 0%, transparent 40%);
+      pointer-events: none;
+      animation: breathe 7s ease-in-out infinite alternate;
+    }
+    @keyframes breathe {
+      from { opacity: 0.7; }
+      to   { opacity: 1; }
+    }
+    .container {
+      position: relative;
+      max-width: 580px;
+      width: 100%;
+      animation: fadeUp 0.7s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Three-color accent bar */
+    .accent-bar {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .accent-bar span { display: block; height: 4px; border-radius: 2px; }
+    .accent-bar span:nth-child(1) { width: 32px; background: var(--cca-sky); }
+    .accent-bar span:nth-child(2) { width: 16px; background: var(--cca-carmine); }
+    .accent-bar span:nth-child(3) { width: 24px; background: var(--cca-yellow); }
+
+    /* Animated icon rings */
+    .icon-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1.5rem;
+    }
+    .icon-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(0,161,222,0.35);
+      animation: spin 8s linear infinite;
+    }
+    .icon-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      border: 2px dashed rgba(255,204,0,0.3);
+      animation: spin 5s linear infinite reverse;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .icon-wrap span {
+      font-size: 2.2rem;
+      position: relative;
+      z-index: 1;
+      animation: bob 2s ease-in-out infinite;
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-5px); }
+    }
+
+    .subtitle {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-family: var(--font-brand);
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    h1 span { color: var(--cca-yellow); }
+
+    .status-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+      background: rgba(0,161,222,0.12);
+      border: 1px solid rgba(0,161,222,0.3);
+      border-radius: 100px;
+      padding: 0.45rem 1.1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cca-sky);
+    }
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--cca-sky);
+      animation: blink 1.4s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.2; }
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+    .contact-line {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .contact-line a {
+      color: var(--cca-sky);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .contact-line a:hover { color: var(--cca-yellow); }
+    .brand {
+      margin-top: 2.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+    }
+
+    /* Cookie Banner — white always */
+    #cca-cookie-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      z-index: 9999;
+      max-width: 340px;
+      background: var(--cca-white);
+      color: #333;
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      font-size: 0.82rem;
+      line-height: 1.55;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      border: 1px solid var(--cca-gray);
+    }
+    #cca-cookie-banner.hidden { opacity: 0; transform: translateY(12px); pointer-events: none; }
+    #cca-cookie-banner p { margin: 0; color: #333; }
+    #cca-cookie-banner a { color: var(--cca-sky); text-decoration: underline; text-underline-offset: 2px; }
+    #cca-cookie-banner a:hover { color: var(--cca-indigo); }
+    .cca-cookie-buttons { display: flex; gap: 0.6rem; }
+    .cca-cookie-btn {
+      flex: 1;
+      padding: 0.5rem 0.75rem;
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .cca-cookie-btn:hover { transform: translateY(-1px); }
+    .cca-cookie-btn.accept { background: var(--cca-sky); color: var(--cca-white); }
+    .cca-cookie-btn.accept:hover { background: #0090c8; }
+    .cca-cookie-btn.decline { background: var(--cca-gray); color: #555; }
+    .cca-cookie-btn.decline:hover { background: #ccc; }
+    @media (max-width: 480px) {
+      #cca-cookie-banner { left: 1rem; right: 1rem; max-width: none; bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXKFG2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="container">
+    <div class="accent-bar"><span></span><span></span><span></span></div>
+    <div class="icon-wrap"><span>🔧</span></div>
+    <p class="subtitle">Scheduled Maintenance</p>
+    <h1>We're <span>upgrading</span><br/>the experience.</h1>
+    <div class="status-strip">
+      <div class="status-dot"></div>
+      Work in progress
+    </div>
+    <p>The site is temporarily offline while we make improvements.<br/>We'll be back shortly — stronger than before.</p>
+    <p class="contact-line">Urgent? Reach us at <a href="mailto:info@callcentersacademy.com">info@callcentersacademy.com</a></p>
+    <p class="brand">Call Centers Academy &amp; BPO · Est. 2018 · Santo Domingo, DR</p>
+  </div>
+
+  <div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p>We use cookies to understand how visitors use our site and improve your experience. See our <a href="/privacy.html">Privacy Policy</a> for details.</p>
+    <div class="cca-cookie-buttons">
+      <button class="cca-cookie-btn decline" onclick="ccaCookieDecline()">Decline</button>
+      <button class="cca-cookie-btn accept" onclick="ccaCookieAccept()">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const c = localStorage.getItem('cca_cookie_consent');
+      if (c === 'accepted' || c === 'declined') document.getElementById('cca-cookie-banner').classList.add('hidden');
+    })();
+    function ccaCookieAccept() {
+      localStorage.setItem('cca_cookie_consent', 'accepted');
+      document.getElementById('cca-cookie-banner').classList.add('hidden');
+      if (window.dataLayer) dataLayer.push({ event: 'cookie_consent_accepted' });
+    }
+    function ccaCookieDecline() {
+      localStorage.setItem('cca_cookie_consent', 'declined');
+      document.getElementById('cca-cookie-banner').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
