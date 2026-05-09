@@ -279,26 +279,23 @@
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 <script>
   (function() {
+    var iframe = document.createElement('iframe');
+    iframe.name = 'brevo-hidden';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
     var forms = document.querySelectorAll('form[data-type="subscription"]');
     forms.forEach(function(form) {
-      form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+      form.target = 'brevo-hidden';
+      form.addEventListener('submit', function(e) {
         var btn = form.querySelector('button[type="submit"]');
-        var original = btn.textContent;
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
-        try {
-          var data = new FormData(form);
-          await fetch('https://7a0797f4.sibforms.com/serve/MUIFAP7AkImd8cV8KEFtLEAnGfbYbWql66EsTMEJeTLyQNAyNP4R6MZ27kn7pTVz5m4uMNdFLUc2lxxfOojTNLJHA5Sayd8D3HaIKq1d47nvtjFucPkulY-9bJTfZxNzdHwNjgHatnVdHCGjjnYH4xBuAooJnWSxWlrCFr8da2oSHNgL4E5l5nFMmw3MhpyOBibzNfqqC8Fps5oRAg==', {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-          });
-          window.location.href = 'https://callcentersacademy.com/thank-you.html';
-        } catch (err) {
-          btn.textContent = original;
-          btn.disabled = false;
-        }
+        var input = form.querySelector('input[type="email"]');
+        setTimeout(function() {
+          btn.textContent = '✓ Subscribed!';
+          btn.style.background = '#1a7a3a';
+          btn.disabled = true;
+          if (input) input.value = '';
+        }, 600);
       });
     });
   })();

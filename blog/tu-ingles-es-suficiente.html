@@ -267,21 +267,16 @@
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
         var btn = form.querySelector('button[type="submit"]');
-        var original = btn.textContent;
         btn.textContent = 'Sending...';
         btn.disabled = true;
+        var data = new FormData(form);
         try {
-          var data = new FormData(form);
           await fetch('https://7a0797f4.sibforms.com/serve/MUIFAP7AkImd8cV8KEFtLEAnGfbYbWql66EsTMEJeTLyQNAyNP4R6MZ27kn7pTVz5m4uMNdFLUc2lxxfOojTNLJHA5Sayd8D3HaIKq1d47nvtjFucPkulY-9bJTfZxNzdHwNjgHatnVdHCGjjnYH4xBuAooJnWSxWlrCFr8da2oSHNgL4E5l5nFMmw3MhpyOBibzNfqqC8Fps5oRAg==', {
             method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
+            body: data
           });
-          window.location.href = 'https://callcentersacademy.com/thank-you.html';
-        } catch (err) {
-          btn.textContent = original;
-          btn.disabled = false;
-        }
+        } catch (err) {}
+        window.location.href = 'https://callcentersacademy.com/thank-you.html';
       });
     });
   })();
