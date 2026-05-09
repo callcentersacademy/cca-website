@@ -40,7 +40,6 @@
     .hero-post { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 56px 0 48px; border-bottom: 1px solid var(--border); }
     @media (max-width: 720px) { .hero-post { grid-template-columns: 1fr; } }
     .hero-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-    .lang-tag { display: inline-block; background: var(--sky); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; }
     .featured-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
     .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 4vw, 38px); font-weight: 900; color: var(--indigo); line-height: 1.2; margin-bottom: 16px; }
     .hero-excerpt { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
@@ -58,10 +57,9 @@
     .card-body { padding: 18px 20px; }
     .card-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--indigo); line-height: 1.35; margin-bottom: 10px; }
     .card:hover .card-title { color: var(--carmine); }
-    .card-meta { font-size: 12px; color: var(--muted); }
 
     /* NEWSLETTER STRIP */
-    .newsletter-strip { background: var(--indigo); border-radius: 10px; padding: 40px 48px; margin: 0 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .newsletter-strip { background: var(--indigo); border-radius: 10px; padding: 40px 48px; margin: 48px 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
     @media (max-width: 720px) { .newsletter-strip { grid-template-columns: 1fr; padding: 32px 24px; } }
     .newsletter-copy h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--white); margin-bottom: 10px; line-height: 1.25; }
     .newsletter-copy p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.7; }
@@ -78,9 +76,7 @@
     .post-list-item { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--border); text-decoration: none; }
     .post-list-item:first-child { border-top: 1px solid var(--border); }
     .post-list-item:hover .post-list-title { color: var(--carmine); }
-    .post-list-left { display: flex; align-items: center; gap: 12px; }
     .post-list-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--indigo); line-height: 1.35; transition: color 0.15s; }
-    .post-list-meta { font-size: 12px; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
 
     /* FOOTER */
     .site-footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
@@ -108,7 +104,6 @@
   <div class="hero-post">
     <div class="hero-content">
       <div class="hero-meta">
-        <span class="lang-tag">EN</span>
         <span class="featured-tag">Featured</span>
       </div>
       <h1 class="hero-title">
@@ -130,25 +125,19 @@
     <a href="tu-ingles-es-suficiente.html" class="card">
       <img src="images/post-02-confianza.png" alt="Tu inglés es suficiente. Tu confianza no." />
       <div class="card-body">
-        <div class="hero-meta" style="margin-bottom:10px;"><span class="lang-tag">ES</span></div>
         <div class="card-title">Tu inglés es suficiente. Tu confianza no.</div>
-        <div class="card-meta">7 min de lectura</div>
       </div>
     </a>
     <a href="why-you-keep-failing-the-interview.html" class="card">
       <img src="images/post-03-interview-fail.png" alt="Why You Keep Failing the Interview" />
       <div class="card-body">
-        <div class="hero-meta" style="margin-bottom:10px;"><span class="lang-tag">EN</span></div>
         <div class="card-title">Why You Keep Failing the Interview (It's Not Your English)</div>
-        <div class="card-meta">7 min read</div>
       </div>
     </a>
     <a href="por-que-sigues-fallando-la-entrevista.html" class="card">
       <img src="images/post-04-entrevista-falla.png" alt="Por qué sigues fallando la entrevista" />
       <div class="card-body">
-        <div class="hero-meta" style="margin-bottom:10px;"><span class="lang-tag">ES</span></div>
         <div class="card-title">Por qué sigues fallando la entrevista</div>
-        <div class="card-meta">7 min de lectura</div>
       </div>
     </a>
   </div>
@@ -166,7 +155,6 @@
       <form action="https://7a0797f4.sibforms.com/serve/MUIFAP7AkImd8cV8KEFtLEAnGfbYbWql66EsTMEJeTLyQNAyNP4R6MZ27kn7pTVz5m4uMNdFLUc2lxxfOojTNLJHA5Sayd8D3HaIKq1d47nvtjFucPkulY-9bJTfZxNzdHwNjgHatnVdHCGjjnYH4xBuAooJnWSxWlrCFr8da2oSHNgL4E5l5nFMmw3MhpyOBibzNfqqC8Fps5oRAg==" method="POST" data-type="subscription">
         <input type="email" name="EMAIL" placeholder="Your email address" required />
         <input type="hidden" name="locale" value="en" />
-        <input type="hidden" name="redirect" value="https://callcentersacademy.com/thank-you.html" />
         <input type="text" name="email_address_check" value="" style="display:none;" />
         <button type="submit">Subscribe Free</button>
       </form>
@@ -176,116 +164,88 @@
   <!-- POST LIST — Posts 05 onward -->
   <div class="post-list">
     <a href="summer-job-call-center-asset.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">Your Summer Job Experience Is a Call Center Asset</span></div>
-      <span class="post-list-meta">6 min read</span>
+      <span class="post-list-title">Your Summer Job Experience Is a Call Center Asset</span>
     </a>
     <a href="trabajo-de-verano-call-center.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">Tu trabajo de verano es un activo para el call center</span></div>
-      <span class="post-list-meta">6 min de lectura</span>
+      <span class="post-list-title">Tu trabajo de verano es un activo para el call center</span>
     </a>
     <a href="your-call-center-cv.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">Your Call Center CV: What to Include and What to Delete</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">Your Call Center CV: What to Include and What to Delete</span>
     </a>
     <a href="tu-curriculum-para-call-center.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">Tu currículum para call center</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">Tu currículum para call center</span>
     </a>
     <a href="you-got-hired-now-relax.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">You Got Hired. Now Relax and Do the Job.</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">You Got Hired. Now Relax and Do the Job.</span>
     </a>
     <a href="te-contrataron-ahora-relax.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">Te contrataron. Ahora relax y haz el trabajo.</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">Te contrataron. Ahora relax y haz el trabajo.</span>
     </a>
     <a href="the-military-alphabet.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">The Military Alphabet: Why Call Centers Still Use It</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">The Military Alphabet: Why Call Centers Still Use It</span>
     </a>
     <a href="el-alfabeto-militar.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">El alfabeto militar: por qué los call centers todavía lo usan</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">El alfabeto militar: por qué los call centers todavía lo usan</span>
     </a>
     <a href="no-call-centers-en-espanol.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">No hay call centers en español. Y aquí está la verdad.</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">No hay call centers en español. Y aquí está la verdad.</span>
     </a>
     <a href="no-spanish-only-call-centers.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">There Are No Spanish-Only Call Centers. Here's the Truth.</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">There Are No Spanish-Only Call Centers. Here's the Truth.</span>
     </a>
     <a href="requisitos-para-trabajar-en-call-center.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">Requisitos para trabajar en un call center en la República Dominicana</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">Requisitos para trabajar en un call center en la República Dominicana</span>
     </a>
     <a href="requirements-to-work-in-a-call-center-dr.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">Requirements to Work in a Call Center in the Dominican Republic</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">Requirements to Work in a Call Center in the Dominican Republic</span>
     </a>
     <a href="you-want-10-years-experience-for-4-dollar.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">You Want 10 Years of Experience for $4 an Hour?</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">You Want 10 Years of Experience for $4 an Hour?</span>
     </a>
     <a href="quieres-10-anos-de-experiencia-por-4-dola.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">¿Quieres 10 años de experiencia por $4 la hora?</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">¿Quieres 10 años de experiencia por $4 la hora?</span>
     </a>
     <a href="best-and-worst-call-centers-dr.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">The Best and Worst Call Centers in the DR (And What Makes the Difference)</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">The Best and Worst Call Centers in the DR (And What Makes the Difference)</span>
     </a>
     <a href="mejores-y-peores-call-centers-rd.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">Los mejores y peores call centers de RD (y qué marca la diferencia)</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">Los mejores y peores call centers de RD (y qué marca la diferencia)</span>
     </a>
     <a href="call-center-application-2026.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">How to Apply to a Call Center in 2026</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">How to Apply to a Call Center in 2026</span>
     </a>
     <a href="aplicacion-call-center-2026.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">Cómo aplicar a un call center en 2026</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">Cómo aplicar a un call center en 2026</span>
     </a>
     <a href="video-resume-call-center.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">How to Make a Video Resume for a Call Center</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">How to Make a Video Resume for a Call Center</span>
     </a>
     <a href="video-curriculum-call-center.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">Cómo hacer un video currículum para call center</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">Cómo hacer un video currículum para call center</span>
     </a>
     <a href="what-is-vocaroo.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">What Is Vocaroo and How to Use It for Your Call Center Application</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">What Is Vocaroo and How to Use It for Your Call Center Application</span>
     </a>
     <a href="que-es-vocaroo.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">Qué es Vocaroo y cómo usarlo en tu aplicación para call center</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">Qué es Vocaroo y cómo usarlo en tu aplicación para call center</span>
     </a>
     <a href="audio-resume-call-center.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">Your Audio Resume: How to Record One That Actually Gets You Hired</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">Your Audio Resume: How to Record One That Actually Gets You Hired</span>
     </a>
     <a href="curriculum-de-audio-call-center.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">Tu currículum de audio: cómo grabar uno que realmente te consiga el trabajo</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">Tu currículum de audio: cómo grabar uno que realmente te consiga el trabajo</span>
     </a>
     <a href="linkedin-for-call-center-applicants.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">LinkedIn for Call Center Applicants: What to Put and What to Leave Out</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">LinkedIn for Call Center Applicants: What to Put and What to Leave Out</span>
     </a>
     <a href="linkedin-para-call-centers.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">LinkedIn para call centers: qué poner y qué dejar afuera</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">LinkedIn para call centers: qué poner y qué dejar afuera</span>
     </a>
     <a href="pdf-resume-in-english-call-center.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">EN</span><span class="post-list-title">How to Write a PDF Resume in English for a Call Center</span></div>
-      <span class="post-list-meta">Coming soon</span>
+      <span class="post-list-title">How to Write a PDF Resume in English for a Call Center</span>
     </a>
     <a href="curriculum-pdf-en-ingles.html" class="post-list-item">
-      <div class="post-list-left"><span class="lang-tag">ES</span><span class="post-list-title">Cómo escribir tu currículum en PDF en inglés para call center</span></div>
-      <span class="post-list-meta">Próximamente</span>
+      <span class="post-list-title">Cómo escribir tu currículum en PDF en inglés para call center</span>
     </a>
   </div>
 
@@ -299,7 +259,6 @@
   <a href="../privacy.html" style="color:var(--muted);">Privacy</a> &nbsp;&middot;&nbsp;
   <a href="../terms.html" style="color:var(--muted);">Terms</a>
 </footer>
-
 
 <!-- COOKIE BANNER -->
 <div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent" style="position:fixed;bottom:24px;left:24px;z-index:9999;max-width:320px;background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 8px 32px rgba(0,0,0,0.15);font-size:13px;line-height:1.55;display:flex;flex-direction:column;gap:14px;border:1px solid #e8e8e8;font-family:'Josefin Sans',sans-serif;">
@@ -318,5 +277,31 @@
 <script src="cca-chatbot-widget.js"></script>
 <script>window.LOCALE='en';var AUTOHIDE=Boolean(0);</script>
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+<script>
+  (function() {
+    var forms = document.querySelectorAll('form[data-type="subscription"]');
+    forms.forEach(function(form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var original = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        try {
+          var data = new FormData(form);
+          await fetch('https://7a0797f4.sibforms.com/serve/MUIFAP7AkImd8cV8KEFtLEAnGfbYbWql66EsTMEJeTLyQNAyNP4R6MZ27kn7pTVz5m4uMNdFLUc2lxxfOojTNLJHA5Sayd8D3HaIKq1d47nvtjFucPkulY-9bJTfZxNzdHwNjgHatnVdHCGjjnYH4xBuAooJnWSxWlrCFr8da2oSHNgL4E5l5nFMmw3MhpyOBibzNfqqC8Fps5oRAg==', {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          window.location.href = 'https://callcentersacademy.com/thank-you.html';
+        } catch (err) {
+          btn.textContent = original;
+          btn.disabled = false;
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>
