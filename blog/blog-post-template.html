@@ -1,478 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- ============================================================
-     CCA BLOG POST TEMPLATE
-     HOW TO USE:
-     1. Copy this file
-     2. Rename it — e.g. why-confidence-beats-english.html
-     3. Place it in the /blog/ folder
-     4. Find every line marked CHANGE THIS and update it
-     5. Write the post content in the <article> section
-     6. Add the card to blog/index.html
-     ============================================================ -->
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POST TITLE | Call Centers Academy</title>
+<meta name="description" content="POST META DESCRIPTION">
+<link rel="canonical" href="https://www.callcentersacademy.com/blog/POST-SLUG.html">
+<meta property="og:title" content="POST TITLE | Call Centers Academy">
+<meta property="og:description" content="POST META DESCRIPTION">
+<meta property="og:image" content="https://callcentersacademy.github.io/cca-website/images/og-image.jpg">
+<meta property="og:url" content="https://www.callcentersacademy.com/blog/POST-SLUG.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJXKFG2L');</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--indigo:#253166;
+--sky:#00A1DE;
+--carmine:#CD171A;
+--yellow:#FFCC00;
+--text:#1a1a1a;
+--muted:#666;
+--light:#F9FAFB;
+--border:#e8e8e8;
+}
+body{font-family:'Josefin Sans',sans-serif;color:var(--text);background:#fff;font-size:17px;line-height:1.8}
+a{color:inherit;text-decoration:none}
 
-  <!-- CHANGE THIS: Title — keep under 60 chars including "| CCA Blog" -->
-  <title>POST TITLE HERE | CCA Blog</title>
+/* TOP BAR */
+.top-bar{background:var(--indigo);color:#fff;text-align:center;padding:12px 20px;font-size:14px;letter-spacing:0.02em}
+.top-bar a{color:var(--yellow);text-decoration:underline;margin-left:6px}
 
-  <!-- CHANGE THIS: Description — keep under 155 chars -->
-  <meta name="description" content="POST META DESCRIPTION HERE"/>
+/* HEADER */
+.site-header{padding:20px 0;border-bottom:1px solid var(--border);text-align:center}
+.site-header .logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--indigo)}
+.site-header .logo span{color:var(--carmine)}
+.back-link{font-size:13px;color:var(--muted);margin-top:6px;display:block}
+.back-link:hover{color:var(--sky)}
 
-  <!-- CHANGE THIS: URL slug -->
-  <link rel="canonical" href="https://callcentersacademy.com/blog/POST-SLUG-HERE.html"/>
+/* LAYOUT */
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.content-wrap{display:grid;grid-template-columns:1fr 320px;gap:56px;padding:48px 0 64px}
 
-  <!-- CHANGE THIS: OG tags -->
-  <meta property="og:title" content="POST TITLE HERE | CCA Blog"/>
-  <meta property="og:description" content="POST META DESCRIPTION HERE"/>
-  <meta property="og:url" content="https://callcentersacademy.com/blog/POST-SLUG-HERE.html"/>
-  <meta property="og:image" content="https://callcentersacademy.github.io/cca-website/images/og-image.jpg"/>
-  <meta property="og:type" content="article"/>
-  <meta property="og:site_name" content="Call Centers Academy"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="POST TITLE HERE | CCA Blog"/>
-  <meta name="twitter:description" content="POST META DESCRIPTION HERE"/>
-  <meta name="twitter:image" content="https://callcentersacademy.github.io/cca-website/images/og-image.jpg"/>
+/* POST HEADER */
+.post-header{text-align:center;padding:48px 0 0;max-width:760px;margin:0 auto}
+.lang-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:var(--sky);padding:4px 10px;border-radius:3px;margin-bottom:16px}
+.post-title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--indigo);line-height:1.15;margin-bottom:16px}
+.post-meta{font-size:13px;color:var(--muted);margin-bottom:32px}
+.hero-image{width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:8px;margin-bottom:48px}
 
-  <!-- CHANGE THIS: article:published_time -->
-  <meta property="article:published_time" content="2026-05-05"/>
-  <meta property="article:author" content="Pamela Pérez"/>
+/* CONTENT */
+.post-content h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--indigo);margin:40px 0 16px;line-height:1.25}
+.post-content p{margin-bottom:22px;font-size:17px;line-height:1.8;color:#222}
+.post-content strong{font-weight:600}
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23253166'/><text y='62' x='50' text-anchor='middle' font-size='52' font-family='Arial'>🎧</text><rect x='30' y='18' width='40' height='8' rx='4' fill='%23ffcc00'/><polygon points='50,10 35,26 65,26' fill='%23ffcc00'/></svg>"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=MuseoModerno:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJXKFG2L');</script>
+/* PULLQUOTE */
+.pullquote{border-left:4px solid var(--carmine);padding:16px 24px;margin:36px 0;background:#fafafa}
+.pullquote p{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--indigo);margin:0;line-height:1.5}
 
-  <style>
-    :root {
-      --cca-indigo:     #253166;
-      --cca-sky:        #00a1de;
-      --cca-carmine:    #cd171a;
-      --cca-yellow:     #ffcc00;
-      --cca-dark:       #0a2a3f;
-      --cca-light-gray: #f9fafb;
-      --cca-gray:       #dedee2;
-      --cca-white:      #ffffff;
-      --font-brand:     'MuseoModerno', cursive;
-      --font-body:      'Josefin Sans', sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: var(--font-body);
-      background-color: var(--cca-light-gray);
-      color: #222;
-      -webkit-font-smoothing: antialiased;
-    }
+/* AD SLOT */
+.ad-slot{background:var(--light);border:1px dashed var(--border);border-radius:6px;height:250px;margin:36px 0}
+.ad-slot-horizontal{background:var(--light);border:1px dashed var(--border);border-radius:6px;height:90px;margin:36px 0}
 
-    /* NAV */
-    nav {
-      background: var(--cca-indigo);
-      padding: 0 2rem;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-brand {
-      font-family: var(--font-brand);
-      font-size: 1.1rem;
-      color: var(--cca-white);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .nav-brand span { color: var(--cca-yellow); }
-    .nav-back {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-back:hover { color: var(--cca-white); }
+/* CTA */
+.post-cta{background:var(--indigo);color:#fff;padding:28px 32px;border-radius:8px;margin:40px 0}
+.post-cta p{margin:0;font-size:16px;line-height:1.6}
+.post-cta a{color:var(--yellow);font-weight:600;text-decoration:underline}
 
-    /* POST HEADER */
-    .post-header {
-      background: var(--cca-indigo);
-      padding: 3rem 2rem 2.5rem;
+/* AUTHOR */
+.author-strip{display:flex;align-items:center;gap:20px;padding:32px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:40px 0}
+.author-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.author-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--indigo);margin-bottom:4px}
+.author-bio{font-size:14px;color:var(--muted);line-height:1.5}
 
-      /* CHANGE THIS: "en" for English posts, "es" for Spanish posts
-         This controls the accent bar color at the bottom */
-    }
-    /* CHANGE THIS LINE: replace "en" with "es" for Spanish posts */
-    .post-header { border-bottom: 4px solid var(--cca-sky); } /* EN = sky, ES = carmine */
+/* SIDEBAR */
+.sidebar{}
+.sidebar-newsletter{background:var(--indigo);color:#fff;padding:28px 24px;border-radius:8px;margin-bottom:28px}
+.sidebar-newsletter h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:8px}
+.sidebar-newsletter p{font-size:13px;opacity:0.85;margin-bottom:20px;line-height:1.6}
+.sidebar-newsletter input{width:100%;padding:10px 14px;font-family:'Josefin Sans',sans-serif;font-size:13px;border:none;border-radius:4px;margin-bottom:10px;outline:none}
+.sidebar-newsletter button{width:100%;background:var(--carmine);color:#fff;border:none;padding:11px;font-family:'Josefin Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border-radius:4px}
+.sidebar-newsletter button:hover{background:#a8120f}
 
-    .post-header-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-    .post-meta-top {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.25rem;
-      flex-wrap: wrap;
-    }
-    .post-lang {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.22rem 0.6rem;
-      border-radius: 100px;
-    }
-    /* CHANGE THIS: use .post-lang.en OR .post-lang.es */
-    .post-lang.en { background: rgba(0,161,222,0.2); color: var(--cca-sky); }
-    .post-lang.es { background: rgba(205,23,26,0.2); color: #ff6b6e; }
+.related-posts{margin-bottom:28px}
+.related-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+.related-item{padding:12px 0;border-bottom:1px solid var(--border)}
+.related-item:last-child{border-bottom:none}
+.related-lang{display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.08em;color:#fff;background:var(--sky);padding:2px 6px;border-radius:2px;margin-bottom:6px}
+.related-title{font-family:'Playfair Display',serif;font-size:14px;color:var(--indigo);line-height:1.3}
+.related-item:hover .related-title{color:var(--sky)}
 
-    .post-category {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-    }
-    .post-date {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.35);
-      margin-left: auto;
-    }
+/* FOOTER */
+footer{background:var(--indigo);color:rgba(255,255,255,0.6);text-align:center;padding:20px;font-size:13px}
+footer a{color:rgba(255,255,255,0.6)}
+footer a:hover{color:#fff}
 
-    .post-title {
-      font-family: var(--font-brand);
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      color: var(--cca-white);
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-    .post-title span { color: var(--cca-yellow); }
-
-    .post-subtitle {
-      font-size: 1rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.65;
-      max-width: 600px;
-    }
-
-    /* AUTHOR BAR */
-    .author-bar {
-      background: var(--cca-white);
-      border-bottom: 1px solid var(--cca-gray);
-      padding: 0.85rem 2rem;
-    }
-    .author-bar-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .author-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--cca-indigo);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .author-info { line-height: 1.3; }
-    .author-name {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--cca-indigo);
-    }
-    .author-title {
-      font-size: 0.72rem;
-      color: #aaa;
-    }
-    .read-time {
-      margin-left: auto;
-      font-size: 0.72rem;
-      color: #bbb;
-      font-weight: 500;
-    }
-
-    /* ARTICLE BODY */
-    .post-body-wrap {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem 4rem;
-    }
-
-    article {
-      background: var(--cca-white);
-      border-radius: 12px;
-      padding: 2.5rem;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-      line-height: 1.8;
-    }
-
-    article p {
-      font-size: 1rem;
-      color: #333;
-      margin-bottom: 1.4rem;
-      font-weight: 300;
-    }
-    article p strong {
-      color: var(--cca-indigo);
-      font-weight: 700;
-    }
-    article h2 {
-      font-family: var(--font-brand);
-      font-size: 1.3rem;
-      color: var(--cca-indigo);
-      margin-top: 2.25rem;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-    article h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #333;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    article ul, article ol {
-      padding-left: 1.5rem;
-      margin-bottom: 1.4rem;
-    }
-    article li {
-      font-size: 1rem;
-      color: #333;
-      margin-bottom: 0.5rem;
-      font-weight: 300;
-    }
-    article blockquote {
-      border-left: 4px solid var(--cca-yellow);
-      margin: 1.75rem 0;
-      padding: 1rem 1.5rem;
-      background: var(--cca-light-gray);
-      border-radius: 0 8px 8px 0;
-    }
-    article blockquote p {
-      margin: 0;
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--cca-indigo);
-      font-style: italic;
-    }
-    .post-divider {
-      width: 48px;
-      height: 3px;
-      background: var(--cca-sky);
-      border-radius: 2px;
-      margin: 2rem 0;
-    }
-
-    /* CTA BOX */
-    .post-cta {
-      margin-top: 2.5rem;
-      background: var(--cca-indigo);
-      border-radius: 10px;
-      padding: 1.75rem 2rem;
-      text-align: center;
-    }
-    .post-cta p {
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 1rem;
-      font-size: 0.92rem;
-    }
-    .post-cta strong { color: var(--cca-white); }
-    .cta-btn {
-      display: inline-block;
-      padding: 0.7rem 1.75rem;
-      background: var(--cca-yellow);
-      color: var(--cca-indigo);
-      border-radius: 8px;
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.2); }
-
-    /* BACK TO BLOG */
-    .back-to-blog {
-      margin-top: 2rem;
-      text-align: center;
-    }
-    .back-to-blog a {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--cca-sky);
-      text-decoration: none;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .back-to-blog a:hover { text-decoration: underline; }
-
-    /* FOOTER */
-    .blog-footer {
-      background: var(--cca-indigo);
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.25);
-    }
-
-    @media (max-width: 600px) {
-      .post-header { padding: 2rem 1.25rem 1.75rem; }
-      .author-bar { padding: 0.85rem 1.25rem; }
-      .post-body-wrap { padding: 1.5rem 1rem 3rem; }
-      article { padding: 1.5rem; }
-    }
-
-    /* Cookie Banner */
-    #cca-cookie-banner {
-      position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 9999;
-      max-width: 340px; background: var(--cca-white);
-      border-radius: 12px; padding: 1.1rem 1.25rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-      font-size: 0.82rem; line-height: 1.55;
-      display: flex; flex-direction: column; gap: 0.85rem;
-      transition: opacity 0.35s ease, transform 0.35s ease;
-      border: 1px solid var(--cca-gray);
-    }
-    #cca-cookie-banner.hidden { opacity: 0; transform: translateY(12px); pointer-events: none; }
-    #cca-cookie-banner p { margin: 0; color: #333; }
-    #cca-cookie-banner a { color: var(--cca-sky); text-decoration: underline; text-underline-offset: 2px; }
-    .cca-cookie-buttons { display: flex; gap: 0.6rem; }
-    .cca-cookie-btn {
-      flex: 1; padding: 0.5rem 0.75rem; border: none; border-radius: 6px;
-      font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
-      cursor: pointer; transition: background 0.2s ease, transform 0.15s ease;
-    }
-    .cca-cookie-btn:hover { transform: translateY(-1px); }
-    .cca-cookie-btn.accept { background: var(--cca-sky); color: var(--cca-white); }
-    .cca-cookie-btn.accept:hover { background: #0090c8; }
-    .cca-cookie-btn.decline { background: var(--cca-gray); color: #555; }
-    .cca-cookie-btn.decline:hover { background: #ccc; }
-    @media (max-width: 480px) {
-      #cca-cookie-banner { left: 1rem; right: 1rem; max-width: none; bottom: 1rem; }
-    }
-  </style>
+@media(max-width:900px){
+.content-wrap{grid-template-columns:1fr}
+.sidebar{display:none}
+.post-title{font-size:30px}
+}
+</style>
 </head>
 <body>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXKFG2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <nav>
-    <a href="../" class="nav-brand">Call Centers <span>Academy</span></a>
-    <a href="./" class="nav-back">← All Posts</a>
-  </nav>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXKFG2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+<!-- TOP BAR -->
+<div class="top-bar">
+  Get free English tips + call center resources &mdash; <a href="/blog/#newsletter">subscribe free</a>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="logo">Call Centers <span>Academy</span></div>
+    <a href="/" class="back-link">&#8592; Back to main site</a>
+  </div>
+</header>
+
+<!-- POST HEADER -->
+<div class="container">
   <div class="post-header">
-    <div class="post-header-inner">
-      <div class="post-meta-top">
-        <!-- CHANGE THIS: en or es -->
-        <span class="post-lang en">EN</span>
-        <!-- CHANGE THIS: category name -->
-        <span class="post-category">Confidence</span>
-        <!-- CHANGE THIS: publication date -->
-        <span class="post-date">May 2026</span>
-      </div>
-      <!-- CHANGE THIS: post title — you can wrap a word in <span> for yellow highlight -->
-      <h1 class="post-title">POST TITLE GOES <span>HERE</span></h1>
-      <!-- CHANGE THIS: subtitle / opening hook — 1-2 sentences -->
-      <p class="post-subtitle">POST SUBTITLE OR OPENING HOOK GOES HERE — this is the sentence that makes them want to keep reading.</p>
-    </div>
+    <span class="lang-tag">EN</span>
+    <h1 class="post-title">POST TITLE GOES HERE</h1>
+    <div class="post-meta">8 min read</div>
   </div>
+  <img src="images/post-XX.jpg" alt="POST TITLE" class="hero-image">
+</div>
 
-  <div class="author-bar">
-    <div class="author-bar-inner">
-      <div class="author-avatar">🎧</div>
-      <div class="author-info">
-        <p class="author-name">Pamela Pérez</p>
-        <p class="author-title">Founder, Call Centers Academy · 12 years in BPO</p>
+<!-- CONTENT + SIDEBAR -->
+<div class="container">
+  <div class="content-wrap">
+
+    <!-- MAIN CONTENT -->
+    <article class="post-content">
+
+      <p>Opening paragraph goes here.</p>
+
+      <h2>Section heading one</h2>
+      <p>Body text goes here.</p>
+
+      <!-- AD SLOT 1 -->
+      <div class="ad-slot-horizontal"></div>
+
+      <h2>Section heading two</h2>
+      <p>Body text goes here.</p>
+
+      <div class="pullquote">
+        <p>Pullquote text goes here. One strong sentence that breaks the read and makes the reader stop.</p>
       </div>
-      <!-- CHANGE THIS: estimated read time -->
-      <span class="read-time">5 min read</span>
-    </div>
-  </div>
 
-  <div class="post-body-wrap">
-    <article>
+      <p>More body text.</p>
 
-      <!-- ============================================================
-           WRITE THE POST CONTENT HERE
-           Use these elements:
-           <p> — regular paragraph
-           <p><strong>bold text</strong></p> — for emphasis
-           <h2> — section heading
-           <h3> — sub-heading
-           <ul><li>item</li></ul> — bullet list
-           <ol><li>item</li></ol> — numbered list
-           <blockquote><p>quote text</p></blockquote> — pull quote
-           <div class="post-divider"></div> — section break line
-           ============================================================ -->
+      <!-- AD SLOT 2 -->
+      <div class="ad-slot"></div>
 
-      <p>POST CONTENT STARTS HERE. This is the first paragraph — the one that hooks them in. Write it like you're talking to one specific person sitting across from you.</p>
+      <h2>Section heading three</h2>
+      <p>Body text goes here.</p>
 
-      <p>Keep going. Each paragraph is one idea. Short paragraphs are fine. Long paragraphs are fine. Whatever the thought needs.</p>
-
-      <blockquote>
-        <p>Pull the most powerful line out of the post and put it here as a blockquote. Something that makes someone screenshot it.</p>
-      </blockquote>
-
-      <div class="post-divider"></div>
-
-      <h2>Section Heading Goes Here</h2>
-
-      <p>Continue the post here after the heading.</p>
-
-      <!-- CHANGE THIS: CTA box at the bottom of every post -->
+      <!-- CTA -->
       <div class="post-cta">
-        <p><strong>Want more content like this?</strong><br/>Subscribe to the CCA newsletter — no spam, no recycled tips. Just real talk, straight to your inbox.</p>
-        <a href="../#newsletter" class="cta-btn">Subscribe Free</a>
+        <p>If you want to solve this once and for all, <a href="/resources.html">visit our free resources</a>. You'll find guides and tools to help you show up to that interview actually prepared.</p>
+      </div>
+
+      <!-- AUTHOR -->
+      <div class="author-strip">
+        <img src="images/pamela.jpeg" alt="Pamela Perez" class="author-photo">
+        <div>
+          <div class="author-name">Pamela Perez</div>
+          <div class="author-bio">Founder, Call Centers Academy &amp; BPO. 12 years in the BPO industry. Santo Domingo, Dominican Republic.</div>
+        </div>
       </div>
 
     </article>
 
-    <div class="back-to-blog">
-      <a href="./">← Back to All Posts</a>
-    </div>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-newsletter">
+        <h3>Free resources, real advice.</h3>
+        <p>Subscribe and get honest call center tips straight to your inbox.</p>
+        <form action="/thank-you.html" method="get">
+          <input type="email" name="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe free</button>
+        </form>
+      </div>
+
+      <div class="related-posts">
+        <div class="related-label">More posts</div>
+
+        <a href="your-english-is-good-enough.html" class="related-item" style="display:block">
+          <span class="related-lang">EN</span>
+          <div class="related-title">Your English Is Good Enough. Your Confidence Isn't.</div>
+        </a>
+
+        <a href="tu-ingles-es-suficiente.html" class="related-item" style="display:block">
+          <span class="related-lang">ES</span>
+          <div class="related-title">Tu ingles es suficiente. Tu confianza no.</div>
+        </a>
+
+        <a href="why-you-keep-failing-the-interview.html" class="related-item" style="display:block">
+          <span class="related-lang">EN</span>
+          <div class="related-title">Why You Keep Failing the Interview</div>
+        </a>
+
+        <a href="summer-job-call-center-asset.html" class="related-item" style="display:block">
+          <span class="related-lang">EN</span>
+          <div class="related-title">Your Summer Job Experience Is a Call Center Asset</div>
+        </a>
+
+      </div>
+
+      <!-- AD SLOT SIDEBAR -->
+      <div class="ad-slot"></div>
+
+    </aside>
+
   </div>
+</div>
 
-  <footer class="blog-footer">
-    Call Centers Academy &amp; BPO · Est. 2018 · Santo Domingo, DR
-  </footer>
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Call Centers Academy &amp; BPO &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy</a> &nbsp;&middot;&nbsp; <a href="/terms.html">Terms</a> &nbsp;&middot;&nbsp; Founded 2018 &middot; Santo Domingo, DR</p>
+</footer>
 
-  <!-- Cookie Banner -->
-  <div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent">
-    <p>We use cookies to understand how visitors use our site and improve your experience. See our <a href="../privacy.html">Privacy Policy</a> for details.</p>
-    <div class="cca-cookie-buttons">
-      <button class="cca-cookie-btn decline" onclick="ccaCookieDecline()">Decline</button>
-      <button class="cca-cookie-btn accept" onclick="ccaCookieAccept()">Accept</button>
-    </div>
-  </div>
-
-  <script>
-    (function() {
-      const c = localStorage.getItem('cca_cookie_consent');
-      if (c === 'accepted' || c === 'declined') document.getElementById('cca-cookie-banner').classList.add('hidden');
-    })();
-    function ccaCookieAccept() {
-      localStorage.setItem('cca_cookie_consent', 'accepted');
-      document.getElementById('cca-cookie-banner').classList.add('hidden');
-      if (window.dataLayer) dataLayer.push({ event: 'cookie_consent_accepted' });
-    }
-    function ccaCookieDecline() {
-      localStorage.setItem('cca_cookie_consent', 'declined');
-      document.getElementById('cca-cookie-banner').classList.add('hidden');
-    }
-  </script>
 </body>
 </html>
