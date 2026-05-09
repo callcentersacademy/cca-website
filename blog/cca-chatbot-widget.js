@@ -8,11 +8,11 @@
   const QA = [
     {
       q: 'When is the next class?',
-      a: 'The next in-person class will be during the Summer of 2028. CCA is reopening for its 10-year anniversary. Join the waitlist and you\'ll be the first to know.',
+      a: 'We are currently building the next group. Join the waitlist and you\'ll be the first to know when enrollment opens.',
     },
     {
       q: '¿Cuándo es la próxima clase?',
-      a: 'La próxima clase presencial será en el verano de 2028. CCA reabre para su décimo aniversario. Únete a la lista de espera y serás de las primeras en saber.',
+      a: 'Estamos formando el próximo grupo. Únete a la lista de espera y serás de las primeras en saber cuando abra la inscripción.',
     },
     {
       q: 'How much does it cost?',
@@ -24,7 +24,7 @@
     },
   ];
 
-  const WAITLIST_URL = 'https://callcentersacademy.com';
+  const WAITLIST_URL = 'https://callcentersacademy.com/waitlist.html';
 
   const style = document.createElement('style');
   style.textContent = `
