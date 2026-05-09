@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the List | Call Centers Academy</title>
+  <meta name="description" content="Tell us what you need and we'll reach out with the right option for you." />
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23253166'/><path d='M7 22 Q7 10 16 10 Q25 10 25 22' stroke='%2300A1DE' stroke-width='2.5' fill='none' stroke-linecap='round'/><line x1='7' y1='22' x2='25' y2='22' stroke='%23FFCC00' stroke-width='2.5' stroke-linecap='round'/><line x1='16' y1='10' x2='16' y2='8' stroke='%2300A1DE' stroke-width='2' stroke-linecap='round'/></svg>" />
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJXKFG2L');</script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --indigo: #253166;
+      --sky: #00A1DE;
+      --carmine: #CD171A;
+      --yellow: #FFCC00;
+      --white: #ffffff;
+      --light: #f4f6fb;
+      --muted: #666666;
+      --border: #e0e4ef;
+    }
+
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      background: #f9f9fb;
+      color: #222;
+      min-height: 100vh;
+    }
+
+    a { color: var(--indigo); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* TOP BAR */
+    .top-bar {
+      background: var(--indigo);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .top-bar-logo {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .top-bar-back {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .top-bar-back:hover { color: var(--yellow); text-decoration: none; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 60px 24px 48px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--sky);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 900;
+      color: var(--indigo);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* FORM CARD */
+    .form-card {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid #e8e8e8;
+      padding: 40px 36px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      .form-card { padding: 28px 20px; margin: 0 16px; }
+    }
+
+    .field { margin-bottom: 22px; }
+
+    .field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--indigo);
+      margin-bottom: 8px;
+    }
+
+    .field input[type="text"],
+    .field input[type="email"],
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 15px;
+      color: #222;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--sky);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6;
+    }
+
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    /* RADIO PAIRS */
+    .radio-pair {
+      display: flex;
+      gap: 10px;
+    }
+
+    .radio-pair label {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 400;
+      color: #333;
+      letter-spacing: 0;
+      text-transform: none;
+      transition: border-color 0.15s;
+    }
+
+    .radio-pair label:hover { border-color: var(--sky); }
+
+    .radio-pair input[type="radio"] {
+      accent-color: var(--indigo);
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+    }
+
+    /* LEGAL */
+    .legal {
+      background: var(--light);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin-bottom: 22px;
+    }
+
+    .legal label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 400;
+      color: #666;
+      line-height: 1.6;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .legal input[type="checkbox"] {
+      accent-color: var(--indigo);
+      flex-shrink: 0;
+      margin-top: 2px;
+      width: 15px;
+      height: 15px;
+    }
+
+    .legal a { color: var(--indigo); font-weight: 700; text-decoration: underline; }
+
+    /* SUBMIT */
+    .btn-submit {
+      width: 100%;
+      background: var(--carmine);
+      color: var(--white);
+      border: none;
+      padding: 14px;
+      border-radius: 6px;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-submit:hover { background: #a81216; transform: translateY(-1px); }
+
+    /* BACK LINK */
+    .back-wrap {
+      text-align: center;
+      padding: 28px 24px 60px;
+    }
+
+    .back-wrap a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+
+    .back-wrap a:hover { color: var(--indigo); }
+
+    /* FOOTER */
+    .site-footer {
+      text-align: center;
+      padding: 20px 24px;
+      border-top: 1px solid #eee;
+      font-size: 12px;
+      color: #bbb;
+      letter-spacing: 0.04em;
+    }
+
+    /* COOKIE BANNER */
+    #cca-cookie-banner {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 9999;
+      max-width: 320px;
+      background: var(--white);
+      border-radius: 10px;
+      padding: 18px 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      font-size: 13px;
+      line-height: 1.55;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border: 1px solid #e8e8e8;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #cca-cookie-banner.hidden { opacity: 0; transform: translateY(10px); pointer-events: none; }
+    #cca-cookie-banner p { margin: 0; color: #333; }
+    #cca-cookie-banner a { color: var(--sky); text-decoration: underline; }
+
+    .cookie-buttons { display: flex; gap: 8px; }
+
+    .cookie-btn {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .cookie-btn.accept { background: var(--sky); color: var(--white); }
+    .cookie-btn.decline { background: #e8e8e8; color: #555; }
+
+    @media (max-width: 480px) {
+      #cca-cookie-banner { left: 16px; right: 16px; max-width: none; bottom: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXKFG2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a href="index.html" class="top-bar-logo">callcentersacademy.com</a>
+  <a href="blog/index.html" class="top-bar-back">&larr; Blog</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Call Centers Academy</div>
+  <h1>You want to get hired.<br>Let's make that happen.</h1>
+  <p>Tell us what you need right now and we'll reach out with the right option for you.</p>
+</div>
+
+<!-- FORM -->
+<div class="form-card">
+  <form action="https://formspree.io/f/mykonnkk" method="POST">
+
+    <!-- Hidden redirect -->
+    <input type="hidden" name="_next" value="https://callcentersacademy.com/thank-you.html" />
+    <input type="hidden" name="_subject" value="New CCA Waitlist Submission" />
+
+    <!-- NAME -->
+    <div class="field">
+      <label for="name">First name</label>
+      <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+    </div>
+
+    <!-- EMAIL -->
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+    </div>
+
+    <!-- PROVINCE -->
+    <div class="field">
+      <label for="province">Where are you located?</label>
+      <select id="province" name="province" required>
+        <option value="" disabled selected>Select your province</option>
+        <option>Azua</option>
+        <option>Bahoruco</option>
+        <option>Barahona</option>
+        <option>Dajabón</option>
+        <option>Distrito Nacional</option>
+        <option>Duarte</option>
+        <option>El Seibo</option>
+        <option>Elías Piña</option>
+        <option>Espaillat</option>
+        <option>Hato Mayor</option>
+        <option>Hermanas Mirabal</option>
+        <option>Independencia</option>
+        <option>La Altagracia</option>
+        <option>La Romana</option>
+        <option>La Vega</option>
+        <option>María Trinidad Sánchez</option>
+        <option>Monseñor Nouel</option>
+        <option>Monte Cristi</option>
+        <option>Monte Plata</option>
+        <option>Pedernales</option>
+        <option>Peravia</option>
+        <option>Puerto Plata</option>
+        <option>Samaná</option>
+        <option>San Cristóbal</option>
+        <option>San José de Ocoa</option>
+        <option>San Juan</option>
+        <option>San Pedro de Macorís</option>
+        <option>Sánchez Ramírez</option>
+        <option>Santiago</option>
+        <option>Santiago Rodríguez</option>
+        <option>Santo Domingo</option>
+        <option>Valverde</option>
+        <option disabled>─────────────</option>
+        <option>Outside the DR</option>
+      </select>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="field">
+      <label>Do you have call center experience?</label>
+      <div class="radio-pair">
+        <label>
+          <input type="radio" name="experience" value="Yes" required />
+          Yes
+        </label>
+        <label>
+          <input type="radio" name="experience" value="No" />
+          No
+        </label>
+      </div>
+    </div>
+
+    <!-- INTERVIEWS -->
+    <div class="field">
+      <label>Have you already been to call center interviews?</label>
+      <div class="radio-pair">
+        <label>
+          <input type="radio" name="interviews" value="Yes" required />
+          Yes
+        </label>
+        <label>
+          <input type="radio" name="interviews" value="No" />
+          No
+        </label>
+      </div>
+    </div>
+
+    <!-- OPEN TEXT -->
+    <div class="field">
+      <label for="message">Tell us what you need</label>
+      <textarea id="message" name="message" placeholder="What are you looking for? What's your biggest challenge right now?"></textarea>
+    </div>
+
+    <!-- LEGAL -->
+    <div class="legal">
+      <label>
+        <input type="checkbox" name="terms" required />
+        By submitting this form I authorize Call Centers Academy to contact me regarding training options. I have read and accept the <a href="privacy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms and Conditions</a>.
+      </label>
+    </div>
+
+    <!-- SUBMIT -->
+    <button type="submit" class="btn-submit">I'm ready. Add me to the list.</button>
+
+  </form>
+</div>
+
+<!-- BACK LINK -->
+<div class="back-wrap">
+  <a href="blog/index.html">&larr; Back to the blog</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  &copy; 2026 Call Centers Academy &amp; BPO &middot; Est. 2018 &middot; Santo Domingo, DR
+</footer>
+
+<!-- COOKIE BANNER -->
+<div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies to understand how visitors use our site. See our <a href="privacy.html">Privacy Policy</a>.</p>
+  <div class="cookie-buttons">
+    <button class="cookie-btn decline" onclick="ccaDecline()">Decline</button>
+    <button class="cookie-btn accept" onclick="ccaAccept()">Accept</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const c = localStorage.getItem('cca_cookie_consent');
+    if (c) document.getElementById('cca-cookie-banner').classList.add('hidden');
+  })();
+
+  function ccaAccept() {
+    localStorage.setItem('cca_cookie_consent', 'accepted');
+    document.getElementById('cca-cookie-banner').classList.add('hidden');
+    if (window.dataLayer) dataLayer.push({ event: 'cookie_consent_accepted' });
+  }
+
+  function ccaDecline() {
+    localStorage.setItem('cca_cookie_consent', 'declined');
+    document.getElementById('cca-cookie-banner').classList.add('hidden');
+  }
+</script>
+
+</body>
+</html>

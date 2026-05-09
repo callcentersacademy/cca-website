@@ -183,8 +183,12 @@
     <div class="sidebar-subscribe">
       <h3>Recursos gratuitos, consejos reales.</h3>
       <p>Suscríbete y recibe consejos honestos de call center directo a tu correo.</p>
-      <input type="email" placeholder="Tu correo electrónico" />
-      <button onclick="window.location.href='../thank-you.html'">Suscribirme Gratis</button>
+      <form action="https://7a0797f4.sibforms.com/serve/MUIFAP7AkImd8cV8KEFtLEAnGfbYbWql66EsTMEJeTLyQNAyNP4R6MZ27kn7pTVz5m4uMNdFLUc2lxxfOojTNLJHA5Sayd8D3HaIKq1d47nvtjFucPkulY-9bJTfZxNzdHwNjgHatnVdHCGjjnYH4xBuAooJnWSxWlrCFr8da2oSHNgL4E5l5nFMmw3MhpyOBibzNfqqC8Fps5oRAg==" method="POST" data-type="subscription">
+        <input type="email" name="EMAIL" placeholder="Tu correo electrónico" required style="width:100%;padding:10px 12px;border-radius:6px;border:none;font-family:'Josefin Sans',sans-serif;font-size:13px;margin-bottom:10px;outline:none;" />
+        <input type="hidden" name="locale" value="en" />
+        <input type="text" name="email_address_check" value="" style="display:none;" />
+        <button type="submit" style="width:100%;background:#CD171A;color:#fff;border:none;padding:10px;border-radius:6px;font-family:'Josefin Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;">Suscribirme Gratis</button>
+      </form>
     </div>
 
     <div class="sidebar-more">
@@ -221,7 +225,23 @@
 </footer>
 
 <!-- CHATBOT WIDGET -->
-<script src="cca-chatbot-widget.js"></script>
 
+<!-- COOKIE BANNER -->
+<div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent" style="position:fixed;bottom:24px;left:24px;z-index:9999;max-width:320px;background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 8px 32px rgba(0,0,0,0.15);font-size:13px;line-height:1.55;display:flex;flex-direction:column;gap:14px;border:1px solid #e8e8e8;font-family:'Josefin Sans',sans-serif;">
+  <p style="margin:0;color:#333;">We use cookies to understand how visitors use our site. See our <a href="../privacy.html" style="color:#00A1DE;text-decoration:underline;">Privacy Policy</a>.</p>
+  <div style="display:flex;gap:8px;">
+    <button onclick="ccaDecline()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#e8e8e8;color:#555;">Decline</button>
+    <button onclick="ccaAccept()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#00A1DE;color:#fff;">Accept</button>
+  </div>
+</div>
+<script>
+  (function(){var c=localStorage.getItem("cca_cookie_consent");if(c){var b=document.getElementById("cca-cookie-banner");if(b){b.style.opacity="0";b.style.pointerEvents="none";}}})();
+  function ccaAccept(){localStorage.setItem("cca_cookie_consent","accepted");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";if(window.dataLayer)dataLayer.push({event:"cookie_consent_accepted"});}
+  function ccaDecline(){localStorage.setItem("cca_cookie_consent","declined");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";}
+</script>
+
+<script src="cca-chatbot-widget.js"></script>
+<script>window.LOCALE='en';var AUTOHIDE=Boolean(0);</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
