@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidates — Call Centers Academy & BPO</title>
+<meta name="description" content="Call Centers Academy is for you — wherever you are in your call center journey. Find your path here.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23253166'/><path d='M7 22 Q7 10 16 10 Q25 10 25 22' stroke='%2300A1DE' stroke-width='2.5' fill='none' stroke-linecap='round'/><line x1='7' y1='22' x2='25' y2='22' stroke='%23FFCC00' stroke-width='2.5' stroke-linecap='round'/><line x1='16' y1='10' x2='16' y2='8' stroke='%2300A1DE' stroke-width='2' stroke-linecap='round'/></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJXKFG2L');</script>
+<style>
+  :root {
+    --indigo: #253166; --sky: #00a1de; --carmine: #cd171a;
+    --yellow: #ffcc00; --white: #ffffff; --light: #f4f5f9;
+    --gray: #e2e4ef; --text: #1a1f3c; --muted: #6b7194;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Josefin Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 4rem; height: 76px; background: var(--indigo); }
+  .nav-logo { text-decoration: none; display: flex; align-items: center; }
+  .nav-logo img { height: 64px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--white); }
+  .nav-cta { background: var(--yellow) !important; color: var(--indigo) !important; padding: 11px 24px; border-radius: 4px; font-weight: 700 !important; letter-spacing: 0.08em !important; }
+
+  /* HERO */
+  .page-hero { background: var(--indigo); padding: 140px 4rem 80px; position: relative; overflow: hidden; }
+  .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+  .page-hero-bg { position: absolute; bottom: -40px; right: -20px; font-family: 'Playfair Display', serif; font-size: 220px; font-weight: 900; color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none; }
+  .page-hero-inner { max-width: 1160px; margin: 0 auto; position: relative; z-index: 1; }
+  .page-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
+  .eyebrow-line { width: 32px; height: 2px; background: var(--carmine); }
+  .eyebrow-text { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 600; }
+  .page-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(40px, 5vw, 64px); color: var(--white); line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 1.25rem; }
+  .page-title em { font-style: italic; color: var(--sky); }
+  .page-subtitle { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.8; max-width: 600px; font-weight: 300; }
+
+  /* AUDIENCE SECTION */
+  .audience-section { padding: 6rem 4rem; background: var(--white); }
+  .audience-inner { max-width: 1160px; margin: 0 auto; }
+  .audience-header { margin-bottom: 3.5rem; max-width: 640px; }
+  .section-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--carmine); font-weight: 700; margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 900; color: var(--indigo); line-height: 1.2; margin-bottom: 1rem; }
+  .section-title em { font-style: italic; color: var(--sky); }
+  .section-sub { font-size: 16px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+  /* AUDIENCE CARDS */
+  .audience-grid { display: flex; flex-direction: column; gap: 2px; background: var(--gray); border-radius: 16px; overflow: hidden; }
+
+  .audience-card { background: var(--white); display: grid; grid-template-columns: 280px 1fr; min-height: 280px; transition: background 0.2s; }
+  .audience-card:hover { background: var(--light); }
+  .audience-card.reverse { }
+  .audience-card.reverse .card-image { order: 2; }
+  .audience-card.reverse .card-content { order: 1; }
+
+  .card-image { position: relative; overflow: hidden; }
+  .card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .card-image-placeholder { width: 100%; height: 100%; background: var(--light); display: flex; align-items: center; justify-content: center; }
+
+  .card-content { padding: 2.5rem 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .card-tag { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem; }
+  .card-tag.newbie { color: var(--sky); }
+  .card-tag.spanish { color: var(--carmine); }
+  .card-tag.hired { color: var(--green, #16a34a); }
+  .card-tag.burnout { color: var(--muted); }
+  .card-tag.alumni { color: var(--yellow); background: var(--indigo); display: inline-block; padding: 3px 10px; border-radius: 100px; }
+
+  .card-headline { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--indigo); line-height: 1.3; margin-bottom: 1rem; }
+  .card-body { font-size: 15px; color: #374151; line-height: 1.8; font-weight: 400; margin-bottom: 1.5rem; }
+  .card-body strong { color: var(--indigo); font-weight: 700; }
+
+  .card-ctas { display: flex; flex-direction: column; gap: 0.75rem; }
+  .card-cta-primary { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 22px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; width: fit-content; }
+  .card-cta-primary:hover { opacity: 0.88; }
+  .card-cta-primary.sky { background: var(--sky); color: var(--white); }
+  .card-cta-primary.carmine { background: var(--carmine); color: var(--white); }
+  .card-cta-primary.indigo { background: var(--indigo); color: var(--white); }
+  .card-cta-primary.yellow { background: var(--yellow); color: var(--indigo); }
+  .card-cta-primary.muted { background: var(--muted); color: var(--white); }
+
+  .card-cta-secondary { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--sky); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid rgba(0,161,222,0.3); padding-bottom: 2px; width: fit-content; transition: border-color 0.2s; }
+  .card-cta-secondary:hover { border-color: var(--sky); }
+
+  /* SPANISH CARD — special treatment */
+  .audience-card.spanish-card { background: var(--indigo); }
+  .audience-card.spanish-card:hover { background: #1e2a5a; }
+  .audience-card.spanish-card .card-headline { color: var(--white); }
+  .audience-card.spanish-card .card-body { color: rgba(255,255,255,0.75); }
+  .audience-card.spanish-card .card-body strong { color: var(--white); }
+  .audience-card.spanish-card .card-tag { color: var(--yellow); }
+  .audience-card.spanish-card .card-cta-secondary { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2); }
+  .audience-card.spanish-card .card-cta-secondary:hover { color: var(--white); border-color: rgba(255,255,255,0.5); }
+
+  /* ALUMNI CARD — special treatment */
+  .audience-card.alumni-card { background: var(--light); }
+  .audience-card.alumni-card:hover { background: var(--gray); }
+
+  /* FOOTER */
+  footer { background: var(--indigo); padding: 3.5rem 4rem 2rem; border-top: 3px solid rgba(255,255,255,0.06); }
+  .footer-logos { display: flex; align-items: center; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .footer-logo-divider { width: 1px; height: 64px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
+  .footer-logo-cca, .footer-logo-bpo { display: flex; align-items: center; }
+  .footer-logo-cca img, .footer-logo-bpo img { height: 80px; width: auto; display: block; }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-meta { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; line-height: 1.7; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-social { display: flex; gap: 1rem; align-items: center; }
+  .footer-social a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); transition: background 0.2s, border-color 0.2s; }
+  .footer-social a:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.4); }
+  .footer-social svg { width: 15px; height: 15px; fill: rgba(255,255,255,0.75); }
+  .footer-social a:hover svg { fill: var(--white); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp 0.7s ease both; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; height: 68px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 110px 1.5rem 60px; }
+    .audience-section { padding: 4rem 1.5rem; }
+    .audience-card { grid-template-columns: 1fr; min-height: auto; }
+    .audience-card.reverse .card-image { order: 0; }
+    .audience-card.reverse .card-content { order: 1; }
+    .card-image { height: 200px; }
+    .card-content { padding: 2rem 1.5rem; }
+    footer { padding: 2.5rem 1.5rem 1.5rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXKFG2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-cca.webp" alt="Call Centers Academy & BPO">
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="candidates.html" class="active">Candidates</a></li>
+    <li><a href="companies.html">Companies</a></li>
+    <li><a href="the-call-center.html">The Call Center</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog/" class="nav-cta">Blog</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg">CCA</div>
+  <div class="page-hero-inner fade-up">
+    <div class="page-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">For Candidates</span></div>
+    <h1 class="page-title">You're in<br><em>the right place.</em></h1>
+    <p class="page-subtitle">Whether you're applying for the first time, already on the floor, or just trying to figure out your next move — CCA has something for you. Tell us where you are.</p>
+  </div>
+</section>
+
+<!-- AUDIENCE CARDS -->
+<section class="audience-section">
+  <div class="audience-inner">
+    <div class="audience-header">
+      <p class="section-eyebrow">Find Your Path</p>
+      <h2 class="section-title">Which one<br>sounds like <em>you?</em></h2>
+      <p class="section-sub">Pick the one that fits and we'll point you exactly where you need to go.</p>
+    </div>
+
+    <div class="audience-grid">
+
+      <!-- CARD 1 — The Newbie -->
+      <div class="audience-card">
+        <div class="card-image">
+          <img src="images/post-01.webp" alt="Call center candidate">
+        </div>
+        <div class="card-content">
+          <div class="card-tag newbie">For You</div>
+          <h3 class="card-headline">I want to apply to a call center. I'm not sure if my English is good enough.</h3>
+          <p class="card-body">You don't need perfect English. You need <strong>real English</strong> — the kind that gets you through an interview and keeps you on the floor. The blog has everything you need to walk in prepared and confident.</p>
+          <div class="card-ctas">
+            <a href="blog/your-english-is-good-enough.html" class="card-cta-primary sky">Start Here →</a>
+            <a href="resources.html" class="card-cta-secondary">Free call center training and materials →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 — Spanish Speaker -->
+      <div class="audience-card spanish-card reverse">
+        <div class="card-image">
+          <img src="images/post-02.webp" alt="Candidato de call center">
+        </div>
+        <div class="card-content">
+          <div class="card-tag" style="color:var(--yellow)">Para Ti</div>
+          <h3 class="card-headline">Quiero aprender inglés para trabajar en un call center.</h3>
+          <p class="card-body">Estamos tomando grupos pequeños por orden de prioridad en clases <strong>100% virtuales</strong>. Programa intensivo de 6 meses. <strong>US$200 mensuales.</strong> Incluye clases de inglés intensivas desde cero, entrenamiento para call center y pasantía pagada en nuestro call center. Únete a la lista de espera y serás contactado en orden de prioridad.</p>
+          <div class="card-ctas">
+            <a href="waitlist.html" class="card-cta-primary yellow">Únete a la Lista de Espera →</a>
+            <a href="resources.html" class="card-cta-secondary">Acceso gratuito a materiales de entrenamiento →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 — Already Hired -->
+      <div class="audience-card">
+        <div class="card-image">
+          <img src="images/post-09.webp" alt="Agent already working">
+        </div>
+        <div class="card-content">
+          <div class="card-tag hired">You Got The Job</div>
+          <h3 class="card-headline">I got hired but I need to improve my English on the floor.</h3>
+          <p class="card-body">First — breathe. You got hired because someone saw something in you. Now it's about improving while you perform. The blog has a post written specifically for you, and the resources page has the tools to back it up.</p>
+          <div class="card-ctas">
+            <a href="blog/you-got-hired.html" class="card-cta-primary indigo">Read This First →</a>
+            <a href="resources.html" class="card-cta-secondary">Free call center training and materials →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 — The Burnout -->
+      <div class="audience-card reverse">
+        <div class="card-image">
+          <img src="images/post-19.webp" alt="Experienced call center agent">
+        </div>
+        <div class="card-content">
+          <div class="card-tag burnout">Been Around</div>
+          <h3 class="card-headline">I have call center experience and I want to work for CCA.</h3>
+          <p class="card-body">You've been in the industry long enough to know exactly what's wrong with it. So have we. Before you make your next move, there's one post on this blog you need to read — it's the most honest thing anyone in this industry has written about the best and worst places to work in the DR.</p>
+          <div class="card-ctas">
+            <a href="blog/best-and-worst-call-centers-dr.html" class="card-cta-primary muted">Read It →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 — Former CCA Student -->
+      <div class="audience-card alumni-card">
+        <div class="card-image">
+          <img src="images/cca-student.webp" alt="Former CCA student">
+        </div>
+        <div class="card-content">
+          <div class="card-tag alumni">CCA Alumni</div>
+          <h3 class="card-headline">I studied with CCA and I'm looking for a job.</h3>
+          <p class="card-body">There are open positions exclusively for former CCA students from 2018 to 2023. Remote work, weekly pay in USD, and a chance to be part of what CCA is building next. Verify your alumni status and apply on the careers page.</p>
+          <div class="card-ctas">
+            <a href="careers.html" class="card-cta-primary indigo">See Open Positions →</a>
+            <a href="resources.html" class="card-cta-secondary">Free call center training and materials →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logos">
+    <div class="footer-logo-cca"><img src="images/logo-cca.webp" alt="Call Centers Academy & BPO"></div>
+    <div class="footer-logo-divider"></div>
+    <div class="footer-logo-bpo"><img src="images/logo-bpo.webp" alt="CCA BPO"></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-meta">Call Centers Academy & BPO · Est. 2018<br>Santo Domingo, Dominican Republic · RNC: 1-32-71135-1</div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/callcentersacademy" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.instagram.com/callcentersacademy" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="rgba(255,255,255,0.75)" stroke="none"/></svg></a>
+      <a href="http://www.youtube.com/@CallCentersAcademy" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#253166"/></svg></a>
+      <a href="https://x.com/callcentersacad" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://www.linkedin.com/company/callcentersacademybpo" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="https://www.tiktok.com/@callcentersacademy" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.73a4.85 4.85 0 01-1.01-.04z"/></svg></a>
+      <a href="https://wa.me/18093094700" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

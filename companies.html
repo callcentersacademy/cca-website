@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Companies — Call Centers Academy & BPO</title>
+<meta name="description" content="Stop absorbing the cost of bad hires. CCA gives you access to trained, certified, bilingual candidates who chose this career.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23253166'/><path d='M7 22 Q7 10 16 10 Q25 10 25 22' stroke='%2300A1DE' stroke-width='2.5' fill='none' stroke-linecap='round'/><line x1='7' y1='22' x2='25' y2='22' stroke='%23FFCC00' stroke-width='2.5' stroke-linecap='round'/><line x1='16' y1='10' x2='16' y2='8' stroke='%2300A1DE' stroke-width='2' stroke-linecap='round'/></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJXKFG2L');</script>
+<style>
+  :root {
+    --indigo: #253166; --sky: #00a1de; --carmine: #cd171a;
+    --yellow: #ffcc00; --white: #ffffff; --light: #f4f5f9;
+    --gray: #e2e4ef; --text: #1a1f3c; --muted: #6b7194;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Josefin Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 4rem; height: 76px; background: var(--indigo); }
+  .nav-logo { text-decoration: none; display: flex; align-items: center; }
+  .nav-logo img { height: 64px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--white); }
+  .nav-cta { background: var(--yellow) !important; color: var(--indigo) !important; padding: 11px 24px; border-radius: 4px; font-weight: 700 !important; letter-spacing: 0.08em !important; }
+
+  /* HERO */
+  .page-hero { background: var(--indigo); padding: 140px 4rem 80px; position: relative; overflow: hidden; }
+  .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+  .page-hero-bg { position: absolute; bottom: -40px; right: -20px; font-family: 'Playfair Display', serif; font-size: 220px; font-weight: 900; color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none; }
+  .page-hero-inner { max-width: 1160px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .page-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
+  .eyebrow-line { width: 32px; height: 2px; background: var(--sky); }
+  .eyebrow-text { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 600; }
+  .page-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px, 4.5vw, 58px); color: var(--white); line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 1.25rem; }
+  .page-title em { font-style: italic; color: var(--sky); }
+  .page-subtitle { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.8; font-weight: 300; margin-bottom: 1.75rem; }
+  .hero-blog-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--sky); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(0,161,222,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
+  .hero-blog-link:hover { border-color: var(--sky); }
+
+  /* HERO RIGHT — data cards */
+  .hero-right { display: flex; flex-direction: column; gap: 1rem; }
+  .data-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.75rem 2rem; }
+  .data-card-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 0.6rem; }
+  .data-card-value { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--yellow); line-height: 1; margin-bottom: 0.4rem; }
+  .data-card-desc { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300; line-height: 1.6; }
+
+  /* THE MATH — white, corporate */
+  .math-section { background: var(--white); padding: 7rem 4rem; border-top: 1px solid var(--gray); }
+  .math-inner { max-width: 1160px; margin: 0 auto; }
+  .section-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sky); font-weight: 700; margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 900; color: var(--indigo); line-height: 1.15; margin-bottom: 1.5rem; }
+  .section-title em { font-style: italic; color: var(--sky); }
+  .section-intro { font-size: 17px; color: #1f2937; line-height: 1.85; font-weight: 400; max-width: 760px; margin-bottom: 3.5rem; }
+  .section-intro strong { color: var(--indigo); font-weight: 700; }
+
+  /* MATH TABLE */
+  .math-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
+  .math-table thead tr { border-bottom: 2px solid var(--indigo); }
+  .math-table thead th { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo); font-weight: 700; padding: 0 1.5rem 1rem 0; text-align: left; }
+  .math-table thead th:last-child { text-align: right; }
+  .math-table tbody tr { border-bottom: 1px solid var(--gray); }
+  .math-table tbody tr:last-child { border-bottom: none; }
+  .math-table tbody td { padding: 1.25rem 1.5rem 1.25rem 0; vertical-align: top; }
+  .math-table tbody td:last-child { text-align: right; white-space: nowrap; }
+  .math-row-name { font-size: 16px; font-weight: 700; color: var(--indigo); margin-bottom: 4px; }
+  .math-row-desc { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 400; }
+  .math-cost { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--indigo); }
+
+  /* TOTAL ROW */
+  .math-total-row { background: var(--indigo); border-radius: 10px; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 1rem; }
+  .math-total-label { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.7; font-weight: 300; max-width: 580px; }
+  .math-total-label strong { color: var(--white); font-weight: 700; }
+  .math-total-value { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--yellow); white-space: nowrap; flex-shrink: 0; }
+
+  /* THE DIFFERENCE */
+  .diff-section { background: var(--light); padding: 7rem 4rem; }
+  .diff-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .diff-body { font-size: 17px; color: #1f2937; line-height: 1.85; font-weight: 400; margin-bottom: 1.25rem; }
+  .diff-body strong { color: var(--indigo); font-weight: 700; }
+
+  .comparison-table { width: 100%; border-collapse: collapse; }
+  .comparison-table thead tr { border-bottom: 2px solid var(--gray); }
+  .comparison-table thead th { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; padding: 0 0 1rem 0; text-align: left; }
+  .comparison-table thead th.bad { color: var(--muted); }
+  .comparison-table thead th.good { color: var(--sky); }
+  .comparison-table tbody tr { border-bottom: 1px solid var(--gray); }
+  .comparison-table tbody tr:last-child { border-bottom: none; }
+  .comparison-table tbody td { padding: 1.25rem 1rem 1.25rem 0; vertical-align: top; font-size: 15px; color: #374151; line-height: 1.65; font-weight: 400; }
+  .comparison-table tbody td.good { color: var(--indigo); font-weight: 600; }
+
+  /* OFFERS */
+  .offers-section { background: var(--white); padding: 7rem 4rem; border-top: 1px solid var(--gray); }
+  .offers-inner { max-width: 1160px; margin: 0 auto; }
+  .offers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--gray); border-radius: 16px; overflow: hidden; margin-top: 3rem; }
+  .offer-card { background: var(--white); padding: 3rem; position: relative; }
+  .offer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .offer-card.talent::before { background: var(--sky); }
+  .offer-card.training::before { background: var(--yellow); }
+  .offer-num { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 900; color: var(--gray); line-height: 1; margin-bottom: 1rem; }
+  .offer-who { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem; }
+  .offer-card.talent .offer-who { color: var(--sky); }
+  .offer-card.training .offer-who { color: #b8860b; }
+  .offer-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--indigo); line-height: 1.2; margin-bottom: 1rem; }
+  .offer-desc { font-size: 16px; color: #1f2937; line-height: 1.85; font-weight: 400; margin-bottom: 1.5rem; }
+  .offer-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+  .offer-list li { font-size: 15px; color: #1f2937; display: flex; align-items: flex-start; gap: 10px; font-weight: 400; line-height: 1.6; }
+  .offer-list li::before { content: '—'; color: var(--sky); font-weight: 700; flex-shrink: 0; }
+  .offer-card.training .offer-list li::before { color: #b8860b; }
+  .offer-price { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 900; color: var(--indigo); line-height: 1; margin-bottom: 0.4rem; }
+  .offer-price span { font-size: 18px; font-weight: 400; color: var(--muted); }
+  .offer-price-note { font-size: 14px; color: var(--muted); margin-bottom: 2rem; }
+  .offer-price-inquiry { font-size: 15px; color: var(--muted); font-style: italic; margin-bottom: 2rem; line-height: 1.7; }
+  .offer-cta { display: inline-flex; align-items: center; gap: 8px; font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
+  .offer-cta:hover { opacity: 0.88; }
+  .offer-card.talent .offer-cta { background: var(--indigo); color: var(--white); }
+  .offer-card.training .offer-cta { background: var(--yellow); color: var(--indigo); }
+
+  /* FORM */
+  .form-section { background: var(--light); padding: 7rem 4rem; }
+  .form-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 6rem; align-items: start; }
+  .form-left-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sky); font-weight: 700; margin-bottom: 1rem; }
+  .form-left-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--indigo); line-height: 1.15; margin-bottom: 1.25rem; }
+  .form-left-title em { font-style: italic; color: var(--sky); }
+  .form-left-body { font-size: 16px; color: #1f2937; line-height: 1.8; font-weight: 400; }
+  .inquiry-form { background: var(--white); border-radius: 16px; padding: 3rem; border: 1px solid var(--gray); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--indigo); font-weight: 700; }
+  .form-input, .form-select { width: 100%; padding: 14px 16px; border: 1px solid var(--gray); border-radius: 6px; font-family: 'Josefin Sans', sans-serif; font-size: 15px; color: var(--text); outline: none; transition: border-color 0.2s; background: var(--white); appearance: none; }
+  .form-input:focus, .form-select:focus { border-color: var(--sky); }
+  .form-submit { width: 100%; padding: 18px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; transition: opacity 0.2s; margin-top: 0.5rem; }
+  .form-submit:hover { opacity: 0.88; }
+  .form-disclaimer { font-size: 12px; color: var(--muted); text-align: center; margin-top: 1rem; line-height: 1.6; }
+
+  /* FOOTER */
+  footer { background: var(--indigo); padding: 3.5rem 4rem 2rem; border-top: 3px solid rgba(255,255,255,0.06); }
+  .footer-logos { display: flex; align-items: center; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .footer-logo-divider { width: 1px; height: 64px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
+  .footer-logo-cca, .footer-logo-bpo { display: flex; align-items: center; }
+  .footer-logo-cca img, .footer-logo-bpo img { height: 80px; width: auto; display: block; }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-meta { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; line-height: 1.7; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-social { display: flex; gap: 1rem; align-items: center; }
+  .footer-social a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); transition: background 0.2s, border-color 0.2s; }
+  .footer-social a:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.4); }
+  .footer-social svg { width: 15px; height: 15px; fill: rgba(255,255,255,0.75); }
+  .footer-social a:hover svg { fill: var(--white); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp 0.7s ease both; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; height: 68px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 110px 1.5rem 60px; }
+    .page-hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .math-section, .diff-section, .offers-section, .form-section { padding: 5rem 1.5rem; }
+    .diff-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .offers-grid { grid-template-columns: 1fr; }
+    .form-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .form-grid { grid-template-columns: 1fr; }
+    .inquiry-form { padding: 2rem 1.5rem; }
+    .math-total-row { flex-direction: column; gap: 1rem; text-align: center; }
+    footer { padding: 2.5rem 1.5rem 1.5rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXKFG2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-cca.webp" alt="Call Centers Academy & BPO">
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="candidates.html">Candidates</a></li>
+    <li><a href="companies.html" class="active">Companies</a></li>
+    <li><a href="the-call-center.html">The Call Center</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog/" class="nav-cta">Blog</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg">B2B</div>
+  <div class="page-hero-inner fade-up">
+    <div>
+      <div class="page-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">For Companies</span></div>
+      <h1 class="page-title">You've posted<br>the job. Again.<br><em>We know.</em></h1>
+      <p class="page-subtitle">Ghosted candidates. Referral bonuses paid to people who left after 90 days. Ads running on stations your ICP doesn't listen to. The pipeline is broken — and the math proves it.</p>
+      <a href="blog/you-want-10-years-experience-for-4-dollar.html" class="hero-blog-link">Sound familiar? We wrote about it. →</a>
+    </div>
+    <div class="hero-right">
+      <div class="data-card">
+        <div class="data-card-label">What you spent to fill the last role</div>
+        <div class="data-card-value">$2,100+</div>
+        <div class="data-card-desc">Between ads, referral bonuses, and hiring incentives — before training even started.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card-label">Average time before they left</div>
+        <div class="data-card-value">3 months</div>
+        <div class="data-card-desc">Just long enough to collect the bonus. Then the cycle starts again.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MATH -->
+<section class="math-section">
+  <div class="math-inner">
+    <p class="section-eyebrow">Cost Per Hire Analysis</p>
+    <h2 class="section-title">The real cost of one hire.<br><em>Add it up.</em></h2>
+    <p class="section-intro">Every time a candidate doesn't work out, you absorb the full cost of finding the next one. Most operations run this cycle without ever addressing the root cause. <strong>The issue isn't your process. It's where your candidates are coming from.</strong></p>
+
+    <table class="math-table">
+      <thead>
+        <tr>
+          <th style="width:25%">Line Item</th>
+          <th style="width:55%">Description</th>
+          <th style="width:20%">Estimated Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="math-row-name">Radio & TV Advertising</div></td>
+          <td><div class="math-row-desc">Reaching an audience that isn't your ICP — and won't stay for entry-level pay anyway.</div></td>
+          <td><div class="math-cost">$500+</div></td>
+        </tr>
+        <tr>
+          <td><div class="math-row-name">Digital Advertising</div></td>
+          <td><div class="math-row-desc">Job boards, social posts, boosted listings — all competing for the same unqualified pool.</div></td>
+          <td><div class="math-cost">$300+</div></td>
+        </tr>
+        <tr>
+          <td><div class="math-row-name">Referral Bonuses</div></td>
+          <td><div class="math-row-desc">Paid in installments to retain candidates long enough — but they leave after they collect.</div></td>
+          <td><div class="math-cost">$300+</div></td>
+        </tr>
+        <tr>
+          <td><div class="math-row-name">Hiring Bonuses</div></td>
+          <td><div class="math-row-desc">Structured to incentivize retention — still not enough to keep someone who was never ready for the job.</div></td>
+          <td><div class="math-cost">$1,000+</div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="math-total-row">
+      <div class="math-total-label">That's <strong>over $2,100 per candidate</strong> — before training time, supervisor hours, and the productivity lost while a seat stays empty. Multiply by your annual attrition rate and you have your real number.</div>
+      <div class="math-total-value">$2,100+</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE DIFFERENCE -->
+<section class="diff-section">
+  <div class="diff-inner">
+    <div>
+      <p class="section-eyebrow" style="color:var(--carmine)">Where CCA Candidates Come From</p>
+      <h2 class="section-title" style="font-size:clamp(26px,3vw,38px)">They didn't respond to an ad.<br><em>They came to us.</em></h2>
+      <p class="diff-body">Every candidate in the CCA pool found us on their own. They searched, they read, they showed up and asked: <strong>"Is my English good enough to work in a call center?"</strong> That question tells you everything. These are people who chose this career.</p>
+      <p class="diff-body">They went through CCA's full curriculum — interview prep, induction, training, nesting, and live accounts at CCA BPO. By the time they reach your floor, they know what a KPI is, what a call flow looks like, and what it feels like to handle a real customer.</p>
+      <p class="diff-body">That's the difference between a candidate and a professional. And the difference between filling a seat and keeping it filled.</p>
+    </div>
+
+    <div>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th class="bad">The usual candidate</th>
+            <th class="good">The CCA candidate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Responded to a radio ad. Has no idea what a call center actually does. Took the job because it was available.</td>
+            <td class="good">Came looking for this. Trained for it. Has handled real accounts before day one with you.</td>
+          </tr>
+          <tr>
+            <td>Leaves after the bonus. The seat opens again. You start over.</td>
+            <td class="good">Chose this career deliberately. Has something to prove — and the skills to prove it.</td>
+          </tr>
+          <tr>
+            <td>$2,100+ per hire cycle, absorbed every time, with no improvement in outcomes.</td>
+            <td class="good">$5,000/year. Unlimited placements. No per-hire fees. No referral bonuses. Ever.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section class="offers-section" id="offers">
+  <div class="offers-inner">
+    <p class="section-eyebrow">What We Offer</p>
+    <h2 class="section-title">Two ways to work<br>with <em>CCA.</em></h2>
+    <div class="offers-grid">
+      <div class="offer-card talent">
+        <div class="offer-num">01</div>
+        <div class="offer-who">Talent Pool Access</div>
+        <div class="offer-title">Hire trained, certified, bilingual graduates — unlimited.</div>
+        <p class="offer-desc">One annual partnership gives you access to the full CCA graduate pool for 12 months. No per-hire fees. No referral bonuses. No limits. Your openings reach CCA graduates before anyone else sees them.</p>
+        <ul class="offer-list">
+          <li>Unlimited placements for 12 months</li>
+          <li>No per-hire fees — ever</li>
+          <li>Graduates are floor-experienced and CCA-certified</li>
+          <li>Priority posting — your roles go out first</li>
+          <li>Bilingual candidates across all six account types</li>
+        </ul>
+        <div class="offer-price">$5,000<span> / year</span></div>
+        <div class="offer-price-note">Unlimited placements. No per-hire cost. No referral fees.</div>
+        <a href="#inquiry-form" class="offer-cta">Get Partner Access →</a>
+      </div>
+      <div class="offer-card training">
+        <div class="offer-num">02</div>
+        <div class="offer-who">Training Services</div>
+        <div class="offer-title">CCA trains your current team — on your floor or online.</div>
+        <p class="offer-desc">Already have agents but need to close the performance gap? CCA brings over a decade of BPO industry knowledge directly to your operation. Custom curriculum built around your accounts and your team's specific gaps.</p>
+        <ul class="offer-list">
+          <li>Online via live virtual sessions or in person at your location</li>
+          <li>Covers call flow, KPIs, English communication, account-specific prep</li>
+          <li>Custom curriculum built around your accounts and gaps</li>
+          <li>Available for any team size</li>
+        </ul>
+        <p class="offer-price-inquiry">Pricing depends on modality, number of agents, and session structure. Inquire below and we'll put together a proposal.</p>
+        <a href="#inquiry-form" class="offer-cta">Request a Proposal →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="inquiry-form">
+  <div class="form-inner">
+    <div class="form-left">
+      <p class="form-left-eyebrow">Get in Touch</p>
+      <h2 class="form-left-title">Tell us about<br>your <em>operation.</em></h2>
+      <p class="form-left-body">Fill out the form and our team will review your inquiry. We'll follow up with the information you need to move forward.</p>
+    </div>
+    <div class="inquiry-form">
+      <form action="https://formspree.io/f/mnjwwdvw" method="POST">
+        <input type="hidden" name="_redirect" value="thank-you.html">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="fullName">Full Name</label>
+            <input class="form-input" type="text" id="fullName" name="Full Name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="role">Role / Title</label>
+            <input class="form-input" type="text" id="role" name="Role" placeholder="e.g. Recruitment Manager" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Corporate Email</label>
+            <input class="form-input" type="email" id="email" name="Corporate Email" placeholder="you@company.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="company">Company Name</label>
+            <input class="form-input" type="text" id="company" name="Company Name" placeholder="Your company name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="isCallCenter">Is this a call center?</label>
+            <select class="form-select" id="isCallCenter" name="Is Call Center" required>
+              <option value="">Select one</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="inquiryType">Type of Inquiry</label>
+            <select class="form-select" id="inquiryType" name="Inquiry Type" required>
+              <option value="">Select one</option>
+              <option value="Talent Pool Access">Talent Pool Access</option>
+              <option value="Training Services">Training Services</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Submit Inquiry →</button>
+        <p class="form-disclaimer">By submitting this form you agree to be contacted by the CCA team regarding your inquiry.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logos">
+    <div class="footer-logo-cca"><img src="images/logo-cca.webp" alt="Call Centers Academy & BPO"></div>
+    <div class="footer-logo-divider"></div>
+    <div class="footer-logo-bpo"><img src="images/logo-bpo.webp" alt="CCA BPO"></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-meta">Call Centers Academy & BPO · Est. 2018<br>Santo Domingo, Dominican Republic · RNC: 1-32-71135-1</div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/callcentersacademy" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.instagram.com/callcentersacademy" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="rgba(255,255,255,0.75)" stroke="none"/></svg></a>
+      <a href="http://www.youtube.com/@CallCentersAcademy" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#253166"/></svg></a>
+      <a href="https://x.com/callcentersacad" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://www.linkedin.com/company/callcentersacademybpo" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="https://www.tiktok.com/@callcentersacademy" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.73a4.85 4.85 0 01-1.01-.04z"/></svg></a>
+      <a href="https://wa.me/18093094700" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="careers.html">Careers</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
