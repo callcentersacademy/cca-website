@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://callcentersacademy.com/sitemap.xml
