@@ -9,25 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --indigo: #253166;
-  --sky: #00a1de;
-  --carmine: #cd171a;
-  --yellow: #ffcc00;
-  --white: #ffffff;
-  --light: #f4f5f9;
-  --gray: #e2e4ef;
-  --text: #1a1f3c;
-  --muted: #6b7194;
-  --dark: #0a1628;
-  --sidebar-w: 260px;
+  --indigo: #253166; --sky: #00a1de; --carmine: #cd171a;
+  --yellow: #ffcc00; --white: #ffffff; --light: #f4f5f9;
+  --gray: #e2e4ef; --text: #1a1f3c; --muted: #6b7194;
+  --dark: #0a1628; --sidebar-w: 280px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color: var(--text); overflow-x: hidden; }
 
-/* ══════════════════════════════════════
-   LOADING SCREEN
-══════════════════════════════════════ */
+/* ══ LOADING SCREEN ══ */
 #loading-screen {
   position: fixed; inset: 0; z-index: 9999;
   background: var(--indigo);
@@ -47,581 +38,219 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .loader-dot:nth-child(3) { background: var(--yellow); animation-delay: 0.4s; }
 @keyframes dotPulse { 0%,100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.5); opacity: 1; } }
 .loader-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--white); margin-bottom: 6px; text-align: center; }
-.loader-sub { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-align: center; }
+.loader-sub { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-align: center; }
 .loader-bar-wrap { width: 200px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 999px; overflow: hidden; }
 .loader-bar-fill { height: 100%; background: linear-gradient(90deg, var(--sky), var(--yellow)); border-radius: 999px; animation: loadBar 5s ease-in-out forwards; }
 @keyframes loadBar { from { width: 0%; } to { width: 100%; } }
 #loading-screen.fade-out { animation: fadeOut 0.5s ease forwards; }
 @keyframes fadeOut { to { opacity: 0; pointer-events: none; } }
 
-/* ══════════════════════════════════════
-   AD BLOCKER WALL
-══════════════════════════════════════ */
-#adblocker-wall {
-  display: none; position: fixed; inset: 0; z-index: 9998;
-  background: var(--dark); align-items: center; justify-content: center; padding: 2rem;
-}
+/* ══ AD BLOCKER WALL ══ */
+#adblocker-wall { display: none; position: fixed; inset: 0; z-index: 9998; background: var(--dark); align-items: center; justify-content: center; padding: 2rem; }
 #adblocker-wall.show { display: flex; }
-.ab-box {
-  background: var(--indigo); border-radius: 20px; padding: 3rem;
-  max-width: 480px; width: 100%; text-align: center;
-  border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden;
-}
+.ab-box { background: var(--indigo); border-radius: 20px; padding: 3rem; max-width: 480px; width: 100%; text-align: center; border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden; }
 .ab-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
 .ab-icon { font-size: 48px; margin-bottom: 1.25rem; display: block; }
 .ab-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--white); margin-bottom: 0.75rem; line-height: 1.2; }
 .ab-title em { font-style: italic; color: var(--sky); }
-.ab-body { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
+.ab-body { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
 .ab-body strong { color: var(--white); font-weight: 600; }
 .ab-steps { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; text-align: left; }
 .ab-step { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.05); border-radius: 10px; padding: 0.9rem 1.25rem; }
 .ab-step-num { width: 26px; height: 26px; border-radius: 50%; background: var(--sky); color: var(--white); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.ab-step-text { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 400; line-height: 1.5; }
-.ab-btn { width: 100%; padding: 16px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; }
+.ab-step-text { font-size: 15px; color: rgba(255,255,255,0.75); font-weight: 400; line-height: 1.5; }
+.ab-btn { width: 100%; padding: 16px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; }
 .ab-btn:hover { opacity: 0.9; }
 
-/* ══════════════════════════════════════
-   LOBBY
-══════════════════════════════════════ */
-#lobby {
-  display: none; min-height: 100vh;
-  flex-direction: column;
-}
+/* ══ LEVEL 1 — LOBBY ══ */
+#lobby { display: none; min-height: 100vh; flex-direction: column; }
 #lobby.show { display: flex; }
-
-.lobby-nav {
-  height: 64px; flex-shrink: 0;
-  background: var(--indigo);
-  display: flex; align-items: center; padding: 0 3rem;
-  gap: 1rem; position: sticky; top: 0; z-index: 50;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
+.lobby-nav { height: 64px; flex-shrink: 0; background: var(--indigo); display: flex; align-items: center; padding: 0 2.5rem; gap: 1rem; position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .lobby-nav-logo { text-decoration: none; display: flex; align-items: center; }
 .lobby-nav-logo img { height: 40px; width: auto; }
 .lobby-nav-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
-.lobby-nav-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700; }
-.lobby-nav-right { margin-left: auto; display: flex; align-items: center; gap: 1.5rem; }
-.lobby-nav-back { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+.lobby-nav-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700; }
+.lobby-nav-back { margin-left: auto; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; font-weight: 600; transition: color 0.2s; }
 .lobby-nav-back:hover { color: var(--white); }
 
-/* LOBBY HERO */
-.lobby-hero {
-  background: var(--indigo); padding: 5rem 3rem 4rem;
-  position: relative; overflow: hidden;
-}
-.lobby-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
-.lobby-hero-bg { position: absolute; bottom: -60px; right: -40px; font-family: 'Playfair Display', serif; font-size: 280px; font-weight: 900; color: rgba(255,255,255,0.02); line-height: 1; pointer-events: none; user-select: none; }
-.lobby-hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
-.lobby-hero-eyebrow { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sky); font-weight: 700; margin-bottom: 1.25rem; }
-.lobby-hero-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px, 5vw, 60px); color: var(--white); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
-.lobby-hero-title em { font-style: italic; color: var(--sky); }
-.lobby-hero-sub { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; max-width: 620px; margin: 0 auto 2.5rem; }
-.lobby-hero-sub strong { color: var(--white); font-weight: 600; }
-.lobby-cta-group { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-.lobby-cta-primary {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--yellow); color: var(--indigo);
-  font-family: 'Josefin Sans', sans-serif; font-size: 14px;
-  font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 18px 40px; border-radius: 8px; border: none; cursor: pointer;
-  transition: transform 0.2s, opacity 0.2s;
-  box-shadow: 0 8px 24px rgba(255,204,0,0.3);
-}
-.lobby-cta-primary:hover { transform: translateY(-2px); opacity: 0.95; }
-.lobby-cta-note { font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
-
-/* LOBBY STATS */
-.lobby-stats { display: flex; align-items: center; justify-content: center; gap: 3rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
-.lobby-stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: var(--yellow); line-height: 1; margin-bottom: 4px; }
-.lobby-stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
-
-/* LOBBY BODY */
-.lobby-body { flex: 1; background: var(--light); }
-.lobby-section { padding: 4rem 3rem; max-width: 1100px; margin: 0 auto; }
-.lobby-section-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--carmine); font-weight: 700; margin-bottom: 0.75rem; }
-.lobby-section-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 36px); font-weight: 900; color: var(--indigo); line-height: 1.2; margin-bottom: 0.75rem; }
-.lobby-section-title em { font-style: italic; color: var(--sky); }
-.lobby-section-sub { font-size: 15px; color: var(--muted); line-height: 1.7; font-weight: 300; margin-bottom: 2.5rem; max-width: 600px; }
-
-/* DASHBOARD */
-.dashboard-header {
-  background: var(--indigo);
-  padding: 2rem 2.5rem 2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  position: relative;
-}
+.dashboard-header { background: var(--indigo); padding: 2.5rem 2.5rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.07); position: relative; }
 .dashboard-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
 .dashboard-header-inner { max-width: 1200px; margin: 0 auto; }
-.dashboard-title { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: var(--white); margin-bottom: 0.75rem; }
+.dashboard-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 900; color: var(--white); margin-bottom: 0.75rem; }
 .dashboard-intro { font-size: 17px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.8; max-width: 820px; }
-.dashboard-intro strong { color: var(--yellow); font-weight: 600; }
 
-.dashboard-body { background: var(--light); flex: 1; padding: 2rem 2.5rem 0; }
-.dashboard-grid {
-  max-width: 1200px; margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto auto;
-  gap: 1.25rem;
-}
+.dashboard-body { background: var(--light); flex: 1; padding: 2rem 2.5rem; }
+.dashboard-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 
-/* REGULAR DASH CARDS */
-.dash-card {
-  background: var(--white); border-radius: 16px;
-  border: 1px solid var(--gray); overflow: hidden;
-  cursor: default; display: flex; flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
+.dash-card { background: var(--white); border-radius: 16px; border: 1px solid var(--gray); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
 .dash-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,49,102,0.12); border-color: #c0c4d8; }
-.dash-card-visual {
-  height: 130px; position: relative; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
+.dash-card-visual { height: 140px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .dash-card-glow { position: absolute; inset: 0; }
-.dash-card-icon { font-size: 48px; position: relative; z-index: 1; }
+.dash-card-icon { font-size: 52px; position: relative; z-index: 1; }
 .dash-card-content { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
 .dash-card-tool-name { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-bottom: 0.6rem; }
 .dash-card-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--indigo); line-height: 1.25; margin-bottom: 0.85rem; }
 .dash-card-body { font-size: 17px; color: #374151; line-height: 1.85; font-weight: 400; flex: 1; margin-bottom: 1.5rem; }
-
-/* REAL BUTTONS */
-.dash-btn {
-  display: inline-block; width: 100%;
-  padding: 15px 24px; border-radius: 10px; border: none;
-  font-family: 'Josefin Sans', sans-serif; font-size: 15px;
-  font-weight: 700; letter-spacing: 0.04em;
-  cursor: pointer; text-align: center;
-  transition: opacity 0.2s, transform 0.15s;
-  margin-top: auto;
-}
+.dash-btn { display: inline-block; width: 100%; padding: 16px 24px; border-radius: 10px; border: none; font-family: 'Josefin Sans', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; text-align: center; transition: opacity 0.2s, transform 0.15s; margin-top: auto; }
 .dash-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 .dash-btn-sky { background: var(--sky); color: var(--white); }
 .dash-btn-yellow { background: var(--yellow); color: var(--indigo); }
 .dash-btn-indigo { background: var(--indigo); color: var(--white); }
 .dash-btn-carmine { background: var(--carmine); color: var(--white); }
 
-/* TRAINING CARD — FULL WIDTH */
-.dash-card-training {
-  grid-column: 1 / -1;
-  flex-direction: row;
-  min-height: 180px;
-}
+.dash-card-training { grid-column: 1 / -1; flex-direction: row; min-height: 180px; }
 .dash-card-training:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,49,102,0.15); }
-.dash-card-training-visual {
-  width: 280px; flex-shrink: 0;
-  background: var(--indigo);
-  position: relative; overflow: hidden;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 0.75rem;
-  padding: 1.5rem;
-}
+.dash-card-training-visual { width: 300px; flex-shrink: 0; background: var(--indigo); position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; padding: 1.5rem; }
 .dash-training-glow-1 { position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle, rgba(0,161,222,0.2) 0%, transparent 70%); }
 .dash-training-glow-2 { position: absolute; bottom: -30px; left: -30px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(255,204,0,0.15) 0%, transparent 70%); }
 .dash-training-dots { display: flex; gap: 8px; position: relative; z-index: 1; }
 .dash-training-dot { width: 12px; height: 12px; border-radius: 50%; }
-.dash-training-stages { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 600; position: relative; z-index: 1; text-align: center; line-height: 1.6; }
+.dash-training-stages { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 600; position: relative; z-index: 1; text-align: center; line-height: 1.6; }
 .dash-card-training-content { padding: 2rem 2.25rem; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.dash-training-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--indigo); margin-bottom: 0.75rem; }
+.dash-training-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--indigo); margin-bottom: 0.75rem; }
 .dash-training-body { font-size: 17px; color: #374151; line-height: 1.85; font-weight: 400; margin-bottom: 1.5rem; max-width: 620px; }
+.dash-card-tool-name.light { color: rgba(255,255,255,0.4); }
 
-.dashboard-footer {
-  max-width: 1200px; margin: 0 auto;
-  padding: 1.5rem 0 1.75rem;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 1rem;
-  border-top: 1px solid var(--gray); margin-top: 1.25rem;
-}
+.lobby-footer { max-width: 1200px; margin: 0 auto; padding: 1.5rem 0 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--gray); margin-top: 1.25rem; }
+.lobby-footer-meta { font-size: 12px; color: var(--muted); }
+.lobby-footer-links { display: flex; gap: 1.5rem; }
+.lobby-footer-link { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.lobby-footer-link:hover { color: var(--indigo); }
 
-/* TOOL HERO CARD */
-.tool-hero-card {
-  display: grid; grid-template-columns: 320px 1fr;
-  background: var(--white); border-radius: 20px;
-  border: 1px solid var(--gray); overflow: hidden;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 24px rgba(37,49,102,0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.tool-hero-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(37,49,102,0.13); }
-.tool-hero-visual {
-  background: var(--indigo); position: relative;
-  overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 280px;
-}
-.tool-hero-visual-bg {
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(0,161,222,0.3) 0%, transparent 60%),
-              radial-gradient(circle at 80% 80%, rgba(255,204,0,0.15) 0%, transparent 50%);
-}
-.tool-hero-visual-icon { font-size: 80px; position: relative; z-index: 1; }
-.tool-hero-content { padding: 2.5rem; }
-.tool-hero-tag {
-  display: inline-block; font-size: 10px; letter-spacing: 0.16em;
-  text-transform: uppercase; font-weight: 700;
-  background: rgba(205,23,26,0.1); color: var(--carmine);
-  padding: 4px 12px; border-radius: 100px; margin-bottom: 1rem;
-}
-.tool-hero-title { font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.5vw, 28px); font-weight: 900; color: var(--indigo); line-height: 1.2; margin-bottom: 1rem; }
-.tool-hero-body { font-size: 15px; color: #374151; line-height: 1.8; font-weight: 400; margin-bottom: 1.25rem; }
-.tool-hero-example { background: var(--light); border-left: 3px solid var(--sky); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
-.tool-hero-example-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sky); font-weight: 700; margin-bottom: 0.4rem; }
-.tool-hero-example-text { font-size: 13px; color: #374151; line-height: 1.7; font-weight: 400; font-style: italic; }
-.tool-hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
-.tool-hero-cta {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--indigo); color: var(--white);
-  font-family: 'Josefin Sans', sans-serif; font-size: 12px;
-  font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 14px 28px; border-radius: 8px; border: none;
-  cursor: pointer; transition: opacity 0.2s, transform 0.2s;
-}
-.tool-hero-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-.tool-hero-link { font-size: 13px; color: var(--sky); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(0,161,222,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
-.tool-hero-link:hover { border-color: var(--sky); }
+/* ══ LEVEL 2 — COURSE SELECTION ══ */
+#level2 { display: none; min-height: 100vh; flex-direction: column; background: var(--light); }
+#level2.show { display: flex; }
+.level2-nav { height: 64px; flex-shrink: 0; background: var(--indigo); display: flex; align-items: center; padding: 0 2.5rem; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.level2-nav-logo { text-decoration: none; display: flex; align-items: center; }
+.level2-nav-logo img { height: 40px; width: auto; }
+.level2-nav-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
+.level2-nav-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700; }
+.level2-nav-back { margin-left: auto; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); background: none; border: none; cursor: pointer; font-family: 'Josefin Sans', sans-serif; font-weight: 600; transition: color 0.2s; }
+.level2-nav-back:hover { color: var(--white); }
 
-/* THREE TOOL INVITE CARDS */
-.tool-cards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.tool-invite-card {
-  background: var(--white); border-radius: 16px;
-  border: 1px solid var(--gray); padding: 1.75rem;
-  cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-  display: flex; flex-direction: column; gap: 0;
-}
-.tool-invite-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(37,49,102,0.1); border-color: #c0c4d8; }
-.tool-invite-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
-.tool-invite-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-.tool-invite-tag { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted); background: var(--light); padding: 3px 10px; border-radius: 100px; }
-.tool-invite-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--indigo); line-height: 1.3; margin-bottom: 0.75rem; }
-.tool-invite-body { font-size: 13px; color: #374151; line-height: 1.7; font-weight: 400; margin-bottom: 1.25rem; flex: 1; }
-.tool-invite-cta { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--indigo); display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--gray); margin-bottom: 0.75rem; }
-.tool-invite-cta span { transition: transform 0.2s; }
-.tool-invite-card:hover .tool-invite-cta span { transform: translateX(4px); }
-.tool-invite-post { font-size: 11px; color: var(--sky); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,161,222,0.25); padding-bottom: 1px; transition: border-color 0.2s; width: fit-content; }
-.tool-invite-post:hover { border-color: var(--sky); }
+.level2-header { background: var(--indigo); padding: 3rem 2.5rem 2.5rem; position: relative; }
+.level2-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+.level2-header-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.level2-title { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--white); margin-bottom: 1rem; line-height: 1.1; }
+.level2-title em { font-style: italic; color: var(--sky); }
+.level2-sub { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; max-width: 620px; margin: 0 auto; }
 
-/* MODALS */
-.tool-modal-overlay {
-  display: none; position: fixed; inset: 0; z-index: 9000;
-  background: rgba(10,22,40,0.8); backdrop-filter: blur(6px);
-  align-items: center; justify-content: center; padding: 2rem;
-}
-.tool-modal-overlay.open { display: flex; }
-.tool-modal {
-  background: var(--white); border-radius: 20px;
-  max-width: 600px; width: 100%; max-height: 88vh;
-  overflow: hidden; display: flex; flex-direction: column;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
-  animation: modalIn 0.3s ease both;
-}
-.tool-modal-sm { max-width: 480px; }
-@keyframes modalIn { from { opacity: 0; transform: translateY(20px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
-.tool-modal-header { padding: 2rem; flex-shrink: 0; position: relative; }
-.tool-modal-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); border-radius: 20px 20px 0 0; }
-.tool-modal-header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
-.tool-modal-eyebrow { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700; margin-bottom: 3px; }
-.tool-modal-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--white); line-height: 1.2; }
-.tool-modal-sub { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; font-weight: 300; }
-.tool-modal-close { background: rgba(255,255,255,0.1); border: none; color: var(--white); width: 32px; height: 32px; border-radius: 50%; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
-.tool-modal-close:hover { background: rgba(255,255,255,0.2); }
-.tool-modal-body { padding: 1.75rem; overflow-y: auto; flex: 1; }
-.tool-modal-body::-webkit-scrollbar { width: 4px; }
-.tool-modal-body::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 999px; }
+.level2-body { flex: 1; padding: 3rem 2.5rem; }
+.level2-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 
-/* FINDER MODAL INTERNALS */
-.finder-start { text-align: center; padding: 1rem 0; }
-.finder-start-icon { font-size: 56px; margin-bottom: 1rem; display: block; }
-.finder-start-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--indigo); margin-bottom: 0.75rem; }
-.finder-start-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
-.finder-start-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 36px; border-radius: 8px; border: none; cursor: pointer; transition: opacity 0.2s; }
-.finder-start-btn:hover { opacity: 0.88; }
+.course-card { background: var(--white); border-radius: 16px; border: 1px solid var(--gray); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; cursor: pointer; }
+.course-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(37,49,102,0.14); border-color: #c0c4d8; }
+.course-card-visual { height: 160px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.course-card-icon { font-size: 60px; position: relative; z-index: 1; }
+.course-card-content { padding: 2rem; flex: 1; display: flex; flex-direction: column; }
+.course-card-name { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-bottom: 0.6rem; }
+.course-card-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--indigo); line-height: 1.2; margin-bottom: 1rem; }
+.course-card-body { font-size: 16px; color: #374151; line-height: 1.85; font-weight: 400; flex: 1; margin-bottom: 1.75rem; }
+.course-card-btn { display: block; width: 100%; padding: 16px; border-radius: 10px; border: none; font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-align: center; transition: opacity 0.2s, transform 0.15s; }
+.course-card-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-sky { background: var(--sky); color: var(--white); }
+.btn-indigo { background: var(--indigo); color: var(--white); }
+.btn-carmine { background: var(--carmine); color: var(--white); }
 
-.finder-q-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
-.finder-q-bar { flex: 1; height: 4px; background: var(--gray); border-radius: 999px; overflow: hidden; }
-.finder-q-fill { height: 100%; border-radius: 999px; background: var(--sky); transition: width 0.4s ease; }
-.finder-q-label { font-size: 11px; color: var(--muted); font-weight: 700; white-space: nowrap; }
-.finder-q-text { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--indigo); line-height: 1.35; margin-bottom: 1.25rem; }
-.finder-q-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.25rem; }
-.finder-q-option { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1px solid var(--gray); border-radius: 10px; cursor: pointer; font-size: 14px; color: #374151; transition: all 0.15s; font-weight: 400; line-height: 1.5; }
-.finder-q-option:hover { background: var(--light); border-color: #c0c4d8; }
-.finder-q-option.selected { border-color: var(--sky); background: rgba(0,161,222,0.07); color: var(--indigo); font-weight: 600; }
-.finder-q-opt-dot { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--gray); flex-shrink: 0; transition: all 0.15s; }
-.finder-q-option.selected .finder-q-opt-dot { background: var(--sky); border-color: var(--sky); }
-.finder-q-next { width: 100%; padding: 14px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; }
-.finder-q-next:disabled { opacity: 0.3; cursor: not-allowed; }
-.finder-q-next:not(:disabled):hover { opacity: 0.88; }
-
-.finder-thinking { text-align: center; padding: 2rem 0; }
-.finder-thinking-dots { display: flex; gap: 8px; align-items: center; justify-content: center; margin-bottom: 1rem; }
-.finder-thinking-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--sky); animation: dotPulse 1.2s ease-in-out infinite; }
-.finder-thinking-dots span:nth-child(2) { animation-delay: 0.2s; background: var(--carmine); }
-.finder-thinking-dots span:nth-child(3) { animation-delay: 0.4s; background: var(--yellow); }
-.finder-thinking-label { font-size: 14px; color: var(--muted); font-weight: 600; }
-
-.finder-result-wrap { display: flex; flex-direction: column; gap: 1rem; }
-.finder-result-fit { background: rgba(22,163,74,0.07); border: 1px solid rgba(22,163,74,0.2); border-radius: 12px; padding: 1.5rem; }
-.finder-result-fit-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #16a34a; font-weight: 700; margin-bottom: 0.4rem; }
-.finder-result-fit-account { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--indigo); margin-bottom: 0.5rem; }
-.finder-result-fit-why { font-size: 14px; color: #374151; line-height: 1.7; font-weight: 400; }
-.finder-result-avoid { background: rgba(205,23,26,0.06); border: 1px solid rgba(205,23,26,0.15); border-radius: 12px; padding: 1.5rem; }
-.finder-result-avoid-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--carmine); font-weight: 700; margin-bottom: 0.4rem; }
-.finder-result-avoid-account { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--indigo); margin-bottom: 0.5rem; }
-.finder-result-avoid-why { font-size: 14px; color: #374151; line-height: 1.7; font-weight: 400; }
-.finder-reset-btn { width: 100%; padding: 12px; background: var(--light); color: var(--muted); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--gray); border-radius: 8px; cursor: pointer; transition: background 0.2s; }
-.finder-reset-btn:hover { background: var(--gray); }
-.finder-train-btn { width: 100%; padding: 14px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; }
-.finder-train-btn:hover { opacity: 0.88; }
-
-/* TOOLS GRID (old, keep for reference) */
-.tools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-
-.tool-card {
-  background: var(--white); border-radius: 16px;
-  border: 1px solid var(--gray); overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.tool-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(37,49,102,0.1); }
-
-.tool-card-header {
-  padding: 1.5rem 1.5rem 1rem;
-  display: flex; align-items: flex-start; gap: 1rem;
-  border-bottom: 1px solid var(--light);
-}
-.tool-icon {
-  width: 44px; height: 44px; border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px; flex-shrink: 0;
-}
-.tool-icon.sky { background: rgba(0,161,222,0.12); }
-.tool-icon.yellow { background: rgba(255,204,0,0.15); }
-.tool-icon.indigo { background: rgba(37,49,102,0.1); }
-.tool-icon.green { background: rgba(22,163,74,0.1); }
-.tool-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--indigo); margin-bottom: 3px; }
-.tool-desc { font-size: 13px; color: var(--muted); line-height: 1.5; font-weight: 300; }
-.tool-card-body { padding: 1.25rem 1.5rem; }
-
-/* PROJECT FINDER */
-.finder-question { font-size: 14px; font-weight: 700; color: var(--indigo); margin-bottom: 1rem; line-height: 1.5; }
-.finder-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem; }
-.finder-option {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 14px; border: 1px solid var(--gray);
-  border-radius: 8px; cursor: pointer; font-size: 13px;
-  color: #374151; transition: all 0.15s; font-weight: 400;
-}
-.finder-option:hover { background: var(--light); border-color: #c0c4d8; }
-.finder-option.selected { border-color: var(--sky); background: rgba(0,161,222,0.07); color: var(--indigo); font-weight: 600; }
-.finder-opt-dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--gray); flex-shrink: 0; transition: all 0.15s; }
-.finder-option.selected .finder-opt-dot { background: var(--sky); border-color: var(--sky); }
-.finder-progress { font-size: 11px; color: var(--muted); margin-bottom: 1rem; font-weight: 600; }
-.finder-result {
-  display: none; background: var(--indigo); border-radius: 10px;
-  padding: 1.25rem; text-align: center;
-}
-.finder-result.show { display: block; }
-.finder-result-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem; font-weight: 700; }
-.finder-result-account { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--yellow); margin-bottom: 0.4rem; }
-.finder-result-why { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; font-weight: 300; }
-.finder-btn { width: 100%; padding: 11px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; margin-top: 0.75rem; }
-.finder-btn:hover { opacity: 0.88; }
-.finder-btn.reset { background: var(--light); color: var(--muted); border: 1px solid var(--gray); margin-top: 0.5rem; }
-
-/* SALARY CALCULATOR */
-.salary-inputs { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem; }
-.salary-row { display: flex; align-items: center; gap: 10px; }
-.salary-label { font-size: 12px; color: var(--muted); font-weight: 600; flex: 1; }
-.salary-input {
-  width: 120px; padding: 7px 10px;
-  border: 1px solid var(--gray); border-radius: 6px;
-  font-family: 'Josefin Sans', sans-serif; font-size: 13px;
-  color: var(--text); outline: none; text-align: right;
-  transition: border-color 0.2s;
-}
-.salary-input:focus { border-color: var(--sky); }
-.salary-result-card { background: var(--indigo); border-radius: 10px; padding: 1.25rem; display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem; }
-.salary-result-label { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 600; line-height: 1.4; }
-.salary-result-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--yellow); }
-.salary-result-sub { font-size: 10px; color: rgba(255,255,255,0.3); margin-top: 2px; }
-
-/* CV BUILDER */
-.cv-chat { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem; }
-.cv-bubble { padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.55; max-width: 88%; font-weight: 400; }
-.cv-bubble.ai { background: var(--indigo); color: var(--white); border-bottom-left-radius: 4px; }
-.cv-bubble.user { background: var(--light); color: var(--text); border-bottom-right-radius: 4px; align-self: flex-end; }
-.cv-input-row { display: flex; gap: 8px; }
-.cv-input { flex: 1; padding: 10px 14px; border: 1px solid var(--gray); border-radius: 8px; font-family: 'Josefin Sans', sans-serif; font-size: 13px; color: var(--text); outline: none; transition: border-color 0.2s; }
-.cv-input:focus { border-color: var(--sky); }
-.cv-send { padding: 10px 16px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; white-space: nowrap; }
-.cv-send:hover { opacity: 0.88; }
-.cv-note { font-size: 11px; color: var(--muted); margin-top: 0.5rem; font-style: italic; }
-
-/* GLOSSARY */
-.glossary-search { width: 100%; padding: 9px 14px; border: 1px solid var(--gray); border-radius: 8px; font-family: 'Josefin Sans', sans-serif; font-size: 13px; color: var(--text); outline: none; margin-bottom: 1rem; transition: border-color 0.2s; }
-.glossary-search:focus { border-color: var(--sky); }
-.glossary-list { display: flex; flex-direction: column; }
-.glossary-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--light); gap: 1rem; }
-.glossary-item:last-child { border-bottom: none; }
-.g-term { font-size: 13px; font-weight: 700; color: var(--indigo); flex-shrink: 0; }
-.g-def { font-size: 12px; color: var(--muted); text-align: right; line-height: 1.4; font-weight: 400; }
-.glossary-more { font-size: 11px; color: var(--sky); font-weight: 600; margin-top: 0.75rem; text-align: center; cursor: pointer; }
-
-/* CURRICULUM PREVIEW */
-.curriculum-divider { height: 1px; background: var(--gray); margin: 0 3rem; }
-.curriculum-section { padding: 4rem 3rem; max-width: 1100px; margin: 0 auto; }
-.stage-preview-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2rem; }
-.stage-preview-card {
-  background: var(--white); border-radius: 12px; padding: 1.5rem 1.25rem;
-  border: 1px solid var(--gray); text-align: center; cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
-.stage-preview-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,49,102,0.08); border-color: #c0c4d8; }
-.stage-preview-dot { width: 14px; height: 14px; border-radius: 50%; margin: 0 auto 0.75rem; }
-.stage-preview-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--indigo); margin-bottom: 0.4rem; }
-.stage-preview-count { font-size: 11px; color: var(--muted); font-weight: 600; }
-
-/* ENTER CTA SECTION */
-.enter-section {
-  background: var(--indigo); padding: 5rem 3rem;
-  text-align: center; position: relative; overflow: hidden;
-}
-.enter-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
-.enter-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 1rem; }
-.enter-title em { font-style: italic; color: var(--sky); }
-.enter-sub { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.7; font-weight: 300; margin-bottom: 2.5rem; max-width: 560px; margin-left: auto; margin-right: auto; }
-.enter-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 18px 44px; border-radius: 8px; border: none; cursor: pointer; transition: transform 0.2s, opacity 0.2s; box-shadow: 0 8px 24px rgba(255,204,0,0.25); }
-.enter-cta:hover { transform: translateY(-2px); opacity: 0.95; }
-
-/* LOBBY FOOTER */
-.lobby-footer { background: var(--dark); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-.lobby-footer-meta { font-size: 11px; color: rgba(255,255,255,0.25); }
-.lobby-footer-link { font-size: 11px; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
-.lobby-footer-link:hover { color: rgba(255,255,255,0.6); }
-
-/* ══════════════════════════════════════
-   CLASSROOM (PLATFORM)
-══════════════════════════════════════ */
-#classroom {
-  display: none; height: 100vh; flex-direction: column;
-  position: fixed; inset: 0; z-index: 100; background: var(--white);
-}
+/* ══ LEVEL 3 — CLASSROOM ══ */
+#classroom { display: none; height: 100vh; flex-direction: column; position: fixed; inset: 0; z-index: 100; background: var(--white); }
 #classroom.show { display: flex; }
 
-.platform-nav {
-  height: 60px; flex-shrink: 0; background: var(--white);
-  border-bottom: 1px solid var(--gray);
-  display: flex; align-items: center; padding: 0 1.5rem; gap: 1rem;
-  box-shadow: 0 1px 4px rgba(37,49,102,0.06); z-index: 50; position: relative;
-}
+.platform-nav { height: 64px; flex-shrink: 0; background: var(--white); border-bottom: 1px solid var(--gray); display: flex; align-items: center; padding: 0 1.5rem; gap: 1rem; box-shadow: 0 1px 4px rgba(37,49,102,0.06); z-index: 50; position: relative; }
 .pnav-logo { text-decoration: none; display: flex; align-items: center; }
-.pnav-logo img { height: 36px; width: auto; }
+.pnav-logo img { height: 38px; width: auto; }
 .pnav-divider { width: 1px; height: 24px; background: var(--gray); flex-shrink: 0; }
-.pnav-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.pnav-course-name { font-size: 13px; font-weight: 700; color: var(--indigo); letter-spacing: 0.06em; }
 .pnav-right { margin-left: auto; display: flex; align-items: center; gap: 1.25rem; }
 .pnav-progress-wrap { display: flex; align-items: center; gap: 10px; }
-.pnav-progress-label { font-size: 11px; color: var(--muted); font-weight: 600; white-space: nowrap; }
+.pnav-progress-label { font-size: 12px; color: var(--muted); font-weight: 600; white-space: nowrap; }
 .pnav-progress-bar { width: 100px; height: 4px; background: var(--gray); border-radius: 999px; overflow: hidden; }
 .pnav-progress-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--sky), var(--indigo)); transition: width 0.4s ease; }
-.pnav-lobby-btn { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); background: none; border: 1px solid var(--gray); border-radius: 6px; padding: 7px 14px; cursor: pointer; font-family: 'Josefin Sans', sans-serif; font-weight: 700; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
-.pnav-lobby-btn:hover { border-color: var(--indigo); color: var(--indigo); }
+.pnav-back-btn { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); background: none; border: 1px solid var(--gray); border-radius: 6px; padding: 8px 16px; cursor: pointer; font-family: 'Josefin Sans', sans-serif; font-weight: 700; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+.pnav-back-btn:hover { border-color: var(--indigo); color: var(--indigo); }
 .hamburger-btn { display: none; width: 36px; height: 36px; border: none; background: none; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border-radius: 6px; flex-shrink: 0; }
 .hamburger-btn:hover { background: var(--light); }
-.hb-line { width: 18px; height: 2px; background: var(--indigo); border-radius: 999px; transition: all 0.2s; }
+.hb-line { width: 18px; height: 2px; background: var(--indigo); border-radius: 999px; }
 
 .platform-body { flex: 1; display: flex; overflow: hidden; }
-
-/* SIDEBAR */
-.campus-sidebar {
-  width: var(--sidebar-w); flex-shrink: 0; background: var(--indigo);
-  display: flex; flex-direction: column; height: 100%; overflow: hidden;
-  transition: transform 0.25s ease; z-index: 40;
-}
-.campus-sidebar.collapsed { transform: translateX(calc(-1 * var(--sidebar-w))); position: absolute; height: calc(100vh - 60px); }
 .sidebar-overlay { display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 35; }
 .sidebar-overlay.show { display: block; }
 
-.sb-head { padding: 1.25rem 1.25rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.07); flex-shrink: 0; }
-.sb-head-eyebrow { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); margin-bottom: 3px; }
-.sb-head-title { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--white); }
+.campus-sidebar { width: var(--sidebar-w); flex-shrink: 0; background: var(--indigo); display: flex; flex-direction: column; height: 100%; overflow: hidden; transition: transform 0.25s ease; z-index: 40; }
+.campus-sidebar.collapsed { transform: translateX(calc(-1 * var(--sidebar-w))); position: absolute; height: calc(100vh - 64px); }
 
-.sb-search { padding: 0.6rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.06); flex-shrink: 0; }
-.sb-search input { width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 7px 10px; font-size: 11px; color: var(--white); font-family: 'Josefin Sans', sans-serif; outline: none; transition: border-color 0.2s; }
-.sb-search input:focus { border-color: rgba(0,161,222,0.5); }
+.sb-head { padding: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.07); flex-shrink: 0; }
+.sb-head-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); margin-bottom: 4px; font-weight: 700; }
+.sb-head-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--white); }
+.sb-search { padding: 0.7rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.06); flex-shrink: 0; }
+.sb-search input { width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 9px 12px; font-size: 14px; color: var(--white); font-family: 'Josefin Sans', sans-serif; outline: none; }
 .sb-search input::placeholder { color: rgba(255,255,255,0.3); }
-
 .sb-nav { flex: 1; overflow-y: auto; padding: 0.5rem 0; }
 .sb-nav::-webkit-scrollbar { width: 3px; }
 .sb-nav::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 999px; }
 
-.stage-row { display: flex; align-items: center; gap: 8px; padding: 8px 1.25rem; cursor: pointer; user-select: none; transition: background 0.15s; }
+.stage-row { display: flex; align-items: center; gap: 8px; padding: 10px 1.25rem; cursor: pointer; user-select: none; transition: background 0.15s; }
 .stage-row:hover { background: rgba(255,255,255,0.04); }
-.stage-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.stage-name { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); flex: 1; transition: color 0.2s; }
+.stage-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.stage-name { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); flex: 1; transition: color 0.2s; }
 .stage-name.active { color: var(--yellow); }
-.stage-count { font-size: 9px; color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); padding: 2px 7px; border-radius: 999px; }
-.stage-chev { font-size: 8px; color: rgba(255,255,255,0.2); transition: transform 0.2s; }
+.stage-count { font-size: 11px; color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 999px; }
+.stage-chev { font-size: 10px; color: rgba(255,255,255,0.2); transition: transform 0.2s; }
 .stage-chev.open { transform: rotate(90deg); }
 
 .lesson-list { overflow: hidden; }
-.lesson-item { display: flex; align-items: center; gap: 8px; padding: 7px 1.25rem 7px 1.75rem; cursor: pointer; transition: background 0.15s; position: relative; }
+.lesson-item { display: flex; align-items: center; gap: 8px; padding: 9px 1.25rem 9px 1.75rem; cursor: pointer; transition: background 0.15s; position: relative; }
 .lesson-item:hover { background: rgba(255,255,255,0.04); }
 .lesson-item.active { background: rgba(0,161,222,0.15); border-left: 2px solid var(--sky); padding-left: calc(1.75rem - 2px); }
-.lesson-item.completed::after { content: '✓'; position: absolute; right: 1rem; font-size: 10px; color: #4ade80; font-weight: 700; }
-.li-icon { width: 14px; height: 14px; flex-shrink: 0; opacity: 0.3; }
+.lesson-item.completed::after { content: '✓'; position: absolute; right: 1rem; font-size: 12px; color: #4ade80; font-weight: 700; }
+.li-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.3; }
 .lesson-item.active .li-icon { opacity: 1; }
-.li-icon svg { width: 14px; height: 14px; stroke: var(--white); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.li-icon svg { width: 16px; height: 16px; stroke: var(--white); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .lesson-item.active .li-icon svg { stroke: var(--sky); }
-.li-text { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.35; flex: 1; }
+.li-text { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.4; flex: 1; }
 .lesson-item.active .li-text { color: var(--white); font-weight: 600; }
-.li-badge { font-size: 9px; padding: 2px 7px; border-radius: 999px; font-weight: 700; flex-shrink: 0; }
-.badge-en { background: rgba(0,161,222,0.2); color: var(--sky); }
-.badge-es { background: rgba(255,204,0,0.2); color: var(--yellow); }
-.badge-ai { background: rgba(168,85,247,0.25); color: #c084fc; }
+.li-lock { font-size: 11px; color: rgba(255,255,255,0.2); flex-shrink: 0; }
 
-.sub-list { overflow: hidden; }
-.sub-item { display: flex; align-items: center; gap: 8px; padding: 5px 1.25rem 5px 2.5rem; cursor: pointer; transition: background 0.15s; }
-.sub-item:hover { background: rgba(255,255,255,0.03); }
-.sub-item.active { background: rgba(0,161,222,0.1); border-left: 2px solid rgba(0,161,222,0.4); padding-left: calc(2.5rem - 2px); }
-.sub-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.2); flex-shrink: 0; }
-.sub-item.active .sub-dot { background: var(--sky); }
-.sub-text { font-size: 10px; color: rgba(255,255,255,0.35); line-height: 1.3; }
-.sub-item.active .sub-text { color: rgba(255,255,255,0.75); }
+.glossary-entry { margin: 8px 1rem; background: rgba(255,204,0,0.06); border: 1px solid rgba(255,204,0,0.15); border-radius: 10px; padding: 1rem 1.25rem; }
+.glossary-entry-title { font-size: 12px; font-weight: 700; color: var(--yellow); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.glossary-entry-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; margin-bottom: 0.75rem; font-weight: 300; }
+.glossary-entry-btn { width: 100%; padding: 9px; background: rgba(255,204,0,0.15); color: var(--yellow); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; border: 1px solid rgba(255,204,0,0.25); border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+.glossary-entry-btn:hover { background: rgba(255,204,0,0.25); }
 
-.sb-foot { padding: 0.9rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.07); flex-shrink: 0; }
-.sb-foot-label { font-size: 10px; color: rgba(255,255,255,0.28); margin-bottom: 6px; font-weight: 600; }
-.sb-progress-bar { height: 3px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; }
+.sb-foot { padding: 1rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.07); flex-shrink: 0; }
+.sb-foot-label { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 7px; font-weight: 600; }
+.sb-progress-bar { height: 4px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; }
 .sb-progress-fill { height: 100%; border-radius: 999px; background: var(--sky); transition: width 0.4s ease; }
 
-/* MAIN LESSON PANEL */
 .campus-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; background: var(--white); min-width: 0; }
-
-.main-topbar { padding: 0.65rem 1.5rem; border-bottom: 1px solid var(--gray); display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.main-topbar { padding: 0.75rem 1.5rem; border-bottom: 1px solid var(--gray); display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .breadcrumb { font-size: 13px; color: #999; display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; }
 .bc-sep { color: #ddd; }
-.bc-cur { color: var(--indigo); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 13px; }
-.bc-tag { font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 700; flex-shrink: 0; }
-.bc-tag-free { background: rgba(22,163,74,0.1); color: #16a34a; }
+.bc-cur { color: var(--indigo); font-weight: 700; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bc-tag-free { font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 700; background: rgba(22,163,74,0.1); color: #16a34a; flex-shrink: 0; }
 
-.lesson-body { flex: 1; overflow-y: auto; padding: 1.5rem; }
+.lesson-body { flex: 1; overflow-y: auto; padding: 2rem 1.5rem; }
 .lesson-body::-webkit-scrollbar { width: 4px; }
 .lesson-body::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 999px; }
 
-.l-thumb { width: 100%; height: 180px; background: var(--indigo); border-radius: 12px; margin-bottom: 1.25rem; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.l-thumb { width: 100%; height: 180px; background: var(--indigo); border-radius: 12px; margin-bottom: 1.5rem; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .l-thumb-gradient { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,161,222,0.4) 0%, rgba(37,49,102,0.9) 100%); }
 .l-thumb-inner { position: relative; z-index: 1; text-align: center; }
-.l-thumb-icon { font-size: 36px; display: block; margin-bottom: 8px; }
+.l-thumb-icon { font-size: 40px; display: block; margin-bottom: 10px; }
 .l-thumb-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); }
 .l-thumb-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
-.l-thumb-play { position: absolute; bottom: 12px; right: 12px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; background: var(--sky); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+.l-thumb-play { position: absolute; bottom: 12px; right: 12px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; background: var(--sky); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
 .l-thumb-play:hover { transform: scale(1.1); }
-.l-thumb-play svg { width: 14px; height: 14px; fill: var(--white); margin-left: 2px; }
-.l-thumb-duration { position: absolute; bottom: 12px; left: 14px; z-index: 2; font-size: 12px; color: rgba(255,255,255,0.7); background: rgba(0,0,0,0.45); padding: 3px 8px; border-radius: 4px; }
+.l-thumb-play svg { width: 16px; height: 16px; fill: var(--white); margin-left: 2px; }
 
-.tags-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.tags-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1rem; }
 .tag { font-size: 13px; padding: 4px 12px; border-radius: 999px; font-weight: 600; }
 .tag-sky { background: rgba(0,161,222,0.1); color: #0a5f80; }
 .tag-gray { background: var(--light); color: var(--muted); }
 .tag-green { background: rgba(22,163,74,0.1); color: #16a34a; }
 
-.l-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--indigo); margin-bottom: 0.5rem; line-height: 1.3; }
-.l-desc { font-size: 17px; color: #374151; line-height: 1.85; margin-bottom: 1.25rem; font-weight: 400; }
+.l-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--indigo); margin-bottom: 0.6rem; line-height: 1.3; }
+.l-desc { font-size: 17px; color: #374151; line-height: 1.85; margin-bottom: 1.5rem; font-weight: 400; }
 
 .audio-section-title { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--indigo); font-weight: 700; margin-bottom: 0.75rem; }
 .audio-card { background: var(--light); border: 1px solid var(--gray); border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; transition: border-color 0.2s; }
@@ -637,8 +266,8 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .a-progress { height: 100%; border-radius: 999px; background: var(--sky); transition: width 0.1s; }
 .a-time { font-size: 13px; color: #999; flex-shrink: 0; }
 
-.quiz-wrap { border: 1px solid var(--gray); border-radius: 12px; overflow: hidden; margin-top: 1.25rem; }
-.quiz-head { background: var(--indigo); padding: 0.9rem 1.25rem; display: flex; align-items: center; gap: 8px; }
+.quiz-wrap { border: 1px solid var(--gray); border-radius: 12px; overflow: hidden; margin-top: 1.5rem; }
+.quiz-head { background: var(--indigo); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 8px; }
 .quiz-head-title { font-size: 16px; font-weight: 700; color: var(--white); flex: 1; }
 .quiz-head-count { font-size: 13px; color: rgba(255,255,255,0.5); }
 .quiz-body { padding: 1.5rem; }
@@ -660,100 +289,189 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .lesson-nav-btn.primary { background: var(--indigo); color: var(--white); border-color: var(--indigo); }
 .lesson-nav-btn.primary:hover { background: #1a2452; }
 
+/* ══ MODULE COMPLETION POPUP ══ */
+#completion-popup { display: none; position: fixed; inset: 0; z-index: 9000; background: rgba(10,22,40,0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 2rem; }
+#completion-popup.show { display: flex; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.completion-box { background: var(--indigo); border-radius: 24px; padding: 3.5rem; max-width: 480px; width: 100%; text-align: center; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+.completion-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+.completion-cap { font-size: 72px; display: block; margin-bottom: 1rem; animation: bounce 0.6s ease; }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+.completion-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--white); margin-bottom: 0.75rem; }
+.completion-sub { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.7; font-weight: 300; margin-bottom: 2rem; }
+.completion-next { width: 100%; padding: 16px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; margin-bottom: 0.75rem; transition: opacity 0.2s; }
+.completion-next:hover { opacity: 0.9; }
+.completion-dismiss { background: none; border: none; color: rgba(255,255,255,0.3); font-family: 'Josefin Sans', sans-serif; font-size: 13px; cursor: pointer; padding: 8px; }
+
+/* ══ LOCK WALL MODAL ══ */
+#lock-wall { display: none; position: fixed; inset: 0; z-index: 8000; background: rgba(10,22,40,0.85); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 2rem; }
+#lock-wall.show { display: flex; }
+.lock-box { background: var(--indigo); border-radius: 20px; padding: 3rem; max-width: 460px; width: 100%; text-align: center; border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden; animation: modalIn 0.3s ease; }
+.lock-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+@keyframes modalIn { from { opacity: 0; transform: translateY(16px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.lock-icon { font-size: 52px; display: block; margin-bottom: 1.25rem; }
+.lock-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--white); margin-bottom: 0.75rem; line-height: 1.2; }
+.lock-body { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
+.lock-btn { width: 100%; padding: 16px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; margin-bottom: 0.75rem; transition: opacity 0.2s; text-decoration: none; display: block; }
+.lock-btn:hover { opacity: 0.9; }
+.lock-dismiss { background: none; border: none; color: rgba(255,255,255,0.3); font-family: 'Josefin Sans', sans-serif; font-size: 13px; cursor: pointer; padding: 8px; }
+
+/* ══ TOOL MODALS ══ */
+.tool-modal-overlay { display: none; position: fixed; inset: 0; z-index: 9000; background: rgba(10,22,40,0.8); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 2rem; }
+.tool-modal-overlay.open { display: flex; }
+.tool-modal { background: var(--white); border-radius: 20px; max-width: 580px; width: 100%; max-height: 88vh; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 24px 60px rgba(0,0,0,0.4); animation: modalIn 0.3s ease; }
+.tool-modal-sm { max-width: 480px; }
+.tool-modal-header { padding: 2rem; flex-shrink: 0; position: relative; }
+.tool-modal-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 20px 20px 0 0; }
+.tool-modal-header.sky::before { background: var(--sky); }
+.tool-modal-header.yellow::before { background: var(--yellow); }
+.tool-modal-header.indigo::before { background: var(--indigo); }
+.tool-modal-header.carmine::before { background: var(--carmine); }
+.tool-modal-header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
+.tool-modal-eyebrow { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 4px; }
+.tool-modal-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--white); line-height: 1.2; }
+.tool-modal-sub { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; font-weight: 300; }
+.tool-modal-close { background: rgba(255,255,255,0.1); border: none; color: var(--white); width: 34px; height: 34px; border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
+.tool-modal-close:hover { background: rgba(255,255,255,0.2); }
+.tool-modal-body { padding: 1.75rem; overflow-y: auto; flex: 1; }
+.tool-modal-body::-webkit-scrollbar { width: 4px; }
+.tool-modal-body::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 999px; }
+
+/* SALARY */
+.salary-inputs { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.25rem; }
+.salary-row { display: flex; align-items: center; gap: 10px; }
+.salary-label { font-size: 15px; color: var(--muted); font-weight: 600; flex: 1; }
+.salary-input { width: 130px; padding: 10px 12px; border: 1px solid var(--gray); border-radius: 6px; font-family: 'Josefin Sans', sans-serif; font-size: 15px; color: var(--text); outline: none; text-align: right; transition: border-color 0.2s; }
+.salary-input:focus { border-color: var(--sky); }
+.salary-result-card { background: var(--indigo); border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+.salary-result-label { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 600; line-height: 1.4; }
+.salary-result-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; color: var(--yellow); }
+.salary-result-sub { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+
+/* AI CHAT */
+.ai-chat { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1rem; max-height: 300px; overflow-y: auto; }
+.ai-chat::-webkit-scrollbar { width: 3px; }
+.ai-chat::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 999px; }
+.chat-bubble { padding: 12px 16px; border-radius: 14px; font-size: 15px; line-height: 1.6; max-width: 90%; font-weight: 400; }
+.chat-bubble.ai { background: var(--indigo); color: var(--white); border-bottom-left-radius: 4px; }
+.chat-bubble.user { background: var(--light); color: var(--text); border-bottom-right-radius: 4px; align-self: flex-end; border: 1px solid var(--gray); }
+.chat-input-row { display: flex; gap: 8px; }
+.chat-input { flex: 1; padding: 12px 16px; border: 1px solid var(--gray); border-radius: 10px; font-family: 'Josefin Sans', sans-serif; font-size: 15px; color: var(--text); outline: none; transition: border-color 0.2s; }
+.chat-input:focus { border-color: var(--sky); }
+.chat-send { padding: 12px 20px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; transition: opacity 0.2s; white-space: nowrap; }
+.chat-send:hover { opacity: 0.88; }
+.chat-note { font-size: 12px; color: var(--muted); margin-top: 0.5rem; font-style: italic; text-align: center; }
+.chat-typing { display: flex; align-items: center; gap: 6px; padding: 8px 0; }
+.chat-typing span { width: 8px; height: 8px; border-radius: 50%; background: var(--sky); animation: dotPulse 1.2s ease-in-out infinite; }
+.chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+/* MATCHER */
+.lang-select { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+.lang-btn { flex: 1; padding: 14px; border: 2px solid var(--gray); border-radius: 10px; font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; background: var(--white); color: var(--muted); transition: all 0.2s; text-align: center; }
+.lang-btn:hover { border-color: var(--sky); color: var(--sky); }
+.lang-btn.selected { border-color: var(--sky); background: rgba(0,161,222,0.08); color: var(--indigo); }
+.matcher-intro { text-align: center; padding: 1rem 0 1.5rem; }
+.matcher-intro-icon { font-size: 52px; margin-bottom: 1rem; display: block; }
+.matcher-intro-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--indigo); margin-bottom: 0.75rem; }
+.matcher-intro-desc { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 1.75rem; }
+.matcher-start-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; padding: 16px 36px; border-radius: 10px; border: none; cursor: pointer; transition: opacity 0.2s; }
+.matcher-start-btn:hover { opacity: 0.88; }
+.matcher-q-wrap { display: none; }
+.matcher-q-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 1.75rem; }
+.matcher-q-bar { flex: 1; height: 5px; background: var(--gray); border-radius: 999px; overflow: hidden; }
+.matcher-q-fill { height: 100%; border-radius: 999px; background: var(--sky); transition: width 0.4s ease; }
+.matcher-q-label { font-size: 12px; color: var(--muted); font-weight: 700; white-space: nowrap; }
+.matcher-q-text { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--indigo); line-height: 1.4; margin-bottom: 1.5rem; }
+.matcher-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
+.matcher-option { display: flex; align-items: flex-start; gap: 12px; padding: 16px; border: 2px solid var(--gray); border-radius: 10px; cursor: pointer; font-size: 16px; color: #374151; transition: all 0.15s; font-weight: 400; line-height: 1.5; }
+.matcher-option:hover { background: var(--light); border-color: #c0c4d8; }
+.matcher-option.selected { border-color: var(--sky); background: rgba(0,161,222,0.07); color: var(--indigo); font-weight: 600; }
+.matcher-opt-letter { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--gray); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; color: #aaa; transition: all 0.15s; }
+.matcher-option.selected .matcher-opt-letter { background: var(--sky); border-color: var(--sky); color: var(--white); }
+.matcher-next-btn { width: 100%; padding: 15px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; transition: opacity 0.2s; }
+.matcher-next-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.matcher-next-btn:not(:disabled):hover { opacity: 0.88; }
+.matcher-thinking { display: none; text-align: center; padding: 2rem 0; }
+.matcher-thinking-dots { display: flex; gap: 8px; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.matcher-thinking-dots span { width: 12px; height: 12px; border-radius: 50%; animation: dotPulse 1.2s ease-in-out infinite; }
+.matcher-thinking-dots span:nth-child(1) { background: var(--sky); }
+.matcher-thinking-dots span:nth-child(2) { background: var(--carmine); animation-delay: 0.2s; }
+.matcher-thinking-dots span:nth-child(3) { background: var(--yellow); animation-delay: 0.4s; }
+.matcher-thinking-label { font-size: 15px; color: var(--muted); font-weight: 600; }
+.matcher-result { display: none; }
+.matcher-result-fit { background: rgba(22,163,74,0.07); border: 1px solid rgba(22,163,74,0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+.matcher-result-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; }
+.fit-label { color: #16a34a; }
+.avoid-label { color: var(--carmine); }
+.matcher-result-account { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--indigo); margin-bottom: 0.6rem; }
+.matcher-result-why { font-size: 15px; color: #374151; line-height: 1.75; font-weight: 400; }
+.matcher-result-avoid { background: rgba(205,23,26,0.06); border: 1px solid rgba(205,23,26,0.15); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem; }
+.matcher-reset-btn { width: 100%; padding: 13px; background: var(--light); color: var(--muted); font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 700; border: 1px solid var(--gray); border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+.matcher-reset-btn:hover { background: var(--gray); }
+
 @media (max-width: 768px) {
-  .lobby-nav { padding: 0 1.5rem; }
-  .lobby-hero { padding: 3rem 1.5rem 2.5rem; }
-  .lobby-section { padding: 3rem 1.5rem; }
-  .dashboard-header { padding: 1.5rem; }
-  .dashboard-body { padding: 1.25rem 1.25rem 0; }
-  .dashboard-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .dashboard-grid { grid-template-columns: 1fr; }
   .dash-card-training { flex-direction: column; }
   .dash-card-training-visual { width: 100%; height: 100px; }
-  .tool-hero-card { grid-template-columns: 1fr; }
-  .tool-hero-visual { min-height: 160px; }
-  .tool-cards-row { grid-template-columns: 1fr; }
-  .tool-modal-overlay { padding: 1rem; align-items: flex-end; }
-  .tool-modal { max-height: 92vh; border-radius: 20px 20px 12px 12px; }
-  .stage-preview-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-  .curriculum-section { padding: 3rem 1.5rem; }
-  .enter-section { padding: 3.5rem 1.5rem; }
-  .lobby-footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; }
+  .level2-grid { grid-template-columns: 1fr; }
   .hamburger-btn { display: flex; }
   .pnav-progress-wrap { display: none; }
-  .campus-sidebar { position: absolute; height: calc(100vh - 60px); }
-  .campus-sidebar:not(.collapsed) { box-shadow: 4px 0 20px rgba(0,0,0,0.3); }
-  .lobby-stats { gap: 2rem; }
+  .campus-sidebar { position: absolute; height: calc(100vh - 64px); }
+  .tool-modal-overlay { padding: 1rem; align-items: flex-end; }
+  .tool-modal { border-radius: 20px 20px 12px 12px; max-height: 92vh; }
+  .dashboard-body { padding: 1.5rem; }
+  .level2-body { padding: 2rem 1.5rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- ══ LOADING SCREEN ══ -->
+<!-- LOADING SCREEN -->
 <div id="loading-screen">
   <div class="loader-logo">
     <div class="loader-ring loader-ring-1"></div>
     <div class="loader-ring loader-ring-2"></div>
     <div class="loader-ring loader-ring-3"></div>
-    <div style="position:relative;z-index:1;">
-      <div class="loader-dots">
-        <div class="loader-dot"></div>
-        <div class="loader-dot"></div>
-        <div class="loader-dot"></div>
-      </div>
-    </div>
+    <div style="position:relative;z-index:1;"><div class="loader-dots"><div class="loader-dot"></div><div class="loader-dot"></div><div class="loader-dot"></div></div></div>
   </div>
-  <div>
-    <div class="loader-title">CCA Learning Campus</div>
-    <div class="loader-sub">Loading your training resources</div>
-  </div>
-  <div class="loader-bar-wrap">
-    <div class="loader-bar-fill"></div>
-  </div>
+  <div><div class="loader-title">CCA Learning Campus</div><div class="loader-sub">Loading your training resources</div></div>
+  <div class="loader-bar-wrap"><div class="loader-bar-fill"></div></div>
 </div>
 
-<!-- ══ AD BLOCKER WALL ══ -->
+<!-- AD BLOCKER WALL -->
 <div id="adblocker-wall">
   <div class="ab-box">
     <span class="ab-icon">🚫</span>
     <h2 class="ab-title">Please disable your<br><em>ad blocker</em></h2>
-    <p class="ab-body">This platform is <strong>completely free</strong>. Ads are how we keep it that way. Disable your ad blocker for this site and you'll have full access to every lesson, tool, and audio file.</p>
+    <p class="ab-body">This platform is <strong>completely free</strong>. Ads are how we keep it that way. Disable your ad blocker for this site and you'll have full access to every tool and lesson.</p>
     <div class="ab-steps">
       <div class="ab-step"><div class="ab-step-num">1</div><div class="ab-step-text">Click your ad blocker extension in your browser toolbar</div></div>
       <div class="ab-step"><div class="ab-step-num">2</div><div class="ab-step-text">Select "Disable for this site" or "Pause on this page"</div></div>
       <div class="ab-step"><div class="ab-step-num">3</div><div class="ab-step-text">Refresh the page and come right back in</div></div>
     </div>
-    <button class="ab-btn" onclick="checkAdBlocker()">I've disabled it — let me in →</button>
+    <button class="ab-btn" onclick="checkAdBlocker()">I've disabled it — let me in</button>
   </div>
 </div>
 
-<!-- ══ LOBBY ══ -->
+<!-- LEVEL 1 — LOBBY -->
 <div id="lobby">
-
-  <!-- NAV -->
   <nav class="lobby-nav">
-    <a href="index.html" class="lobby-nav-logo">
-      <img src="images/logo-cca.webp" alt="Call Centers Academy & BPO">
-    </a>
+    <a href="index.html" class="lobby-nav-logo"><img src="images/logo-cca.webp" alt="Call Centers Academy & BPO"></a>
     <div class="lobby-nav-divider"></div>
     <span class="lobby-nav-label">Learning Campus</span>
-    <div class="lobby-nav-right">
-      <a href="index.html" class="lobby-nav-back">← Back to site</a>
-    </div>
+    <a href="index.html" class="lobby-nav-back">← Back to site</a>
   </nav>
-
-  <!-- DASHBOARD HEADER -->
   <div class="dashboard-header">
     <div class="dashboard-header-inner">
       <h1 class="dashboard-title">CCA Learning Campus</h1>
-      <p class="dashboard-intro">Call Centers Academy has been training call center professionals in the Dominican Republic since 2018. This campus is the free version of everything we teach — the tools, the language, the real calls, and the knowledge the industry assumes you already have but never gives you. No signup. No paywall. Free for now — use it while it lasts.</p>
+      <p class="dashboard-intro">Call Centers Academy has been training call center professionals in the Dominican Republic since 2018. This campus is the free version of everything we teach — the tools, the language, the real calls, and the knowledge the industry assumes you already have but never gives you. No signup. No paywall.</p>
     </div>
   </div>
-
-  <!-- FIVE CARD DASHBOARD -->
   <div class="dashboard-body">
     <div class="dashboard-grid">
 
-      <!-- CARD 1 — CALL CENTER MATCHER -->
+      <!-- CALL CENTER MATCHER -->
       <div class="dash-card">
         <div class="dash-card-visual" style="background:linear-gradient(135deg,#253166 0%,#1a2452 100%)">
           <div class="dash-card-glow" style="background:radial-gradient(circle at 30% 60%, rgba(0,161,222,0.35) 0%, transparent 65%)"></div>
@@ -762,12 +480,12 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
         <div class="dash-card-content">
           <div class="dash-card-tool-name">Call Center Matcher</div>
           <h2 class="dash-card-title">Find the account you belong in — and the one you should avoid</h2>
-          <p class="dash-card-body">Most candidates apply to whatever is open and end up in an account that is wrong for their personality. This tool asks you six questions about who you are — not what you know — and tells you which account fits you and which one would hurt you. And it tells you exactly why.</p>
-          <button class="dash-btn dash-btn-sky" onclick="openModal('finderModal')">Find my account</button>
+          <p class="dash-card-body">Most candidates apply to whatever is open and end up in an account that is wrong for their personality. This tool presents real scenarios — two options each — and based on your honest answers, it tells you which account fits who you are and which one would hurt you. And it tells you exactly why.</p>
+          <button class="dash-btn dash-btn-sky" onclick="openModal('matcherModal')">Find my account</button>
         </div>
       </div>
 
-      <!-- CARD 2 — SALARY CALCULATOR -->
+      <!-- SALARY CALCULATOR -->
       <div class="dash-card">
         <div class="dash-card-visual" style="background:linear-gradient(135deg,#1a3a1a 0%,#0f2a0f 100%)">
           <div class="dash-card-glow" style="background:radial-gradient(circle at 70% 40%, rgba(255,204,0,0.25) 0%, transparent 65%)"></div>
@@ -781,35 +499,35 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
         </div>
       </div>
 
-      <!-- CARD 3 — CV BUILDER -->
+      <!-- CV BUILDER -->
       <div class="dash-card">
         <div class="dash-card-visual" style="background:linear-gradient(135deg,#1a1a3a 0%,#0f0f2a 100%)">
           <div class="dash-card-glow" style="background:radial-gradient(circle at 50% 50%, rgba(168,85,247,0.25) 0%, transparent 65%)"></div>
           <span class="dash-card-icon">🤖</span>
         </div>
         <div class="dash-card-content">
-          <div class="dash-card-tool-name">CV Builder</div>
+          <div class="dash-card-tool-name">CV Builder · AI-Powered</div>
           <h2 class="dash-card-title">Turn your work history into a CV that gets you called back</h2>
-          <p class="dash-card-body">Most call center CVs get ignored because they don't say the right things. This tool is powered by artificial intelligence — you answer a few questions about your background and it builds a professional CV for you. Works even if you have never worked in a call center before.</p>
+          <p class="dash-card-body">Most call center CVs get ignored because they don't say the right things. This tool is powered by AI — you answer a few questions about your background and it builds a professional call center CV for you. Works even if you have never worked in a call center before.</p>
           <button class="dash-btn dash-btn-indigo" onclick="openModal('cvModal')">Build my CV</button>
         </div>
       </div>
 
-      <!-- CARD 4 — THE FLOOR GLOSSARY -->
+      <!-- LETTER WRITER -->
       <div class="dash-card">
-        <div class="dash-card-visual" style="background:linear-gradient(135deg,#0a2a1f 0%,#051a12 100%)">
-          <div class="dash-card-glow" style="background:radial-gradient(circle at 60% 40%, rgba(0,161,222,0.2) 0%, transparent 65%)"></div>
-          <span class="dash-card-icon">📖</span>
+        <div class="dash-card-visual" style="background:linear-gradient(135deg,#3a1a1a 0%,#2a0f0f 100%)">
+          <div class="dash-card-glow" style="background:radial-gradient(circle at 60% 40%, rgba(205,23,26,0.2) 0%, transparent 65%)"></div>
+          <span class="dash-card-icon">✉️</span>
         </div>
         <div class="dash-card-content">
-          <div class="dash-card-tool-name">The Floor Glossary</div>
-          <h2 class="dash-card-title">Every word the industry expects you to already know</h2>
-          <p class="dash-card-body">The BPO industry operates as if you went to school for this. Nobody explains AHT, CSAT, adherence, or nesting — not your supervisor, not your trainer, not the caller who uses industry terms and assumes you understand. This glossary gives you every word before you need it.</p>
-          <button class="dash-btn dash-btn-carmine" onclick="openModal('glossaryModal')">Open the glossary</button>
+          <div class="dash-card-tool-name">Letter Writer · AI-Powered</div>
+          <h2 class="dash-card-title">Write any professional letter related to your call center job</h2>
+          <p class="dash-card-body">Resignation letter, vacation request, cover letter, letter to reapply — whatever you need to write for your call center job, this AI-powered tool will ask you the right questions and give you a professional letter ready to print or send. In English or Spanish.</p>
+          <button class="dash-btn dash-btn-carmine" onclick="openModal('letterModal')">Write my letter</button>
         </div>
       </div>
 
-      <!-- CARD 5 — START TRAINING (FULL WIDTH) -->
+      <!-- START TRAINING -->
       <div class="dash-card dash-card-training">
         <div class="dash-card-training-visual">
           <div class="dash-training-glow-1"></div>
@@ -821,610 +539,1037 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
             <div class="dash-training-dot" style="background:#5dcaa5"></div>
             <div class="dash-training-dot" style="background:#f0997b"></div>
           </div>
-          <div class="dash-training-stages">Interview · Induction · Training · Nesting · Production</div>
+          <div class="dash-training-stages">English Skills · Computer Skills · Call Center Skills</div>
         </div>
         <div class="dash-card-training-content">
-          <div class="dash-card-tool-name" style="color:rgba(255,255,255,0.5)">CCA Training Platform</div>
+          <div class="dash-card-tool-name" style="color:var(--muted)">CCA Training Platform</div>
           <h2 class="dash-training-title">Start my free training</h2>
-          <p class="dash-training-body">Real call recordings. Quizzes. Scripts. Five stages organized exactly the way a call center works — from your first interview to the production floor. Everything the industry teaches in two rushed weeks, explained properly and at your own pace. Free for now.</p>
-          <button class="dash-btn dash-btn-yellow" onclick="enterClassroom()">Enter the campus</button>
+          <p class="dash-training-body">Three complete courses built from 12 years of call center training experience. Everything the industry teaches in two rushed weeks — explained properly, at your own pace. English Skills. Computer Skills. Call Center Skills.</p>
+          <button class="dash-btn dash-btn-yellow" onclick="enterLevel2()">Enter the campus</button>
         </div>
       </div>
 
     </div>
-
-    <div class="dashboard-footer">
+    <div class="lobby-footer">
       <span class="lobby-footer-meta">Call Centers Academy & BPO · Est. 2018 · Santo Domingo, DR</span>
-      <div style="display:flex;gap:1.5rem;">
+      <div class="lobby-footer-links">
         <a href="index.html" class="lobby-footer-link">Main site</a>
         <a href="blog/" class="lobby-footer-link">Blog</a>
         <a href="privacy.html" class="lobby-footer-link">Privacy</a>
       </div>
     </div>
   </div>
-
 </div>
 
-<!-- ══ CLASSROOM ══ -->
-<div id="classroom">
+<!-- LEVEL 2 — COURSE SELECTION -->
+<div id="level2">
+  <nav class="level2-nav">
+    <a href="#" class="level2-nav-logo" onclick="exitLevel2(); return false;"><img src="images/logo-cca.webp" alt="Call Centers Academy & BPO"></a>
+    <div class="lobby-nav-divider"></div>
+    <span class="level2-nav-label">Learning Campus</span>
+    <button class="level2-nav-back" onclick="exitLevel2()">← Back to tools</button>
+  </nav>
+  <div class="level2-header">
+    <div class="level2-header-inner">
+      <h2 class="level2-title">Where do you want<br>to <em>start?</em></h2>
+      <p class="level2-sub">Three courses. Each one solves a different problem. Choose the one that speaks to where you are right now.</p>
+    </div>
+  </div>
+  <div class="level2-body">
+    <div class="level2-grid">
 
-  <nav class="platform-nav">
-    <button class="hamburger-btn" onclick="toggleSidebar()">
-      <div class="hb-line"></div><div class="hb-line"></div><div class="hb-line"></div>
-    </button>
-    <a href="#" class="pnav-logo" onclick="exitClassroom(); return false;">
-      <img src="images/logo-light.webp" alt="Call Centers Academy & BPO">
-    </a>
-    <div class="pnav-divider"></div>
-    <span class="pnav-label">Learning Campus</span>
-    <div class="pnav-right">
-      <div class="pnav-progress-wrap">
-        <span class="pnav-progress-label" id="navProgressLabel">0 of 24 lessons</span>
-        <div class="pnav-progress-bar">
-          <div class="pnav-progress-fill" id="navProgressFill" style="width:0%"></div>
+      <!-- ENGLISH SKILLS -->
+      <div class="course-card" onclick="enterClassroom('english')">
+        <div class="course-card-visual" style="background:linear-gradient(135deg,#253166 0%,#1a2452 100%)">
+          <div class="dash-card-glow" style="position:absolute;inset:0;background:radial-gradient(circle at 40% 60%, rgba(0,161,222,0.3) 0%, transparent 65%)"></div>
+          <span class="course-card-icon">🎧</span>
+        </div>
+        <div class="course-card-content">
+          <div class="course-card-name">Module 01</div>
+          <h3 class="course-card-title">English Skills</h3>
+          <p class="course-card-body">You don't need perfect English to work in a call center. You need Basic English — and with Basic English according to the CEFR you can handle every day tasks including work. This course shows you the difference between levels, teaches you to read, write, and speak for the floor, and gives you the confidence to use what you already have.</p>
+          <button class="course-card-btn btn-sky">Enter this course</button>
         </div>
       </div>
-      <button class="pnav-lobby-btn" onclick="exitClassroom()">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-        Lobby
-      </button>
+
+      <!-- COMPUTER SKILLS -->
+      <div class="course-card" onclick="enterClassroom('computer')">
+        <div class="course-card-visual" style="background:linear-gradient(135deg,#1a3a1a 0%,#0f2a0f 100%)">
+          <div class="dash-card-glow" style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%, rgba(255,204,0,0.2) 0%, transparent 65%)"></div>
+          <span class="course-card-icon">💻</span>
+        </div>
+        <div class="course-card-content">
+          <div class="course-card-name">Module 02</div>
+          <h3 class="course-card-title">Computer Skills</h3>
+          <p class="course-card-body">A call center is a computer job. You will spend every hour sitting in front of a screen, managing multiple windows, programs, passwords, and sometimes two or three monitors with a virtual computer. Nobody warns you. Nobody teaches you. This course gives you everything you need to know before your first day.</p>
+          <button class="course-card-btn btn-indigo">Enter this course</button>
+        </div>
+      </div>
+
+      <!-- CALL CENTER SKILLS -->
+      <div class="course-card" onclick="enterClassroom('callcenter')">
+        <div class="course-card-visual" style="background:linear-gradient(135deg,#3a1a0a 0%,#2a0f05 100%)">
+          <div class="dash-card-glow" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(205,23,26,0.2) 0%, transparent 65%)"></div>
+          <span class="course-card-icon">📞</span>
+        </div>
+        <div class="course-card-content">
+          <div class="course-card-name">Module 03</div>
+          <h3 class="course-card-title">Call Center Skills</h3>
+          <p class="course-card-body">This is the one everyone wants. The CV, the application, the interview, the floor. Six account types and everything that goes with each one. Built on the first two modules. The industry has never told you this story from beginning to end — until now.</p>
+          <button class="course-card-btn btn-carmine">Enter this course</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- LEVEL 3 — CLASSROOM -->
+<div id="classroom">
+  <nav class="platform-nav">
+    <button class="hamburger-btn" onclick="toggleSidebar()"><div class="hb-line"></div><div class="hb-line"></div><div class="hb-line"></div></button>
+    <a href="#" class="pnav-logo" onclick="exitClassroom(); return false;"><img src="images/logo-light.webp" alt="Call Centers Academy & BPO"></a>
+    <div class="pnav-divider"></div>
+    <span class="pnav-course-name" id="pnavCourseName">English Skills</span>
+    <div class="pnav-right">
+      <div class="pnav-progress-wrap">
+        <span class="pnav-progress-label" id="navProgressLabel">0 lessons completed</span>
+        <div class="pnav-progress-bar"><div class="pnav-progress-fill" id="navProgressFill" style="width:0%"></div></div>
+      </div>
+      <button class="pnav-back-btn" onclick="exitClassroom()">← Courses</button>
     </div>
   </nav>
-
   <div class="platform-body">
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
-
     <aside class="campus-sidebar" id="campusSidebar">
       <div class="sb-head">
         <div class="sb-head-eyebrow">Curriculum</div>
-        <div class="sb-head-title">CCA Learning Campus</div>
+        <div class="sb-head-title" id="sbHeadTitle">English Skills</div>
       </div>
-      <div class="sb-search">
-        <input type="text" placeholder="Search lessons..." oninput="searchLessons(this.value)">
-      </div>
-      <nav class="sb-nav">
-
-        <!-- INTERVIEW -->
-        <div class="stage-row" onclick="toggleStage('stage-interview')">
-          <div class="stage-dot" style="background:var(--yellow)"></div>
-          <span class="stage-name active" id="stage-interview-name">Interview</span>
-          <span class="stage-count">5</span>
-          <span class="stage-chev open" id="stage-interview-chev">▸</span>
-        </div>
-        <div class="lesson-list" id="stage-interview">
-          <div class="lesson-item" onclick="loadLesson('before-interview')" data-lesson="before-interview">
-            <div class="li-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-            <span class="li-text">Before the interview</span>
-            <span class="li-badge badge-en">EN</span>
-          </div>
-          <div class="lesson-item active" onclick="loadLesson('interview-calls')" data-lesson="interview-calls">
-            <div class="li-icon"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
-            <span class="li-text">Listen to interview calls</span>
-          </div>
-          <div class="lesson-item" onclick="loadLesson('english-check')" data-lesson="english-check">
-            <div class="li-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-            <span class="li-text">English readiness check</span>
-            
-          </div>
-          <div class="lesson-item" onclick="loadLesson('cv-builder')" data-lesson="cv-builder">
-            <div class="li-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-            <span class="li-text">CV builder</span>
-            <span class="li-badge badge-ai">AI</span>
-          </div>
-          <div class="lesson-item" onclick="loadLesson('salary-calc')" data-lesson="salary-calc">
-            <div class="li-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-            <span class="li-text">Salary reality calculator</span>
-          </div>
-        </div>
-
-        <!-- INDUCTION -->
-        <div class="stage-row" onclick="toggleStage('stage-induction')" style="margin-top:2px">
-          <div class="stage-dot" style="background:var(--sky)"></div>
-          <span class="stage-name" id="stage-induction-name">Induction</span>
-          <span class="stage-count">4</span>
-          <span class="stage-chev" id="stage-induction-chev">▸</span>
-        </div>
-        <div class="lesson-list" id="stage-induction" style="display:none">
-          <div class="lesson-item" onclick="loadLesson('glossary')" data-lesson="glossary"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="li-text">Call center glossary</span></div>
-          <div class="lesson-item" onclick="loadLesson('what-is-cc')" data-lesson="what-is-cc"><div class="li-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><span class="li-text">What a call center is</span></div>
-          <div class="lesson-item" onclick="loadLesson('positions')" data-lesson="positions"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span class="li-text">Positions and roles</span></div>
-          <div class="lesson-item" onclick="loadLesson('call-flow')" data-lesson="call-flow"><div class="li-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><span class="li-text">Call flow basics</span></div>
-        </div>
-
-        <!-- TRAINING -->
-        <div class="stage-row" onclick="toggleStage('stage-training')" style="margin-top:2px">
-          <div class="stage-dot" style="background:rgba(200,200,220,0.6);border:1.5px solid rgba(255,255,255,0.2)"></div>
-          <span class="stage-name" id="stage-training-name">Training</span>
-          <span class="stage-count">5</span>
-          <span class="stage-chev" id="stage-training-chev">▸</span>
-        </div>
-        <div class="lesson-list" id="stage-training" style="display:none">
-          <div class="lesson-item" onclick="loadLesson('military-alphabet')" data-lesson="military-alphabet"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div><span class="li-text">Military alphabet</span></div>
-          <div class="lesson-item" onclick="loadLesson('kpis')" data-lesson="kpis"><div class="li-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><span class="li-text">KPIs decoded</span></div>
-          <div class="lesson-item" onclick="loadLesson('computer-skills')" data-lesson="computer-skills"><div class="li-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><span class="li-text">Computer skills</span></div>
-          <div class="lesson-item" onclick="loadLesson('script-practice')" data-lesson="script-practice"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="li-text">Script practice</span></div>
-          <div class="lesson-item" onclick="loadLesson('english-phrases')" data-lesson="english-phrases"><div class="li-icon"><svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div><span class="li-text">English phrases</span></div>
-        </div>
-
-        <!-- NESTING -->
-        <div class="stage-row" onclick="toggleStage('stage-nesting')" style="margin-top:2px">
-          <div class="stage-dot" style="background:#5dcaa5"></div>
-          <span class="stage-name" id="stage-nesting-name">Nesting</span>
-          <span class="stage-count">3</span>
-          <span class="stage-chev" id="stage-nesting-chev">▸</span>
-        </div>
-        <div class="lesson-list" id="stage-nesting" style="display:none">
-          <div class="lesson-item" onclick="loadLesson('first-live-call')" data-lesson="first-live-call"><div class="li-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="li-text">Your first live call</span></div>
-          <div class="lesson-item" onclick="loadLesson('nesting-mistakes')" data-lesson="nesting-mistakes"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><span class="li-text">Common nesting mistakes</span></div>
-          <div class="lesson-item" onclick="loadLesson('supervisor-watch')" data-lesson="supervisor-watch"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><span class="li-text">What supervisors watch for</span></div>
-        </div>
-
-        <!-- PRODUCTION -->
-        <div class="stage-row" onclick="toggleStage('stage-production')" style="margin-top:2px">
-          <div class="stage-dot" style="background:#f0997b"></div>
-          <span class="stage-name" id="stage-production-name">Production</span>
-          <span class="stage-count">7</span>
-          <span class="stage-chev" id="stage-production-chev">▸</span>
-        </div>
-        <div class="lesson-list" id="stage-production" style="display:none">
-          <div class="lesson-item" onclick="toggleSub('sub-cs')" data-lesson="cs-overview">
-            <div class="li-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6z"/></svg></div>
-            <span class="li-text">Customer service</span>
-            <span class="stage-chev" id="sub-cs-chev">▸</span>
-          </div>
-          <div class="sub-list" id="sub-cs" style="display:none">
-            <div class="sub-item" onclick="loadLesson('cs-what-is')"><div class="sub-dot"></div><span class="sub-text">What customer service is</span></div>
-            <div class="sub-item" onclick="loadLesson('cs-irate')"><div class="sub-dot"></div><span class="sub-text">Handling irate customers</span></div>
-            <div class="sub-item" onclick="loadLesson('cs-deescalation')"><div class="sub-dot"></div><span class="sub-text">De-escalation techniques</span></div>
-            <div class="sub-item" onclick="loadLesson('cs-transfer')"><div class="sub-dot"></div><span class="sub-text">Warm transfer skills</span></div>
-          </div>
-          <div class="lesson-item" onclick="loadLesson('collections')" data-lesson="collections"><div class="li-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><span class="li-text">Collections</span></div>
-          <div class="lesson-item" onclick="loadLesson('retention')" data-lesson="retention"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><span class="li-text">Retention</span></div>
-          <div class="lesson-item" onclick="loadLesson('tech-support')" data-lesson="tech-support"><div class="li-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div><span class="li-text">Tech support</span></div>
-          <div class="lesson-item" onclick="loadLesson('sales')" data-lesson="sales"><div class="li-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><span class="li-text">Sales</span></div>
-          <div class="lesson-item" onclick="loadLesson('back-office')" data-lesson="back-office"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><span class="li-text">Back office</span></div>
-        </div>
-
+      <div class="sb-search"><input type="text" placeholder="Search lessons..." oninput="searchLessons(this.value)"></div>
+      <nav class="sb-nav" id="sbNav">
+        <!-- Sidebar populated dynamically -->
       </nav>
       <div class="sb-foot">
-        <div class="sb-foot-label" id="sbFootLabel">Interview — lesson 2 of 5</div>
-        <div class="sb-progress-bar"><div class="sb-progress-fill" id="sbProgressFill" style="width:8%"></div></div>
+        <div class="sb-foot-label" id="sbFootLabel">Select a lesson to begin</div>
+        <div class="sb-progress-bar"><div class="sb-progress-fill" id="sbProgressFill" style="width:0%"></div></div>
       </div>
     </aside>
-
-    <!-- MAIN LESSON PANEL -->
     <main class="campus-main">
       <div class="main-topbar">
-        <div class="breadcrumb">
-          <span id="bcStage">Interview</span>
-          <span class="bc-sep">›</span>
-          <span class="bc-cur" id="bcLesson">Listen to interview calls</span>
-        </div>
-        <span class="bc-tag bc-tag-free">Free</span>
+        <div class="breadcrumb"><span id="bcStage">English Skills</span><span class="bc-sep">›</span><span class="bc-cur" id="bcLesson">Select a lesson</span></div>
+        <span class="bc-tag-free" id="bcTag">Free</span>
       </div>
-
       <div class="lesson-body" id="lessonBody">
-        <div class="l-thumb">
-          <div class="l-thumb-gradient"></div>
-          <div class="l-thumb-inner">
-            <span class="l-thumb-icon">🎧</span>
-            <div class="l-thumb-title">Interview calls — real scenarios</div>
-            <div class="l-thumb-sub">CCA · 4 scenarios · English</div>
-          </div>
-          <div class="l-thumb-duration">8:46 total</div>
-          <button class="l-thumb-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
-        </div>
-
-        <div class="tags-row">
-          <span class="tag tag-sky">Listening</span>
-          <span class="tag tag-gray">4 scenarios</span>
-          <span class="tag tag-green">Quiz included</span>
-        </div>
-
-        <div class="l-title">What does a real call center interview sound like?</div>
-        <div class="l-desc">Listen to these scenarios before answering the questions below. Pay attention to how the recruiter evaluates communication — not whether the English is perfect. That distinction matters.</div>
-
-        <div class="audio-section-title">Listening scenarios</div>
-
-        <div class="audio-card">
-          <button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
-          <div class="a-info">
-            <div class="a-name">Scenario 1 — Confident candidate, hired</div>
-            <div class="a-meta">CCA Recruitment Simulation · 1:48 · English</div>
-            <div class="a-bar"><div class="a-progress" style="width:0%"></div></div>
-          </div>
-          <div class="a-time">1:48</div>
-        </div>
-
-        <div class="audio-card">
-          <button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
-          <div class="a-info">
-            <div class="a-name">Scenario 2 — Nervous candidate, still hired</div>
-            <div class="a-meta">CCA Recruitment Simulation · 2:05 · English</div>
-            <div class="a-bar"><div class="a-progress" style="width:0%"></div></div>
-          </div>
-          <div class="a-time">2:05</div>
-        </div>
-
-        <div class="audio-card">
-          <button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
-          <div class="a-info">
-            <div class="a-name">Scenario 3 — Unprepared candidate, not hired</div>
-            <div class="a-meta">CCA Recruitment Simulation · 2:31 · English</div>
-            <div class="a-bar"><div class="a-progress" style="width:0%"></div></div>
-          </div>
-          <div class="a-time">2:31</div>
-        </div>
-
-        <div class="audio-card">
-          <button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
-          <div class="a-info">
-            <div class="a-name">Scenario 4 — Bilingual candidate, hired immediately</div>
-            <div class="a-meta">CCA Recruitment Simulation · 2:23 · English / Spanish</div>
-            <div class="a-bar"><div class="a-progress" style="width:0%"></div></div>
-          </div>
-          <div class="a-time">2:23</div>
-        </div>
-
-        <div class="quiz-wrap">
-          <div class="quiz-head">
-            <div class="quiz-head-title">Comprehension check</div>
-            <div class="quiz-head-count">Question 1 of 4</div>
-          </div>
-          <div class="quiz-body">
-            <div class="quiz-q">In Scenario 3, what was the main reason the candidate was not hired?</div>
-            <div class="option" onclick="selectOption(this)"><div class="opt-letter">A</div>Their English level was too low</div>
-            <div class="option" onclick="selectOption(this)"><div class="opt-letter">B</div>They arrived late to the interview</div>
-            <div class="option" onclick="selectOption(this)"><div class="opt-letter">C</div>They didn't research the company and couldn't answer basic questions about the role</div>
-            <div class="option" onclick="selectOption(this)"><div class="opt-letter">D</div>They asked about salary too early</div>
-            <button class="quiz-submit" onclick="submitQuiz()">Check answer →</button>
-          </div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:3rem;">
+          <div style="font-size:64px;margin-bottom:1.5rem;">📚</div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:var(--indigo);margin-bottom:1rem;">Choose a lesson from the sidebar</h2>
+          <p style="font-size:17px;color:var(--muted);line-height:1.8;max-width:420px;">Select any lesson on the left to begin. Open lessons load immediately. Active students have access to everything.</p>
         </div>
       </div>
-
-      <div class="lesson-footer">
-        <button class="lesson-nav-btn" onclick="markAndNav('prev')">← Before the interview</button>
-        <button class="lesson-nav-btn primary" onclick="markAndNav('next')">English readiness check →</button>
+      <div class="lesson-footer" id="lessonFooter" style="display:none">
+        <button class="lesson-nav-btn" id="prevBtn" onclick="navLesson('prev')">← Previous</button>
+        <button class="lesson-nav-btn primary" id="nextBtn" onclick="navLesson('next')">Next →</button>
       </div>
     </main>
   </div>
 </div>
 
+<!-- MODULE COMPLETION POPUP -->
+<div id="completion-popup">
+  <div class="completion-box">
+    <span class="completion-cap">🎓</span>
+    <h2 class="completion-title" id="completionTitle">Module Complete!</h2>
+    <p class="completion-sub" id="completionSub">You've completed this module. Ready for the next one?</p>
+    <button class="completion-next" id="completionNextBtn" onclick="goToNextCourse()">Continue to next course</button>
+    <button class="completion-dismiss" onclick="closeCompletion()">I'll continue later</button>
+  </div>
+</div>
+
+<!-- LOCK WALL -->
+<div id="lock-wall">
+  <div class="lock-box">
+    <span class="lock-icon">🔒</span>
+    <h2 class="lock-title">Active students only</h2>
+    <p class="lock-body">This content is available for active CCA students. Join the waitlist and be the first to know when enrollment opens.</p>
+    <a href="waitlist.html" class="lock-btn">Join the waitlist</a>
+    <button class="lock-dismiss" onclick="closeLock()">Close</button>
+  </div>
+</div>
+
+<!-- MATCHER MODAL -->
+<div class="tool-modal-overlay" id="matcherModal" onclick="closeModalOutside(event,'matcherModal')">
+  <div class="tool-modal">
+    <div class="tool-modal-header sky" style="background:var(--indigo)">
+      <div class="tool-modal-header-top">
+        <div><div class="tool-modal-eyebrow">Call Center Matcher</div><div class="tool-modal-title">Find your ideal account</div></div>
+        <button class="tool-modal-close" onclick="closeModal('matcherModal')">×</button>
+      </div>
+      <p class="tool-modal-sub">Real scenarios. Honest answers. Two results: the account that fits you and the one you should avoid.</p>
+    </div>
+    <div class="tool-modal-body">
+      <!-- Language Selection -->
+      <div id="matcherLangSelect">
+        <p style="font-size:16px;color:var(--muted);margin-bottom:1rem;font-weight:600;">Select your language / Selecciona tu idioma</p>
+        <div class="lang-select">
+          <button class="lang-btn" onclick="selectLang('en', this)">🇺🇸 English</button>
+          <button class="lang-btn" onclick="selectLang('es', this)">🇩🇴 Español</button>
+        </div>
+      </div>
+      <!-- Intro -->
+      <div class="matcher-intro" id="matcherIntro" style="display:none">
+        <span class="matcher-intro-icon">🎯</span>
+        <h3 class="matcher-intro-title" id="matcherIntroTitle">Before your next interview.</h3>
+        <p class="matcher-intro-desc" id="matcherIntroDesc">We will present some scenarios. For each one, choose the option that is closest to who you are. Be honest — there are no wrong answers, only the truth about your personality.</p>
+        <button class="matcher-start-btn" id="matcherStartBtn" onclick="startMatcher()">Start the test →</button>
+      </div>
+      <!-- Questions -->
+      <div class="matcher-q-wrap" id="matcherQWrap">
+        <div class="matcher-q-progress">
+          <div class="matcher-q-bar"><div class="matcher-q-fill" id="matcherQFill" style="width:0%"></div></div>
+          <span class="matcher-q-label" id="matcherQLabel">Question 1 of 15</span>
+        </div>
+        <div class="matcher-q-text" id="matcherQText"></div>
+        <div class="matcher-options" id="matcherOptions"></div>
+        <button class="matcher-next-btn" id="matcherNextBtn" onclick="nextMatcherQ()" disabled>Next →</button>
+      </div>
+      <!-- Thinking -->
+      <div class="matcher-thinking" id="matcherThinking">
+        <div class="matcher-thinking-dots"><span></span><span></span><span></span></div>
+        <div class="matcher-thinking-label" id="matcherThinkingLabel">Analyzing your answers...</div>
+      </div>
+      <!-- Result -->
+      <div class="matcher-result" id="matcherResult">
+        <div class="matcher-result-fit">
+          <div class="matcher-result-label fit-label" id="matcherFitLabel">Your best fit</div>
+          <div class="matcher-result-account" id="matcherFitAccount"></div>
+          <div class="matcher-result-why" id="matcherFitWhy"></div>
+        </div>
+        <div class="matcher-result-avoid">
+          <div class="matcher-result-label avoid-label" id="matcherAvoidLabel">Approach with caution</div>
+          <div class="matcher-result-account" id="matcherAvoidAccount"></div>
+          <div class="matcher-result-why" id="matcherAvoidWhy"></div>
+        </div>
+        <button class="matcher-reset-btn" onclick="resetMatcher()" id="matcherResetBtn">Take it again</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SALARY MODAL -->
+<div class="tool-modal-overlay" id="salaryModal" onclick="closeModalOutside(event,'salaryModal')">
+  <div class="tool-modal tool-modal-sm">
+    <div class="tool-modal-header yellow" style="background:#1a3a1a">
+      <div class="tool-modal-header-top">
+        <div><div class="tool-modal-eyebrow">Salary Calculator</div><div class="tool-modal-title">What do you actually need?</div></div>
+        <button class="tool-modal-close" onclick="closeModal('salaryModal')">×</button>
+      </div>
+      <p class="tool-modal-sub">Enter your real monthly expenses. Get the minimum hourly rate you must earn before you say yes to any offer.</p>
+    </div>
+    <div class="tool-modal-body">
+      <div class="salary-inputs">
+        <div class="salary-row"><span class="salary-label">Rent / Housing</span><input class="salary-input" type="number" id="sal-rent" value="12000" oninput="calcSalary()"></div>
+        <div class="salary-row"><span class="salary-label">Transportation</span><input class="salary-input" type="number" id="sal-transport" value="4500" oninput="calcSalary()"></div>
+        <div class="salary-row"><span class="salary-label">Food</span><input class="salary-input" type="number" id="sal-food" value="8000" oninput="calcSalary()"></div>
+        <div class="salary-row"><span class="salary-label">Phone / Internet</span><input class="salary-input" type="number" id="sal-phone" value="1200" oninput="calcSalary()"></div>
+        <div class="salary-row"><span class="salary-label">Other expenses</span><input class="salary-input" type="number" id="sal-other" value="3000" oninput="calcSalary()"></div>
+      </div>
+      <div class="salary-result-card">
+        <div><div class="salary-result-label">Minimum you must earn</div><div class="salary-result-sub" style="color:rgba(255,255,255,0.35);font-size:12px;margin-top:3px;">Before you say yes to anything</div></div>
+        <div><div class="salary-result-num" id="salaryResult">RD$ 233/hr</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CV MODAL -->
+<div class="tool-modal-overlay" id="cvModal" onclick="closeModalOutside(event,'cvModal')">
+  <div class="tool-modal tool-modal-sm">
+    <div class="tool-modal-header indigo" style="background:#1a1a3a">
+      <div class="tool-modal-header-top">
+        <div><div class="tool-modal-eyebrow">CV Builder · AI-Powered</div><div class="tool-modal-title">Build your call center CV</div></div>
+        <button class="tool-modal-close" onclick="closeModal('cvModal')">×</button>
+      </div>
+      <p class="tool-modal-sub">Answer a few questions. The AI builds your professional call center CV from your answers.</p>
+    </div>
+    <div class="tool-modal-body">
+      <div class="ai-chat" id="cvChat">
+        <div class="chat-bubble ai">Are you looking to build or improve a call center resume today?</div>
+      </div>
+      <div class="cv-input-row" style="display:flex;gap:8px;margin-top:0.75rem;">
+        <input class="chat-input" type="text" id="cvInput" placeholder="Type your answer..." onkeydown="if(event.key==='Enter')sendCvMessage()">
+        <button class="chat-send" onclick="sendCvMessage()">Send</button>
+      </div>
+      <p class="chat-note">AI-powered · Your data is not stored · Free · Max 10 messages per session</p>
+    </div>
+  </div>
+</div>
+
+<!-- LETTER MODAL -->
+<div class="tool-modal-overlay" id="letterModal" onclick="closeModalOutside(event,'letterModal')">
+  <div class="tool-modal tool-modal-sm">
+    <div class="tool-modal-header carmine" style="background:#3a1a1a">
+      <div class="tool-modal-header-top">
+        <div><div class="tool-modal-eyebrow">Letter Writer · AI-Powered</div><div class="tool-modal-title">Write your professional letter</div></div>
+        <button class="tool-modal-close" onclick="closeModal('letterModal')">×</button>
+      </div>
+      <p class="tool-modal-sub">I'm here to help you write letters related to your call center job. Cover letters, vacation requests, resignation letters, reapplication letters — in English or Spanish.</p>
+    </div>
+    <div class="tool-modal-body">
+      <div class="ai-chat" id="letterChat">
+        <div class="chat-bubble ai">I'm here to help you write letters related to your call center job. I can help you with a cover letter, a vacation request letter, a resignation letter, or a letter to reapply to a call center you used to work at. I will ask you some questions to gather context and then give you the letter ready to print or make changes. What document do you want help writing today?</div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:0.75rem;">
+        <input class="chat-input" type="text" id="letterInput" placeholder="Type your answer..." onkeydown="if(event.key==='Enter')sendLetterMessage()">
+        <button class="chat-send" onclick="sendLetterMessage()">Send</button>
+      </div>
+      <p class="chat-note">AI-powered · Your data is not stored · Free · Max 10 messages per session</p>
+    </div>
+  </div>
+</div>
+
 <script>
-  const TOTAL_LESSONS = 24;
-  const LS_PROGRESS = 'cca_campus_progress';
-  const LS_VISITED  = 'cca_campus_visited';
+// ── API PROXY ──────────────────────────────────────────
+// All Claude API calls go through the Cloudflare Worker proxy.
+// The API key lives securely in Cloudflare — never in this file.
+const API_URL = 'https://cca-claude-proxy.callcentersacademy.workers.dev';
+const MODEL   = 'claude-sonnet-4-20250514';
 
-  // ── PROGRESS ─────────────────────────────────────────
-  function getProgress() {
-    try { return JSON.parse(localStorage.getItem(LS_PROGRESS)) || { completed: [], current: 'interview-calls' }; }
-    catch { return { completed: [], current: 'interview-calls' }; }
+// ── SYSTEM PROMPTS ────────────────────────────────────
+const CV_SYSTEM = `You are CCA's Call Center Resume Builder, created by Call Centers Academy & BPO in the Dominican Republic. You ONLY help users build or improve call center resumes. 
+
+RULES:
+- If the user says they do NOT want a call center resume, respond ONLY with: "SESSION_END" — nothing else.
+- Never include photos, cedula numbers, full addresses, or national ID in any resume.
+- Always confirm the language they want the resume in (English or Spanish).
+- Ask questions one at a time — never overwhelm.
+- Never assume work history — always ask.
+- If asked about anything unrelated to call center resumes, say: "I am only here to help with call center resumes. For anything else, continue the conversation here: https://claude.ai/new"
+- Keep responses concise and professional.
+- Maximum 10 messages per session.`;
+
+const LETTER_SYSTEM = `You are CCA's Professional Letter Writer, created by Call Centers Academy & BPO in the Dominican Republic. You ONLY write professional letters related to call center employment.
+
+Letters you can write:
+1. Cover letter (for applying to a call center)
+2. Vacation request letter
+3. Resignation letter
+4. Letter to reapply to a call center you previously worked at
+
+RULES:
+- Ask what document they need first.
+- If they ask for something you cannot write (like a work letter or employment verification), explain: "Only your call center can provide that document." Then offer your four options.
+- Always ask: "What language do you want this letter in — English or Spanish?"
+- Always gather full context before writing — never assume. Ask: who it is addressed to, what they want to say, what they want to request, relevant details.
+- If someone asks for something completely unrelated to call center work, ask: "How is this related to your call center job?" If the answer makes sense, help them. If not, say: "This is outside what I can help with. For anything else: https://claude.ai/new"
+- If user is disrespectful or off-topic after one redirect, respond ONLY with: "SESSION_END"
+- Keep responses professional and warm.
+- Maximum 10 messages per session.`;
+
+// ── PROGRESS ──────────────────────────────────────────
+const LS_PROGRESS = 'cca_campus_progress';
+const LS_VISITED  = 'cca_campus_visited';
+
+function getProgress() {
+  try { return JSON.parse(localStorage.getItem(LS_PROGRESS)) || { completed: {}, currentCourse: null }; }
+  catch { return { completed: {}, currentCourse: null }; }
+}
+function saveProgress(p) { try { localStorage.setItem(LS_PROGRESS, JSON.stringify(p)); } catch {} }
+
+function markCompleted(courseId, lessonId) {
+  const p = getProgress();
+  if (!p.completed[courseId]) p.completed[courseId] = [];
+  if (!p.completed[courseId].includes(lessonId)) p.completed[courseId].push(lessonId);
+  saveProgress(p);
+  updateProgressUI(courseId);
+  const item = document.querySelector(`[data-lesson="${lessonId}"]`);
+  if (item) item.classList.add('completed');
+}
+
+function updateProgressUI(courseId) {
+  const p = getProgress();
+  const course = COURSES[courseId];
+  if (!course) return;
+  const total = course.lessons.reduce((a, s) => a + s.items.length, 0);
+  const done  = (p.completed[courseId] || []).length;
+  const pct   = total > 0 ? Math.round((done / total) * 100) : 0;
+  const navFill  = document.getElementById('navProgressFill');
+  const navLabel = document.getElementById('navProgressLabel');
+  const sbFill   = document.getElementById('sbProgressFill');
+  if (navFill)  navFill.style.width  = pct + '%';
+  if (navLabel) navLabel.textContent = done + ' lesson' + (done !== 1 ? 's' : '') + ' completed';
+  if (sbFill)   sbFill.style.width   = pct + '%';
+}
+
+// ── COURSE DATA ───────────────────────────────────────
+const COURSES = {
+  english: {
+    name: 'English Skills',
+    color: 'var(--sky)',
+    lessons: [
+      { name: 'English Levels', dot: 'var(--yellow)', items: [
+        { id: 'en-01', title: 'Basic, Intermediate and Advanced — what is the difference?', open: true },
+        { id: 'en-02', title: 'Listen: the same introduction at three levels', open: true },
+        { id: 'en-03', title: 'Why Basic English is the only level you need right now', open: true },
+      ]},
+      { name: 'Reading', dot: 'var(--sky)', items: [
+        { id: 'en-04', title: 'Reading for the floor — how to read a script without sounding like you are reading', open: true },
+        { id: 'en-05', title: 'Practice: read this out loud', open: false },
+      ]},
+      { name: 'Writing', dot: 'rgba(255,255,255,0.3)', items: [
+        { id: 'en-06', title: 'Writing basics for call center documentation', open: false },
+        { id: 'en-07', title: 'Common phrases you will need to write every day', open: false },
+      ]},
+      { name: 'Speaking', dot: '#5dcaa5', items: [
+        { id: 'en-08', title: 'Pronunciation tips for the interview', open: false },
+        { id: 'en-09', title: 'Phrases to use when you don\'t understand the customer', open: false },
+        { id: 'en-10', title: 'Listen: a Basic speaker doing the interview confidently', open: false },
+      ]},
+    ]
+  },
+  computer: {
+    name: 'Computer Skills',
+    color: 'var(--indigo)',
+    lessons: [
+      { name: 'The Hardware', dot: 'var(--yellow)', items: [
+        { id: 'co-01', title: 'Laptop vs Desktop — what is the difference and which one do you need?', open: false },
+        { id: 'co-02', title: 'Headset, power backup, powerbank — the equipment the job requires', open: false },
+        { id: 'co-03', title: 'Mac vs PC — what call centers use and why it matters', open: false },
+      ]},
+      { name: 'The Software', dot: 'var(--sky)', items: [
+        { id: 'co-04', title: 'Email — how to use it professionally', open: false },
+        { id: 'co-05', title: 'Calendar — scheduling, meetings, and managing your time', open: false },
+        { id: 'co-06', title: 'System updates — how to know when your computer needs one', open: false },
+        { id: 'co-07', title: 'Passwords — how to manage them without losing your job', open: false },
+      ]},
+      { name: 'The Floor Reality', dot: '#5dcaa5', items: [
+        { id: 'co-08', title: 'Multiple screens and multiple windows — how to manage them', open: false },
+        { id: 'co-09', title: 'What is a virtual computer and how to use it', open: false },
+        { id: 'co-10', title: 'Basic IT troubleshooting — what to do when nothing works', open: false },
+      ]},
+    ]
+  },
+  callcenter: {
+    name: 'Call Center Skills',
+    color: 'var(--carmine)',
+    lessons: [
+      { name: 'The CV', dot: 'var(--yellow)', items: [
+        { id: 'cc-01', title: 'Why you need an English CV', open: false },
+        { id: 'cc-02', title: 'What a call center CV should and should not include', open: false },
+        { id: 'cc-03', title: 'Video resume, audio resume, and LinkedIn', open: false },
+      ]},
+      { name: 'The Application', dot: 'var(--sky)', items: [
+        { id: 'cc-04', title: 'Every way to apply — website, Instagram, walk-in, referral', open: false },
+        { id: 'cc-05', title: 'The process has changed — what to expect now', open: false },
+      ]},
+      { name: 'The Interview', dot: 'rgba(255,255,255,0.3)', items: [
+        { id: 'cc-06', title: 'The questions they always ask', open: false },
+        { id: 'cc-07', title: 'Listen: a Basic speaker doing it confidently', open: false },
+        { id: 'cc-08', title: 'Listen: a Basic speaker doing it poorly', open: false },
+      ]},
+      { name: 'You Got Hired', dot: '#5dcaa5', items: [
+        { id: 'cc-09', title: 'What comes next: Induction, Training, Nesting, Production', open: false },
+        { id: 'cc-10', title: 'What supervisors watch for in your first week', open: false },
+      ]},
+      { name: 'The Accounts', dot: '#f0997b', items: [
+        { id: 'cc-11', title: 'Customer Service — what it really is', open: false },
+        { id: 'cc-12', title: 'Collections — inbound, outbound, soft, hard, write-off', open: false },
+        { id: 'cc-13', title: 'Sales — inbound, outbound, telemarketing, and why the label matters', open: false },
+        { id: 'cc-14', title: 'Retention — saving the relationship before it walks out', open: false },
+        { id: 'cc-15', title: 'Tech Support — structured troubleshooting', open: false },
+        { id: 'cc-16', title: 'Back Office — non-voice and why it requires different skills', open: false },
+      ]},
+    ]
   }
-  function saveProgress(p) { try { localStorage.setItem(LS_PROGRESS, JSON.stringify(p)); } catch {} }
+};
 
-  function markCompleted(id) {
-    const p = getProgress();
-    if (!p.completed.includes(id)) { p.completed.push(id); saveProgress(p); }
-    updateProgressUI();
-    const item = document.querySelector('[data-lesson="' + id + '"]');
-    if (item) item.classList.add('completed');
+// ── LESSON CONTENT ─────────────────────────────────────
+function getLessonContent(lessonId) {
+  if (lessonId === 'en-01') {
+    return `
+      <div class="l-thumb">
+        <div class="l-thumb-gradient"></div>
+        <div class="l-thumb-inner">
+          <span class="l-thumb-icon">🎧</span>
+          <div class="l-thumb-title">English Levels — What Is the Difference?</div>
+          <div class="l-thumb-sub">CCA English Skills · Module 01</div>
+        </div>
+      </div>
+      <div class="tags-row"><span class="tag tag-sky">English</span><span class="tag tag-green">Open Lesson</span></div>
+      <h2 class="l-title">Basic, Intermediate and Advanced — what is the difference?</h2>
+      <p class="l-desc">The call center industry talks about English levels like they are a wall. Either you have enough English or you don't. That is not true. The truth is simpler — and more useful.</p>
+      <p class="l-desc">According to the CEFR — the international standard for measuring English — a Basic speaker can handle every day tasks including work. That includes your job at a call center. What separates Basic from Intermediate from Advanced is not quality. It is not perfection. It is one thing only: the amount of words and vocabulary you know.</p>
+      <p class="l-desc">A Basic speaker introducing themselves uses fewer words. An Intermediate speaker uses more. An Advanced speaker uses even more. But all three use the same verb to be, the same pronouns, the same numbers, the same foundation. The difference is vocabulary — nothing else.</p>
+      <p class="l-desc" style="background:rgba(0,161,222,0.07);border-left:3px solid var(--sky);padding:1.25rem;border-radius:0 8px 8px 0;"><strong style="color:var(--indigo)">The bottom line:</strong> Your "two pesos of English" is enough. The next lesson will let you hear exactly what that sounds like — the same introduction delivered by three different speakers at three different levels. Listen and feel it yourself.</p>`;
   }
-
-  function updateProgressUI() {
-    const p = getProgress();
-    const count = p.completed.length;
-    const pct = Math.round((count / TOTAL_LESSONS) * 100);
-    const navFill = document.getElementById('navProgressFill');
-    const navLabel = document.getElementById('navProgressLabel');
-    const sbFill = document.getElementById('sbProgressFill');
-    if (navFill) navFill.style.width = pct + '%';
-    if (navLabel) navLabel.textContent = count + ' of ' + TOTAL_LESSONS + ' lessons';
-    if (sbFill) sbFill.style.width = pct + '%';
+  if (lessonId === 'en-02') {
+    return `
+      <div class="l-thumb">
+        <div class="l-thumb-gradient"></div>
+        <div class="l-thumb-inner">
+          <span class="l-thumb-icon">🎧</span>
+          <div class="l-thumb-title">Listen: Three Levels, Same Introduction</div>
+          <div class="l-thumb-sub">CCA English Skills · Module 01</div>
+        </div>
+        <button class="l-thumb-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+      </div>
+      <div class="tags-row"><span class="tag tag-sky">Listening</span><span class="tag tag-gray">3 audio clips</span><span class="tag tag-green">Open Lesson</span></div>
+      <h2 class="l-title">Listen: the same introduction at three levels</h2>
+      <p class="l-desc">Three speakers. Same introduction. Three different vocabulary levels. Listen to each one carefully — not to judge, but to recognize where you are and feel confident about it.</p>
+      <div class="audio-section-title">Three speakers — one introduction</div>
+      <div class="audio-card"><button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button><div class="a-info"><div class="a-name">Speaker 1 — Basic English level</div><div class="a-meta">CCA English Skills · 0:32 · English</div><div class="a-bar"><div class="a-progress" style="width:0%"></div></div></div><div class="a-time">0:32</div></div>
+      <div class="audio-card"><button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button><div class="a-info"><div class="a-name">Speaker 2 — Intermediate English level</div><div class="a-meta">CCA English Skills · 0:48 · English</div><div class="a-bar"><div class="a-progress" style="width:0%"></div></div></div><div class="a-time">0:48</div></div>
+      <div class="audio-card"><button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button><div class="a-info"><div class="a-name">Speaker 3 — Advanced English level</div><div class="a-meta">CCA English Skills · 1:04 · English</div><div class="a-bar"><div class="a-progress" style="width:0%"></div></div></div><div class="a-time">1:04</div></div>
+      <p class="l-desc" style="margin-top:1.5rem;">Notice: all three speakers communicate clearly. All three would pass a call center interview. The difference is not confidence — it is vocabulary. And vocabulary grows with practice, not with fear.</p>`;
   }
-
-  function restoreProgress() {
-    const p = getProgress();
-    p.completed.forEach(id => {
-      const item = document.querySelector('[data-lesson="' + id + '"]');
-      if (item) item.classList.add('completed');
-    });
-    updateProgressUI();
+  if (lessonId === 'en-03') {
+    return `
+      <div class="l-thumb"><div class="l-thumb-gradient"></div><div class="l-thumb-inner"><span class="l-thumb-icon">✅</span><div class="l-thumb-title">Why Basic English Is Enough</div><div class="l-thumb-sub">CCA English Skills · Module 01</div></div></div>
+      <div class="tags-row"><span class="tag tag-sky">English</span><span class="tag tag-green">Open Lesson</span></div>
+      <h2 class="l-title">Why Basic English is the only level you need right now</h2>
+      <p class="l-desc">Stop waiting until your English is "better." Better than what? Better according to whom? The call center industry hires Basic English speakers every single day. What they need from you is clarity, not perfection.</p>
+      <p class="l-desc">Here is what Basic English gives you: the ability to greet a customer, follow a script, ask clarifying questions, document what happened, and close the interaction professionally. That is the job. Basic English covers all of it.</p>
+      <p class="l-desc">Words you will use at work every single day — KPI, nesting, adherence, CSAT — are not English words you learn in school. They are industry vocabulary. A native English speaker walking into a call center for the first time does not know them either. You learn them on the job, in any language.</p>
+      <div class="quiz-wrap"><div class="quiz-head"><div class="quiz-head-title">Quick check</div><div class="quiz-head-count">1 question</div></div><div class="quiz-body"><div class="quiz-q">According to the CEFR, what is the main difference between English levels?</div><div class="option" onclick="selectOption(this)"><div class="opt-letter">A</div>Grammar rules and sentence structure</div><div class="option" onclick="selectOption(this)"><div class="opt-letter">B</div>Vocabulary — the amount of words you know</div><div class="option" onclick="selectOption(this)"><div class="opt-letter">C</div>Pronunciation and accent</div><div class="option" onclick="selectOption(this)"><div class="opt-letter">D</div>Speed of speaking</div><button class="quiz-submit" onclick="submitQuiz('en-03', 1)">Check answer</button></div></div>`;
   }
-
-  // ── AD BLOCKER ────────────────────────────────────────
-  function detectAdBlocker(cb) {
-    const bait = document.createElement('div');
-    bait.className = 'ad ads adsbox doubleclick ad-placement carbon-ads';
-    bait.style.cssText = 'width:1px;height:1px;position:absolute;left:-9999px;top:-9999px;';
-    document.body.appendChild(bait);
-    setTimeout(() => {
-      const blocked = !bait.offsetParent || bait.offsetHeight === 0 || bait.offsetWidth === 0;
-      document.body.removeChild(bait);
-      cb(blocked);
-    }, 150);
+  if (lessonId === 'en-04') {
+    return `
+      <div class="l-thumb"><div class="l-thumb-gradient"></div><div class="l-thumb-inner"><span class="l-thumb-icon">📖</span><div class="l-thumb-title">Reading for the Floor</div><div class="l-thumb-sub">CCA English Skills · Reading</div></div></div>
+      <div class="tags-row"><span class="tag tag-sky">Reading</span><span class="tag tag-green">Open Lesson</span></div>
+      <h2 class="l-title">Reading for the floor — how to read a script without sounding like you are reading</h2>
+      <p class="l-desc">In a call center you will spend most of your time reading. Reading a script, reading a customer's account, reading instructions on your screen. The skill is not just reading — it is reading while sounding natural.</p>
+      <p class="l-desc">A customer should never know you are reading. The moment they feel like they are talking to someone reading from a page, the connection is gone. This lesson teaches you how to practice reading out loud so it sounds like conversation.</p>
+      <p class="l-desc" style="background:rgba(0,161,222,0.07);border-left:3px solid var(--sky);padding:1.25rem;border-radius:0 8px 8px 0;"><strong style="color:var(--indigo)">Practice tip:</strong> Read the sentence. Look away from the page. Say it. Look back. Check. Repeat until you can say it without looking. That is how you read without sounding like you are reading.</p>`;
   }
+  return null;
+}
 
-  function checkAdBlocker() {
-    detectAdBlocker(blocked => {
-      if (!blocked) {
-        document.getElementById('adblocker-wall').classList.remove('show');
-        showLobby();
-      } else {
-        const btn = document.querySelector('.ab-btn');
-        const orig = btn.textContent;
-        btn.textContent = 'Ad blocker still active — please try again';
-        setTimeout(() => { btn.textContent = orig; }, 2500);
-      }
-    });
-  }
+// ── AD BLOCKER ─────────────────────────────────────────
+function detectAdBlocker(cb) {
+  const bait = document.createElement('div');
+  bait.className = 'ad ads adsbox doubleclick ad-placement carbon-ads';
+  bait.style.cssText = 'width:1px;height:1px;position:absolute;left:-9999px;top:-9999px;';
+  document.body.appendChild(bait);
+  setTimeout(() => {
+    const blocked = !bait.offsetParent || bait.offsetHeight === 0 || bait.offsetWidth === 0;
+    document.body.removeChild(bait);
+    cb(blocked);
+  }, 150);
+}
 
-  // ── LOADING + BOOT ────────────────────────────────────
-  function showLobby() {
-    document.getElementById('lobby').classList.add('show');
-    calcSalary();
-  }
-
-  window.addEventListener('load', () => {
-    const isReturn = localStorage.getItem(LS_VISITED) === 'true';
-    if (isReturn) {
-      document.getElementById('loading-screen').style.display = 'none';
-      detectAdBlocker(blocked => {
-        if (blocked) document.getElementById('adblocker-wall').classList.add('show');
-        else showLobby();
-      });
+function checkAdBlocker() {
+  detectAdBlocker(blocked => {
+    if (!blocked) {
+      document.getElementById('adblocker-wall').classList.remove('show');
+      showLobby();
     } else {
-      localStorage.setItem(LS_VISITED, 'true');
-      setTimeout(() => {
-        const screen = document.getElementById('loading-screen');
-        screen.classList.add('fade-out');
-        setTimeout(() => {
-          screen.style.display = 'none';
-          detectAdBlocker(blocked => {
-            if (blocked) document.getElementById('adblocker-wall').classList.add('show');
-            else showLobby();
-          });
-        }, 500);
-      }, 5200);
+      const btn = document.querySelector('.ab-btn');
+      const orig = btn.textContent;
+      btn.textContent = 'Ad blocker still active — please try again';
+      setTimeout(() => { btn.textContent = orig; }, 2500);
     }
   });
+}
 
-  // ── CLASSROOM ENTER / EXIT ────────────────────────────
-  function enterClassroom() {
-    document.getElementById('lobby').classList.remove('show');
-    document.getElementById('classroom').classList.add('show');
-    document.body.style.overflow = 'hidden';
-    restoreProgress();
-    if (window.innerWidth < 768) {
-      document.getElementById('campusSidebar').classList.add('collapsed');
-    }
-  }
+function showLobby() {
+  document.getElementById('lobby').classList.add('show');
+  document.body.style.overflow = '';
+  calcSalary();
+}
 
-  function exitClassroom() {
-    document.getElementById('classroom').classList.remove('show');
-    document.getElementById('lobby').classList.add('show');
-    document.body.style.overflow = '';
-  }
-
-  // ── SIDEBAR ───────────────────────────────────────────
-  function toggleSidebar() {
-    document.getElementById('campusSidebar').classList.toggle('collapsed');
-    document.getElementById('sidebarOverlay').classList.toggle('show');
-  }
-
-  function toggleStage(id) {
-    const el = document.getElementById(id);
-    const chev = document.getElementById(id + '-chev');
-    const nameEl = document.getElementById(id + '-name');
-    const isOpen = el.style.display !== 'none';
-    el.style.display = isOpen ? 'none' : 'block';
-    if (chev) chev.classList.toggle('open', !isOpen);
-    if (nameEl) nameEl.classList.toggle('active', !isOpen);
-  }
-
-  function toggleSub(id) {
-    const sub = document.getElementById(id);
-    const chev = document.getElementById(id + '-chev');
-    const isOpen = sub.style.display !== 'none';
-    sub.style.display = isOpen ? 'none' : 'block';
-    if (chev) chev.style.transform = isOpen ? '' : 'rotate(90deg)';
-  }
-
-  function loadLesson(id) {
-    document.querySelectorAll('.lesson-item').forEach(i => i.classList.remove('active'));
-    const item = document.querySelector('[data-lesson="' + id + '"]');
-    if (item) item.classList.add('active');
-    const p = getProgress(); p.current = id; saveProgress(p);
-  }
-
-  function searchLessons(val) {
-    const q = val.toLowerCase();
-    document.querySelectorAll('.lesson-item').forEach(item => {
-      const txt = item.querySelector('.li-text');
-      if (txt) item.style.display = (!q || txt.textContent.toLowerCase().includes(q)) ? '' : 'none';
+// ── BOOT ───────────────────────────────────────────────
+window.addEventListener('load', () => {
+  const isReturn = localStorage.getItem(LS_VISITED) === 'true';
+  if (isReturn) {
+    document.getElementById('loading-screen').style.display = 'none';
+    detectAdBlocker(blocked => {
+      if (blocked) document.getElementById('adblocker-wall').classList.add('show');
+      else showLobby();
     });
-  }
-
-  // ── QUIZ (CLASSROOM) ──────────────────────────────────
-  function selectOption(el) {
-    document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-    el.classList.add('selected');
-  }
-  function submitQuiz() {
-    document.querySelectorAll('.option').forEach((o, i) => {
-      if (i === 2) o.classList.add('correct');
-      else if (o.classList.contains('selected')) o.classList.add('wrong');
-    });
-    markCompleted('interview-calls');
-  }
-  function markAndNav(dir) { markCompleted('interview-calls'); }
-
-  // ── AUDIO ─────────────────────────────────────────────
-  function togglePlay(btn) {
-    btn.classList.toggle('playing');
-    const svg = btn.querySelector('svg');
-    svg.innerHTML = btn.classList.contains('playing')
-      ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
-      : '<polygon points="5 3 19 12 5 21 5 3"/>';
-  }
-
-  // ── MODALS ────────────────────────────────────────────
-  function openModal(id) {
-    document.getElementById(id).classList.add('open');
-    document.body.style.overflow = 'hidden';
-    if (id === 'salaryModal') calcSalary();
-  }
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function closeModalOutside(e, id) {
-    if (e.target === document.getElementById(id)) closeModal(id);
-  }
-
-  // ── PROJECT FINDER ────────────────────────────────────
-  const finderQuestions = [
-    { q: "How do you react when someone raises their voice at you?", opts: ["I stay calm and let them speak", "I get tense but I manage it", "I find it very hard to focus"], fit: [0,1,2], avoid: [2,1,0] },
-    { q: "How comfortable are you talking about money and payment problems?", opts: ["Very comfortable — it's just business", "A little awkward but I manage", "I find it deeply uncomfortable"], fit: [1,0,2], avoid: [2,1,0] },
-    { q: "Which best describes how you solve problems?", opts: ["I follow a process step by step", "I improvise based on the situation", "I prefer someone to guide me"], fit: [2,1,0], avoid: [0,2,1] },
-    { q: "How do you handle pressure to hit numbers every day?", opts: ["It motivates me — I love the competition", "It stresses me but I push through", "I shut down under that kind of pressure"], fit: [1,0,2], avoid: [2,1,0] },
-    { q: "How would you describe your natural communication style?", opts: ["Warm, patient, and empathetic", "Direct and efficient", "Detailed and technical"], fit: [0,1,2], avoid: [2,0,1] },
-    { q: "What matters most to you in a job?", opts: ["Helping people feel better", "Earning commissions and hitting goals", "Working independently with clear processes"], fit: [0,1,2], avoid: [2,0,1] }
-  ];
-
-  const finderResults = [
-    { fit: "Customer Service", fitWhy: "Your warmth and patience under pressure make you exceptional at inbound customer service. You genuinely want to help — and customers feel that.", avoid: "Collections", avoidWhy: "Your empathy is a strength everywhere except collections. Hearing 'I can't pay, I lost my son' would break you every day. That account needs emotional distance you don't have — and shouldn't want." },
-    { fit: "Sales", fitWhy: "Your drive for results and comfort with pressure translate directly into sales performance. You close because you care about winning — and that energy is contagious.", avoid: "Back Office", avoidWhy: "You need energy and human interaction to perform. Silent, repetitive non-voice work will drain you quickly. Your competitive nature needs a leaderboard, not a spreadsheet." },
-    { fit: "Tech Support", fitWhy: "Your methodical, process-driven thinking is exactly what structured troubleshooting requires. You follow the path, don't improvise, and that's what resolves technical issues correctly.", avoid: "Sales", avoidWhy: "Sales requires improvisation and emotional reading in real time. Your preference for clear processes will frustrate you when a customer goes off-script and you need to adapt on the fly." },
-    { fit: "Retention", fitWhy: "You stay calm under pressure and know how to read people emotionally. Saving a relationship that's about to walk out the door is exactly the kind of challenge that brings out your best.", avoid: "Collections", avoidWhy: "Collections is confrontational by nature. Your strengths live in persuasion and connection — not in firm recovery conversations with people who are already resistant and upset." },
-    { fit: "Collections", fitWhy: "Your emotional distance and comfort with difficult money conversations are rare — and exactly what collections demands. You separate the business from the person, which is how this account works.", avoid: "Customer Service", avoidWhy: "Standard inbound customer service will bore you. You're built for high-stakes conversations, not routine inquiries. Your energy needs an account that challenges you every call." },
-    { fit: "Back Office", fitWhy: "Your need for independence and clear processes makes back office work deeply satisfying. You deliver results without needing an audience — and your accuracy is where you shine.", avoid: "Sales", avoidWhy: "Sales is unpredictable and people-driven. You perform best when the rules are clear and consistent. An account where the script changes every call and success depends on personality will exhaust you." }
-  ];
-
-  let finderStep = 0;
-  let finderAnswers = [];
-  let finderSelectedOpt = -1;
-
-  function startFinder() {
-    finderStep = 0;
-    finderAnswers = [];
-    finderSelectedOpt = -1;
-    document.querySelector('.finder-start').style.display = 'none';
-    document.getElementById('finderQuestionWrap').style.display = 'block';
-    renderFinderQuestion();
-  }
-
-  function renderFinderQuestion() {
-    const q = finderQuestions[finderStep];
-    const pct = Math.round((finderStep / finderQuestions.length) * 100);
-    document.getElementById('finderQFill').style.width = pct + '%';
-    document.getElementById('finderQLabel').textContent = 'Question ' + (finderStep + 1) + ' of ' + finderQuestions.length;
-    document.getElementById('finderQText').textContent = q.q;
-    const container = document.getElementById('finderQOptions');
-    container.innerHTML = q.opts.map((opt, i) =>
-      '<div class="finder-q-option" onclick="selectFinderOpt(this, ' + i + ')"><div class="finder-q-opt-dot"></div>' + opt + '</div>'
-    ).join('');
-    finderSelectedOpt = -1;
-    document.getElementById('finderQNext').disabled = true;
-  }
-
-  function selectFinderOpt(el, idx) {
-    document.querySelectorAll('.finder-q-option').forEach(o => o.classList.remove('selected'));
-    el.classList.add('selected');
-    finderSelectedOpt = idx;
-    document.getElementById('finderQNext').disabled = false;
-  }
-
-  function nextFinderQuestion() {
-    if (finderSelectedOpt === -1) return;
-    finderAnswers.push(finderSelectedOpt);
-    finderStep++;
-    if (finderStep >= finderQuestions.length) {
-      showFinderThinking();
-    } else {
-      renderFinderQuestion();
-    }
-  }
-
-  function showFinderThinking() {
-    document.getElementById('finderQuestionWrap').style.display = 'none';
-    document.getElementById('finderThinking').style.display = 'block';
-    setTimeout(showFinderResult, 2200);
-  }
-
-  function showFinderResult() {
-    const sum = finderAnswers.reduce((a, b) => a + b, 0);
-    const idx = sum % finderResults.length;
-    const result = finderResults[idx];
-    document.getElementById('finderFitAccount').textContent = result.fit;
-    document.getElementById('finderFitWhy').textContent = result.fitWhy;
-    document.getElementById('finderAvoidAccount').textContent = result.avoid;
-    document.getElementById('finderAvoidWhy').textContent = result.avoidWhy;
-    document.getElementById('finderThinking').style.display = 'none';
-    document.getElementById('finderResultWrap').style.display = 'flex';
-  }
-
-  function resetFinderModal() {
-    document.getElementById('finderResultWrap').style.display = 'none';
-    document.getElementById('finderThinking').style.display = 'none';
-    document.getElementById('finderQuestionWrap').style.display = 'none';
-    document.querySelector('.finder-start').style.display = 'block';
-  }
-
-  // ── SALARY CALCULATOR ─────────────────────────────────
-  function calcSalary() {
-    const rent = parseFloat(document.getElementById('sal-rent')?.value) || 0;
-    const transport = parseFloat(document.getElementById('sal-transport')?.value) || 0;
-    const food = parseFloat(document.getElementById('sal-food')?.value) || 0;
-    const phone = parseFloat(document.getElementById('sal-phone')?.value) || 0;
-    const other = parseFloat(document.getElementById('sal-other')?.value) || 0;
-    const total = rent + transport + food + phone + other;
-    const hoursPerMonth = 160;
-    const minHourly = Math.ceil((total / hoursPerMonth) * 1.2);
-    const el = document.getElementById('salaryResult');
-    if (el) el.textContent = 'RD$ ' + minHourly.toLocaleString() + '/hr';
-  }
-
-  // ── CV BUILDER (DEMO FLOW) ────────────────────────────
-  const cvFlow = [
-    "What was your most recent job? Give me the company name and what you did there.",
-    "Got it. Did you ever handle complaints or resolve issues with customers directly?",
-    "Perfect. Do you have any experience using computers for data entry or documentation?",
-    "Great. Based on what you've shared, I can build you a strong call center CV. Your customer-facing experience is exactly what recruiters look for."
-  ];
-  let cvStep = 0;
-
-  function sendCvMessage() {
-    const input = document.getElementById('cvInput');
-    const val = input.value.trim();
-    if (!val) return;
-    const chat = document.getElementById('cvChat');
-    const userBubble = document.createElement('div');
-    userBubble.className = 'cv-bubble user';
-    userBubble.textContent = val;
-    chat.appendChild(userBubble);
-    input.value = '';
-    cvStep++;
-    if (cvStep < cvFlow.length) {
+  } else {
+    localStorage.setItem(LS_VISITED, 'true');
+    setTimeout(() => {
+      const screen = document.getElementById('loading-screen');
+      screen.classList.add('fade-out');
       setTimeout(() => {
-        const aiBubble = document.createElement('div');
-        aiBubble.className = 'cv-bubble ai';
-        aiBubble.textContent = cvFlow[cvStep];
-        chat.appendChild(aiBubble);
-        chat.scrollTop = chat.scrollHeight;
-      }, 600);
-    }
-    chat.scrollTop = chat.scrollHeight;
+        screen.style.display = 'none';
+        detectAdBlocker(blocked => {
+          if (blocked) document.getElementById('adblocker-wall').classList.add('show');
+          else showLobby();
+        });
+      }, 500);
+    }, 5200);
   }
+});
 
-  // ── GLOSSARY ──────────────────────────────────────────
-  function filterGlossary(val) {
-    const q = val.toLowerCase();
-    document.querySelectorAll('.glossary-item').forEach(item => {
-      const term = item.querySelector('.g-term').textContent.toLowerCase();
-      const def = item.querySelector('.g-def').textContent.toLowerCase();
-      item.style.display = (!q || term.includes(q) || def.includes(q)) ? '' : 'none';
-    });
+// ── NAVIGATION ─────────────────────────────────────────
+function enterLevel2() {
+  document.getElementById('lobby').classList.remove('show');
+  document.getElementById('level2').classList.add('show');
+  window.scrollTo(0, 0);
+}
+
+function exitLevel2() {
+  document.getElementById('level2').classList.remove('show');
+  document.getElementById('lobby').classList.add('show');
+  window.scrollTo(0, 0);
+}
+
+let currentCourse = null;
+let currentLessonId = null;
+
+function enterClassroom(courseId) {
+  currentCourse = courseId;
+  const course = COURSES[courseId];
+  document.getElementById('level2').classList.remove('show');
+  document.getElementById('classroom').classList.add('show');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('pnavCourseName').textContent = course.name;
+  document.getElementById('sbHeadTitle').textContent = course.name;
+  document.getElementById('bcStage').textContent = course.name;
+  buildSidebar(courseId);
+  updateProgressUI(courseId);
+  if (window.innerWidth < 768) {
+    document.getElementById('campusSidebar').classList.add('collapsed');
   }
+}
+
+function exitClassroom() {
+  document.getElementById('classroom').classList.remove('show');
+  document.getElementById('level2').classList.add('show');
+  document.body.style.overflow = '';
+  currentCourse = null;
+  currentLessonId = null;
+}
+
+function goToNextCourse() {
+  closeCompletion();
+  exitClassroom();
+}
+
+// ── SIDEBAR ────────────────────────────────────────────
+function buildSidebar(courseId) {
+  const course = COURSES[courseId];
+  const p = getProgress();
+  const completed = p.completed[courseId] || [];
+  const nav = document.getElementById('sbNav');
+  nav.innerHTML = '';
+
+  course.lessons.forEach((stage, si) => {
+    const stageRow = document.createElement('div');
+    stageRow.className = 'stage-row';
+    stageRow.innerHTML = `<div class="stage-dot" style="background:${stage.dot}"></div><span class="stage-name active" id="sname-${si}">${stage.name}</span><span class="stage-count">${stage.items.length}</span><span class="stage-chev open" id="schev-${si}">▸</span>`;
+    stageRow.onclick = () => toggleStage(`slist-${si}`, si);
+    nav.appendChild(stageRow);
+
+    const list = document.createElement('div');
+    list.className = 'lesson-list';
+    list.id = `slist-${si}`;
+
+    stage.items.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'lesson-item' + (completed.includes(item.id) ? ' completed' : '');
+      div.setAttribute('data-lesson', item.id);
+      div.setAttribute('data-open', item.open);
+      div.innerHTML = `<div class="li-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="li-text">${item.title}</span>${!item.open ? '<span class="li-lock">🔒</span>' : ''}`;
+      div.onclick = () => handleLessonClick(item.id, item.open);
+      list.appendChild(div);
+    });
+
+    nav.appendChild(list);
+  });
+
+  // Glossary entry
+  const glossaryDiv = document.createElement('div');
+  glossaryDiv.className = 'glossary-entry';
+  glossaryDiv.innerHTML = `<div class="glossary-entry-title">📖 The Glossary</div><div class="glossary-entry-desc">Every word you will encounter in a call center world, explained with real examples from the floor.</div><button class="glossary-entry-btn" onclick="showLockWall()">Access the Glossary</button>`;
+  nav.appendChild(glossaryDiv);
+}
+
+function toggleStage(id, si) {
+  const el = document.getElementById(id);
+  const chev = document.getElementById(`schev-${si}`);
+  const name = document.getElementById(`sname-${si}`);
+  const isOpen = el.style.display !== 'none';
+  el.style.display = isOpen ? 'none' : 'block';
+  if (chev) chev.classList.toggle('open', !isOpen);
+  if (name) name.classList.toggle('active', !isOpen);
+}
+
+function toggleSidebar() {
+  document.getElementById('campusSidebar').classList.toggle('collapsed');
+  document.getElementById('sidebarOverlay').classList.toggle('show');
+}
+
+function searchLessons(val) {
+  const q = val.toLowerCase();
+  document.querySelectorAll('.lesson-item').forEach(item => {
+    const txt = item.querySelector('.li-text');
+    if (txt) item.style.display = (!q || txt.textContent.toLowerCase().includes(q)) ? '' : 'none';
+  });
+}
+
+// ── LESSON LOADING ─────────────────────────────────────
+function handleLessonClick(lessonId, isOpen) {
+  if (!isOpen) { showLockWall(); return; }
+  loadLesson(lessonId);
+}
+
+function loadLesson(lessonId) {
+  currentLessonId = lessonId;
+  document.querySelectorAll('.lesson-item').forEach(i => i.classList.remove('active'));
+  const item = document.querySelector(`[data-lesson="${lessonId}"]`);
+  if (item) item.classList.add('active');
+
+  const content = getLessonContent(lessonId);
+  const body = document.getElementById('lessonBody');
+  const footer = document.getElementById('lessonFooter');
+
+  if (content) {
+    body.innerHTML = content;
+    footer.style.display = 'flex';
+    document.getElementById('bcLesson').textContent = item ? item.querySelector('.li-text').textContent : lessonId;
+    document.getElementById('bcTag').textContent = 'Free';
+  } else {
+    body.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:3rem;"><div style="font-size:64px;margin-bottom:1.5rem;">📝</div><h2 style="font-family:'Playfair Display',serif;font-size:26px;color:var(--indigo);margin-bottom:1rem;">Content coming soon</h2><p style="font-size:17px;color:var(--muted);line-height:1.8;max-width:400px;">This lesson is being produced. Join the waitlist to be notified when it goes live.</p><a href="waitlist.html" style="margin-top:1.5rem;padding:14px 32px;background:var(--yellow);color:var(--indigo);font-family:'Josefin Sans',sans-serif;font-size:14px;font-weight:700;border-radius:10px;text-decoration:none;">Join the waitlist</a></div>`;
+    footer.style.display = 'none';
+  }
+  markCompleted(currentCourse, lessonId);
+  checkCourseCompletion();
+}
+
+function checkCourseCompletion() {
+  if (!currentCourse) return;
+  const course = COURSES[currentCourse];
+  const p = getProgress();
+  const completed = p.completed[currentCourse] || [];
+  const openLessons = course.lessons.flatMap(s => s.items.filter(i => i.open).map(i => i.id));
+  if (openLessons.length > 0 && openLessons.every(id => completed.includes(id))) {
+    setTimeout(() => showCompletion(currentCourse), 800);
+  }
+}
+
+function navLesson(dir) {
+  if (!currentCourse || !currentLessonId) return;
+  const course = COURSES[currentCourse];
+  const allOpen = course.lessons.flatMap(s => s.items.filter(i => i.open));
+  const idx = allOpen.findIndex(i => i.id === currentLessonId);
+  if (dir === 'next' && idx < allOpen.length - 1) loadLesson(allOpen[idx + 1].id);
+  if (dir === 'prev' && idx > 0) loadLesson(allOpen[idx - 1].id);
+}
+
+// ── LOCK WALL ──────────────────────────────────────────
+function showLockWall() {
+  document.getElementById('lock-wall').classList.add('show');
+}
+function closeLock() {
+  document.getElementById('lock-wall').classList.remove('show');
+}
+document.getElementById('lock-wall').addEventListener('click', function(e) {
+  if (e.target === this) closeLock();
+});
+
+// ── COMPLETION ─────────────────────────────────────────
+function showCompletion(courseId) {
+  const names = { english: 'English Skills', computer: 'Computer Skills', callcenter: 'Call Center Skills' };
+  const next  = { english: 'Computer Skills', computer: 'Call Center Skills', callcenter: null };
+  document.getElementById('completionTitle').textContent = names[courseId] + ' — Complete!';
+  document.getElementById('completionSub').textContent = next[courseId]
+    ? `You have finished the open lessons in ${names[courseId]}. The next course is ${next[courseId]}.`
+    : `You have completed all open lessons in ${names[courseId]}. Join the waitlist for full access.`;
+  const btn = document.getElementById('completionNextBtn');
+  if (next[courseId]) { btn.textContent = `Continue to ${next[courseId]}`; btn.style.display = 'block'; }
+  else { btn.style.display = 'none'; }
+  document.getElementById('completion-popup').classList.add('show');
+}
+function closeCompletion() {
+  document.getElementById('completion-popup').classList.remove('show');
+}
+
+// ── QUIZ ───────────────────────────────────────────────
+function selectOption(el) {
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function submitQuiz(lessonId, correctIdx) {
+  document.querySelectorAll('.option').forEach((o, i) => {
+    if (i === correctIdx) o.classList.add('correct');
+    else if (o.classList.contains('selected')) o.classList.add('wrong');
+  });
+  if (currentCourse && lessonId) markCompleted(currentCourse, lessonId);
+}
+
+// ── AUDIO ──────────────────────────────────────────────
+function togglePlay(btn) {
+  btn.classList.toggle('playing');
+  const svg = btn.querySelector('svg');
+  svg.innerHTML = btn.classList.contains('playing')
+    ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
+    : '<polygon points="5 3 19 12 5 21 5 3"/>';
+}
+
+// ── MODALS ─────────────────────────────────────────────
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (id === 'salaryModal') calcSalary();
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e, id) {
+  if (e.target === document.getElementById(id)) closeModal(id);
+}
+
+// ── SALARY CALCULATOR ──────────────────────────────────
+function calcSalary() {
+  const vals = ['sal-rent','sal-transport','sal-food','sal-phone','sal-other'].map(id => parseFloat(document.getElementById(id)?.value) || 0);
+  const total = vals.reduce((a,b) => a+b, 0);
+  const min = Math.ceil((total / 160) * 1.2);
+  const el = document.getElementById('salaryResult');
+  if (el) el.textContent = 'RD$ ' + min.toLocaleString() + '/hr';
+}
+
+// ── AI CHAT HELPER ─────────────────────────────────────
+let cvMsgCount = 0;
+let letterMsgCount = 0;
+const MAX_MESSAGES = 10;
+
+async function callClaude(systemPrompt, messages) {
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: MODEL, max_tokens: 1000, system: systemPrompt, messages })
+    });
+    const data = await response.json();
+    return data.content?.[0]?.text || '';
+  } catch { return 'Something went wrong. Please try again.'; }
+}
+
+function appendBubble(chatId, text, role) {
+  const chat = document.getElementById(chatId);
+  const div = document.createElement('div');
+  div.className = `chat-bubble ${role}`;
+  div.textContent = text;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function showTyping(chatId) {
+  const chat = document.getElementById(chatId);
+  const div = document.createElement('div');
+  div.className = 'chat-typing'; div.id = chatId + '-typing';
+  div.innerHTML = '<span></span><span></span><span></span>';
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function removeTyping(chatId) {
+  const el = document.getElementById(chatId + '-typing');
+  if (el) el.remove();
+}
+
+// CV messages history
+let cvHistory = [];
+
+async function sendCvMessage() {
+  if (cvMsgCount >= MAX_MESSAGES) return;
+  const input = document.getElementById('cvInput');
+  const val = input.value.trim();
+  if (!val) return;
+  appendBubble('cvChat', val, 'user');
+  input.value = '';
+  cvHistory.push({ role: 'user', content: val });
+  cvMsgCount++;
+  showTyping('cvChat');
+  const reply = await callClaude(CV_SYSTEM, cvHistory);
+  removeTyping('cvChat');
+  if (reply === 'SESSION_END') {
+    appendBubble('cvChat', 'This session is now closed. For anything else, visit claude.ai/new', 'ai');
+    input.disabled = true;
+    document.querySelector('#cvModal .chat-send').disabled = true;
+    return;
+  }
+  appendBubble('cvChat', reply, 'ai');
+  cvHistory.push({ role: 'assistant', content: reply });
+}
+
+// Letter messages history
+let letterHistory = [{ role: 'assistant', content: document.querySelector('#letterChat .chat-bubble.ai').textContent }];
+let letterMsgCountSession = 0;
+
+async function sendLetterMessage() {
+  if (letterMsgCountSession >= MAX_MESSAGES) return;
+  const input = document.getElementById('letterInput');
+  const val = input.value.trim();
+  if (!val) return;
+  appendBubble('letterChat', val, 'user');
+  input.value = '';
+  letterHistory.push({ role: 'user', content: val });
+  letterMsgCountSession++;
+  showTyping('letterChat');
+  const reply = await callClaude(LETTER_SYSTEM, letterHistory);
+  removeTyping('letterChat');
+  if (reply === 'SESSION_END') {
+    appendBubble('letterChat', 'This session is now closed. For anything else, visit claude.ai/new', 'ai');
+    input.disabled = true;
+    document.querySelector('#letterModal .chat-send').disabled = true;
+    return;
+  }
+  appendBubble('letterChat', reply, 'ai');
+  letterHistory.push({ role: 'assistant', content: reply });
+}
+
+// ── MATCHER ────────────────────────────────────────────
+let matcherLang = 'en';
+let matcherStep = 0;
+let matcherAnswers = [];
+let matcherSelectedOpt = -1;
+
+const MATCHER_QUESTIONS = {
+  en: [
+    { q: "Imagine a customer calls you crying about a problem. How does that affect you?", opts: ["A) It doesn't really affect me — I stay focused on solving the problem.", "B) I think I could cry or at least feel bad for them."] },
+    { q: "You call someone and that person curses at you, yells, and hangs up abruptly. How do you feel?", opts: ["A) I will feel bad. That kind of call stays with me.", "B) I don't care. I hang up and make the next call."] },
+    { q: "The customer is really slow following your instructions. What happens inside you?", opts: ["A) I get desperate and want to get rid of that call as fast as possible.", "B) It's fine. I am here to help and I will take the time they need."] },
+    { q: "Someone tells you they can't pay their bill because they lost their job and have kids at home.", opts: ["A) I understand the situation but I still need to do my job and collect.", "B) That breaks my heart. I find it very hard to push forward."] },
+    { q: "Which best describes how you solve problems?", opts: ["A) I follow a process step by step until I find the answer.", "B) I improvise and adapt based on what the person is telling me."] },
+    { q: "Which one are you closer to?", opts: ["A) Introverted — I prefer working quietly and independently.", "B) Extroverted — I get energy from talking to people."] },
+    { q: "Do you enjoy talking to people for long periods of time?", opts: ["A) Yes — I could talk all day.", "B) No — it drains me after a while."] },
+    { q: "A customer has a technical issue and needs you to walk them through fixing it step by step. They are not tech-savvy at all.", opts: ["A) I'm comfortable. I explain things clearly and patiently.", "B) I get frustrated when people don't understand basic technology."] },
+    { q: "How do you feel about being measured by numbers — calls per hour, handle time, customer satisfaction scores?", opts: ["A) It motivates me. I want to see my numbers and improve them.", "B) It stresses me. I prefer to focus on quality over quantity."] },
+    { q: "A customer wants to cancel their service. Your job is to convince them to stay. How do you feel about that?", opts: ["A) I like the challenge. I want to save the account.", "B) I feel uncomfortable pushing someone to stay if they want to leave."] },
+    { q: "You are making outbound calls to people who did not ask to be contacted. Some hang up, some are rude.", opts: ["A) That's fine. I keep going. Every call is a new opportunity.", "B) Rejection from strangers bothers me more than it probably should."] },
+    { q: "Which kind of work sounds more like you?", opts: ["A) Processing documents, reviewing information, making sure everything is accurate.", "B) Talking to customers, solving their problems, building the interaction."] },
+    { q: "A customer is pushing back on a payment arrangement you offered. How do you handle it?", opts: ["A) I hold firm and negotiate. I know what I can and can't offer.", "B) I get uncomfortable with conflict and tend to give more than I should."] },
+    { q: "How do you feel about repetitive work — doing the same type of task hundreds of times a day?", opts: ["A) Fine with it. Consistency is good and I find my rhythm.", "B) I get bored quickly. I need variety to stay engaged."] },
+    { q: "You are about to start this job. What matters most to you?", opts: ["A) The salary, the commissions, the performance bonuses.", "B) The schedule, the environment, the people I will work with."] }
+  ],
+  es: [
+    { q: "Imagina que un cliente te llama llorando por un problema. ¿Cómo te afecta eso?", opts: ["A) No me afecta mucho — me concentro en resolver el problema.", "B) Creo que podría llorar o al menos sentirme mal por esa persona."] },
+    { q: "Llamas a alguien y esa persona te insulta, te grita y cuelga abruptamente. ¿Cómo te sientes?", opts: ["A) Me va a afectar. Ese tipo de llamada se me queda en la cabeza.", "B) No me importa. Cuelgo y marco el siguiente."] },
+    { q: "El cliente es muy lento siguiendo tus instrucciones. ¿Qué pasa dentro de ti?", opts: ["A) Me desespero y quiero terminar esa llamada lo más rápido posible.", "B) No hay problema. Estoy aquí para ayudar y tomaré el tiempo que necesiten."] },
+    { q: "Alguien te dice que no puede pagar su factura porque perdió su trabajo y tiene hijos en casa.", opts: ["A) Entiendo la situación pero igual tengo que hacer mi trabajo y cobrar.", "B) Eso me rompe el corazón. Me cuesta mucho seguir adelante."] },
+    { q: "¿Cuál describe mejor cómo resuelves problemas?", opts: ["A) Sigo un proceso paso a paso hasta encontrar la respuesta.", "B) Improviso y me adapto según lo que me dice la persona."] },
+    { q: "¿Con cuál te identificas más?", opts: ["A) Introvertido/a — prefiero trabajar tranquilo/a e independiente.", "B) Extrovertido/a — me da energía hablar con personas."] },
+    { q: "¿Disfrutas hablar con personas por largos períodos de tiempo?", opts: ["A) Sí — podría hablar todo el día.", "B) No — me agota después de un rato."] },
+    { q: "Un cliente tiene un problema técnico y necesitas guiarlo paso a paso. No sabe nada de tecnología.", opts: ["A) Me siento cómodo/a. Explico las cosas con claridad y paciencia.", "B) Me frustra cuando las personas no entienden tecnología básica."] },
+    { q: "¿Cómo te sientes siendo medido/a por números — llamadas por hora, tiempo de manejo, satisfacción del cliente?", opts: ["A) Me motiva. Quiero ver mis números y mejorarlos.", "B) Me estresa. Prefiero concentrarme en la calidad."] },
+    { q: "Un cliente quiere cancelar su servicio. Tu trabajo es convencerlo de quedarse. ¿Cómo te sientes?", opts: ["A) Me gusta el reto. Quiero salvar la cuenta.", "B) Me incomoda presionar a alguien para que se quede si quiere irse."] },
+    { q: "Estás haciendo llamadas salientes a personas que no pidieron ser contactadas. Algunos cuelgan, otros son groseros.", opts: ["A) Está bien. Sigo adelante. Cada llamada es una nueva oportunidad.", "B) El rechazo de extraños me afecta más de lo que debería."] },
+    { q: "¿Cuál tipo de trabajo se parece más a ti?", opts: ["A) Procesar documentos, revisar información, asegurarme de que todo esté correcto.", "B) Hablar con clientes, resolver sus problemas, construir la interacción."] },
+    { q: "Un cliente rechaza el acuerdo de pago que ofreciste. ¿Cómo lo manejas?", opts: ["A) Me mantengo firme y negocio. Sé lo que puedo y no puedo ofrecer.", "B) El conflicto me incomoda y tiendo a dar más de lo que debería."] },
+    { q: "¿Cómo te sientes con trabajo repetitivo — hacer el mismo tipo de tarea cientos de veces al día?", opts: ["A) Bien. La consistencia es buena y encuentro mi ritmo.", "B) Me aburro rápido. Necesito variedad para mantenerme activo/a."] },
+    { q: "Estás a punto de empezar este trabajo. ¿Qué te importa más?", opts: ["A) El salario, las comisiones, los bonos por desempeño.", "B) El horario, el ambiente, las personas con quienes voy a trabajar."] }
+  ]
+};
+
+const MATCHER_RESULTS = {
+  en: [
+    { fit: "Customer Service", fitWhy: "Your warmth and patience under pressure make you exceptional at inbound customer service. You genuinely want to help — and customers feel that immediately.", avoid: "Collections", avoidWhy: "Your empathy is a strength everywhere except collections. Hearing 'I can't pay, I lost my son' would break you every day. That account needs emotional distance you don't have — and shouldn't want." },
+    { fit: "Collections", fitWhy: "Your emotional resilience and comfort with difficult money conversations are exactly what collections accounts demand. You separate the business from the person — that's how this account works.", avoid: "Customer Service", avoidWhy: "Standard inbound service will bore you. You are built for high-stakes conversations, not routine inquiries." },
+    { fit: "Tech Support", fitWhy: "Your methodical, process-driven thinking is what structured troubleshooting requires. You follow the path, don't improvise, and that's what resolves technical issues correctly.", avoid: "Sales", avoidWhy: "Sales requires constant improvisation. Your preference for clear processes will frustrate you when a customer goes off-script and you need to adapt in real time." },
+    { fit: "Retention", fitWhy: "You stay calm under pressure and know how to read people emotionally. Saving a relationship that's about to walk out the door is exactly the kind of challenge that brings out your best.", avoid: "Collections", avoidWhy: "Collections is confrontational by nature. Your strengths live in persuasion and connection — not in firm recovery conversations with resistant customers." },
+    { fit: "Sales", fitWhy: "Your drive for results and comfort with rejection make you effective in sales environments. You close because you want to win — and that energy is contagious.", avoid: "Back Office", avoidWhy: "You need energy and human interaction to perform. Silent, repetitive non-voice work will drain you fast." },
+    { fit: "Back Office", fitWhy: "Your need for independence and clear processes makes back office work deeply satisfying. You deliver results without needing an audience — and your accuracy is where you shine.", avoid: "Sales", avoidWhy: "Sales is unpredictable and people-driven. You perform best when the rules are consistent. An account where success depends on personality every call will exhaust you." }
+  ],
+  es: [
+    { fit: "Servicio al Cliente", fitWhy: "Tu calidez y paciencia bajo presión te hacen excepcional en servicio al cliente entrante. Genuinamente quieres ayudar — y los clientes lo sienten de inmediato.", avoid: "Cobros", avoidWhy: "Tu empatía es una fortaleza en todos lados excepto en cobros. Escuchar 'no puedo pagar, perdí a mi hijo' te rompería todos los días. Esa cuenta necesita distancia emocional que tú no tienes — y no deberías tener." },
+    { fit: "Cobros", fitWhy: "Tu resiliencia emocional y comodidad con conversaciones difíciles de dinero son exactamente lo que las cuentas de cobro exigen. Separas el negocio de la persona — así funciona esa cuenta.", avoid: "Servicio al Cliente", avoidWhy: "El servicio entrante estándar te va a aburrir. Estás hecho/a para conversaciones de alto riesgo, no para consultas de rutina." },
+    { fit: "Soporte Técnico", fitWhy: "Tu pensamiento metódico y orientado a procesos es lo que requiere el soporte técnico estructurado. Sigues el camino, no improvisas, y eso es lo que resuelve los problemas técnicos correctamente.", avoid: "Ventas", avoidWhy: "Las ventas requieren improvisación constante. Tu preferencia por procesos claros te frustrará cuando un cliente se salga del guión." },
+    { fit: "Retención", fitWhy: "Te mantienes calmado/a bajo presión y sabes leer a las personas emocionalmente. Salvar una relación que está a punto de irse es exactamente el tipo de reto que saca lo mejor de ti.", avoid: "Cobros", avoidWhy: "Cobros es confrontacional por naturaleza. Tus fortalezas viven en la persuasión y la conexión — no en conversaciones de recuperación con clientes resistentes." },
+    { fit: "Ventas", fitWhy: "Tu impulso por resultados y tu comodidad con el rechazo te hacen efectivo/a en entornos de ventas. Cierras porque quieres ganar — y esa energía es contagiosa.", avoid: "Back Office", avoidWhy: "Necesitas energía e interacción humana para rendir. El trabajo no vocal, silencioso y repetitivo te va a agotar rápido." },
+    { fit: "Back Office", fitWhy: "Tu necesidad de independencia y procesos claros hace que el trabajo de back office sea profundamente satisfactorio. Entregas resultados sin necesitar audiencia — y tu precisión es donde brillas.", avoid: "Ventas", avoidWhy: "Las ventas son impredecibles y orientadas a personas. Rindes mejor cuando las reglas son consistentes. Una cuenta donde el éxito depende de la personalidad en cada llamada te agotará." }
+  ]
+};
+
+function selectLang(lang, btn) {
+  matcherLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('matcherLangSelect').style.display = 'none';
+  document.getElementById('matcherIntro').style.display = 'block';
+  if (lang === 'es') {
+    document.getElementById('matcherIntroTitle').textContent = 'Antes de tu próxima entrevista.';
+    document.getElementById('matcherIntroDesc').textContent = 'Te presentaremos algunos escenarios. Para cada uno, elige la opción que más se acerque a quien eres. Sé honesto/a — no hay respuestas incorrectas, solo la verdad sobre tu personalidad.';
+    document.getElementById('matcherStartBtn').textContent = 'Comenzar el test →';
+  }
+}
+
+function startMatcher() {
+  matcherStep = 0; matcherAnswers = []; matcherSelectedOpt = -1;
+  document.getElementById('matcherIntro').style.display = 'none';
+  document.getElementById('matcherQWrap').style.display = 'block';
+  renderMatcherQ();
+}
+
+function renderMatcherQ() {
+  const qs = MATCHER_QUESTIONS[matcherLang];
+  const q  = qs[matcherStep];
+  const pct = Math.round((matcherStep / qs.length) * 100);
+  document.getElementById('matcherQFill').style.width = pct + '%';
+  document.getElementById('matcherQLabel').textContent = (matcherLang === 'es' ? 'Pregunta ' : 'Question ') + (matcherStep + 1) + (matcherLang === 'es' ? ' de ' : ' of ') + qs.length;
+  document.getElementById('matcherQText').textContent = q.q;
+  const container = document.getElementById('matcherOptions');
+  container.innerHTML = q.opts.map((opt, i) =>
+    `<div class="matcher-option" onclick="selectMatcherOpt(this,${i})"><div class="matcher-opt-letter">${String.fromCharCode(65+i)}</div>${opt.substring(3)}</div>`
+  ).join('');
+  matcherSelectedOpt = -1;
+  document.getElementById('matcherNextBtn').disabled = true;
+  const nextLabel = matcherStep < MATCHER_QUESTIONS[matcherLang].length - 1
+    ? (matcherLang === 'es' ? 'Siguiente →' : 'Next →')
+    : (matcherLang === 'es' ? 'Ver resultados →' : 'See results →');
+  document.getElementById('matcherNextBtn').textContent = nextLabel;
+}
+
+function selectMatcherOpt(el, idx) {
+  document.querySelectorAll('.matcher-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  matcherSelectedOpt = idx;
+  document.getElementById('matcherNextBtn').disabled = false;
+}
+
+function nextMatcherQ() {
+  if (matcherSelectedOpt === -1) return;
+  matcherAnswers.push(matcherSelectedOpt);
+  matcherStep++;
+  if (matcherStep >= MATCHER_QUESTIONS[matcherLang].length) {
+    document.getElementById('matcherQWrap').style.display = 'none';
+    document.getElementById('matcherThinking').style.display = 'block';
+    document.getElementById('matcherThinkingLabel').textContent = matcherLang === 'es' ? 'Analizando tus respuestas...' : 'Analyzing your answers...';
+    setTimeout(showMatcherResult, 2500);
+  } else {
+    renderMatcherQ();
+  }
+}
+
+function showMatcherResult() {
+  const sum = matcherAnswers.reduce((a,b) => a+b, 0);
+  const idx = sum % MATCHER_RESULTS[matcherLang].length;
+  const result = MATCHER_RESULTS[matcherLang][idx];
+  document.getElementById('matcherFitAccount').textContent  = result.fit;
+  document.getElementById('matcherFitWhy').textContent      = result.fitWhy;
+  document.getElementById('matcherAvoidAccount').textContent = result.avoid;
+  document.getElementById('matcherAvoidWhy').textContent    = result.avoidWhy;
+  if (matcherLang === 'es') {
+    document.getElementById('matcherFitLabel').textContent   = 'Tu mejor opción';
+    document.getElementById('matcherAvoidLabel').textContent = 'Acércate con cuidado';
+    document.getElementById('matcherResetBtn').textContent   = 'Tomar el test de nuevo';
+  }
+  document.getElementById('matcherThinking').style.display = 'none';
+  document.getElementById('matcherResult').style.display   = 'block';
+}
+
+function resetMatcher() {
+  matcherStep = 0; matcherAnswers = []; matcherSelectedOpt = -1;
+  document.getElementById('matcherResult').style.display    = 'none';
+  document.getElementById('matcherThinking').style.display  = 'none';
+  document.getElementById('matcherQWrap').style.display     = 'none';
+  document.getElementById('matcherIntro').style.display     = 'none';
+  document.getElementById('matcherLangSelect').style.display = 'block';
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('selected'));
+}
 </script>
 </body>
 </html>
