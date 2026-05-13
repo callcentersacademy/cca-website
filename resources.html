@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCA Learning Campus — Call Centers Academy & BPO</title>
+<meta name="description" content="The free call center training platform from Call Centers Academy. Tools, training, and everything the industry won't tell you.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23253166'/><path d='M7 22 Q7 10 16 10 Q25 10 25 22' stroke='%2300A1DE' stroke-width='2.5' fill='none' stroke-linecap='round'/><line x1='7' y1='22' x2='25' y2='22' stroke='%23FFCC00' stroke-width='2.5' stroke-linecap='round'/><line x1='16' y1='10' x2='16' y2='8' stroke='%2300A1DE' stroke-width='2' stroke-linecap='round'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --indigo: #253166;
+  --sky: #00a1de;
+  --carmine: #cd171a;
+  --yellow: #ffcc00;
+  --white: #ffffff;
+  --light: #f4f5f9;
+  --gray: #e2e4ef;
+  --text: #1a1f3c;
+  --muted: #6b7194;
+  --dark: #0a1628;
+  --sidebar-w: 260px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color: var(--text); overflow-x: hidden; }
+
+/* ══════════════════════════════════════
+   LOADING SCREEN
+══════════════════════════════════════ */
+#loading-screen {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--indigo);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2rem;
+}
+.loader-logo { position: relative; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; }
+.loader-ring { position: absolute; border-radius: 50%; border: 2.5px solid transparent; }
+.loader-ring-1 { width: 120px; height: 120px; border-top-color: var(--sky); border-right-color: var(--sky); animation: spin 1.2s linear infinite; }
+.loader-ring-2 { width: 88px; height: 88px; border-bottom-color: var(--carmine); border-left-color: var(--carmine); animation: spin 0.9s linear infinite reverse; }
+.loader-ring-3 { width: 58px; height: 58px; border-top-color: var(--yellow); animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loader-dots { display: flex; gap: 5px; }
+.loader-dot { width: 9px; height: 9px; border-radius: 50%; animation: dotPulse 1.2s ease-in-out infinite; }
+.loader-dot:nth-child(1) { background: var(--sky); animation-delay: 0s; }
+.loader-dot:nth-child(2) { background: var(--carmine); animation-delay: 0.2s; }
+.loader-dot:nth-child(3) { background: var(--yellow); animation-delay: 0.4s; }
+@keyframes dotPulse { 0%,100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.5); opacity: 1; } }
+.loader-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--white); margin-bottom: 6px; text-align: center; }
+.loader-sub { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-align: center; }
+.loader-bar-wrap { width: 200px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 999px; overflow: hidden; }
+.loader-bar-fill { height: 100%; background: linear-gradient(90deg, var(--sky), var(--yellow)); border-radius: 999px; animation: loadBar 2.4s ease-in-out forwards; }
+@keyframes loadBar { from { width: 0%; } to { width: 100%; } }
+#loading-screen.fade-out { animation: fadeOut 0.5s ease forwards; }
+@keyframes fadeOut { to { opacity: 0; pointer-events: none; } }
+
+/* ══════════════════════════════════════
+   AD BLOCKER WALL
+══════════════════════════════════════ */
+#adblocker-wall {
+  display: none; position: fixed; inset: 0; z-index: 9998;
+  background: var(--dark); align-items: center; justify-content: center; padding: 2rem;
+}
+#adblocker-wall.show { display: flex; }
+.ab-box {
+  background: var(--indigo); border-radius: 20px; padding: 3rem;
+  max-width: 480px; width: 100%; text-align: center;
+  border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden;
+}
+.ab-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+.ab-icon { font-size: 48px; margin-bottom: 1.25rem; display: block; }
+.ab-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--white); margin-bottom: 0.75rem; line-height: 1.2; }
+.ab-title em { font-style: italic; color: var(--sky); }
+.ab-body { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
+.ab-body strong { color: var(--white); font-weight: 600; }
+.ab-steps { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; text-align: left; }
+.ab-step { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.05); border-radius: 10px; padding: 0.9rem 1.25rem; }
+.ab-step-num { width: 26px; height: 26px; border-radius: 50%; background: var(--sky); color: var(--white); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.ab-step-text { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 400; line-height: 1.5; }
+.ab-btn { width: 100%; padding: 16px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; }
+.ab-btn:hover { opacity: 0.9; }
+
+/* ══════════════════════════════════════
+   LOBBY
+══════════════════════════════════════ */
+#lobby {
+  display: none; min-height: 100vh;
+  flex-direction: column;
+}
+#lobby.show { display: flex; }
+
+.lobby-nav {
+  height: 64px; flex-shrink: 0;
+  background: var(--indigo);
+  display: flex; align-items: center; padding: 0 3rem;
+  gap: 1rem; position: sticky; top: 0; z-index: 50;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.lobby-nav-logo { text-decoration: none; display: flex; align-items: center; }
+.lobby-nav-logo img { height: 40px; width: auto; }
+.lobby-nav-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
+.lobby-nav-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700; }
+.lobby-nav-right { margin-left: auto; display: flex; align-items: center; gap: 1.5rem; }
+.lobby-nav-back { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+.lobby-nav-back:hover { color: var(--white); }
+
+/* LOBBY HERO */
+.lobby-hero {
+  background: var(--indigo); padding: 5rem 3rem 4rem;
+  position: relative; overflow: hidden;
+}
+.lobby-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+.lobby-hero-bg { position: absolute; bottom: -60px; right: -40px; font-family: 'Playfair Display', serif; font-size: 280px; font-weight: 900; color: rgba(255,255,255,0.02); line-height: 1; pointer-events: none; user-select: none; }
+.lobby-hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+.lobby-hero-eyebrow { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sky); font-weight: 700; margin-bottom: 1.25rem; }
+.lobby-hero-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px, 5vw, 60px); color: var(--white); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+.lobby-hero-title em { font-style: italic; color: var(--sky); }
+.lobby-hero-sub { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; max-width: 620px; margin: 0 auto 2.5rem; }
+.lobby-hero-sub strong { color: var(--white); font-weight: 600; }
+.lobby-cta-group { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.lobby-cta-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--yellow); color: var(--indigo);
+  font-family: 'Josefin Sans', sans-serif; font-size: 14px;
+  font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 18px 40px; border-radius: 8px; border: none; cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  box-shadow: 0 8px 24px rgba(255,204,0,0.3);
+}
+.lobby-cta-primary:hover { transform: translateY(-2px); opacity: 0.95; }
+.lobby-cta-note { font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
+
+/* LOBBY STATS */
+.lobby-stats { display: flex; align-items: center; justify-content: center; gap: 3rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+.lobby-stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: var(--yellow); line-height: 1; margin-bottom: 4px; }
+.lobby-stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+
+/* LOBBY BODY */
+.lobby-body { flex: 1; background: var(--light); }
+.lobby-section { padding: 4rem 3rem; max-width: 1100px; margin: 0 auto; }
+.lobby-section-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--carmine); font-weight: 700; margin-bottom: 0.75rem; }
+.lobby-section-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 36px); font-weight: 900; color: var(--indigo); line-height: 1.2; margin-bottom: 0.75rem; }
+.lobby-section-title em { font-style: italic; color: var(--sky); }
+.lobby-section-sub { font-size: 15px; color: var(--muted); line-height: 1.7; font-weight: 300; margin-bottom: 2.5rem; max-width: 600px; }
+
+/* DASHBOARD */
+.dashboard-header {
+  background: var(--indigo);
+  padding: 2rem 2.5rem 1.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  position: relative;
+}
+.dashboard-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+.dashboard-header-inner { max-width: 1200px; margin: 0 auto; }
+.dashboard-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--white); margin-bottom: 4px; }
+.dashboard-sub { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 300; letter-spacing: 0.04em; }
+
+.dashboard-body { background: var(--light); flex: 1; padding: 2rem 2.5rem 0; }
+.dashboard-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1.25rem;
+}
+
+/* REGULAR DASH CARDS */
+.dash-card {
+  background: var(--white); border-radius: 16px;
+  border: 1px solid var(--gray); overflow: hidden;
+  cursor: pointer; display: flex; flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.dash-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,49,102,0.12); border-color: #c0c4d8; }
+.dash-card-visual {
+  height: 120px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.dash-card-glow { position: absolute; inset: 0; }
+.dash-card-icon { font-size: 42px; position: relative; z-index: 1; }
+.dash-card-content { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.dash-card-tag {
+  display: inline-block; font-size: 9px; letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 700;
+  padding: 3px 10px; border-radius: 100px;
+  margin-bottom: 0.75rem; width: fit-content;
+}
+.dash-card-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--indigo); line-height: 1.25; margin-bottom: 0.6rem; }
+.dash-card-body { font-size: 13px; color: #374151; line-height: 1.75; font-weight: 400; flex: 1; margin-bottom: 1.25rem; }
+.dash-card-cta {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--indigo);
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 0.75rem; border-top: 1px solid var(--gray);
+}
+.dash-card-arrow { transition: transform 0.2s; }
+.dash-card:hover .dash-card-arrow { transform: translateX(4px); }
+
+/* TRAINING CARD — FULL WIDTH */
+.dash-card-training {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  min-height: 160px;
+}
+.dash-card-training:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,49,102,0.15); }
+.dash-card-training-visual {
+  width: 280px; flex-shrink: 0;
+  background: var(--indigo);
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0.75rem;
+  padding: 1.5rem;
+}
+.dash-training-glow-1 { position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle, rgba(0,161,222,0.2) 0%, transparent 70%); }
+.dash-training-glow-2 { position: absolute; bottom: -30px; left: -30px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(255,204,0,0.15) 0%, transparent 70%); }
+.dash-training-dots { display: flex; gap: 8px; position: relative; z-index: 1; }
+.dash-training-dot { width: 10px; height: 10px; border-radius: 50%; }
+.dash-training-stages { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 600; position: relative; z-index: 1; text-align: center; }
+.dash-card-training-content { padding: 1.75rem 2rem; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.dash-training-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--indigo); margin-bottom: 0.6rem; }
+.dash-training-body { font-size: 14px; color: #374151; line-height: 1.75; font-weight: 400; margin-bottom: 1.25rem; max-width: 600px; }
+.dash-training-cta {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--indigo);
+  display: flex; align-items: center; gap: 6px;
+  padding-top: 0.75rem; border-top: 1px solid var(--gray);
+  width: fit-content;
+}
+
+.dashboard-footer {
+  max-width: 1200px; margin: 0 auto;
+  padding: 1.5rem 0 1.75rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+  border-top: 1px solid var(--gray); margin-top: 1.25rem;
+}
+
+/* TOOL HERO CARD */
+.tool-hero-card {
+  display: grid; grid-template-columns: 320px 1fr;
+  background: var(--white); border-radius: 20px;
+  border: 1px solid var(--gray); overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 24px rgba(37,49,102,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tool-hero-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(37,49,102,0.13); }
+.tool-hero-visual {
+  background: var(--indigo); position: relative;
+  overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 280px;
+}
+.tool-hero-visual-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(0,161,222,0.3) 0%, transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(255,204,0,0.15) 0%, transparent 50%);
+}
+.tool-hero-visual-icon { font-size: 80px; position: relative; z-index: 1; }
+.tool-hero-content { padding: 2.5rem; }
+.tool-hero-tag {
+  display: inline-block; font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 700;
+  background: rgba(205,23,26,0.1); color: var(--carmine);
+  padding: 4px 12px; border-radius: 100px; margin-bottom: 1rem;
+}
+.tool-hero-title { font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.5vw, 28px); font-weight: 900; color: var(--indigo); line-height: 1.2; margin-bottom: 1rem; }
+.tool-hero-body { font-size: 15px; color: #374151; line-height: 1.8; font-weight: 400; margin-bottom: 1.25rem; }
+.tool-hero-example { background: var(--light); border-left: 3px solid var(--sky); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+.tool-hero-example-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sky); font-weight: 700; margin-bottom: 0.4rem; }
+.tool-hero-example-text { font-size: 13px; color: #374151; line-height: 1.7; font-weight: 400; font-style: italic; }
+.tool-hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.tool-hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--indigo); color: var(--white);
+  font-family: 'Josefin Sans', sans-serif; font-size: 12px;
+  font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 14px 28px; border-radius: 8px; border: none;
+  cursor: pointer; transition: opacity 0.2s, transform 0.2s;
+}
+.tool-hero-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+.tool-hero-link { font-size: 13px; color: var(--sky); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(0,161,222,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
+.tool-hero-link:hover { border-color: var(--sky); }
+
+/* THREE TOOL INVITE CARDS */
+.tool-cards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.tool-invite-card {
+  background: var(--white); border-radius: 16px;
+  border: 1px solid var(--gray); padding: 1.75rem;
+  cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: flex; flex-direction: column; gap: 0;
+}
+.tool-invite-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(37,49,102,0.1); border-color: #c0c4d8; }
+.tool-invite-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.tool-invite-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.tool-invite-tag { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--muted); background: var(--light); padding: 3px 10px; border-radius: 100px; }
+.tool-invite-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--indigo); line-height: 1.3; margin-bottom: 0.75rem; }
+.tool-invite-body { font-size: 13px; color: #374151; line-height: 1.7; font-weight: 400; margin-bottom: 1.25rem; flex: 1; }
+.tool-invite-cta { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--indigo); display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--gray); margin-bottom: 0.75rem; }
+.tool-invite-cta span { transition: transform 0.2s; }
+.tool-invite-card:hover .tool-invite-cta span { transform: translateX(4px); }
+.tool-invite-post { font-size: 11px; color: var(--sky); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(0,161,222,0.25); padding-bottom: 1px; transition: border-color 0.2s; width: fit-content; }
+.tool-invite-post:hover { border-color: var(--sky); }
+
+/* MODALS */
+.tool-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 9000;
+  background: rgba(10,22,40,0.8); backdrop-filter: blur(6px);
+  align-items: center; justify-content: center; padding: 2rem;
+}
+.tool-modal-overlay.open { display: flex; }
+.tool-modal {
+  background: var(--white); border-radius: 20px;
+  max-width: 600px; width: 100%; max-height: 88vh;
+  overflow: hidden; display: flex; flex-direction: column;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  animation: modalIn 0.3s ease both;
+}
+.tool-modal-sm { max-width: 480px; }
+@keyframes modalIn { from { opacity: 0; transform: translateY(20px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.tool-modal-header { padding: 2rem; flex-shrink: 0; position: relative; }
+.tool-modal-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); border-radius: 20px 20px 0 0; }
+.tool-modal-header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
+.tool-modal-eyebrow { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700; margin-bottom: 3px; }
+.tool-modal-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--white); line-height: 1.2; }
+.tool-modal-sub { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; font-weight: 300; }
+.tool-modal-close { background: rgba(255,255,255,0.1); border: none; color: var(--white); width: 32px; height: 32px; border-radius: 50%; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
+.tool-modal-close:hover { background: rgba(255,255,255,0.2); }
+.tool-modal-body { padding: 1.75rem; overflow-y: auto; flex: 1; }
+.tool-modal-body::-webkit-scrollbar { width: 4px; }
+.tool-modal-body::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 999px; }
+
+/* FINDER MODAL INTERNALS */
+.finder-start { text-align: center; padding: 1rem 0; }
+.finder-start-icon { font-size: 56px; margin-bottom: 1rem; display: block; }
+.finder-start-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--indigo); margin-bottom: 0.75rem; }
+.finder-start-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
+.finder-start-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 36px; border-radius: 8px; border: none; cursor: pointer; transition: opacity 0.2s; }
+.finder-start-btn:hover { opacity: 0.88; }
+
+.finder-q-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
+.finder-q-bar { flex: 1; height: 4px; background: var(--gray); border-radius: 999px; overflow: hidden; }
+.finder-q-fill { height: 100%; border-radius: 999px; background: var(--sky); transition: width 0.4s ease; }
+.finder-q-label { font-size: 11px; color: var(--muted); font-weight: 700; white-space: nowrap; }
+.finder-q-text { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--indigo); line-height: 1.35; margin-bottom: 1.25rem; }
+.finder-q-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.25rem; }
+.finder-q-option { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1px solid var(--gray); border-radius: 10px; cursor: pointer; font-size: 14px; color: #374151; transition: all 0.15s; font-weight: 400; line-height: 1.5; }
+.finder-q-option:hover { background: var(--light); border-color: #c0c4d8; }
+.finder-q-option.selected { border-color: var(--sky); background: rgba(0,161,222,0.07); color: var(--indigo); font-weight: 600; }
+.finder-q-opt-dot { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--gray); flex-shrink: 0; transition: all 0.15s; }
+.finder-q-option.selected .finder-q-opt-dot { background: var(--sky); border-color: var(--sky); }
+.finder-q-next { width: 100%; padding: 14px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; }
+.finder-q-next:disabled { opacity: 0.3; cursor: not-allowed; }
+.finder-q-next:not(:disabled):hover { opacity: 0.88; }
+
+.finder-thinking { text-align: center; padding: 2rem 0; }
+.finder-thinking-dots { display: flex; gap: 8px; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.finder-thinking-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--sky); animation: dotPulse 1.2s ease-in-out infinite; }
+.finder-thinking-dots span:nth-child(2) { animation-delay: 0.2s; background: var(--carmine); }
+.finder-thinking-dots span:nth-child(3) { animation-delay: 0.4s; background: var(--yellow); }
+.finder-thinking-label { font-size: 14px; color: var(--muted); font-weight: 600; }
+
+.finder-result-wrap { display: flex; flex-direction: column; gap: 1rem; }
+.finder-result-fit { background: rgba(22,163,74,0.07); border: 1px solid rgba(22,163,74,0.2); border-radius: 12px; padding: 1.5rem; }
+.finder-result-fit-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #16a34a; font-weight: 700; margin-bottom: 0.4rem; }
+.finder-result-fit-account { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--indigo); margin-bottom: 0.5rem; }
+.finder-result-fit-why { font-size: 14px; color: #374151; line-height: 1.7; font-weight: 400; }
+.finder-result-avoid { background: rgba(205,23,26,0.06); border: 1px solid rgba(205,23,26,0.15); border-radius: 12px; padding: 1.5rem; }
+.finder-result-avoid-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--carmine); font-weight: 700; margin-bottom: 0.4rem; }
+.finder-result-avoid-account { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--indigo); margin-bottom: 0.5rem; }
+.finder-result-avoid-why { font-size: 14px; color: #374151; line-height: 1.7; font-weight: 400; }
+.finder-reset-btn { width: 100%; padding: 12px; background: var(--light); color: var(--muted); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--gray); border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+.finder-reset-btn:hover { background: var(--gray); }
+.finder-train-btn { width: 100%; padding: 14px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; }
+.finder-train-btn:hover { opacity: 0.88; }
+
+/* TOOLS GRID (old, keep for reference) */
+.tools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+.tool-card {
+  background: var(--white); border-radius: 16px;
+  border: 1px solid var(--gray); overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tool-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(37,49,102,0.1); }
+
+.tool-card-header {
+  padding: 1.5rem 1.5rem 1rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+  border-bottom: 1px solid var(--light);
+}
+.tool-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.tool-icon.sky { background: rgba(0,161,222,0.12); }
+.tool-icon.yellow { background: rgba(255,204,0,0.15); }
+.tool-icon.indigo { background: rgba(37,49,102,0.1); }
+.tool-icon.green { background: rgba(22,163,74,0.1); }
+.tool-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--indigo); margin-bottom: 3px; }
+.tool-desc { font-size: 13px; color: var(--muted); line-height: 1.5; font-weight: 300; }
+.tool-card-body { padding: 1.25rem 1.5rem; }
+
+/* PROJECT FINDER */
+.finder-question { font-size: 14px; font-weight: 700; color: var(--indigo); margin-bottom: 1rem; line-height: 1.5; }
+.finder-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem; }
+.finder-option {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border: 1px solid var(--gray);
+  border-radius: 8px; cursor: pointer; font-size: 13px;
+  color: #374151; transition: all 0.15s; font-weight: 400;
+}
+.finder-option:hover { background: var(--light); border-color: #c0c4d8; }
+.finder-option.selected { border-color: var(--sky); background: rgba(0,161,222,0.07); color: var(--indigo); font-weight: 600; }
+.finder-opt-dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--gray); flex-shrink: 0; transition: all 0.15s; }
+.finder-option.selected .finder-opt-dot { background: var(--sky); border-color: var(--sky); }
+.finder-progress { font-size: 11px; color: var(--muted); margin-bottom: 1rem; font-weight: 600; }
+.finder-result {
+  display: none; background: var(--indigo); border-radius: 10px;
+  padding: 1.25rem; text-align: center;
+}
+.finder-result.show { display: block; }
+.finder-result-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem; font-weight: 700; }
+.finder-result-account { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--yellow); margin-bottom: 0.4rem; }
+.finder-result-why { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; font-weight: 300; }
+.finder-btn { width: 100%; padding: 11px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; margin-top: 0.75rem; }
+.finder-btn:hover { opacity: 0.88; }
+.finder-btn.reset { background: var(--light); color: var(--muted); border: 1px solid var(--gray); margin-top: 0.5rem; }
+
+/* SALARY CALCULATOR */
+.salary-inputs { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem; }
+.salary-row { display: flex; align-items: center; gap: 10px; }
+.salary-label { font-size: 12px; color: var(--muted); font-weight: 600; flex: 1; }
+.salary-input {
+  width: 120px; padding: 7px 10px;
+  border: 1px solid var(--gray); border-radius: 6px;
+  font-family: 'Josefin Sans', sans-serif; font-size: 13px;
+  color: var(--text); outline: none; text-align: right;
+  transition: border-color 0.2s;
+}
+.salary-input:focus { border-color: var(--sky); }
+.salary-result-card { background: var(--indigo); border-radius: 10px; padding: 1.25rem; display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem; }
+.salary-result-label { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 600; line-height: 1.4; }
+.salary-result-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--yellow); }
+.salary-result-sub { font-size: 10px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+
+/* CV BUILDER */
+.cv-chat { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem; }
+.cv-bubble { padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.55; max-width: 88%; font-weight: 400; }
+.cv-bubble.ai { background: var(--indigo); color: var(--white); border-bottom-left-radius: 4px; }
+.cv-bubble.user { background: var(--light); color: var(--text); border-bottom-right-radius: 4px; align-self: flex-end; }
+.cv-input-row { display: flex; gap: 8px; }
+.cv-input { flex: 1; padding: 10px 14px; border: 1px solid var(--gray); border-radius: 8px; font-family: 'Josefin Sans', sans-serif; font-size: 13px; color: var(--text); outline: none; transition: border-color 0.2s; }
+.cv-input:focus { border-color: var(--sky); }
+.cv-send { padding: 10px 16px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; white-space: nowrap; }
+.cv-send:hover { opacity: 0.88; }
+.cv-note { font-size: 11px; color: var(--muted); margin-top: 0.5rem; font-style: italic; }
+
+/* GLOSSARY */
+.glossary-search { width: 100%; padding: 9px 14px; border: 1px solid var(--gray); border-radius: 8px; font-family: 'Josefin Sans', sans-serif; font-size: 13px; color: var(--text); outline: none; margin-bottom: 1rem; transition: border-color 0.2s; }
+.glossary-search:focus { border-color: var(--sky); }
+.glossary-list { display: flex; flex-direction: column; }
+.glossary-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--light); gap: 1rem; }
+.glossary-item:last-child { border-bottom: none; }
+.g-term { font-size: 13px; font-weight: 700; color: var(--indigo); flex-shrink: 0; }
+.g-def { font-size: 12px; color: var(--muted); text-align: right; line-height: 1.4; font-weight: 400; }
+.glossary-more { font-size: 11px; color: var(--sky); font-weight: 600; margin-top: 0.75rem; text-align: center; cursor: pointer; }
+
+/* CURRICULUM PREVIEW */
+.curriculum-divider { height: 1px; background: var(--gray); margin: 0 3rem; }
+.curriculum-section { padding: 4rem 3rem; max-width: 1100px; margin: 0 auto; }
+.stage-preview-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2rem; }
+.stage-preview-card {
+  background: var(--white); border-radius: 12px; padding: 1.5rem 1.25rem;
+  border: 1px solid var(--gray); text-align: center; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.stage-preview-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,49,102,0.08); border-color: #c0c4d8; }
+.stage-preview-dot { width: 14px; height: 14px; border-radius: 50%; margin: 0 auto 0.75rem; }
+.stage-preview-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--indigo); margin-bottom: 0.4rem; }
+.stage-preview-count { font-size: 11px; color: var(--muted); font-weight: 600; }
+
+/* ENTER CTA SECTION */
+.enter-section {
+  background: var(--indigo); padding: 5rem 3rem;
+  text-align: center; position: relative; overflow: hidden;
+}
+.enter-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+.enter-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 1rem; }
+.enter-title em { font-style: italic; color: var(--sky); }
+.enter-sub { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.7; font-weight: 300; margin-bottom: 2.5rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+.enter-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 18px 44px; border-radius: 8px; border: none; cursor: pointer; transition: transform 0.2s, opacity 0.2s; box-shadow: 0 8px 24px rgba(255,204,0,0.25); }
+.enter-cta:hover { transform: translateY(-2px); opacity: 0.95; }
+
+/* LOBBY FOOTER */
+.lobby-footer { background: var(--dark); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.lobby-footer-meta { font-size: 11px; color: rgba(255,255,255,0.25); }
+.lobby-footer-link { font-size: 11px; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
+.lobby-footer-link:hover { color: rgba(255,255,255,0.6); }
+
+/* ══════════════════════════════════════
+   CLASSROOM (PLATFORM)
+══════════════════════════════════════ */
+#classroom {
+  display: none; height: 100vh; flex-direction: column;
+  position: fixed; inset: 0; z-index: 100; background: var(--white);
+}
+#classroom.show { display: flex; }
+
+.platform-nav {
+  height: 60px; flex-shrink: 0; background: var(--white);
+  border-bottom: 1px solid var(--gray);
+  display: flex; align-items: center; padding: 0 1.5rem; gap: 1rem;
+  box-shadow: 0 1px 4px rgba(37,49,102,0.06); z-index: 50; position: relative;
+}
+.pnav-logo { text-decoration: none; display: flex; align-items: center; }
+.pnav-logo img { height: 36px; width: auto; }
+.pnav-divider { width: 1px; height: 24px; background: var(--gray); flex-shrink: 0; }
+.pnav-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.pnav-right { margin-left: auto; display: flex; align-items: center; gap: 1.25rem; }
+.pnav-progress-wrap { display: flex; align-items: center; gap: 10px; }
+.pnav-progress-label { font-size: 11px; color: var(--muted); font-weight: 600; white-space: nowrap; }
+.pnav-progress-bar { width: 100px; height: 4px; background: var(--gray); border-radius: 999px; overflow: hidden; }
+.pnav-progress-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--sky), var(--indigo)); transition: width 0.4s ease; }
+.pnav-lobby-btn { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); background: none; border: 1px solid var(--gray); border-radius: 6px; padding: 7px 14px; cursor: pointer; font-family: 'Josefin Sans', sans-serif; font-weight: 700; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+.pnav-lobby-btn:hover { border-color: var(--indigo); color: var(--indigo); }
+.hamburger-btn { display: none; width: 36px; height: 36px; border: none; background: none; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border-radius: 6px; flex-shrink: 0; }
+.hamburger-btn:hover { background: var(--light); }
+.hb-line { width: 18px; height: 2px; background: var(--indigo); border-radius: 999px; transition: all 0.2s; }
+
+.platform-body { flex: 1; display: flex; overflow: hidden; }
+
+/* SIDEBAR */
+.campus-sidebar {
+  width: var(--sidebar-w); flex-shrink: 0; background: var(--indigo);
+  display: flex; flex-direction: column; height: 100%; overflow: hidden;
+  transition: transform 0.25s ease; z-index: 40;
+}
+.campus-sidebar.collapsed { transform: translateX(calc(-1 * var(--sidebar-w))); position: absolute; height: calc(100vh - 60px); }
+.sidebar-overlay { display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 35; }
+.sidebar-overlay.show { display: block; }
+
+.sb-head { padding: 1.25rem 1.25rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.07); flex-shrink: 0; }
+.sb-head-eyebrow { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); margin-bottom: 3px; }
+.sb-head-title { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--white); }
+
+.sb-search { padding: 0.6rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.06); flex-shrink: 0; }
+.sb-search input { width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 7px 10px; font-size: 11px; color: var(--white); font-family: 'Josefin Sans', sans-serif; outline: none; transition: border-color 0.2s; }
+.sb-search input:focus { border-color: rgba(0,161,222,0.5); }
+.sb-search input::placeholder { color: rgba(255,255,255,0.3); }
+
+.sb-nav { flex: 1; overflow-y: auto; padding: 0.5rem 0; }
+.sb-nav::-webkit-scrollbar { width: 3px; }
+.sb-nav::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 999px; }
+
+.stage-row { display: flex; align-items: center; gap: 8px; padding: 8px 1.25rem; cursor: pointer; user-select: none; transition: background 0.15s; }
+.stage-row:hover { background: rgba(255,255,255,0.04); }
+.stage-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.stage-name { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); flex: 1; transition: color 0.2s; }
+.stage-name.active { color: var(--yellow); }
+.stage-count { font-size: 9px; color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); padding: 2px 7px; border-radius: 999px; }
+.stage-chev { font-size: 8px; color: rgba(255,255,255,0.2); transition: transform 0.2s; }
+.stage-chev.open { transform: rotate(90deg); }
+
+.lesson-list { overflow: hidden; }
+.lesson-item { display: flex; align-items: center; gap: 8px; padding: 7px 1.25rem 7px 1.75rem; cursor: pointer; transition: background 0.15s; position: relative; }
+.lesson-item:hover { background: rgba(255,255,255,0.04); }
+.lesson-item.active { background: rgba(0,161,222,0.15); border-left: 2px solid var(--sky); padding-left: calc(1.75rem - 2px); }
+.lesson-item.completed::after { content: '✓'; position: absolute; right: 1rem; font-size: 10px; color: #4ade80; font-weight: 700; }
+.li-icon { width: 14px; height: 14px; flex-shrink: 0; opacity: 0.3; }
+.lesson-item.active .li-icon { opacity: 1; }
+.li-icon svg { width: 14px; height: 14px; stroke: var(--white); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.lesson-item.active .li-icon svg { stroke: var(--sky); }
+.li-text { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.35; flex: 1; }
+.lesson-item.active .li-text { color: var(--white); font-weight: 600; }
+.li-badge { font-size: 9px; padding: 2px 7px; border-radius: 999px; font-weight: 700; flex-shrink: 0; }
+.badge-en { background: rgba(0,161,222,0.2); color: var(--sky); }
+.badge-es { background: rgba(255,204,0,0.2); color: var(--yellow); }
+.badge-ai { background: rgba(168,85,247,0.25); color: #c084fc; }
+
+.sub-list { overflow: hidden; }
+.sub-item { display: flex; align-items: center; gap: 8px; padding: 5px 1.25rem 5px 2.5rem; cursor: pointer; transition: background 0.15s; }
+.sub-item:hover { background: rgba(255,255,255,0.03); }
+.sub-item.active { background: rgba(0,161,222,0.1); border-left: 2px solid rgba(0,161,222,0.4); padding-left: calc(2.5rem - 2px); }
+.sub-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.2); flex-shrink: 0; }
+.sub-item.active .sub-dot { background: var(--sky); }
+.sub-text { font-size: 10px; color: rgba(255,255,255,0.35); line-height: 1.3; }
+.sub-item.active .sub-text { color: rgba(255,255,255,0.75); }
+
+.sb-foot { padding: 0.9rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.07); flex-shrink: 0; }
+.sb-foot-label { font-size: 10px; color: rgba(255,255,255,0.28); margin-bottom: 6px; font-weight: 600; }
+.sb-progress-bar { height: 3px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; }
+.sb-progress-fill { height: 100%; border-radius: 999px; background: var(--sky); transition: width 0.4s ease; }
+
+/* MAIN LESSON PANEL */
+.campus-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; background: var(--white); min-width: 0; }
+
+.main-topbar { padding: 0.65rem 1.5rem; border-bottom: 1px solid var(--gray); display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.breadcrumb { font-size: 11px; color: #aaa; display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; }
+.bc-sep { color: #ddd; }
+.bc-cur { color: var(--indigo); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bc-tag { font-size: 10px; padding: 2px 10px; border-radius: 999px; font-weight: 700; flex-shrink: 0; }
+.bc-tag-free { background: rgba(22,163,74,0.1); color: #16a34a; }
+
+.lesson-body { flex: 1; overflow-y: auto; padding: 1.5rem; }
+.lesson-body::-webkit-scrollbar { width: 4px; }
+.lesson-body::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 999px; }
+
+.l-thumb { width: 100%; height: 180px; background: var(--indigo); border-radius: 12px; margin-bottom: 1.25rem; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.l-thumb-gradient { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,161,222,0.4) 0%, rgba(37,49,102,0.9) 100%); }
+.l-thumb-inner { position: relative; z-index: 1; text-align: center; }
+.l-thumb-icon { font-size: 36px; display: block; margin-bottom: 8px; }
+.l-thumb-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--white); }
+.l-thumb-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+.l-thumb-play { position: absolute; bottom: 12px; right: 12px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; background: var(--sky); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+.l-thumb-play:hover { transform: scale(1.1); }
+.l-thumb-play svg { width: 14px; height: 14px; fill: var(--white); margin-left: 2px; }
+.l-thumb-duration { position: absolute; bottom: 12px; left: 14px; z-index: 2; font-size: 10px; color: rgba(255,255,255,0.7); background: rgba(0,0,0,0.45); padding: 3px 8px; border-radius: 4px; }
+
+.tags-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.tag { font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+.tag-sky { background: rgba(0,161,222,0.1); color: #0a5f80; }
+.tag-gray { background: var(--light); color: var(--muted); }
+.tag-green { background: rgba(22,163,74,0.1); color: #16a34a; }
+
+.l-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--indigo); margin-bottom: 0.4rem; line-height: 1.3; }
+.l-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 1.25rem; }
+
+.audio-section-title { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--indigo); font-weight: 700; margin-bottom: 0.75rem; }
+.audio-card { background: var(--light); border: 1px solid var(--gray); border-radius: 10px; padding: 0.85rem 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; transition: border-color 0.2s; }
+.audio-card:hover { border-color: var(--sky); }
+.play-btn { width: 36px; height: 36px; border-radius: 50%; background: var(--indigo); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, transform 0.15s; }
+.play-btn:hover { background: var(--sky); transform: scale(1.05); }
+.play-btn.playing { background: var(--sky); }
+.play-btn svg { width: 12px; height: 12px; fill: var(--white); margin-left: 2px; }
+.a-info { flex: 1; min-width: 0; }
+.a-name { font-size: 12px; font-weight: 700; color: var(--indigo); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.a-meta { font-size: 10px; color: #bbb; margin-top: 2px; }
+.a-bar { height: 3px; background: var(--gray); border-radius: 999px; margin-top: 6px; cursor: pointer; }
+.a-progress { height: 100%; border-radius: 999px; background: var(--sky); transition: width 0.1s; }
+.a-time { font-size: 10px; color: #bbb; flex-shrink: 0; }
+
+.quiz-wrap { border: 1px solid var(--gray); border-radius: 12px; overflow: hidden; margin-top: 1.25rem; }
+.quiz-head { background: var(--indigo); padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 8px; }
+.quiz-head-title { font-size: 13px; font-weight: 700; color: var(--white); flex: 1; }
+.quiz-head-count { font-size: 10px; color: rgba(255,255,255,0.4); }
+.quiz-body { padding: 1.25rem; }
+.quiz-q { font-size: 14px; font-weight: 700; color: var(--indigo); margin-bottom: 1rem; line-height: 1.55; }
+.option { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 1px solid var(--gray); border-radius: 8px; margin-bottom: 6px; cursor: pointer; font-size: 12px; color: #555; line-height: 1.5; transition: all 0.15s; }
+.option:hover { background: var(--light); border-color: #c0c4d8; }
+.option.selected { border-color: var(--sky); background: rgba(0,161,222,0.07); color: var(--indigo); }
+.option.correct { border-color: #16a34a; background: rgba(22,163,74,0.07); color: #14532d; }
+.option.wrong { border-color: var(--carmine); background: rgba(205,23,26,0.07); color: #7f1d1d; }
+.opt-letter { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--gray); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; flex-shrink: 0; color: #aaa; transition: all 0.15s; }
+.option.selected .opt-letter { background: var(--sky); border-color: var(--sky); color: var(--white); }
+.option.correct .opt-letter { background: #16a34a; border-color: #16a34a; color: var(--white); }
+.quiz-submit { width: 100%; padding: 11px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; margin-top: 0.75rem; transition: opacity 0.2s; }
+.quiz-submit:hover { opacity: 0.88; }
+
+.lesson-footer { padding: 0.9rem 1.5rem; border-top: 1px solid var(--gray); display: flex; gap: 8px; flex-shrink: 0; background: var(--white); }
+.lesson-nav-btn { flex: 1; padding: 10px; border: 1px solid var(--gray); border-radius: 8px; font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: var(--white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.15s; }
+.lesson-nav-btn:hover { background: var(--light); border-color: #c0c4d8; color: var(--indigo); }
+.lesson-nav-btn.primary { background: var(--indigo); color: var(--white); border-color: var(--indigo); }
+.lesson-nav-btn.primary:hover { background: #1a2452; }
+
+@media (max-width: 768px) {
+  .lobby-nav { padding: 0 1.5rem; }
+  .lobby-hero { padding: 3rem 1.5rem 2.5rem; }
+  .lobby-section { padding: 3rem 1.5rem; }
+  .dashboard-header { padding: 1.5rem; }
+  .dashboard-body { padding: 1.25rem 1.25rem 0; }
+  .dashboard-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .dash-card-training { flex-direction: column; }
+  .dash-card-training-visual { width: 100%; height: 100px; }
+  .tool-hero-card { grid-template-columns: 1fr; }
+  .tool-hero-visual { min-height: 160px; }
+  .tool-cards-row { grid-template-columns: 1fr; }
+  .tool-modal-overlay { padding: 1rem; align-items: flex-end; }
+  .tool-modal { max-height: 92vh; border-radius: 20px 20px 12px 12px; }
+  .stage-preview-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .curriculum-section { padding: 3rem 1.5rem; }
+  .enter-section { padding: 3.5rem 1.5rem; }
+  .lobby-footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; }
+  .hamburger-btn { display: flex; }
+  .pnav-progress-wrap { display: none; }
+  .campus-sidebar { position: absolute; height: calc(100vh - 60px); }
+  .campus-sidebar:not(.collapsed) { box-shadow: 4px 0 20px rgba(0,0,0,0.3); }
+  .lobby-stats { gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ LOADING SCREEN ══ -->
+<div id="loading-screen">
+  <div class="loader-logo">
+    <div class="loader-ring loader-ring-1"></div>
+    <div class="loader-ring loader-ring-2"></div>
+    <div class="loader-ring loader-ring-3"></div>
+    <div style="position:relative;z-index:1;">
+      <div class="loader-dots">
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="loader-title">CCA Learning Campus</div>
+    <div class="loader-sub">Loading your training resources</div>
+  </div>
+  <div class="loader-bar-wrap">
+    <div class="loader-bar-fill"></div>
+  </div>
+</div>
+
+<!-- ══ AD BLOCKER WALL ══ -->
+<div id="adblocker-wall">
+  <div class="ab-box">
+    <span class="ab-icon">🚫</span>
+    <h2 class="ab-title">Please disable your<br><em>ad blocker</em></h2>
+    <p class="ab-body">This platform is <strong>completely free</strong>. Ads are how we keep it that way. Disable your ad blocker for this site and you'll have full access to every lesson, tool, and audio file.</p>
+    <div class="ab-steps">
+      <div class="ab-step"><div class="ab-step-num">1</div><div class="ab-step-text">Click your ad blocker extension in your browser toolbar</div></div>
+      <div class="ab-step"><div class="ab-step-num">2</div><div class="ab-step-text">Select "Disable for this site" or "Pause on this page"</div></div>
+      <div class="ab-step"><div class="ab-step-num">3</div><div class="ab-step-text">Refresh the page and come right back in</div></div>
+    </div>
+    <button class="ab-btn" onclick="checkAdBlocker()">I've disabled it — let me in →</button>
+  </div>
+</div>
+
+<!-- ══ LOBBY ══ -->
+<div id="lobby">
+
+  <!-- NAV -->
+  <nav class="lobby-nav">
+    <a href="index.html" class="lobby-nav-logo">
+      <img src="images/logo-cca.webp" alt="Call Centers Academy & BPO">
+    </a>
+    <div class="lobby-nav-divider"></div>
+    <span class="lobby-nav-label">Learning Campus</span>
+    <div class="lobby-nav-right">
+      <a href="index.html" class="lobby-nav-back">← Back to site</a>
+    </div>
+  </nav>
+
+  <!-- DASHBOARD HEADER -->
+  <div class="dashboard-header">
+    <div class="dashboard-header-inner">
+      <h1 class="dashboard-title">CCA Learning Campus</h1>
+      <p class="dashboard-sub">Everything the industry won't tell you. Free.</p>
+    </div>
+  </div>
+
+  <!-- FIVE CARD DASHBOARD -->
+  <div class="dashboard-body">
+    <div class="dashboard-grid">
+
+      <!-- CARD 1 — PROJECT FINDER -->
+      <div class="dash-card" onclick="openModal('finderModal')">
+        <div class="dash-card-visual" style="background:linear-gradient(135deg,#253166 0%,#1a2452 100%)">
+          <div class="dash-card-glow" style="background:radial-gradient(circle at 30% 60%, rgba(0,161,222,0.35) 0%, transparent 65%)"></div>
+          <span class="dash-card-icon">🎯</span>
+        </div>
+        <div class="dash-card-content">
+          <div class="dash-card-tag" style="color:var(--carmine);background:rgba(205,23,26,0.08)">Start here first</div>
+          <h2 class="dash-card-title">Find your ideal account</h2>
+          <p class="dash-card-body">You're about to apply — but to what? Most candidates pick whatever is available. This tool matches your personality to the account where you'll actually thrive. And warns you about the one that would break you.</p>
+          <div class="dash-card-cta">Find my account <span class="dash-card-arrow">→</span></div>
+        </div>
+      </div>
+
+      <!-- CARD 2 — SALARY CALCULATOR -->
+      <div class="dash-card" onclick="openModal('salaryModal')">
+        <div class="dash-card-visual" style="background:linear-gradient(135deg,#1a3a1a 0%,#0f2a0f 100%)">
+          <div class="dash-card-glow" style="background:radial-gradient(circle at 70% 40%, rgba(255,204,0,0.25) 0%, transparent 65%)"></div>
+          <span class="dash-card-icon">💰</span>
+        </div>
+        <div class="dash-card-content">
+          <div class="dash-card-tag" style="color:#16a34a;background:rgba(22,163,74,0.08)">Before you say yes</div>
+          <h2 class="dash-card-title">Calculate your minimum salary</h2>
+          <p class="dash-card-body">Don't accept the first offer without running the math. Enter your real monthly expenses and get the exact hourly rate you need to actually live — before anyone pressures you into a number.</p>
+          <div class="dash-card-cta">Calculate now <span class="dash-card-arrow">→</span></div>
+        </div>
+      </div>
+
+      <!-- CARD 3 — CV BUILDER -->
+      <div class="dash-card" onclick="openModal('cvModal')">
+        <div class="dash-card-visual" style="background:linear-gradient(135deg,#1a1a3a 0%,#0f0f2a 100%)">
+          <div class="dash-card-glow" style="background:radial-gradient(circle at 50% 50%, rgba(168,85,247,0.25) 0%, transparent 65%)"></div>
+          <span class="dash-card-icon">🤖</span>
+        </div>
+        <div class="dash-card-content">
+          <div class="dash-card-tag" style="color:#a855f7;background:rgba(168,85,247,0.08)">AI-powered · Free</div>
+          <h2 class="dash-card-title">Build a call center CV</h2>
+          <p class="dash-card-body">Your CV is why you're not getting called back. This tool turns any work history — even zero experience — into a CV that gets you through the first filter. Powered by AI.</p>
+          <div class="dash-card-cta">Build my CV <span class="dash-card-arrow">→</span></div>
+        </div>
+      </div>
+
+      <!-- CARD 4 — GLOSSARY -->
+      <div class="dash-card" onclick="openModal('glossaryModal')">
+        <div class="dash-card-visual" style="background:linear-gradient(135deg,#0a2a1f 0%,#051a12 100%)">
+          <div class="dash-card-glow" style="background:radial-gradient(circle at 60% 40%, rgba(0,161,222,0.2) 0%, transparent 65%)"></div>
+          <span class="dash-card-icon">📖</span>
+        </div>
+        <div class="dash-card-content">
+          <div class="dash-card-tag" style="color:var(--sky);background:rgba(0,161,222,0.08)">Walk in prepared</div>
+          <h2 class="dash-card-title">Learn the language of the floor</h2>
+          <p class="dash-card-body">AHT. CSAT. Adherence. Nesting. Every recruiter assumes you know these. Most candidates don't. Search any term and get a real explanation from someone who's been on that floor.</p>
+          <div class="dash-card-cta">Open glossary <span class="dash-card-arrow">→</span></div>
+        </div>
+      </div>
+
+      <!-- CARD 5 — START TRAINING (FULL WIDTH) -->
+      <div class="dash-card dash-card-training" onclick="enterClassroom()">
+        <div class="dash-card-training-visual">
+          <div class="dash-training-glow-1"></div>
+          <div class="dash-training-glow-2"></div>
+          <div class="dash-training-dots">
+            <div class="dash-training-dot" style="background:var(--yellow)"></div>
+            <div class="dash-training-dot" style="background:var(--sky)"></div>
+            <div class="dash-training-dot" style="background:rgba(255,255,255,0.3)"></div>
+            <div class="dash-training-dot" style="background:#5dcaa5"></div>
+            <div class="dash-training-dot" style="background:#f0997b"></div>
+          </div>
+          <div class="dash-training-stages">Interview · Induction · Training · Nesting · Production</div>
+        </div>
+        <div class="dash-card-training-content">
+          <div class="dash-card-tag" style="color:var(--yellow);background:rgba(255,204,0,0.12)">Free · No signup · No pressure</div>
+          <h2 class="dash-training-title">Start my free training</h2>
+          <p class="dash-training-body">Real call recordings. Quizzes. Scripts. Everything organized the way the industry actually works — from your first interview to the production floor. Five stages. Every skill. Completely free. Go at your own pace.</p>
+          <div class="dash-training-cta">Enter the campus →</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dashboard-footer">
+      <span class="lobby-footer-meta">Call Centers Academy & BPO · Est. 2018 · Santo Domingo, DR</span>
+      <div style="display:flex;gap:1.5rem;">
+        <a href="index.html" class="lobby-footer-link">Main site</a>
+        <a href="blog/" class="lobby-footer-link">Blog</a>
+        <a href="privacy.html" class="lobby-footer-link">Privacy</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ CLASSROOM ══ -->
+<div id="classroom">
+
+  <nav class="platform-nav">
+    <button class="hamburger-btn" onclick="toggleSidebar()">
+      <div class="hb-line"></div><div class="hb-line"></div><div class="hb-line"></div>
+    </button>
+    <a href="#" class="pnav-logo" onclick="exitClassroom(); return false;">
+      <img src="images/logo-cca.webp" alt="Call Centers Academy & BPO">
+    </a>
+    <div class="pnav-divider"></div>
+    <span class="pnav-label">Learning Campus</span>
+    <div class="pnav-right">
+      <div class="pnav-progress-wrap">
+        <span class="pnav-progress-label" id="navProgressLabel">0 of 24 lessons</span>
+        <div class="pnav-progress-bar">
+          <div class="pnav-progress-fill" id="navProgressFill" style="width:0%"></div>
+        </div>
+      </div>
+      <button class="pnav-lobby-btn" onclick="exitClassroom()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Lobby
+      </button>
+    </div>
+  </nav>
+
+  <div class="platform-body">
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <aside class="campus-sidebar" id="campusSidebar">
+      <div class="sb-head">
+        <div class="sb-head-eyebrow">Curriculum</div>
+        <div class="sb-head-title">CCA Learning Campus</div>
+      </div>
+      <div class="sb-search">
+        <input type="text" placeholder="Search lessons..." oninput="searchLessons(this.value)">
+      </div>
+      <nav class="sb-nav">
+
+        <!-- INTERVIEW -->
+        <div class="stage-row" onclick="toggleStage('stage-interview')">
+          <div class="stage-dot" style="background:var(--yellow)"></div>
+          <span class="stage-name active" id="stage-interview-name">Interview</span>
+          <span class="stage-count">5</span>
+          <span class="stage-chev open" id="stage-interview-chev">▸</span>
+        </div>
+        <div class="lesson-list" id="stage-interview">
+          <div class="lesson-item" onclick="loadLesson('before-interview')" data-lesson="before-interview">
+            <div class="li-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <span class="li-text">Before the interview</span>
+            <span class="li-badge badge-en">EN</span>
+          </div>
+          <div class="lesson-item active" onclick="loadLesson('interview-calls')" data-lesson="interview-calls">
+            <div class="li-icon"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
+            <span class="li-text">Listen to interview calls</span>
+          </div>
+          <div class="lesson-item" onclick="loadLesson('english-check')" data-lesson="english-check">
+            <div class="li-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <span class="li-text">English readiness check</span>
+            
+          </div>
+          <div class="lesson-item" onclick="loadLesson('cv-builder')" data-lesson="cv-builder">
+            <div class="li-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <span class="li-text">CV builder</span>
+            <span class="li-badge badge-ai">AI</span>
+          </div>
+          <div class="lesson-item" onclick="loadLesson('salary-calc')" data-lesson="salary-calc">
+            <div class="li-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <span class="li-text">Salary reality calculator</span>
+          </div>
+        </div>
+
+        <!-- INDUCTION -->
+        <div class="stage-row" onclick="toggleStage('stage-induction')" style="margin-top:2px">
+          <div class="stage-dot" style="background:var(--sky)"></div>
+          <span class="stage-name" id="stage-induction-name">Induction</span>
+          <span class="stage-count">4</span>
+          <span class="stage-chev" id="stage-induction-chev">▸</span>
+        </div>
+        <div class="lesson-list" id="stage-induction" style="display:none">
+          <div class="lesson-item" onclick="loadLesson('glossary')" data-lesson="glossary"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><span class="li-text">Call center glossary</span></div>
+          <div class="lesson-item" onclick="loadLesson('what-is-cc')" data-lesson="what-is-cc"><div class="li-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><span class="li-text">What a call center is</span></div>
+          <div class="lesson-item" onclick="loadLesson('positions')" data-lesson="positions"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span class="li-text">Positions and roles</span></div>
+          <div class="lesson-item" onclick="loadLesson('call-flow')" data-lesson="call-flow"><div class="li-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><span class="li-text">Call flow basics</span></div>
+        </div>
+
+        <!-- TRAINING -->
+        <div class="stage-row" onclick="toggleStage('stage-training')" style="margin-top:2px">
+          <div class="stage-dot" style="background:rgba(200,200,220,0.6);border:1.5px solid rgba(255,255,255,0.2)"></div>
+          <span class="stage-name" id="stage-training-name">Training</span>
+          <span class="stage-count">5</span>
+          <span class="stage-chev" id="stage-training-chev">▸</span>
+        </div>
+        <div class="lesson-list" id="stage-training" style="display:none">
+          <div class="lesson-item" onclick="loadLesson('military-alphabet')" data-lesson="military-alphabet"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div><span class="li-text">Military alphabet</span></div>
+          <div class="lesson-item" onclick="loadLesson('kpis')" data-lesson="kpis"><div class="li-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><span class="li-text">KPIs decoded</span></div>
+          <div class="lesson-item" onclick="loadLesson('computer-skills')" data-lesson="computer-skills"><div class="li-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><span class="li-text">Computer skills</span></div>
+          <div class="lesson-item" onclick="loadLesson('script-practice')" data-lesson="script-practice"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="li-text">Script practice</span></div>
+          <div class="lesson-item" onclick="loadLesson('english-phrases')" data-lesson="english-phrases"><div class="li-icon"><svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div><span class="li-text">English phrases</span></div>
+        </div>
+
+        <!-- NESTING -->
+        <div class="stage-row" onclick="toggleStage('stage-nesting')" style="margin-top:2px">
+          <div class="stage-dot" style="background:#5dcaa5"></div>
+          <span class="stage-name" id="stage-nesting-name">Nesting</span>
+          <span class="stage-count">3</span>
+          <span class="stage-chev" id="stage-nesting-chev">▸</span>
+        </div>
+        <div class="lesson-list" id="stage-nesting" style="display:none">
+          <div class="lesson-item" onclick="loadLesson('first-live-call')" data-lesson="first-live-call"><div class="li-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="li-text">Your first live call</span></div>
+          <div class="lesson-item" onclick="loadLesson('nesting-mistakes')" data-lesson="nesting-mistakes"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><span class="li-text">Common nesting mistakes</span></div>
+          <div class="lesson-item" onclick="loadLesson('supervisor-watch')" data-lesson="supervisor-watch"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><span class="li-text">What supervisors watch for</span></div>
+        </div>
+
+        <!-- PRODUCTION -->
+        <div class="stage-row" onclick="toggleStage('stage-production')" style="margin-top:2px">
+          <div class="stage-dot" style="background:#f0997b"></div>
+          <span class="stage-name" id="stage-production-name">Production</span>
+          <span class="stage-count">7</span>
+          <span class="stage-chev" id="stage-production-chev">▸</span>
+        </div>
+        <div class="lesson-list" id="stage-production" style="display:none">
+          <div class="lesson-item" onclick="toggleSub('sub-cs')" data-lesson="cs-overview">
+            <div class="li-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6z"/></svg></div>
+            <span class="li-text">Customer service</span>
+            <span class="stage-chev" id="sub-cs-chev">▸</span>
+          </div>
+          <div class="sub-list" id="sub-cs" style="display:none">
+            <div class="sub-item" onclick="loadLesson('cs-what-is')"><div class="sub-dot"></div><span class="sub-text">What customer service is</span></div>
+            <div class="sub-item" onclick="loadLesson('cs-irate')"><div class="sub-dot"></div><span class="sub-text">Handling irate customers</span></div>
+            <div class="sub-item" onclick="loadLesson('cs-deescalation')"><div class="sub-dot"></div><span class="sub-text">De-escalation techniques</span></div>
+            <div class="sub-item" onclick="loadLesson('cs-transfer')"><div class="sub-dot"></div><span class="sub-text">Warm transfer skills</span></div>
+          </div>
+          <div class="lesson-item" onclick="loadLesson('collections')" data-lesson="collections"><div class="li-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><span class="li-text">Collections</span></div>
+          <div class="lesson-item" onclick="loadLesson('retention')" data-lesson="retention"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><span class="li-text">Retention</span></div>
+          <div class="lesson-item" onclick="loadLesson('tech-support')" data-lesson="tech-support"><div class="li-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div><span class="li-text">Tech support</span></div>
+          <div class="lesson-item" onclick="loadLesson('sales')" data-lesson="sales"><div class="li-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><span class="li-text">Sales</span></div>
+          <div class="lesson-item" onclick="loadLesson('back-office')" data-lesson="back-office"><div class="li-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><span class="li-text">Back office</span></div>
+        </div>
+
+      </nav>
+      <div class="sb-foot">
+        <div class="sb-foot-label" id="sbFootLabel">Interview — lesson 2 of 5</div>
+        <div class="sb-progress-bar"><div class="sb-progress-fill" id="sbProgressFill" style="width:8%"></div></div>
+      </div>
+    </aside>
+
+    <!-- MAIN LESSON PANEL -->
+    <main class="campus-main">
+      <div class="main-topbar">
+        <div class="breadcrumb">
+          <span id="bcStage">Interview</span>
+          <span class="bc-sep">›</span>
+          <span class="bc-cur" id="bcLesson">Listen to interview calls</span>
+        </div>
+        <span class="bc-tag bc-tag-free">Free</span>
+      </div>
+
+      <div class="lesson-body" id="lessonBody">
+        <div class="l-thumb">
+          <div class="l-thumb-gradient"></div>
+          <div class="l-thumb-inner">
+            <span class="l-thumb-icon">🎧</span>
+            <div class="l-thumb-title">Interview calls — real scenarios</div>
+            <div class="l-thumb-sub">CCA · 4 scenarios · English</div>
+          </div>
+          <div class="l-thumb-duration">8:46 total</div>
+          <button class="l-thumb-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+        </div>
+
+        <div class="tags-row">
+          <span class="tag tag-sky">Listening</span>
+          <span class="tag tag-gray">4 scenarios</span>
+          <span class="tag tag-green">Quiz included</span>
+        </div>
+
+        <div class="l-title">What does a real call center interview sound like?</div>
+        <div class="l-desc">Listen to these scenarios before answering the questions below. Pay attention to how the recruiter evaluates communication — not whether the English is perfect. That distinction matters.</div>
+
+        <div class="audio-section-title">Listening scenarios</div>
+
+        <div class="audio-card">
+          <button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+          <div class="a-info">
+            <div class="a-name">Scenario 1 — Confident candidate, hired</div>
+            <div class="a-meta">CCA Recruitment Simulation · 1:48 · English</div>
+            <div class="a-bar"><div class="a-progress" style="width:0%"></div></div>
+          </div>
+          <div class="a-time">1:48</div>
+        </div>
+
+        <div class="audio-card">
+          <button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+          <div class="a-info">
+            <div class="a-name">Scenario 2 — Nervous candidate, still hired</div>
+            <div class="a-meta">CCA Recruitment Simulation · 2:05 · English</div>
+            <div class="a-bar"><div class="a-progress" style="width:0%"></div></div>
+          </div>
+          <div class="a-time">2:05</div>
+        </div>
+
+        <div class="audio-card">
+          <button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+          <div class="a-info">
+            <div class="a-name">Scenario 3 — Unprepared candidate, not hired</div>
+            <div class="a-meta">CCA Recruitment Simulation · 2:31 · English</div>
+            <div class="a-bar"><div class="a-progress" style="width:0%"></div></div>
+          </div>
+          <div class="a-time">2:31</div>
+        </div>
+
+        <div class="audio-card">
+          <button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+          <div class="a-info">
+            <div class="a-name">Scenario 4 — Bilingual candidate, hired immediately</div>
+            <div class="a-meta">CCA Recruitment Simulation · 2:23 · English / Spanish</div>
+            <div class="a-bar"><div class="a-progress" style="width:0%"></div></div>
+          </div>
+          <div class="a-time">2:23</div>
+        </div>
+
+        <div class="quiz-wrap">
+          <div class="quiz-head">
+            <div class="quiz-head-title">Comprehension check</div>
+            <div class="quiz-head-count">Question 1 of 4</div>
+          </div>
+          <div class="quiz-body">
+            <div class="quiz-q">In Scenario 3, what was the main reason the candidate was not hired?</div>
+            <div class="option" onclick="selectOption(this)"><div class="opt-letter">A</div>Their English level was too low</div>
+            <div class="option" onclick="selectOption(this)"><div class="opt-letter">B</div>They arrived late to the interview</div>
+            <div class="option" onclick="selectOption(this)"><div class="opt-letter">C</div>They didn't research the company and couldn't answer basic questions about the role</div>
+            <div class="option" onclick="selectOption(this)"><div class="opt-letter">D</div>They asked about salary too early</div>
+            <button class="quiz-submit" onclick="submitQuiz()">Check answer →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-footer">
+        <button class="lesson-nav-btn" onclick="markAndNav('prev')">← Before the interview</button>
+        <button class="lesson-nav-btn primary" onclick="markAndNav('next')">English readiness check →</button>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+  const TOTAL_LESSONS = 24;
+  const LS_PROGRESS = 'cca_campus_progress';
+  const LS_VISITED  = 'cca_campus_visited';
+
+  // ── PROGRESS ─────────────────────────────────────────
+  function getProgress() {
+    try { return JSON.parse(localStorage.getItem(LS_PROGRESS)) || { completed: [], current: 'interview-calls' }; }
+    catch { return { completed: [], current: 'interview-calls' }; }
+  }
+  function saveProgress(p) { try { localStorage.setItem(LS_PROGRESS, JSON.stringify(p)); } catch {} }
+
+  function markCompleted(id) {
+    const p = getProgress();
+    if (!p.completed.includes(id)) { p.completed.push(id); saveProgress(p); }
+    updateProgressUI();
+    const item = document.querySelector('[data-lesson="' + id + '"]');
+    if (item) item.classList.add('completed');
+  }
+
+  function updateProgressUI() {
+    const p = getProgress();
+    const count = p.completed.length;
+    const pct = Math.round((count / TOTAL_LESSONS) * 100);
+    const navFill = document.getElementById('navProgressFill');
+    const navLabel = document.getElementById('navProgressLabel');
+    const sbFill = document.getElementById('sbProgressFill');
+    if (navFill) navFill.style.width = pct + '%';
+    if (navLabel) navLabel.textContent = count + ' of ' + TOTAL_LESSONS + ' lessons';
+    if (sbFill) sbFill.style.width = pct + '%';
+  }
+
+  function restoreProgress() {
+    const p = getProgress();
+    p.completed.forEach(id => {
+      const item = document.querySelector('[data-lesson="' + id + '"]');
+      if (item) item.classList.add('completed');
+    });
+    updateProgressUI();
+  }
+
+  // ── AD BLOCKER ────────────────────────────────────────
+  function detectAdBlocker(cb) {
+    const bait = document.createElement('div');
+    bait.className = 'ad ads adsbox doubleclick ad-placement carbon-ads';
+    bait.style.cssText = 'width:1px;height:1px;position:absolute;left:-9999px;top:-9999px;';
+    document.body.appendChild(bait);
+    setTimeout(() => {
+      const blocked = !bait.offsetParent || bait.offsetHeight === 0 || bait.offsetWidth === 0;
+      document.body.removeChild(bait);
+      cb(blocked);
+    }, 150);
+  }
+
+  function checkAdBlocker() {
+    detectAdBlocker(blocked => {
+      if (!blocked) {
+        document.getElementById('adblocker-wall').classList.remove('show');
+        showLobby();
+      } else {
+        const btn = document.querySelector('.ab-btn');
+        const orig = btn.textContent;
+        btn.textContent = 'Ad blocker still active — please try again';
+        setTimeout(() => { btn.textContent = orig; }, 2500);
+      }
+    });
+  }
+
+  // ── LOADING + BOOT ────────────────────────────────────
+  function showLobby() {
+    document.getElementById('lobby').classList.add('show');
+    calcSalary();
+  }
+
+  window.addEventListener('load', () => {
+    const isReturn = localStorage.getItem(LS_VISITED) === 'true';
+    if (isReturn) {
+      document.getElementById('loading-screen').style.display = 'none';
+      detectAdBlocker(blocked => {
+        if (blocked) document.getElementById('adblocker-wall').classList.add('show');
+        else showLobby();
+      });
+    } else {
+      localStorage.setItem(LS_VISITED, 'true');
+      setTimeout(() => {
+        const screen = document.getElementById('loading-screen');
+        screen.classList.add('fade-out');
+        setTimeout(() => {
+          screen.style.display = 'none';
+          detectAdBlocker(blocked => {
+            if (blocked) document.getElementById('adblocker-wall').classList.add('show');
+            else showLobby();
+          });
+        }, 500);
+      }, 2600);
+    }
+  });
+
+  // ── CLASSROOM ENTER / EXIT ────────────────────────────
+  function enterClassroom() {
+    document.getElementById('lobby').classList.remove('show');
+    document.getElementById('classroom').classList.add('show');
+    document.body.style.overflow = 'hidden';
+    restoreProgress();
+    if (window.innerWidth < 768) {
+      document.getElementById('campusSidebar').classList.add('collapsed');
+    }
+  }
+
+  function exitClassroom() {
+    document.getElementById('classroom').classList.remove('show');
+    document.getElementById('lobby').classList.add('show');
+    document.body.style.overflow = '';
+  }
+
+  // ── SIDEBAR ───────────────────────────────────────────
+  function toggleSidebar() {
+    document.getElementById('campusSidebar').classList.toggle('collapsed');
+    document.getElementById('sidebarOverlay').classList.toggle('show');
+  }
+
+  function toggleStage(id) {
+    const el = document.getElementById(id);
+    const chev = document.getElementById(id + '-chev');
+    const nameEl = document.getElementById(id + '-name');
+    const isOpen = el.style.display !== 'none';
+    el.style.display = isOpen ? 'none' : 'block';
+    if (chev) chev.classList.toggle('open', !isOpen);
+    if (nameEl) nameEl.classList.toggle('active', !isOpen);
+  }
+
+  function toggleSub(id) {
+    const sub = document.getElementById(id);
+    const chev = document.getElementById(id + '-chev');
+    const isOpen = sub.style.display !== 'none';
+    sub.style.display = isOpen ? 'none' : 'block';
+    if (chev) chev.style.transform = isOpen ? '' : 'rotate(90deg)';
+  }
+
+  function loadLesson(id) {
+    document.querySelectorAll('.lesson-item').forEach(i => i.classList.remove('active'));
+    const item = document.querySelector('[data-lesson="' + id + '"]');
+    if (item) item.classList.add('active');
+    const p = getProgress(); p.current = id; saveProgress(p);
+  }
+
+  function searchLessons(val) {
+    const q = val.toLowerCase();
+    document.querySelectorAll('.lesson-item').forEach(item => {
+      const txt = item.querySelector('.li-text');
+      if (txt) item.style.display = (!q || txt.textContent.toLowerCase().includes(q)) ? '' : 'none';
+    });
+  }
+
+  // ── QUIZ (CLASSROOM) ──────────────────────────────────
+  function selectOption(el) {
+    document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+  function submitQuiz() {
+    document.querySelectorAll('.option').forEach((o, i) => {
+      if (i === 2) o.classList.add('correct');
+      else if (o.classList.contains('selected')) o.classList.add('wrong');
+    });
+    markCompleted('interview-calls');
+  }
+  function markAndNav(dir) { markCompleted('interview-calls'); }
+
+  // ── AUDIO ─────────────────────────────────────────────
+  function togglePlay(btn) {
+    btn.classList.toggle('playing');
+    const svg = btn.querySelector('svg');
+    svg.innerHTML = btn.classList.contains('playing')
+      ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
+      : '<polygon points="5 3 19 12 5 21 5 3"/>';
+  }
+
+  // ── MODALS ────────────────────────────────────────────
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (id === 'salaryModal') calcSalary();
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e, id) {
+    if (e.target === document.getElementById(id)) closeModal(id);
+  }
+
+  // ── PROJECT FINDER ────────────────────────────────────
+  const finderQuestions = [
+    { q: "How do you react when someone raises their voice at you?", opts: ["I stay calm and let them speak", "I get tense but I manage it", "I find it very hard to focus"], fit: [0,1,2], avoid: [2,1,0] },
+    { q: "How comfortable are you talking about money and payment problems?", opts: ["Very comfortable — it's just business", "A little awkward but I manage", "I find it deeply uncomfortable"], fit: [1,0,2], avoid: [2,1,0] },
+    { q: "Which best describes how you solve problems?", opts: ["I follow a process step by step", "I improvise based on the situation", "I prefer someone to guide me"], fit: [2,1,0], avoid: [0,2,1] },
+    { q: "How do you handle pressure to hit numbers every day?", opts: ["It motivates me — I love the competition", "It stresses me but I push through", "I shut down under that kind of pressure"], fit: [1,0,2], avoid: [2,1,0] },
+    { q: "How would you describe your natural communication style?", opts: ["Warm, patient, and empathetic", "Direct and efficient", "Detailed and technical"], fit: [0,1,2], avoid: [2,0,1] },
+    { q: "What matters most to you in a job?", opts: ["Helping people feel better", "Earning commissions and hitting goals", "Working independently with clear processes"], fit: [0,1,2], avoid: [2,0,1] }
+  ];
+
+  const finderResults = [
+    { fit: "Customer Service", fitWhy: "Your warmth and patience under pressure make you exceptional at inbound customer service. You genuinely want to help — and customers feel that.", avoid: "Collections", avoidWhy: "Your empathy is a strength everywhere except collections. Hearing 'I can't pay, I lost my son' would break you every day. That account needs emotional distance you don't have — and shouldn't want." },
+    { fit: "Sales", fitWhy: "Your drive for results and comfort with pressure translate directly into sales performance. You close because you care about winning — and that energy is contagious.", avoid: "Back Office", avoidWhy: "You need energy and human interaction to perform. Silent, repetitive non-voice work will drain you quickly. Your competitive nature needs a leaderboard, not a spreadsheet." },
+    { fit: "Tech Support", fitWhy: "Your methodical, process-driven thinking is exactly what structured troubleshooting requires. You follow the path, don't improvise, and that's what resolves technical issues correctly.", avoid: "Sales", avoidWhy: "Sales requires improvisation and emotional reading in real time. Your preference for clear processes will frustrate you when a customer goes off-script and you need to adapt on the fly." },
+    { fit: "Retention", fitWhy: "You stay calm under pressure and know how to read people emotionally. Saving a relationship that's about to walk out the door is exactly the kind of challenge that brings out your best.", avoid: "Collections", avoidWhy: "Collections is confrontational by nature. Your strengths live in persuasion and connection — not in firm recovery conversations with people who are already resistant and upset." },
+    { fit: "Collections", fitWhy: "Your emotional distance and comfort with difficult money conversations are rare — and exactly what collections demands. You separate the business from the person, which is how this account works.", avoid: "Customer Service", avoidWhy: "Standard inbound customer service will bore you. You're built for high-stakes conversations, not routine inquiries. Your energy needs an account that challenges you every call." },
+    { fit: "Back Office", fitWhy: "Your need for independence and clear processes makes back office work deeply satisfying. You deliver results without needing an audience — and your accuracy is where you shine.", avoid: "Sales", avoidWhy: "Sales is unpredictable and people-driven. You perform best when the rules are clear and consistent. An account where the script changes every call and success depends on personality will exhaust you." }
+  ];
+
+  let finderStep = 0;
+  let finderAnswers = [];
+  let finderSelectedOpt = -1;
+
+  function startFinder() {
+    finderStep = 0;
+    finderAnswers = [];
+    finderSelectedOpt = -1;
+    document.querySelector('.finder-start').style.display = 'none';
+    document.getElementById('finderQuestionWrap').style.display = 'block';
+    renderFinderQuestion();
+  }
+
+  function renderFinderQuestion() {
+    const q = finderQuestions[finderStep];
+    const pct = Math.round((finderStep / finderQuestions.length) * 100);
+    document.getElementById('finderQFill').style.width = pct + '%';
+    document.getElementById('finderQLabel').textContent = 'Question ' + (finderStep + 1) + ' of ' + finderQuestions.length;
+    document.getElementById('finderQText').textContent = q.q;
+    const container = document.getElementById('finderQOptions');
+    container.innerHTML = q.opts.map((opt, i) =>
+      '<div class="finder-q-option" onclick="selectFinderOpt(this, ' + i + ')"><div class="finder-q-opt-dot"></div>' + opt + '</div>'
+    ).join('');
+    finderSelectedOpt = -1;
+    document.getElementById('finderQNext').disabled = true;
+  }
+
+  function selectFinderOpt(el, idx) {
+    document.querySelectorAll('.finder-q-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    finderSelectedOpt = idx;
+    document.getElementById('finderQNext').disabled = false;
+  }
+
+  function nextFinderQuestion() {
+    if (finderSelectedOpt === -1) return;
+    finderAnswers.push(finderSelectedOpt);
+    finderStep++;
+    if (finderStep >= finderQuestions.length) {
+      showFinderThinking();
+    } else {
+      renderFinderQuestion();
+    }
+  }
+
+  function showFinderThinking() {
+    document.getElementById('finderQuestionWrap').style.display = 'none';
+    document.getElementById('finderThinking').style.display = 'block';
+    setTimeout(showFinderResult, 2200);
+  }
+
+  function showFinderResult() {
+    const sum = finderAnswers.reduce((a, b) => a + b, 0);
+    const idx = sum % finderResults.length;
+    const result = finderResults[idx];
+    document.getElementById('finderFitAccount').textContent = result.fit;
+    document.getElementById('finderFitWhy').textContent = result.fitWhy;
+    document.getElementById('finderAvoidAccount').textContent = result.avoid;
+    document.getElementById('finderAvoidWhy').textContent = result.avoidWhy;
+    document.getElementById('finderThinking').style.display = 'none';
+    document.getElementById('finderResultWrap').style.display = 'flex';
+  }
+
+  function resetFinderModal() {
+    document.getElementById('finderResultWrap').style.display = 'none';
+    document.getElementById('finderThinking').style.display = 'none';
+    document.getElementById('finderQuestionWrap').style.display = 'none';
+    document.querySelector('.finder-start').style.display = 'block';
+  }
+
+  // ── SALARY CALCULATOR ─────────────────────────────────
+  function calcSalary() {
+    const rent = parseFloat(document.getElementById('sal-rent')?.value) || 0;
+    const transport = parseFloat(document.getElementById('sal-transport')?.value) || 0;
+    const food = parseFloat(document.getElementById('sal-food')?.value) || 0;
+    const phone = parseFloat(document.getElementById('sal-phone')?.value) || 0;
+    const other = parseFloat(document.getElementById('sal-other')?.value) || 0;
+    const total = rent + transport + food + phone + other;
+    const hoursPerMonth = 160;
+    const minHourly = Math.ceil((total / hoursPerMonth) * 1.2);
+    const el = document.getElementById('salaryResult');
+    if (el) el.textContent = 'RD$ ' + minHourly.toLocaleString() + '/hr';
+  }
+
+  // ── CV BUILDER (DEMO FLOW) ────────────────────────────
+  const cvFlow = [
+    "What was your most recent job? Give me the company name and what you did there.",
+    "Got it. Did you ever handle complaints or resolve issues with customers directly?",
+    "Perfect. Do you have any experience using computers for data entry or documentation?",
+    "Great. Based on what you've shared, I can build you a strong call center CV. Your customer-facing experience is exactly what recruiters look for."
+  ];
+  let cvStep = 0;
+
+  function sendCvMessage() {
+    const input = document.getElementById('cvInput');
+    const val = input.value.trim();
+    if (!val) return;
+    const chat = document.getElementById('cvChat');
+    const userBubble = document.createElement('div');
+    userBubble.className = 'cv-bubble user';
+    userBubble.textContent = val;
+    chat.appendChild(userBubble);
+    input.value = '';
+    cvStep++;
+    if (cvStep < cvFlow.length) {
+      setTimeout(() => {
+        const aiBubble = document.createElement('div');
+        aiBubble.className = 'cv-bubble ai';
+        aiBubble.textContent = cvFlow[cvStep];
+        chat.appendChild(aiBubble);
+        chat.scrollTop = chat.scrollHeight;
+      }, 600);
+    }
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  // ── GLOSSARY ──────────────────────────────────────────
+  function filterGlossary(val) {
+    const q = val.toLowerCase();
+    document.querySelectorAll('.glossary-item').forEach(item => {
+      const term = item.querySelector('.g-term').textContent.toLowerCase();
+      const def = item.querySelector('.g-def').textContent.toLowerCase();
+      item.style.display = (!q || term.includes(q) || def.includes(q)) ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
