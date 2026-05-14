@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Meeting — Call Centers Academy & BPO</title>
+<meta name="description" content="Schedule a meeting with Call Centers Academy & BPO. Candidates and companies welcome.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --indigo: #253166;
+  --sky: #00a1de;
+  --carmine: #cd171a;
+  --yellow: #ffcc00;
+  --white: #ffffff;
+  --light: #f4f5f9;
+  --gray: #e2e4ef;
+  --text: #1a1f3c;
+  --muted: #6b7194;
+  --dark: #0a1628;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color: var(--text); min-height: 100vh; }
+
+/* NAV */
+.nav {
+  height: 64px; background: var(--indigo);
+  display: flex; align-items: center; padding: 0 2.5rem;
+  gap: 1rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky; top: 0; z-index: 50;
+}
+.nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-logo img { height: 40px; width: auto; }
+.nav-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
+.nav-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700; }
+.nav-back { margin-left: auto; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+.nav-back:hover { color: var(--white); }
+
+/* HERO */
+.hero {
+  background: var(--indigo); padding: 4rem 2.5rem 3.5rem;
+  position: relative; overflow: hidden; text-align: center;
+}
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+.hero-bg { position: absolute; bottom: -80px; right: -60px; font-family: 'Playfair Display', serif; font-size: 260px; font-weight: 900; color: rgba(255,255,255,0.02); line-height: 1; pointer-events: none; user-select: none; }
+.hero-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sky); font-weight: 700; margin-bottom: 1rem; }
+.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 1.25rem; }
+.hero-title em { font-style: italic; color: var(--sky); }
+.hero-sub { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; max-width: 540px; margin: 0 auto; }
+
+/* CARDS */
+.cards-section { padding: 3.5rem 2.5rem; max-width: 960px; margin: 0 auto; }
+.cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+.booking-card {
+  background: var(--white); border-radius: 20px;
+  border: 1px solid var(--gray); overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.booking-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(37,49,102,0.13); border-color: #c0c4d8; }
+
+.card-visual {
+  height: 160px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-visual-glow { position: absolute; inset: 0; }
+.card-icon { font-size: 64px; position: relative; z-index: 1; }
+
+.card-content { padding: 2rem; flex: 1; display: flex; flex-direction: column; }
+.card-type { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-bottom: 0.6rem; }
+.card-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--indigo); line-height: 1.2; margin-bottom: 1rem; }
+.card-body { font-size: 16px; color: #374151; line-height: 1.85; font-weight: 400; flex: 1; margin-bottom: 0.75rem; }
+.card-meta { display: flex; gap: 1rem; margin-bottom: 1.75rem; flex-wrap: wrap; }
+.card-meta-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); font-weight: 600; }
+.card-meta-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+.card-btn {
+  display: block; width: 100%; padding: 16px;
+  border-radius: 10px; border: none;
+  font-family: 'Josefin Sans', sans-serif; font-size: 15px;
+  font-weight: 700; cursor: pointer; text-align: center;
+  transition: opacity 0.2s, transform 0.15s; margin-top: auto;
+}
+.card-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-sky { background: var(--sky); color: var(--white); }
+.btn-indigo { background: var(--indigo); color: var(--white); }
+
+/* MODAL OVERLAY */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 9000;
+  background: rgba(10,22,40,0.85); backdrop-filter: blur(6px);
+  align-items: center; justify-content: center; padding: 1.5rem;
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--white); border-radius: 20px;
+  max-width: 560px; width: 100%; max-height: 90vh;
+  overflow: hidden; display: flex; flex-direction: column;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  animation: modalIn 0.3s ease both;
+}
+@keyframes modalIn { from { opacity: 0; transform: translateY(20px) scale(0.97); } to { opacity: 1; transform: none; } }
+
+.modal-header { padding: 2rem 2rem 1.5rem; flex-shrink: 0; position: relative; }
+.modal-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 20px 20px 0 0; }
+.modal-header.sky::before { background: var(--sky); }
+.modal-header.indigo::before { background: var(--indigo); }
+.modal-header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.5rem; }
+.modal-eyebrow { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 4px; }
+.modal-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--white); line-height: 1.2; }
+.modal-sub { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; font-weight: 300; margin-top: 0.5rem; }
+.modal-close { background: rgba(255,255,255,0.12); border: none; color: var(--white); width: 34px; height: 34px; border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
+.modal-close:hover { background: rgba(255,255,255,0.22); }
+
+.modal-body { padding: 1.75rem 2rem; overflow-y: auto; flex: 1; }
+.modal-body::-webkit-scrollbar { width: 4px; }
+.modal-body::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 999px; }
+
+/* FORM */
+.form-group { margin-bottom: 1.25rem; }
+.form-label { display: block; font-size: 13px; font-weight: 700; color: var(--indigo); margin-bottom: 6px; letter-spacing: 0.04em; }
+.form-label span { color: var(--carmine); margin-left: 2px; }
+.form-input, .form-select { width: 100%; padding: 12px 16px; border: 1.5px solid var(--gray); border-radius: 10px; font-family: 'Josefin Sans', sans-serif; font-size: 15px; color: var(--text); outline: none; transition: border-color 0.2s, box-shadow 0.2s; background: var(--white); }
+.form-input:focus, .form-select:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(0,161,222,0.1); }
+.form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7194' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 44px; cursor: pointer; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* TIME SLOTS */
+.slots-label { font-size: 13px; font-weight: 700; color: var(--indigo); margin-bottom: 10px; letter-spacing: 0.04em; }
+.slots-label span { color: var(--carmine); }
+.slots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 1.25rem; }
+.slot-btn { padding: 10px 8px; border: 1.5px solid var(--gray); border-radius: 8px; font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--muted); background: var(--white); cursor: pointer; transition: all 0.15s; text-align: center; }
+.slot-btn:hover { border-color: var(--sky); color: var(--sky); background: rgba(0,161,222,0.05); }
+.slot-btn.selected { border-color: var(--sky); background: rgba(0,161,222,0.1); color: var(--indigo); font-weight: 700; }
+.slot-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* SUBMIT */
+.form-submit { width: 100%; padding: 16px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: none; border-radius: 10px; cursor: pointer; transition: opacity 0.2s; margin-top: 0.5rem; }
+.form-submit:hover { opacity: 0.88; }
+.form-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* SUCCESS STATE */
+.success-state { display: none; text-align: center; padding: 1rem 0; }
+.success-icon { font-size: 64px; display: block; margin-bottom: 1.25rem; animation: bounce 0.5s ease; }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.success-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--indigo); margin-bottom: 0.75rem; }
+.success-body { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
+.success-detail { background: var(--light); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem; text-align: left; }
+.success-detail-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--gray); font-size: 14px; }
+.success-detail-row:last-child { border-bottom: none; }
+.sd-label { color: var(--muted); font-weight: 600; }
+.sd-value { color: var(--indigo); font-weight: 700; }
+.success-close { width: 100%; padding: 14px; background: var(--light); color: var(--muted); font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 700; border: 1px solid var(--gray); border-radius: 10px; cursor: pointer; transition: background 0.2s; }
+.success-close:hover { background: var(--gray); }
+
+/* ERROR */
+.form-error { display: none; background: rgba(205,23,26,0.07); border: 1px solid rgba(205,23,26,0.2); border-radius: 8px; padding: 0.9rem 1.1rem; margin-bottom: 1rem; font-size: 14px; color: var(--carmine); font-weight: 600; }
+.form-error.show { display: block; }
+
+/* FOOTER */
+.footer { background: var(--dark); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+.footer-meta { font-size: 12px; color: rgba(255,255,255,0.25); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-link { font-size: 12px; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
+.footer-link:hover { color: rgba(255,255,255,0.6); }
+
+@media (max-width: 768px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .slots-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: 3rem 1.5rem 2.5rem; }
+  .cards-section { padding: 2.5rem 1.5rem; }
+  .modal-header { padding: 1.75rem 1.5rem 1.25rem; }
+  .modal-body { padding: 1.5rem; }
+  .modal-overlay { padding: 1rem; align-items: flex-end; }
+  .modal { border-radius: 20px 20px 12px 12px; max-height: 92vh; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="images/logo-cca.webp" alt="Call Centers Academy & BPO"></a>
+  <div class="nav-divider"></div>
+  <span class="nav-label">Book a Meeting</span>
+  <a href="index.html" class="nav-back">← Back to site</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg">CCA</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Call Centers Academy & BPO</div>
+    <h1 class="hero-title">Let's <em>talk.</em></h1>
+    <p class="hero-sub">Whether you are a candidate looking to join the industry or a company looking to partner with us, pick your meeting type and schedule at your convenience.</p>
+  </div>
+</div>
+
+<!-- CARDS -->
+<div class="cards-section">
+  <div class="cards-grid">
+
+    <!-- CANDIDATE CARD -->
+    <div class="booking-card">
+      <div class="card-visual" style="background:linear-gradient(135deg,#253166 0%,#1a2452 100%)">
+        <div class="card-visual-glow" style="background:radial-gradient(circle at 35% 60%, rgba(0,161,222,0.3) 0%, transparent 65%)"></div>
+        <span class="card-icon">🎧</span>
+      </div>
+      <div class="card-content">
+        <div class="card-type">For candidates</div>
+        <h2 class="card-title">Interview with CCA</h2>
+        <p class="card-body">You are ready to apply and we want to meet you. This interview is how we assess your current skills, understand your availability, and set expectations before your next step in the industry.</p>
+        <div class="card-meta">
+          <div class="card-meta-item"><div class="card-meta-dot" style="background:var(--sky)"></div>30 minutes</div>
+          <div class="card-meta-item"><div class="card-meta-dot" style="background:var(--yellow)"></div>Mon to Fri · 2pm to 7pm</div>
+          <div class="card-meta-item"><div class="card-meta-dot" style="background:#4ade80"></div>Camera on required</div>
+        </div>
+        <button class="card-btn btn-sky" onclick="openModal('candidateModal')">Schedule my interview</button>
+      </div>
+    </div>
+
+    <!-- COMPANY CARD -->
+    <div class="booking-card">
+      <div class="card-visual" style="background:linear-gradient(135deg,#0a1628 0%,#1a2452 100%)">
+        <div class="card-visual-glow" style="background:radial-gradient(circle at 65% 40%, rgba(255,204,0,0.2) 0%, transparent 65%)"></div>
+        <span class="card-icon">🤝</span>
+      </div>
+      <div class="card-content">
+        <div class="card-type">For companies & partners</div>
+        <h2 class="card-title">Meet with our team</h2>
+        <p class="card-body">You want to explore what CCA can offer your business. Whether you are a call center, a hiring partner, or a company looking for trained candidates, this is where the conversation starts.</p>
+        <div class="card-meta">
+          <div class="card-meta-item"><div class="card-meta-dot" style="background:var(--yellow)"></div>15 minutes</div>
+          <div class="card-meta-item"><div class="card-meta-dot" style="background:var(--sky)"></div>Mon to Fri · 2pm to 7pm</div>
+          <div class="card-meta-item"><div class="card-meta-dot" style="background:#4ade80"></div>Camera on required</div>
+        </div>
+        <button class="card-btn btn-indigo" onclick="openModal('companyModal')">Schedule a meeting</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CANDIDATE MODAL -->
+<div class="modal-overlay" id="candidateModal" onclick="closeOutside(event,'candidateModal')">
+  <div class="modal">
+    <div class="modal-header sky" style="background:var(--indigo)">
+      <div class="modal-header-top">
+        <div>
+          <div class="modal-eyebrow">Candidate Interview</div>
+          <div class="modal-title">Schedule your interview</div>
+        </div>
+        <button class="modal-close" onclick="closeModal('candidateModal')">×</button>
+      </div>
+      <p class="modal-sub">30 minutes · Mon to Fri · 2pm to 7pm AST · Camera on</p>
+    </div>
+    <div class="modal-body">
+      <div class="form-error" id="candidateError">Please fill in all required fields and select a time slot.</div>
+
+      <div id="candidateForm">
+        <div class="form-group">
+          <label class="form-label">Full name <span>*</span></label>
+          <input class="form-input" type="text" id="c-name" placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email you used at CCA <span>*</span></label>
+          <input class="form-input" type="email" id="c-email" placeholder="The email you registered with">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Year you attended <span>*</span></label>
+            <select class="form-select" id="c-year">
+              <option value="">Select year</option>
+              <option>2018</option><option>2019</option><option>2020</option>
+              <option>2021</option><option>2022</option><option>2023</option>
+              <option>2024</option><option>2025</option><option>2026</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Position interested in <span>*</span></label>
+            <select class="form-select" id="c-position">
+              <option value="">Select position</option>
+              <option>Customer Service</option>
+              <option>Collections</option>
+              <option>Sales</option>
+              <option>Retention</option>
+              <option>Tech Support</option>
+              <option>Back Office</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Preferred date <span>*</span></label>
+          <input class="form-input" type="date" id="c-date" oninput="generateSlots('candidate')">
+        </div>
+        <div>
+          <div class="slots-label">Preferred time <span>*</span></div>
+          <div class="slots-grid" id="candidateSlots">
+            <div style="font-size:13px;color:var(--muted);grid-column:1/-1;padding:8px 0;">Select a date to see available slots.</div>
+          </div>
+        </div>
+        <button class="form-submit" onclick="submitForm('candidate')">Confirm my interview</button>
+      </div>
+
+      <div class="success-state" id="candidateSuccess">
+        <span class="success-icon">✅</span>
+        <h3 class="success-title">You are booked.</h3>
+        <p class="success-body">Please be on time, well dressed, and camera on. A confirmation has been sent to your email.</p>
+        <div class="success-detail" id="candidateSuccessDetail"></div>
+        <button class="success-close" onclick="closeModal('candidateModal')">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPANY MODAL -->
+<div class="modal-overlay" id="companyModal" onclick="closeOutside(event,'companyModal')">
+  <div class="modal">
+    <div class="modal-header indigo" style="background:var(--dark)">
+      <div class="modal-header-top">
+        <div>
+          <div class="modal-eyebrow">Business Inquiry</div>
+          <div class="modal-title">Schedule a meeting</div>
+        </div>
+        <button class="modal-close" onclick="closeModal('companyModal')">×</button>
+      </div>
+      <p class="modal-sub">15 minutes · Mon to Fri · 2pm to 7pm AST · Camera on</p>
+    </div>
+    <div class="modal-body">
+      <div class="form-error" id="companyError">Please fill in all required fields and select a time slot.</div>
+
+      <div id="companyForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full name <span>*</span></label>
+            <input class="form-input" type="text" id="co-name" placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Job title <span>*</span></label>
+            <input class="form-input" type="text" id="co-title" placeholder="Your title">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Corporate email <span>*</span></label>
+          <input class="form-input" type="email" id="co-email" placeholder="your@company.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Company name <span>*</span></label>
+          <input class="form-input" type="text" id="co-company" placeholder="Your company name">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Is this a call center? <span>*</span></label>
+            <select class="form-select" id="co-callcenter">
+              <option value="">Select</option>
+              <option>Yes, it is a call center</option>
+              <option>No, it is another type of business</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Meeting topic <span>*</span></label>
+            <select class="form-select" id="co-topic">
+              <option value="">Select topic</option>
+              <option>Hiring trained candidates</option>
+              <option>Partnership opportunity</option>
+              <option>Outsourcing services</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Preferred date <span>*</span></label>
+          <input class="form-input" type="date" id="co-date" oninput="generateSlots('company')">
+        </div>
+        <div>
+          <div class="slots-label">Preferred time <span>*</span></div>
+          <div class="slots-grid" id="companySlots">
+            <div style="font-size:13px;color:var(--muted);grid-column:1/-1;padding:8px 0;">Select a date to see available slots.</div>
+          </div>
+        </div>
+        <button class="form-submit" onclick="submitForm('company')">Confirm meeting</button>
+      </div>
+
+      <div class="success-state" id="companySuccess">
+        <span class="success-icon">✅</span>
+        <h3 class="success-title">You are booked.</h3>
+        <p class="success-body">Please be on time and camera on. A confirmation has been sent to your email.</p>
+        <div class="success-detail" id="companySuccessDetail"></div>
+        <button class="success-close" onclick="closeModal('companyModal')">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-meta">Call Centers Academy & BPO · Est. 2018 · Santo Domingo, DR</span>
+  <div class="footer-links">
+    <a href="index.html" class="footer-link">Main site</a>
+    <a href="blog/" class="footer-link">Blog</a>
+    <a href="resources.html" class="footer-link">Campus</a>
+    <a href="privacy.html" class="footer-link">Privacy</a>
+  </div>
+</footer>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwEGpxVcjprPLIjIQ3rax1Kt12oO66rfKERhiatjSfAUMsKz-GzCff6kt-ESabVbd5Y/exec';
+
+let selectedSlots = { candidate: '', company: '' };
+
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setDateLimits();
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeOutside(e, id) {
+  if (e.target === document.getElementById(id)) closeModal(id);
+}
+
+function setDateLimits() {
+  const today = new Date();
+  const min = new Date(today);
+  min.setDate(today.getDate() + 1);
+  const max = new Date(today);
+  max.setDate(today.getDate() + 7);
+
+  const fmt = d => d.toISOString().split('T')[0];
+
+  ['c-date', 'co-date'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.min = fmt(min); el.max = fmt(max); }
+  });
+}
+
+function generateSlots(type) {
+  const dateId = type === 'candidate' ? 'c-date' : 'co-date';
+  const containerId = type === 'candidate' ? 'candidateSlots' : 'companySlots';
+  const dateVal = document.getElementById(dateId).value;
+  const container = document.getElementById(containerId);
+
+  if (!dateVal) { container.innerHTML = '<div style="font-size:13px;color:var(--muted);grid-column:1/-1;padding:8px 0;">Select a date to see available slots.</div>'; return; }
+
+  const date = new Date(dateVal + 'T00:00:00');
+  const day = date.getDay();
+
+  if (day === 0 || day === 6) {
+    container.innerHTML = '<div style="font-size:13px;color:var(--carmine);grid-column:1/-1;padding:8px 0;">We are not available on weekends. Please select a weekday.</div>';
+    return;
+  }
+
+  const slots = ['2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM','5:30 PM','6:00 PM','6:30 PM','7:00 PM'];
+  selectedSlots[type] = '';
+  container.innerHTML = slots.map(s =>
+    `<button class="slot-btn" onclick="selectSlot(this,'${type}','${s}')">${s}</button>`
+  ).join('');
+}
+
+function selectSlot(btn, type, slot) {
+  const containerId = type === 'candidate' ? 'candidateSlots' : 'companySlots';
+  document.querySelectorAll(`#${containerId} .slot-btn`).forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selectedSlots[type] = slot;
+}
+
+async function submitForm(type) {
+  const isCandidate = type === 'candidate';
+  const errorEl = document.getElementById(isCandidate ? 'candidateError' : 'companyError');
+  errorEl.classList.remove('show');
+
+  let data = {};
+  let valid = true;
+
+  if (isCandidate) {
+    data = {
+      type: 'candidate',
+      fullName: document.getElementById('c-name').value.trim(),
+      ccaEmail: document.getElementById('c-email').value.trim(),
+      yearAttending: document.getElementById('c-year').value,
+      positionInterested: document.getElementById('c-position').value,
+      preferredDate: document.getElementById('c-date').value,
+      preferredTime: selectedSlots.candidate
+    };
+    valid = data.fullName && data.ccaEmail && data.yearAttending && data.positionInterested && data.preferredDate && data.preferredTime;
+  } else {
+    data = {
+      type: 'company',
+      fullName: document.getElementById('co-name').value.trim(),
+      jobTitle: document.getElementById('co-title').value.trim(),
+      corporateEmail: document.getElementById('co-email').value.trim(),
+      companyName: document.getElementById('co-company').value.trim(),
+      isCallCenter: document.getElementById('co-callcenter').value,
+      meetingTopic: document.getElementById('co-topic').value,
+      preferredDate: document.getElementById('co-date').value,
+      preferredTime: selectedSlots.company
+    };
+    valid = data.fullName && data.jobTitle && data.corporateEmail && data.companyName && data.isCallCenter && data.meetingTopic && data.preferredDate && data.preferredTime;
+  }
+
+  if (!valid) { errorEl.classList.add('show'); return; }
+
+  const submitBtn = document.querySelector(`#${isCandidate ? 'candidateForm' : 'companyForm'} .form-submit`);
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Booking...';
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify(data)
+    });
+
+    const detailEl = document.getElementById(isCandidate ? 'candidateSuccessDetail' : 'companySuccessDetail');
+    const emailVal = isCandidate ? data.ccaEmail : data.corporateEmail;
+    const dateFormatted = new Date(data.preferredDate + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+    detailEl.innerHTML = `
+      <div class="success-detail-row"><span class="sd-label">Date</span><span class="sd-value">${dateFormatted}</span></div>
+      <div class="success-detail-row"><span class="sd-label">Time</span><span class="sd-value">${data.preferredTime} AST</span></div>
+      <div class="success-detail-row"><span class="sd-label">Duration</span><span class="sd-value">${isCandidate ? '30' : '15'} minutes</span></div>
+      <div class="success-detail-row"><span class="sd-label">Confirmation sent to</span><span class="sd-value">${emailVal}</span></div>
+    `;
+
+    document.getElementById(isCandidate ? 'candidateForm' : 'companyForm').style.display = 'none';
+    document.getElementById(isCandidate ? 'candidateSuccess' : 'companySuccess').style.display = 'block';
+
+  } catch {
+    errorEl.textContent = 'Something went wrong. Please try again or email us directly.';
+    errorEl.classList.add('show');
+    submitBtn.disabled = false;
+    submitBtn.textContent = isCandidate ? 'Confirm my interview' : 'Confirm meeting';
+  }
+}
+</script>
+</body>
+</html>
