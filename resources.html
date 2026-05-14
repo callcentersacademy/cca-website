@@ -353,8 +353,8 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .ai-chat::-webkit-scrollbar { width: 3px; }
 .ai-chat::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 999px; }
 .chat-bubble { padding: 12px 16px; border-radius: 14px; font-size: 15px; line-height: 1.6; max-width: 90%; font-weight: 400; }
-.chat-bubble.ai { background: var(--indigo); color: var(--white); border-bottom-left-radius: 4px; }
-.chat-bubble.user { background: var(--light); color: var(--text); border-bottom-right-radius: 4px; align-self: flex-end; border: 1px solid var(--gray); }
+.chat-bubble.ai { background: var(--indigo); color: var(--white) !important; border-bottom-left-radius: 4px; }
+.chat-bubble.user { background: var(--light); color: var(--text) !important; border-bottom-right-radius: 4px; align-self: flex-end; border: 1px solid var(--gray); }
 .chat-input-row { display: flex; gap: 8px; }
 .chat-input { flex: 1; padding: 12px 16px; border: 1px solid var(--gray); border-radius: 10px; font-family: 'Josefin Sans', sans-serif; font-size: 15px; color: var(--text); outline: none; transition: border-color 0.2s; }
 .chat-input:focus { border-color: var(--sky); }
@@ -833,7 +833,7 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 // All Claude API calls go through the Cloudflare Worker proxy.
 // The API key lives securely in Cloudflare — never in this file.
 const API_URL = 'https://cca-claude-proxy.callcentersacademy.workers.dev';
-const MODEL   = 'claude-sonnet-4-20250514';
+const MODEL   = 'claude-sonnet-4-5';
 
 // ── SYSTEM PROMPTS ────────────────────────────────────
 const CV_SYSTEM = `You are CCA's Call Center Resume Builder, created by Call Centers Academy & BPO in the Dominican Republic. You ONLY help users build or improve call center resumes. 
