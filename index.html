@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Call Centers Academy — Entrenamiento para Call Centers · FREE</title>
-<meta name="description" content="The first and only call center training institution in the Dominican Republic. Free tools, real training, and everything the industry won't tell you.">
+<title>Call Centers Academy & BPO — The Only Call Center Academy in Latin America</title>
+<meta name="description" content="Call Centers Academy is the first and only call center training institution in Latin America. Free resources, real training, and bilingual talent since 2018.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://callcentersacademy.com/">
-<meta property="og:title" content="Call Centers Academy — Entrenamiento para Call Centers · FREE">
-<meta property="og:description" content="The first and only call center training institution in the Dominican Republic. Free tools, real training, and everything the industry won't tell you.">
+<meta property="og:title" content="Call Centers Academy & BPO — The Only Call Center Academy in Latin America">
+<meta property="og:description" content="Call Centers Academy is the first and only call center training institution in Latin America. Free resources, real training, and bilingual talent since 2018.">
 <meta property="og:image" content="https://callcentersacademy.com/images/og-image.webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -16,8 +16,8 @@
 <meta property="og:site_name" content="Call Centers Academy & BPO">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://callcentersacademy.com/">
-<meta name="twitter:title" content="Call Centers Academy — Entrenamiento para Call Centers · FREE">
-<meta name="twitter:description" content="The first and only call center training institution in the Dominican Republic. Free tools, real training, and everything the industry won't tell you.">
+<meta name="twitter:title" content="Call Centers Academy & BPO — The Only Call Center Academy in Latin America">
+<meta name="twitter:description" content="Call Centers Academy is the first and only call center training institution in Latin America. Free resources, real training, and bilingual talent since 2018.">
 <meta name="twitter:image" content="https://callcentersacademy.com/images/og-image.webp">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23253166'/><path d='M7 22 Q7 10 16 10 Q25 10 25 22' stroke='%2300A1DE' stroke-width='2.5' fill='none' stroke-linecap='round'/><line x1='7' y1='22' x2='25' y2='22' stroke='%23FFCC00' stroke-width='2.5' stroke-linecap='round'/><line x1='16' y1='10' x2='16' y2='8' stroke='%2300A1DE' stroke-width='2' stroke-linecap='round'/></svg>" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -31,67 +31,220 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Josefin Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 4rem; height: 76px; background: var(--indigo); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 4rem; height: 76px; background: var(--indigo);
+  }
   .nav-logo { text-decoration: none; display: flex; align-items: center; }
   .nav-logo img { height: 64px; width: auto; display: block; }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-  .nav-links a { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+  .nav-links a {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); text-decoration: none;
+    font-weight: 600; transition: color 0.2s;
+  }
   .nav-links a:hover, .nav-links a.active { color: var(--white); }
-  .nav-cta { background: var(--yellow) !important; color: var(--indigo) !important; padding: 11px 24px; border-radius: 4px; font-weight: 700 !important; letter-spacing: 0.08em !important; }
+  .nav-cta {
+    background: var(--yellow) !important; color: var(--indigo) !important;
+    padding: 11px 24px; border-radius: 4px;
+    font-weight: 700 !important; letter-spacing: 0.08em !important;
+  }
   .nav-cta:hover { opacity: 0.9; }
-  .page-hero { background: var(--indigo); padding: 140px 4rem 80px; position: relative; overflow: hidden; }
-  .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
-  .page-hero-bg { position: absolute; bottom: -40px; right: -20px; font-family: 'Playfair Display', serif; font-size: 220px; font-weight: 900; color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none; }
-  .page-hero-inner { max-width: 1160px; margin: 0 auto; position: relative; z-index: 1; }
-  .page-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
-  .eyebrow-line { width: 32px; height: 2px; background: var(--carmine); }
-  .eyebrow-text { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 600; }
-  .page-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(40px, 5vw, 64px); color: var(--white); line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 1.25rem; }
-  .page-title em { font-style: italic; color: var(--sky); }
-  .page-subtitle { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.8; max-width: 580px; font-weight: 300; }
-  .section { padding: 6rem 4rem; }
-  .section-inner { max-width: 1160px; margin: 0 auto; }
+
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none; flex-direction: column; justify-content: center;
+    align-items: center; gap: 5px; width: 40px; height: 40px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+    border-radius: 4px; transition: background 0.2s; flex-shrink: 0;
+  }
+  .nav-hamburger:hover { background: rgba(255,255,255,0.08); }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 2px; background: var(--white);
+    border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.is-open span:nth-child(2) { opacity: 0; width: 0; }
+  .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE MENU */
+  .nav-mobile {
+    display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+    background: var(--indigo); border-top: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.28); opacity: 0;
+    transform: translateY(-8px); transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+  }
+  .nav-mobile.is-open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .nav-mobile ul { list-style: none; padding: 0.5rem 0 1rem; }
+  .nav-mobile ul li a {
+    display: block; padding: 14px 1.5rem; font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,0.65);
+    text-decoration: none; transition: color 0.2s, background 0.2s;
+    border-left: 2px solid transparent;
+  }
+  .nav-mobile ul li a:hover, .nav-mobile ul li a.active {
+    color: var(--white); background: rgba(255,255,255,0.05); border-left-color: var(--sky);
+  }
+  .nav-mobile ul li a.nav-cta-mobile {
+    margin: 0.75rem 1.5rem 0; padding: 13px 24px; background: var(--yellow);
+    color: var(--indigo) !important; font-weight: 700 !important; border-radius: 4px;
+    text-align: center; border-left: none; display: block;
+  }
+  .nav-mobile ul li a.nav-cta-mobile:hover { opacity: 0.9; background: var(--yellow); border-left: none; }
+
+  /* MOBILE BREAKPOINT */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; height: 68px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-mobile { display: block; }
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--indigo); padding: 140px 4rem 90px;
+    position: relative; overflow: hidden; min-height: 90vh;
+    display: flex; align-items: center;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow));
+  }
+  .hero-bg-text {
+    position: absolute; bottom: -60px; right: -30px;
+    font-family: 'Playfair Display', serif; font-size: 280px; font-weight: 900;
+    color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none;
+  }
+  .hero-inner { max-width: 1160px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 2rem; }
+  .eyebrow-line { width: 32px; height: 2px; background: var(--carmine); flex-shrink: 0; }
+  .eyebrow-text { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; }
+  .hero-title {
+    font-family: 'Playfair Display', serif; font-weight: 900;
+    font-size: clamp(42px, 5.5vw, 72px); color: var(--white);
+    line-height: 1.06; letter-spacing: -0.01em; margin-bottom: 1.5rem;
+  }
+  .hero-title em { font-style: italic; color: var(--sky); display: block; }
+  .hero-subtitle {
+    font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.85;
+    max-width: 540px; font-weight: 300; margin-bottom: 2.5rem;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 15px 32px; border-radius: 4px; text-decoration: none;
+    transition: opacity 0.2s; display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.3); color: var(--white);
+    font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 32px;
+    border-radius: 4px; text-decoration: none; transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
+  .btn-ghost {
+    border: 1.5px solid rgba(0,161,222,0.35); color: var(--sky);
+    font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 32px;
+    border-radius: 4px; text-decoration: none; transition: border-color 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--sky); }
+
+
+
+  /* DOORS SECTION */
+  .doors-section { padding: 6rem 4rem; background: var(--white); }
+  .doors-inner { max-width: 1160px; margin: 0 auto; }
   .section-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--carmine); font-weight: 700; margin-bottom: 1rem; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 900; color: var(--indigo); line-height: 1.2; margin-bottom: 1.5rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 42px); font-weight: 900; color: var(--indigo); line-height: 1.2; margin-bottom: 3rem; }
   .section-title em { font-style: italic; color: var(--sky); }
-  .story-section { background: var(--white); }
-  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
-  .story-block h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--indigo); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--gray); }
-  .story-block h3 span { color: var(--sky); }
-  .story-block p { font-size: 16px; color: #1f2937; line-height: 1.85; font-weight: 400; margin-bottom: 1rem; }
-  .timeline-section { background: var(--light); }
-  .cca-timeline { margin-top: 3rem; display: flex; flex-direction: column; }
-  .tl-row { display: grid; grid-template-columns: 120px 1px 1fr; gap: 0 2rem; position: relative; padding-bottom: 2.5rem; }
-  .tl-row:last-child { padding-bottom: 0; }
-  .tl-year-col { text-align: right; padding-top: 4px; }
-  .tl-year-label { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--indigo); line-height: 1; }
-  .tl-line-col { position: relative; display: flex; flex-direction: column; align-items: center; }
-  .tl-dot-main { width: 14px; height: 14px; border-radius: 50%; background: var(--carmine); flex-shrink: 0; position: relative; z-index: 1; margin-top: 6px; }
-  .tl-connector { flex: 1; width: 2px; background: var(--gray); margin-top: 4px; }
-  .tl-row:last-child .tl-connector { display: none; }
-  .tl-content { padding-top: 2px; }
-  .tl-content h4 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--indigo); margin-bottom: 0.4rem; }
-  .tl-content p { font-size: 15px; color: #374151; line-height: 1.7; font-weight: 400; }
-  .founder-section { background: var(--indigo); padding: 6rem 4rem; }
-  .founder-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: center; }
-  .founder-photo-wrap { position: relative; }
-  .founder-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 12px; display: block; }
-  .founder-badge { position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%); background: var(--yellow); color: var(--indigo); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 20px; border-radius: 100px; white-space: nowrap; }
-  .founder-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); font-weight: 600; margin-bottom: 1rem; }
-  .founder-name { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 0.5rem; }
-  .founder-title { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sky); font-weight: 600; margin-bottom: 2rem; }
-  .founder-bio { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.85; font-weight: 300; margin-bottom: 1.25rem; }
-  .founder-bio strong { color: var(--white); font-weight: 600; }
-  .credential-strip { display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-top: 2rem; }
-  .credential-row { display: flex; align-items: center; gap: 1.25rem; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .credential-row:last-child { border-bottom: none; }
-  .cred-year { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 900; color: var(--yellow); min-width: 60px; flex-shrink: 0; }
-  .cred-text { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 400; line-height: 1.6; }
-  .cred-text strong { color: var(--white); font-weight: 700; }
+  .doors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .door-card {
+    border: 1px solid var(--gray); border-radius: 12px; padding: 2.5rem 2rem;
+    position: relative; overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease;
+    text-decoration: none; display: block;
+  }
+  .door-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(37,49,102,0.12); }
+  .door-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .door-card.door-candidate::before { background: var(--indigo); }
+  .door-card.door-company::before { background: var(--sky); }
+  .door-card.door-everyone::before { background: var(--yellow); }
+  .door-icon { font-size: 40px; margin-bottom: 1.5rem; display: block; }
+  .door-number { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+  .door-card.door-candidate .door-number { color: var(--indigo); }
+  .door-card.door-company .door-number { color: var(--sky); }
+  .door-card.door-everyone .door-number { color: var(--carmine); }
+  .door-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--indigo); margin-bottom: 1rem; line-height: 1.2; }
+  .door-desc { font-size: 15px; color: #374151; line-height: 1.8; font-weight: 400; margin-bottom: 1.75rem; }
+  .door-cta { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+  .door-card.door-candidate .door-cta { color: var(--indigo); }
+  .door-card.door-company .door-cta { color: var(--sky); }
+  .door-card.door-everyone .door-cta { color: var(--carmine); }
+  .door-cta-arrow { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+  .door-card.door-candidate .door-cta-arrow { background: var(--indigo); }
+  .door-card.door-company .door-cta-arrow { background: var(--sky); }
+  .door-card.door-everyone .door-cta-arrow { background: var(--carmine); }
+  .door-cta-arrow svg { width: 10px; height: 10px; fill: white; }
+  .door-card:hover .door-cta-arrow { transform: translateX(3px); }
+
+  /* BLOG STRIP */
+  .blog-strip { background: var(--light); padding: 5rem 4rem; }
+  .blog-strip-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
+  .blog-strip-left { flex: 1; min-width: 280px; }
+  .blog-strip-left .section-eyebrow { margin-bottom: 0.75rem; }
+  .blog-strip-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 2.5vw, 34px); font-weight: 900; color: var(--indigo); line-height: 1.25; margin-bottom: 0.75rem; }
+  .blog-strip-sub { font-size: 15px; color: var(--muted); line-height: 1.7; font-weight: 400; }
+  .blog-strip-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1.25rem; }
+  .pill { background: var(--white); border: 1px solid var(--gray); border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--muted); padding: 5px 14px; }
+
+  /* TRUST STRIP */
+  .trust-section { background: var(--indigo); padding: 5rem 4rem; }
+  .trust-inner { max-width: 1160px; margin: 0 auto; text-align: center; }
+  .trust-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 38px); font-weight: 900; color: var(--white); margin-bottom: 0.75rem; }
+  .trust-title em { font-style: italic; color: var(--sky); }
+  .trust-sub { font-size: 16px; color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 3rem; }
+  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; }
+  .trust-item { background: rgba(255,255,255,0.04); padding: 2.5rem 2rem; text-align: center; }
+  .trust-item-icon { font-size: 28px; margin-bottom: 1rem; display: block; }
+  .trust-item-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+  .trust-item-text { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; font-weight: 300; }
+
+  /* WAITLIST */
+  .waitlist-section { background: var(--white); padding: 6rem 4rem; }
+  .waitlist-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+  .waitlist-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--carmine); font-weight: 700; margin-bottom: 1rem; }
+  .waitlist-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 38px); font-weight: 900; color: var(--indigo); margin-bottom: 1rem; line-height: 1.2; }
+  .waitlist-sub { font-size: 16px; color: var(--muted); font-weight: 300; line-height: 1.75; margin-bottom: 2.5rem; }
+  .waitlist-form { display: flex; gap: 0; max-width: 480px; margin: 0 auto; }
+  .waitlist-input {
+    flex: 1; padding: 15px 20px; border: 1.5px solid var(--gray); border-right: none;
+    border-radius: 4px 0 0 4px; font-family: 'Josefin Sans', sans-serif;
+    font-size: 14px; color: var(--text); outline: none; transition: border-color 0.2s;
+  }
+  .waitlist-input:focus { border-color: var(--sky); }
+  .waitlist-input::placeholder { color: var(--muted); }
+  .waitlist-btn {
+    background: var(--indigo); color: var(--white); border: none;
+    padding: 15px 28px; border-radius: 0 4px 4px 0; font-family: 'Josefin Sans', sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s; white-space: nowrap;
+  }
+  .waitlist-btn:hover { background: #1a2450; }
+  .waitlist-note { font-size: 12px; color: var(--muted); margin-top: 1rem; }
+
+  /* FOOTER */
   footer { background: var(--indigo); padding: 3.5rem 4rem 2rem; border-top: 3px solid rgba(255,255,255,0.06); }
   .footer-logos { display: flex; align-items: center; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .footer-logo-divider { width: 1px; height: 64px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
-  .footer-logo-cca, .footer-logo-bpo { display: flex; align-items: center; }
   .footer-logo-cca img, .footer-logo-bpo img { height: 80px; width: auto; display: block; }
   .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
   .footer-meta { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; line-height: 1.7; }
@@ -103,23 +256,34 @@
   .footer-social a:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.4); }
   .footer-social svg { width: 15px; height: 15px; fill: rgba(255,255,255,0.75); }
   .footer-social a:hover svg { fill: var(--white); }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .fade-up { animation: fadeUp 0.7s ease both; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp 0.75s ease both; }
+  .fade-up-2 { animation: fadeUp 0.75s 0.15s ease both; }
+  .fade-up-3 { animation: fadeUp 0.75s 0.3s ease both; }
+  .fade-up-4 { animation: fadeUp 0.75s 0.45s ease both; }
+
+  /* MOBILE */
   @media (max-width: 768px) {
-    nav { padding: 0 1.5rem; height: 68px; }
-    .nav-links { display: none; }
-    .page-hero { padding: 110px 1.5rem 60px; }
-    .section { padding: 4rem 1.5rem; }
-    .story-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .founder-section { padding: 4rem 1.5rem; }
-    .founder-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .founder-photo-wrap { max-width: 280px; margin: 0 auto; }
-    .tl-row { grid-template-columns: 80px 1px 1fr; gap: 0 1rem; }
-    .tl-year-label { font-size: 16px; }
+    .hero { padding: 110px 1.5rem 70px; min-height: auto; }
+    .hero-bg-text { font-size: 120px; }
+
+    .doors-section { padding: 4rem 1.5rem; }
+    .doors-grid { grid-template-columns: 1fr; gap: 20px; }
+    .blog-strip { padding: 3.5rem 1.5rem; }
+    .blog-strip-inner { flex-direction: column; }
+    .trust-section { padding: 4rem 1.5rem; }
+    .trust-grid { grid-template-columns: 1fr; }
+    .waitlist-section { padding: 4rem 1.5rem; }
+    .waitlist-form { flex-direction: column; }
+    .waitlist-input { border-right: 1.5px solid var(--gray); border-bottom: none; border-radius: 4px 4px 0 0; }
+    .waitlist-btn { border-radius: 0 0 4px 4px; text-align: center; }
     footer { padding: 2.5rem 1.5rem 1.5rem; }
     .footer-logos { gap: 2rem; }
     .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
-    .founder-name { font-size: 32px; }
+    .hero-ctas { flex-direction: column; align-items: flex-start; }
+    .btn-primary, .btn-outline, .btn-ghost { width: 100%; text-align: center; }
   }
 </style>
 </head>
@@ -132,87 +296,163 @@
     <img src="images/logo-cca.webp" alt="Call Centers Academy & BPO">
   </a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">About</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="candidates.html">Candidates</a></li>
     <li><a href="companies.html">Companies</a></li>
     <li><a href="the-call-center.html">The Call Center</a></li>
     <li><a href="resources.html">Resources</a></li>
     <li><a href="blog/" class="nav-cta">Blog</a></li>
   </ul>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="navMobile" aria-hidden="true">
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="candidates.html">Candidates</a></li>
+    <li><a href="companies.html">Companies</a></li>
+    <li><a href="the-call-center.html">The Call Center</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog/" class="nav-cta-mobile">Blog</a></li>
+  </ul>
+</div>
+
 <!-- HERO -->
-<section class="page-hero">
-  <div class="page-hero-bg">CCA</div>
-  <div class="page-hero-inner fade-up">
-    <div class="page-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Our Story</span></div>
-    <h1 class="page-title">Built from the floor.<br><em>Not from a classroom.</em></h1>
-    <p class="page-subtitle">Call Centers Academy was built from 12 years inside the industry. Every decision, every method, every stage we teach comes from having lived it first.</p>
-  </div>
-</section>
-
-<!-- STORY -->
-<section class="section story-section">
-  <div class="section-inner">
-    <p class="section-eyebrow">What We Are</p>
-    <h2 class="section-title">We didn't build a school.<br>We built a <em>pipeline.</em></h2>
-    <div class="story-grid">
-      <div class="story-block">
-        <h3>2018 — 2023 <span>The Academy</span></h3>
-        <p>CCA started as a bilingual training institution in Santo Domingo. English, call center preparation, computer skills — everything a candidate needed to walk into an interview and own it.</p>
-        <p>We operated at Pyhex Torre Naco, Galería 360, and The English Church. We ran live practice sessions with real call centers. We graduated hundreds of candidates who went on to build careers in the industry.</p>
-        <p>By 2022 we were a legally registered Dominican entity. By 2023 we were training, certifying, and placing our own apprentices.</p>
-      </div>
-      <div class="story-block">
-        <h3>2024 — Present <span>The Lab</span></h3>
-        <p>In 2024 CCA established its first US-based partnership and moved into a new model. We stopped being just a school. We became a training lab where students don't study the industry — they work in it.</p>
-        <p>Today CCA places candidates directly with partner clients. Real accounts. Real customers. Real pay. Candidates leave with documented experience that no classroom can replicate.</p>
-        <p>Every lesson, tool, and guide lives permanently at callcentersacademy.com/resources — free, no signup required. The paid model is the floor experience. The free model is everything that gets you ready for it.</p>
-      </div>
+<section class="hero">
+  <div class="hero-bg-text">CCA</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow fade-up">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Est. 2018 &nbsp;·&nbsp; Santo Domingo, Dominican Republic &nbsp;·&nbsp; The first of its kind in Latin America</span>
+    </div>
+    <h1 class="hero-title fade-up-2">
+      The only call center academy
+      <em>in Latin America.</em>
+    </h1>
+    <p class="hero-subtitle fade-up-3">We train candidates, place graduates with real companies, and give away everything we know for free. If you found us, you are in the right place.</p>
+    <div class="hero-ctas fade-up-4">
+      <a href="candidates.html" class="btn-primary">I'm a Candidate</a>
+      <a href="companies.html" class="btn-outline">I'm a Company</a>
+      <a href="resources.html" class="btn-ghost">Free Resources</a>
     </div>
   </div>
 </section>
 
-<!-- TIMELINE -->
-<section class="section timeline-section">
-  <div class="section-inner">
-    <p class="section-eyebrow">Milestones</p>
-    <h2 class="section-title">The story isn't over.<br><em>This is where you come in.</em></h2>
-    <div class="cca-timeline">
-      <div class="tl-row"><div class="tl-year-col"><div class="tl-year-label">2018</div></div><div class="tl-line-col"><div class="tl-dot-main"></div><div class="tl-connector"></div></div><div class="tl-content"><h4>CCA Was Born</h4><p>First sessions at Pyhex, Torre Naco. Instagram launched and reached 3,000 followers in the first year.</p></div></div>
-      <div class="tl-row"><div class="tl-year-col"><div class="tl-year-label">2019</div></div><div class="tl-line-col"><div class="tl-dot-main"></div><div class="tl-connector"></div></div><div class="tl-content"><h4>We Expanded</h4><p>Galería 360, The English Church, live practice sessions with real call centers. YouTube channel launched.</p></div></div>
-      <div class="tl-row"><div class="tl-year-col"><div class="tl-year-label">2020</div></div><div class="tl-line-col"><div class="tl-dot-main"></div><div class="tl-connector"></div></div><div class="tl-content"><h4>We Went Online</h4><p>The pandemic moved CCA fully virtual. Zoom, remote training, and the blueprint for the next phase began taking shape.</p></div></div>
-      <div class="tl-row"><div class="tl-year-col"><div class="tl-year-label">2021</div></div><div class="tl-line-col"><div class="tl-dot-main"></div><div class="tl-connector"></div></div><div class="tl-content"><h4>CCA Came Back</h4><p>In-person training returned. The classroom experience restored for the candidates who needed it most.</p></div></div>
-      <div class="tl-row"><div class="tl-year-col"><div class="tl-year-label">2022</div></div><div class="tl-line-col"><div class="tl-dot-main"></div><div class="tl-connector"></div></div><div class="tl-content"><h4>CCA Became Official</h4><p>Legal office at Spirit Coworking. EIRL registered. Call Centers Academy became a legal Dominican entity.</p></div></div>
-      <div class="tl-row"><div class="tl-year-col"><div class="tl-year-label">2023</div></div><div class="tl-line-col"><div class="tl-dot-main"></div><div class="tl-connector"></div></div><div class="tl-content"><h4>A New Model</h4><p>CCA began training, certifying, and placing its own apprentices while establishing first US-based partnerships.</p></div></div>
-      <div class="tl-row"><div class="tl-year-col"><div class="tl-year-label">2024</div></div><div class="tl-line-col"><div class="tl-dot-main"></div><div class="tl-connector"></div></div><div class="tl-content"><h4>CCA Crossed Borders</h4><p>Foundation of a US legal entity laid. First US client partnership established. The lab model activated.</p></div></div>
-      <div class="tl-row"><div class="tl-year-col"><div class="tl-year-label">2025</div></div><div class="tl-line-col"><div class="tl-dot-main"></div><div class="tl-connector"></div></div><div class="tl-content"><h4>CCA BPO Opened</h4><p>The call center launched. Former students now work real accounts on our own floor. The model is live.</p></div></div>
-      <div class="tl-row"><div class="tl-year-col"><div class="tl-year-label">2028</div></div><div class="tl-line-col"><div class="tl-dot-main"></div></div><div class="tl-content"><h4>The Global Platform</h4><p>The US entity takes over. The online academy launches. A decade of work becomes accessible to every Latino in the industry, anywhere.</p></div></div>
+
+
+<!-- THREE DOORS -->
+<section class="doors-section">
+  <div class="doors-inner">
+    <p class="section-eyebrow">Who is this for?</p>
+    <h2 class="section-title">Everyone in the industry<br><em>starts here.</em></h2>
+    <div class="doors-grid">
+
+      <a href="candidates.html" class="door-card door-candidate">
+        <span class="door-icon">🎧</span>
+        <div class="door-number">For Candidates</div>
+        <h3 class="door-title">You want to work in a call center.</h3>
+        <p class="door-desc">You need the English, the skills, and the confidence to get hired and stay hired. We built everything you need and made it free.</p>
+        <div class="door-cta">
+          Get started
+          <span class="door-cta-arrow">
+            <svg viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="companies.html" class="door-card door-company">
+        <span class="door-icon">🏢</span>
+        <div class="door-number">For Companies</div>
+        <h3 class="door-title">You need bilingual talent, ready to work.</h3>
+        <p class="door-desc">No onboarding headaches. No wasted interviews. Our graduates are pre-screened, pre-trained, and ready for the floor on day one.</p>
+        <div class="door-cta">
+          Hire our graduates
+          <span class="door-cta-arrow">
+            <svg viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="blog/" class="door-card door-everyone">
+        <span class="door-icon">📖</span>
+        <div class="door-number">For Everyone</div>
+        <h3 class="door-title">You just heard about CCA and want to learn.</h3>
+        <p class="door-desc">Everything we know is on the blog and the free resources campus. No signup. No paywall. Just knowledge the industry never gave you.</p>
+        <div class="door-cta">
+          Read the blog
+          <span class="door-cta-arrow">
+            <svg viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
 
-<!-- FOUNDER -->
-<section class="founder-section">
-  <div class="founder-inner">
-    <div class="founder-photo-wrap">
-      <img class="founder-photo" src="images/pamela.webp" alt="Pamela Pérez — Co-Founder, Call Centers Academy & BPO">
-      <div class="founder-badge">Co-Founder & Former CEO</div>
-    </div>
-    <div class="founder-content">
-      <p class="founder-eyebrow">Meet the Founder</p>
-      <h2 class="founder-name">Pamela Pérez</h2>
-      <p class="founder-title">Co-Founder & Former CEO — Consultant to Current Leadership</p>
-      <p class="founder-bio">Pamela Pérez built Call Centers Academy from the ground up — not from a business plan, but from 12 years working every role the industry has to offer. She entered her first call center in 2014 and spent the next several years deliberately moving through different companies and account types to collect the full picture of the industry before teaching it.</p>
-      <p class="founder-bio">Today Pamela serves as a consultant to CCA's current leadership team. Alongside her husband, she operates a <strong>partner call center based in the United States</strong> — the same model she envisioned when she founded CCA in 2018. A proud and in-love wife, happily married to her dreamed partner, and mom of Billy, Willy, and Baby Fierce.</p>
-      <div class="credential-strip">
-        <div class="credential-row"><span class="cred-year">2014</span><span class="cred-text">Entered the call center industry. First floor experience.</span></div>
-        <div class="credential-row"><span class="cred-year">2014–18</span><span class="cred-text"><strong>Multi-company journey.</strong> Worked across multiple call centers to build a complete, unbiased understanding of the industry before teaching it.</span></div>
-        <div class="credential-row"><span class="cred-year">2018</span><span class="cred-text"><strong>Started Call Centers Academy & BPO</strong> in Santo Domingo, Dominican Republic.</span></div>
-        <div class="credential-row"><span class="cred-year">2022</span><span class="cred-text">CCA registered as a legal Dominican entity.</span></div>
-        <div class="credential-row"><span class="cred-year">2025</span><span class="cred-text"><strong>Launched partner BPO in the United States</strong> alongside her husband.</span></div>
+<!-- BLOG STRIP -->
+<section class="blog-strip">
+  <div class="blog-strip-inner">
+    <div class="blog-strip-left">
+      <p class="section-eyebrow">Free resources</p>
+      <h2 class="blog-strip-title">Everything the industry won't tell you.</h2>
+      <p class="blog-strip-sub">CVs, interview guides, salary calculators, AI tools, and more. No signup. No paywall. Just knowledge.</p>
+      <div class="blog-strip-pills">
+        <span class="pill">Interview Prep</span>
+        <span class="pill">CV & Resume</span>
+        <span class="pill">English Skills</span>
+        <span class="pill">Salary & KPIs</span>
+        <span class="pill">Nesting</span>
+        <span class="pill">En Español</span>
       </div>
     </div>
+    <a href="resources.html" class="btn-primary" style="background: var(--indigo); color: var(--white); white-space: nowrap;">Free Resources &rarr;</a>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust-section">
+  <div class="trust-inner">
+    <h2 class="trust-title">Built from the floor.<br><em>Not from a classroom.</em></h2>
+    <p class="trust-sub">12 years inside the industry. Every method, every lesson, every tool comes from having lived it first.</p>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <span class="trust-item-icon">🇩🇴</span>
+        <div class="trust-item-title">Born in Santo Domingo</div>
+        <p class="trust-item-text">The first call center academy in the Dominican Republic. Founded in 2018, legally registered in 2022.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">🌎</span>
+        <div class="trust-item-title">Growing across Latin America</div>
+        <p class="trust-item-text">US-based legal entity. Partner call center in operation. Expanding to serve every Latino in the BPO industry.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">🎓</span>
+        <div class="trust-item-title">Real experience, not theory</div>
+        <p class="trust-item-text">Students don't just study the industry. They work in it. Real accounts, real clients, real pay, documented experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="waitlist-section">
+  <div class="waitlist-inner">
+    <p class="waitlist-eyebrow">Stay in the loop</p>
+    <h2 class="waitlist-title">Get notified when new resources drop.</h2>
+    <p class="waitlist-sub">New blog posts, free tools, and industry guides delivered straight to your inbox. No spam. Unsubscribe anytime.</p>
+    <form class="waitlist-form" action="https://formspree.io/f/mykonnkk" method="POST" id="waitlistForm">
+      <input class="waitlist-input" type="email" name="email" placeholder="Your email address" required>
+      <button class="waitlist-btn" type="submit">Join the List</button>
+    </form>
+    <p class="waitlist-note">No spam. No selling your data. Just useful content when it's ready.</p>
   </div>
 </section>
 
@@ -224,7 +464,7 @@
     <div class="footer-logo-bpo"><img src="images/logo-bpo.webp" alt="CCA BPO"></div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-meta">Call Centers Academy & BPO · Est. 2018<br>Santo Domingo, Dominican Republic · RNC: 1-32-71135-1</div>
+    <div class="footer-meta">Call Centers Academy & BPO &middot; Est. 2018<br>Santo Domingo, Dominican Republic &middot; RNC: 1-32-71135-1</div>
     <div class="footer-social">
       <a href="https://www.facebook.com/callcentersacademy" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
       <a href="https://www.instagram.com/callcentersacademy" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="rgba(255,255,255,0.75)" stroke="none"/></svg></a>
@@ -242,6 +482,54 @@
     </ul>
   </div>
 </footer>
+
+<!-- WAITLIST INTERCEPT -->
+<script>
+  (function () {
+    var form = document.getElementById('waitlistForm');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var data = new FormData(form);
+        fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+          .then(function () { window.location.href = 'thank-you.html'; })
+          .catch(function () { window.location.href = 'thank-you.html'; });
+      });
+    }
+  })();
+</script>
+
+<!-- HAMBURGER SCRIPT -->
+<script>
+  (function () {
+    var btn = document.querySelector('.nav-hamburger');
+    var menu = document.getElementById('navMobile');
+    function openMenu() {
+      btn.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Close menu');
+      menu.classList.add('is-open');
+      menu.setAttribute('aria-hidden', 'false');
+      document.addEventListener('click', outsideClick);
+    }
+    function closeMenu() {
+      btn.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
+      menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('click', outsideClick);
+    }
+    function outsideClick(e) {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) { closeMenu(); }
+    }
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      btn.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+    menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
+  })();
+</script>
 
 </body>
 </html>
