@@ -317,6 +317,24 @@
   </div>
 </footer>
 
+<!-- COOKIE BANNER -->
+<div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent" style="position:fixed;bottom:24px;left:24px;z-index:9999;max-width:320px;background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 8px 32px rgba(0,0,0,0.15);font-size:13px;line-height:1.55;display:flex;flex-direction:column;gap:14px;border:1px solid #e8e8e8;font-family:'Josefin Sans',sans-serif;">
+  <p style="margin:0;color:#333;">We use cookies to understand how visitors use our site. See our <a href="privacy.html" style="color:#00A1DE;text-decoration:underline;">Privacy Policy</a>.</p>
+  <div style="display:flex;gap:8px;">
+    <button onclick="ccaDecline()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#e8e8e8;color:#555;">Decline</button>
+    <button onclick="ccaAccept()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#00A1DE;color:#fff;">Accept</button>
+  </div>
+</div>
+<script>
+  (function(){var c=localStorage.getItem("cca_cookie_consent");if(c){var b=document.getElementById("cca-cookie-banner");if(b){b.style.opacity="0";b.style.pointerEvents="none";}}})();
+  function ccaAccept(){localStorage.setItem("cca_cookie_consent","accepted");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";if(window.dataLayer)dataLayer.push({event:"cookie_consent_accepted"});}
+  function ccaDecline(){localStorage.setItem("cca_cookie_consent","declined");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";}
+</script>
+
+<!-- CHATBOT WIDGET -->
+<script src="blog/cca-chatbot-widget.js"></script>
+<script>window.LOCALE='en';var AUTOHIDE=Boolean(0);</script>
+
 <!-- HAMBURGER SCRIPT -->
 <script>
   (function () {
