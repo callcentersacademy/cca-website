@@ -8,10 +8,18 @@
   <link rel="canonical" href="https://callcentersacademy.com/blog/" />
   <meta property="og:title" content="Blog | Call Centers Academy" />
   <meta property="og:description" content="Free English tips, call center interview prep, and insider knowledge." />
-  <meta property="og:image" content="https://callcentersacademy.github.io/cca-website/images/og-image.webp" />
+  <meta property="og:image" content="https://callcentersacademy.com/images/og-image.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://callcentersacademy.com/blog/" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Call Centers Academy" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://callcentersacademy.com/blog/" />
+  <meta name="twitter:title" content="Blog | Call Centers Academy" />
+  <meta name="twitter:description" content="Free English tips, call center interview prep, and insider knowledge." />
+  <meta name="twitter:image" content="https://callcentersacademy.com/images/og-image.webp" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23253166'/><path d='M7 22 Q7 10 16 10 Q25 10 25 22' stroke='%2300A1DE' stroke-width='2.5' fill='none' stroke-linecap='round'/><line x1='7' y1='22' x2='25' y2='22' stroke='%23FFCC00' stroke-width='2.5' stroke-linecap='round'/><line x1='16' y1='10' x2='16' y2='8' stroke='%2300A1DE' stroke-width='2' stroke-linecap='round'/></svg>" />
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJXKFG2L');</script>
@@ -23,7 +31,7 @@
 
     /* TOP BAR */
     .top-bar { background: var(--indigo); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .top-bar-message { flex: 1; text-align: center; font-size: 13px; color: rgba(255,255,255,0.88); }
+    .top-bar-message { flex: 1; text-align: center; font-size: 15px; color: rgba(255,255,255,0.88); }
     .top-bar-message a { color: var(--yellow); font-weight: 700; text-decoration: underline; }
     .top-bar-home { white-space: nowrap; font-size: 12px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); padding: 5px 12px; border-radius: 4px; transition: border-color 0.15s; }
     .top-bar-home:hover { border-color: var(--yellow); color: var(--yellow); }
@@ -46,36 +54,23 @@
     .read-link:hover { text-decoration: underline; }
     .hero-image img { width: 100%; border-radius: 8px; display: block; }
 
-    /* CARD GRID */
+    /* SECTION LABEL */
     .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 40px 0 20px; border-bottom: 2px solid var(--border); margin-bottom: 28px; }
+
+    /* CARD GRID */
     .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 48px; }
     @media (max-width: 720px) { .card-grid { grid-template-columns: 1fr; } }
-    .card { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: box-shadow 0.15s; }
+    .card { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: box-shadow 0.15s; display: block; }
     .card:hover { box-shadow: 0 4px 20px rgba(37,49,102,0.1); }
     .card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
     .card-body { padding: 18px 20px; }
-    .card-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--indigo); line-height: 1.35; margin-bottom: 10px; }
+    .card-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--indigo); line-height: 1.35; }
     .card:hover .card-title { color: var(--carmine); }
-
-    /* NEWSLETTER STRIP */
-    .newsletter-strip { background: var(--indigo); border-radius: 10px; padding: 40px 48px; margin: 48px 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-    @media (max-width: 720px) { .newsletter-strip { grid-template-columns: 1fr; padding: 32px 24px; } }
-    .newsletter-copy h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--white); margin-bottom: 10px; line-height: 1.25; }
-    .newsletter-copy p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.7; }
-    .newsletter-form-wrap form { display: flex; gap: 10px; flex-wrap: wrap; }
-    .newsletter-form-wrap input[type="email"] { flex: 1; min-width: 180px; padding: 11px 14px; border-radius: 6px; border: none; font-family: 'Josefin Sans', sans-serif; font-size: 14px; outline: none; }
-    .newsletter-form-wrap button { background: var(--carmine); color: var(--white); border: none; padding: 11px 20px; border-radius: 6px; font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background 0.15s; }
-    .newsletter-form-wrap button:hover { background: #a81216; }
+    .card-excerpt { font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 8px; }
 
     /* AD SLOT */
-    .ad-slot { background: #f9f9f9; border: 1px dashed #ddd; border-radius: 6px; min-height: 90px; margin: 0 0 48px; }
-
-    /* POST LIST */
-    .post-list { margin-bottom: 64px; }
-    .post-list-item { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--border); text-decoration: none; }
-    .post-list-item:first-child { border-top: 1px solid var(--border); }
-    .post-list-item:hover .post-list-title { color: var(--carmine); }
-    .post-list-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--indigo); line-height: 1.35; transition: color 0.15s; }
+    .ad-slot { background: #f9f9f9; border: 1px dashed #ddd; border-radius: 6px; min-height: 90px; margin: 0 0 48px; display: flex; align-items: center; justify-content: center; }
+    .ad-slot-label { font-size: 10px; color: #bbb; letter-spacing: 0.08em; text-transform: uppercase; }
 
     /* FOOTER */
     .site-footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
@@ -87,7 +82,7 @@
 <!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-message">
-    Get free English tips + call center resources &mdash; <a href="#newsletter">subscribe free</a>
+    Free training. Free resources. No excuses. <a href="https://callcentersacademy.com/resources.html">Start here.</a>
   </div>
   <a href="https://callcentersacademy.com" class="top-bar-home">callcentersacademy.com</a>
 </div>
@@ -106,25 +101,25 @@
         <span class="featured-tag">Featured</span>
       </div>
       <h1 class="hero-title">
-        <a href="what-is-call-centers-academy.html">What Is Call Centers Academy and Why Haven't You Heard Enough About It</a>
+        <a href="what-is-call-centers-academy.html">What is Call Centers Academy and why haven't you heard enough about it?</a>
       </h1>
       <p class="hero-excerpt">Pamela P&eacute;rez tells the full story. From a pharmacy job in 2014 to training over a thousand people in the Dominican Republic. Why CCA went quiet. Why it's back. And what this blog is really for.</p>
       <a href="what-is-call-centers-academy.html" class="read-link">Read the post &rarr;</a>
     </div>
     <div class="hero-image">
       <a href="what-is-call-centers-academy.html">
-        <img src="images/post-31-cca-story.webp" alt="What Is Call Centers Academy" />
+        <img src="images/post-31-cca-story.webp" alt="What is Call Centers Academy" />
       </a>
     </div>
   </div>
 
   <!-- CARD GRID — Posts 02, 03, 04 -->
-  <div class="section-label">More Posts</div>
+  <div class="section-label">Latest posts</div>
   <div class="card-grid">
     <a href="your-english-is-good-enough.html" class="card">
-      <img src="images/post-01-confidence.webp" alt="Your English Is Good Enough. Your Confidence Isn't." />
+      <img src="images/post-01-confidence.webp" alt="Your English is good enough. Your confidence isn't." />
       <div class="card-body">
-        <div class="card-title">Your English Is Good Enough. Your Confidence Isn't.</div>
+        <div class="card-title">Your English is good enough. Your confidence isn't.</div>
       </div>
     </a>
     <a href="tu-ingles-es-suficiente.html" class="card">
@@ -134,132 +129,240 @@
       </div>
     </a>
     <a href="why-you-keep-failing-the-interview.html" class="card">
-      <img src="images/post-03-interview-fail.webp" alt="Why You Keep Failing the Interview" />
+      <img src="images/post-03-interview-fail.webp" alt="Why you keep failing the interview (it's not your English)" />
       <div class="card-body">
-        <div class="card-title">Why You Keep Failing the Interview (It's Not Your English)</div>
+        <div class="card-title">Why you keep failing the interview (it's not your English)</div>
       </div>
     </a>
   </div>
 
-  <!-- AD SLOT -->
-  <div class="ad-slot"></div>
+  <!-- AD SLOT 1 -->
+  <div class="ad-slot"><span class="ad-slot-label">Advertisement</span></div>
 
-  <!-- NEWSLETTER STRIP -->
-  <div class="newsletter-strip" id="newsletter">
-    <div class="newsletter-copy">
-      <h2>Free resources. Real advice.</h2>
-      <p>Subscribe and get honest call center tips straight to your inbox. No spam. Just the content that actually helps.</p>
-    </div>
-    <div class="newsletter-form-wrap">
-      <form action="https://7a0797f4.sibforms.com/serve/MUIFAP7AkImd8cV8KEFtLEAnGfbYbWql66EsTMEJeTLyQNAyNP4R6MZ27kn7pTVz5m4uMNdFLUc2lxxfOojTNLJHA5Sayd8D3HaIKq1d47nvtjFucPkulY-9bJTfZxNzdHwNjgHatnVdHCGjjnYH4xBuAooJnWSxWlrCFr8da2oSHNgL4E5l5nFMmw3MhpyOBibzNfqqC8Fps5oRAg==" method="POST" data-type="subscription">
-        <input type="email" name="EMAIL" placeholder="Your email address" required />
-        <input type="hidden" name="locale" value="en" />
-        <input type="text" name="email_address_check" value="" style="display:none;" />
-        <button type="submit">Subscribe Free</button>
-      </form>
-      <p style="font-size:11px;color:rgba(255,255,255,0.55);margin-top:8px;">Check your spam folder if you don't see the confirmation.</p>
-    </div>
-  </div>
-
-  <!-- POST LIST — All 32 posts, correct filenames -->
-  <div class="post-list">
-    <a href="que-es-call-centers-academy.html" class="post-list-item">
-      <span class="post-list-title">Qu&eacute; Es Call Centers Academy y Por Qu&eacute; No Has Escuchado M&aacute;s de Nosotros</span>
+  <!-- CARD GRID — Posts 05, 06, 07 -->
+  <div class="card-grid">
+    <a href="por-que-sigues-fallando-la-entrevista.html" class="card">
+      <img src="images/post-04-entrevista.webp" alt="Por qu&eacute; sigues fallando la entrevista" />
+      <div class="card-body">
+        <div class="card-title">Por qu&eacute; sigues fallando la entrevista</div>
+      </div>
     </a>
-    <a href="your-english-is-good-enough.html" class="post-list-item">
-      <span class="post-list-title">Your English Is Good Enough. Your Confidence Isn't.</span>
+    <a href="summer-job-call-center-asset.html" class="card">
+      <img src="images/post-05-summer.webp" alt="Your summer job experience is a call center asset" />
+      <div class="card-body">
+        <div class="card-title">Your summer job experience is a call center asset</div>
+      </div>
     </a>
-    <a href="tu-ingles-es-suficiente.html" class="post-list-item">
-      <span class="post-list-title">Tu ingl&eacute;s es suficiente. Tu confianza no.</span>
-    </a>
-    <a href="why-you-keep-failing-the-interview.html" class="post-list-item">
-      <span class="post-list-title">Why You Keep Failing the Interview (It's Not Your English)</span>
-    </a>
-    <a href="por-que-sigues-fallando-la-entrevista.html" class="post-list-item">
-      <span class="post-list-title">Por qu&eacute; sigues fallando la entrevista</span>
-    </a>
-    <a href="summer-job-call-center-asset.html" class="post-list-item">
-      <span class="post-list-title">Your Summer Job Experience Is a Call Center Asset</span>
-    </a>
-    <a href="trabajo-de-verano-call-center.html" class="post-list-item">
-      <span class="post-list-title">Tu trabajo de verano es un activo para el call center</span>
-    </a>
-    <a href="your-call-center-cv.html" class="post-list-item">
-      <span class="post-list-title">Your Call Center CV: What to Include and What to Delete</span>
-    </a>
-    <a href="tu-curriculum-para-call-center.html" class="post-list-item">
-      <span class="post-list-title">Tu curr&iacute;culum para call center</span>
-    </a>
-    <a href="you-got-hired-now-relax.html" class="post-list-item">
-      <span class="post-list-title">You Got Hired. Now Relax and Do the Job.</span>
-    </a>
-    <a href="te-contrataron-ahora-relax.html" class="post-list-item">
-      <span class="post-list-title">Te contrataron. Ahora relax y haz el trabajo.</span>
-    </a>
-    <a href="the-military-alphabet.html" class="post-list-item">
-      <span class="post-list-title">The Military Alphabet: Why Call Centers Still Use It</span>
-    </a>
-    <a href="el-alfabeto-militar.html" class="post-list-item">
-      <span class="post-list-title">El alfabeto militar: por qu&eacute; los call centers todav&iacute;a lo usan</span>
-    </a>
-    <a href="no-call-centers-en-espanol.html" class="post-list-item">
-      <span class="post-list-title">No hay call centers en espa&ntilde;ol. Y aqu&iacute; est&aacute; la verdad.</span>
-    </a>
-    <a href="no-spanish-only-call-centers.html" class="post-list-item">
-      <span class="post-list-title">There Are No Spanish-Only Call Centers. Here's the Truth.</span>
-    </a>
-    <a href="requisitos-para-trabajar-en-call-center.html" class="post-list-item">
-      <span class="post-list-title">Requisitos para trabajar en un call center en la Rep&uacute;blica Dominicana</span>
-    </a>
-    <a href="requirements-to-work-in-a-call-center-dr.html" class="post-list-item">
-      <span class="post-list-title">Requirements to Work in a Call Center in the Dominican Republic</span>
-    </a>
-    <a href="you-want-10-years-experience-for-4-dollar.html" class="post-list-item">
-      <span class="post-list-title">You Want 10 Years of Experience for $4/hr</span>
-    </a>
-    <a href="quieres-10-anos-de-experiencia-por-4-dolares.html" class="post-list-item">
-      <span class="post-list-title">Quieres 10 a&ntilde;os de experiencia por $4/hr</span>
-    </a>
-    <a href="best-and-worst-call-centers-dr.html" class="post-list-item">
-      <span class="post-list-title">The Best and Worst Call Centers in the DR</span>
-    </a>
-    <a href="mejores-y-peores-call-centers-rd.html" class="post-list-item">
-      <span class="post-list-title">Los mejores y peores call centers de RD</span>
-    </a>
-    <a href="call-center-application-2026.html" class="post-list-item">
-      <span class="post-list-title">Call Center Application 2026: What They're Asking For Now</span>
-    </a>
-    <a href="aplicacion-call-center-2026.html" class="post-list-item">
-      <span class="post-list-title">Aplicaci&oacute;n call center 2026: lo que realmente te est&aacute;n pidiendo</span>
-    </a>
-    <a href="video-resume-call-center.html" class="post-list-item">
-      <span class="post-list-title">How to Record a Video Resume for a Call Center</span>
-    </a>
-    <a href="video-curriculum-call-center.html" class="post-list-item">
-      <span class="post-list-title">C&oacute;mo Grabar un Video Curr&iacute;culum para Call Centers</span>
-    </a>
-    <a href="what-is-vocaroo.html" class="post-list-item">
-      <span class="post-list-title">What Is Vocaroo and Why Is the Call Center Asking for It</span>
-    </a>
-    <a href="que-es-vocaroo.html" class="post-list-item">
-      <span class="post-list-title">Qu&eacute; Es Vocaroo y Por Qu&eacute; Te Lo Piden en el Call Center</span>
-    </a>
-    <a href="red-flags-call-center-job-offer.html" class="post-list-item">
-      <span class="post-list-title">Red Flags in a Call Center Job Offer Before You Say Yes</span>
-    </a>
-    <a href="senales-de-alerta-oferta-call-center.html" class="post-list-item">
-      <span class="post-list-title">Se&ntilde;ales de Alerta en una Oferta de Trabajo de Call Center Antes de Decir Que S&iacute;</span>
-    </a>
-    <a href="linkedin-for-call-center-applicants.html" class="post-list-item">
-      <span class="post-list-title">LinkedIn for Call Center Applicants in 2026: The Honest Version</span>
-    </a>
-    <a href="linkedin-para-call-centers.html" class="post-list-item">
-      <span class="post-list-title">LinkedIn para Candidatos de Call Centers en 2026: La Versi&oacute;n Honesta</span>
+    <a href="trabajo-de-verano-call-center.html" class="card">
+      <img src="images/post-06-verano.webp" alt="Tu trabajo de verano es un activo para el call center" />
+      <div class="card-body">
+        <div class="card-title">Tu trabajo de verano es un activo para el call center</div>
+      </div>
     </a>
   </div>
 
-  <!-- AD SLOT -->
-  <div class="ad-slot" style="margin-bottom:64px;"></div>
+  <!-- AD SLOT 2 -->
+  <div class="ad-slot"><span class="ad-slot-label">Advertisement</span></div>
+
+  <!-- CARD GRID — Posts 08, 09, 10 -->
+  <div class="card-grid">
+    <a href="your-call-center-cv.html" class="card">
+      <img src="images/post-07-cv.webp" alt="Your call center CV: what to include and what to delete" />
+      <div class="card-body">
+        <div class="card-title">Your call center CV: what to include and what to delete</div>
+      </div>
+    </a>
+    <a href="tu-curriculum-para-call-center.html" class="card">
+      <img src="images/post-08-curriculum.webp" alt="Tu curr&iacute;culum para call center" />
+      <div class="card-body">
+        <div class="card-title">Tu curr&iacute;culum para call center</div>
+      </div>
+    </a>
+    <a href="you-got-hired-now-relax.html" class="card">
+      <img src="images/post-09-hired.webp" alt="You got hired. Now relax and do the job." />
+      <div class="card-body">
+        <div class="card-title">You got hired. Now relax and do the job.</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- AD SLOT 3 -->
+  <div class="ad-slot"><span class="ad-slot-label">Advertisement</span></div>
+
+  <!-- CARD GRID — Posts 11, 12, 13 -->
+  <div class="card-grid">
+    <a href="te-contrataron-ahora-relax.html" class="card">
+      <img src="images/post-10-contrataron.webp" alt="Te contrataron. Ahora relax y haz el trabajo." />
+      <div class="card-body">
+        <div class="card-title">Te contrataron. Ahora relax y haz el trabajo.</div>
+      </div>
+    </a>
+    <a href="the-military-alphabet.html" class="card">
+      <img src="images/post-11-military.webp" alt="The military alphabet: why call centers still use it" />
+      <div class="card-body">
+        <div class="card-title">The military alphabet: why call centers still use it</div>
+      </div>
+    </a>
+    <a href="el-alfabeto-militar.html" class="card">
+      <img src="images/post-12-alfabeto.webp" alt="El alfabeto militar: por qu&eacute; los call centers todav&iacute;a lo usan" />
+      <div class="card-body">
+        <div class="card-title">El alfabeto militar: por qu&eacute; los call centers todav&iacute;a lo usan</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- AD SLOT 4 -->
+  <div class="ad-slot"><span class="ad-slot-label">Advertisement</span></div>
+
+  <!-- CARD GRID — Posts 14, 15, 16 -->
+  <div class="card-grid">
+    <a href="no-call-centers-en-espanol.html" class="card">
+      <img src="images/post-13-espanol.webp" alt="No hay call centers en espa&ntilde;ol. Y aqu&iacute; est&aacute; la verdad." />
+      <div class="card-body">
+        <div class="card-title">No hay call centers en espa&ntilde;ol. Y aqu&iacute; est&aacute; la verdad.</div>
+      </div>
+    </a>
+    <a href="no-spanish-only-call-centers.html" class="card">
+      <img src="images/post-14-spanish.webp" alt="There are no Spanish-only call centers. Here's the truth." />
+      <div class="card-body">
+        <div class="card-title">There are no Spanish-only call centers. Here's the truth.</div>
+      </div>
+    </a>
+    <a href="requisitos-para-trabajar-en-call-center.html" class="card">
+      <img src="images/post-15-requisitos.webp" alt="Requisitos para trabajar en un call center en la Rep&uacute;blica Dominicana" />
+      <div class="card-body">
+        <div class="card-title">Requisitos para trabajar en un call center en la Rep&uacute;blica Dominicana</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- AD SLOT 5 -->
+  <div class="ad-slot"><span class="ad-slot-label">Advertisement</span></div>
+
+  <!-- CARD GRID — Posts 17, 18, 19 -->
+  <div class="card-grid">
+    <a href="requirements-to-work-in-a-call-center-dr.html" class="card">
+      <img src="images/post-16-requirements.webp" alt="Requirements to work in a call center in the Dominican Republic" />
+      <div class="card-body">
+        <div class="card-title">Requirements to work in a call center in the Dominican Republic</div>
+      </div>
+    </a>
+    <a href="you-want-10-years-experience-for-4-dollar.html" class="card">
+      <img src="images/post-17-experience.webp" alt="You want 10 years of experience for $4/hr?" />
+      <div class="card-body">
+        <div class="card-title">You want 10 years of experience for $4/hr?</div>
+      </div>
+    </a>
+    <a href="quieres-10-anos-de-experiencia-por-4-dolares.html" class="card">
+      <img src="images/post-18-experiencia.webp" alt="&iquest;Quieres 10 a&ntilde;os de experiencia por $4/hr?" />
+      <div class="card-body">
+        <div class="card-title">&iquest;Quieres 10 a&ntilde;os de experiencia por $4/hr?</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- AD SLOT 6 -->
+  <div class="ad-slot"><span class="ad-slot-label">Advertisement</span></div>
+
+  <!-- CARD GRID — Posts 20, 21, 22 -->
+  <div class="card-grid">
+    <a href="best-and-worst-call-centers-dr.html" class="card">
+      <img src="images/post-19-best-worst.webp" alt="The best and worst call centers in the DR" />
+      <div class="card-body">
+        <div class="card-title">The best and worst call centers in the DR</div>
+      </div>
+    </a>
+    <a href="mejores-y-peores-call-centers-rd.html" class="card">
+      <img src="images/post-20-mejores.webp" alt="Los mejores y peores call centers de RD" />
+      <div class="card-body">
+        <div class="card-title">Los mejores y peores call centers de RD</div>
+      </div>
+    </a>
+    <a href="call-center-application-2026.html" class="card">
+      <img src="images/post-21-application.webp" alt="Call center application 2026: what they're asking for now" />
+      <div class="card-body">
+        <div class="card-title">Call center application 2026: what they're asking for now</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- AD SLOT 7 -->
+  <div class="ad-slot"><span class="ad-slot-label">Advertisement</span></div>
+
+  <!-- CARD GRID — Posts 23, 24, 25 -->
+  <div class="card-grid">
+    <a href="aplicacion-call-center-2026.html" class="card">
+      <img src="images/post-22-aplicacion.webp" alt="Aplicaci&oacute;n call center 2026: lo que realmente te est&aacute;n pidiendo" />
+      <div class="card-body">
+        <div class="card-title">Aplicaci&oacute;n call center 2026: lo que realmente te est&aacute;n pidiendo</div>
+      </div>
+    </a>
+    <a href="video-resume-call-center.html" class="card">
+      <img src="images/post-23-video.webp" alt="How to record a video resume for a call center" />
+      <div class="card-body">
+        <div class="card-title">How to record a video resume for a call center</div>
+      </div>
+    </a>
+    <a href="video-curriculum-call-center.html" class="card">
+      <img src="images/post-24-video-es.webp" alt="C&oacute;mo grabar un video curr&iacute;culum para call centers" />
+      <div class="card-body">
+        <div class="card-title">C&oacute;mo grabar un video curr&iacute;culum para call centers</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- AD SLOT 8 -->
+  <div class="ad-slot"><span class="ad-slot-label">Advertisement</span></div>
+
+  <!-- CARD GRID — Posts 26, 27, 28 -->
+  <div class="card-grid">
+    <a href="what-is-vocaroo.html" class="card">
+      <img src="images/post-25-vocaroo.webp" alt="What is Vocaroo and why is the call center asking for it?" />
+      <div class="card-body">
+        <div class="card-title">What is Vocaroo and why is the call center asking for it?</div>
+      </div>
+    </a>
+    <a href="que-es-vocaroo.html" class="card">
+      <img src="images/post-26-vocaroo-es.webp" alt="&iquest;Qu&eacute; es Vocaroo y por qu&eacute; te lo piden en el call center?" />
+      <div class="card-body">
+        <div class="card-title">&iquest;Qu&eacute; es Vocaroo y por qu&eacute; te lo piden en el call center?</div>
+      </div>
+    </a>
+    <a href="red-flags-call-center-job-offer.html" class="card">
+      <img src="images/post-27-redflags.webp" alt="Red flags in a call center job offer before you say yes" />
+      <div class="card-body">
+        <div class="card-title">Red flags in a call center job offer before you say yes</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- AD SLOT 9 -->
+  <div class="ad-slot"><span class="ad-slot-label">Advertisement</span></div>
+
+  <!-- CARD GRID — Posts 29, 30, 31, 32 -->
+  <div class="card-grid">
+    <a href="senales-de-alerta-oferta-call-center.html" class="card">
+      <img src="images/post-28-senales.webp" alt="Se&ntilde;ales de alerta en una oferta de trabajo de call center antes de decir que s&iacute;" />
+      <div class="card-body">
+        <div class="card-title">Se&ntilde;ales de alerta en una oferta de trabajo de call center antes de decir que s&iacute;</div>
+      </div>
+    </a>
+    <a href="linkedin-for-call-center-applicants.html" class="card">
+      <img src="images/post-29-linkedin.webp" alt="LinkedIn for call center applicants in 2026: the honest version" />
+      <div class="card-body">
+        <div class="card-title">LinkedIn for call center applicants in 2026: the honest version</div>
+      </div>
+    </a>
+    <a href="linkedin-para-call-centers.html" class="card">
+      <img src="images/post-30-linkedin-es.webp" alt="LinkedIn para candidatos de call centers en 2026: la versi&oacute;n honesta" />
+      <div class="card-body">
+        <div class="card-title">LinkedIn para candidatos de call centers en 2026: la versi&oacute;n honesta</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- AD SLOT 10 -->
+  <div class="ad-slot" style="margin-bottom:64px;"><span class="ad-slot-label">Advertisement</span></div>
 
 </div>
 
@@ -282,31 +385,7 @@
   function ccaAccept(){localStorage.setItem("cca_cookie_consent","accepted");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";if(window.dataLayer)dataLayer.push({event:"cookie_consent_accepted"});}
   function ccaDecline(){localStorage.setItem("cca_cookie_consent","declined");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";}
 </script>
-
 <script src="cca-chatbot-widget.js"></script>
 <script>window.LOCALE='en';var AUTOHIDE=Boolean(0);</script>
-<iframe name="brevo-hidden" style="display:none;"></iframe>
-<script>
-  (function() {
-    var iframe = document.createElement('iframe');
-    iframe.name = 'brevo-hidden';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-    var forms = document.querySelectorAll('form[data-type="subscription"]');
-    forms.forEach(function(form) {
-      form.target = 'brevo-hidden';
-      form.addEventListener('submit', function(e) {
-        var btn = form.querySelector('button[type="submit"]');
-        var input = form.querySelector('input[type="email"]');
-        setTimeout(function() {
-          btn.textContent = '✓ Subscribed!';
-          btn.style.background = '#1a7a3a';
-          btn.disabled = true;
-          if (input) input.value = '';
-        }, 600);
-      });
-    });
-  })();
-</script>
 </body>
 </html>
