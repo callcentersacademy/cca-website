@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Call Centers Academy & BPO — The Only Call Center Academy in Latin America</title>
 <meta name="description" content="Call Centers Academy is the first and only call center training institution in Latin America. Free resources, real training, and bilingual talent since 2018.">
+<link rel="canonical" href="https://callcentersacademy.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://callcentersacademy.com/">
 <meta property="og:title" content="Call Centers Academy & BPO — The Only Call Center Academy in Latin America">
@@ -31,8 +32,6 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Josefin Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
-
-  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -53,8 +52,6 @@
     font-weight: 700 !important; letter-spacing: 0.08em !important;
   }
   .nav-cta:hover { opacity: 0.9; }
-
-  /* HAMBURGER */
   .nav-hamburger {
     display: none; flex-direction: column; justify-content: center;
     align-items: center; gap: 5px; width: 40px; height: 40px;
@@ -70,8 +67,6 @@
   .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-hamburger.is-open span:nth-child(2) { opacity: 0; width: 0; }
   .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  /* MOBILE MENU */
   .nav-mobile {
     display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
     background: var(--indigo); border-top: 1px solid rgba(255,255,255,0.08);
@@ -96,16 +91,12 @@
     text-align: center; border-left: none; display: block;
   }
   .nav-mobile ul li a.nav-cta-mobile:hover { opacity: 0.9; background: var(--yellow); border-left: none; }
-
-  /* MOBILE BREAKPOINT */
   @media (max-width: 768px) {
     nav { padding: 0 1.5rem; height: 68px; }
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
     .nav-mobile { display: block; }
   }
-
-  /* HERO */
   .hero {
     background: var(--indigo); padding: 140px 4rem 90px;
     position: relative; overflow: hidden; min-height: 90vh;
@@ -158,10 +149,6 @@
     display: inline-block;
   }
   .btn-ghost:hover { border-color: var(--sky); }
-
-
-
-  /* DOORS SECTION */
   .doors-section { padding: 6rem 4rem; background: var(--white); }
   .doors-inner { max-width: 1160px; margin: 0 auto; }
   .section-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--carmine); font-weight: 700; margin-bottom: 1rem; }
@@ -195,8 +182,6 @@
   .door-card.door-everyone .door-cta-arrow { background: var(--carmine); }
   .door-cta-arrow svg { width: 10px; height: 10px; fill: white; }
   .door-card:hover .door-cta-arrow { transform: translateX(3px); }
-
-  /* BLOG STRIP */
   .blog-strip { background: var(--light); padding: 5rem 4rem; }
   .blog-strip-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
   .blog-strip-left { flex: 1; min-width: 280px; }
@@ -205,8 +190,6 @@
   .blog-strip-sub { font-size: 15px; color: var(--muted); line-height: 1.7; font-weight: 400; }
   .blog-strip-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1.25rem; }
   .pill { background: var(--white); border: 1px solid var(--gray); border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--muted); padding: 5px 14px; }
-
-  /* TRUST STRIP */
   .trust-section { background: var(--indigo); padding: 5rem 4rem; }
   .trust-inner { max-width: 1160px; margin: 0 auto; text-align: center; }
   .trust-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 38px); font-weight: 900; color: var(--white); margin-bottom: 0.75rem; }
@@ -217,8 +200,6 @@
   .trust-item-icon { font-size: 28px; margin-bottom: 1rem; display: block; }
   .trust-item-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
   .trust-item-text { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; font-weight: 300; }
-
-  /* WAITLIST */
   .waitlist-section { background: var(--white); padding: 6rem 4rem; }
   .waitlist-inner { max-width: 640px; margin: 0 auto; text-align: center; }
   .waitlist-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--carmine); font-weight: 700; margin-bottom: 1rem; }
@@ -240,8 +221,6 @@
   }
   .waitlist-btn:hover { background: #1a2450; }
   .waitlist-note { font-size: 12px; color: var(--muted); margin-top: 1rem; }
-
-  /* FOOTER */
   footer { background: var(--indigo); padding: 3.5rem 4rem 2rem; border-top: 3px solid rgba(255,255,255,0.06); }
   .footer-logos { display: flex; align-items: center; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .footer-logo-divider { width: 1px; height: 64px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
@@ -256,19 +235,14 @@
   .footer-social a:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.4); }
   .footer-social svg { width: 15px; height: 15px; fill: rgba(255,255,255,0.75); }
   .footer-social a:hover svg { fill: var(--white); }
-
-  /* ANIMATIONS */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   .fade-up { animation: fadeUp 0.75s ease both; }
   .fade-up-2 { animation: fadeUp 0.75s 0.15s ease both; }
   .fade-up-3 { animation: fadeUp 0.75s 0.3s ease both; }
   .fade-up-4 { animation: fadeUp 0.75s 0.45s ease both; }
-
-  /* MOBILE */
   @media (max-width: 768px) {
     .hero { padding: 110px 1.5rem 70px; min-height: auto; }
     .hero-bg-text { font-size: 120px; }
-
     .doors-section { padding: 4rem 1.5rem; }
     .doors-grid { grid-template-columns: 1fr; gap: 20px; }
     .blog-strip { padding: 3.5rem 1.5rem; }
@@ -289,7 +263,6 @@
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXKFG2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
@@ -310,7 +283,6 @@
     <span></span>
   </button>
 </nav>
-
 <!-- MOBILE MENU -->
 <div class="nav-mobile" id="navMobile" aria-hidden="true">
   <ul>
@@ -323,7 +295,6 @@
     <li><a href="blog/" class="nav-cta-mobile">Blog</a></li>
   </ul>
 </div>
-
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg-text">CCA</div>
@@ -344,16 +315,12 @@
     </div>
   </div>
 </section>
-
-
-
 <!-- THREE DOORS -->
 <section class="doors-section">
   <div class="doors-inner">
     <p class="section-eyebrow">Who is this for?</p>
     <h2 class="section-title">Everyone in the industry<br><em>starts here.</em></h2>
     <div class="doors-grid">
-
       <a href="candidates.html" class="door-card door-candidate">
         <span class="door-icon">🎧</span>
         <div class="door-number">For Candidates</div>
@@ -366,7 +333,6 @@
           </span>
         </div>
       </a>
-
       <a href="companies.html" class="door-card door-company">
         <span class="door-icon">🏢</span>
         <div class="door-number">For Companies</div>
@@ -379,7 +345,6 @@
           </span>
         </div>
       </a>
-
       <a href="blog/" class="door-card door-everyone">
         <span class="door-icon">📖</span>
         <div class="door-number">For Everyone</div>
@@ -392,11 +357,9 @@
           </span>
         </div>
       </a>
-
     </div>
   </div>
 </section>
-
 <!-- BLOG STRIP -->
 <section class="blog-strip">
   <div class="blog-strip-inner">
@@ -416,7 +379,6 @@
     <a href="resources.html" class="btn-primary" style="background: var(--indigo); color: var(--white); white-space: nowrap;">Free Resources &rarr;</a>
   </div>
 </section>
-
 <!-- TRUST -->
 <section class="trust-section">
   <div class="trust-inner">
@@ -441,7 +403,6 @@
     </div>
   </div>
 </section>
-
 <!-- WAITLIST -->
 <section class="waitlist-section">
   <div class="waitlist-inner">
@@ -455,7 +416,6 @@
     <p class="waitlist-note">No spam. No selling your data. Just useful content when it's ready.</p>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-logos">
@@ -482,7 +442,6 @@
     </ul>
   </div>
 </footer>
-
 <!-- WAITLIST INTERCEPT -->
 <script>
   (function () {
@@ -498,7 +457,6 @@
     }
   })();
 </script>
-
 <!-- COOKIE BANNER -->
 <div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent" style="position:fixed;bottom:24px;left:24px;z-index:9999;max-width:320px;background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 8px 32px rgba(0,0,0,0.15);font-size:13px;line-height:1.55;display:flex;flex-direction:column;gap:14px;border:1px solid #e8e8e8;font-family:'Josefin Sans',sans-serif;">
   <p style="margin:0;color:#333;">We use cookies to understand how visitors use our site. See our <a href="privacy.html" style="color:#00A1DE;text-decoration:underline;">Privacy Policy</a>.</p>
@@ -512,11 +470,9 @@
   function ccaAccept(){localStorage.setItem("cca_cookie_consent","accepted");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";if(window.dataLayer)dataLayer.push({event:"cookie_consent_accepted"});}
   function ccaDecline(){localStorage.setItem("cca_cookie_consent","declined");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";}
 </script>
-
 <!-- CHATBOT WIDGET -->
 <script src="blog/cca-chatbot-widget.js"></script>
 <script>window.LOCALE='en';var AUTOHIDE=Boolean(0);</script>
-
 <!-- HAMBURGER SCRIPT -->
 <script>
   (function () {
@@ -548,6 +504,5 @@
     menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
   })();
 </script>
-
 </body>
 </html>

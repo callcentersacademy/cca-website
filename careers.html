@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Careers at CCA — Open Positions for Former Students</title>
 <meta name="description" content="Remote positions exclusively for former CCA students from 2018 to 2023. Weekly pay in USD. Verify your alumni status and apply.">
+<link rel="canonical" href="https://callcentersacademy.com/careers.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://callcentersacademy.com/careers.html">
 <meta property="og:title" content="Careers at CCA — Open Positions for Former Students">
@@ -32,8 +33,6 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Josefin Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
-
-  /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 4rem; height: 76px; background: var(--indigo); }
   .nav-logo { text-decoration: none; display: flex; align-items: center; }
   .nav-logo img { height: 64px; width: auto; display: block; }
@@ -41,8 +40,26 @@
   .nav-links a { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-decoration: none; font-weight: 600; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--white); }
   .nav-cta { background: var(--yellow) !important; color: var(--indigo) !important; padding: 11px 24px; border-radius: 4px; font-weight: 700 !important; letter-spacing: 0.08em !important; }
-
-  /* HERO */
+  .nav-cta:hover { opacity: 0.9; }
+  .nav-hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 4px; border-radius: 4px; transition: background 0.2s; flex-shrink: 0; }
+  .nav-hamburger:hover { background: rgba(255,255,255,0.08); }
+  .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease; transform-origin: center; }
+  .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.is-open span:nth-child(2) { opacity: 0; width: 0; }
+  .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile { display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99; background: var(--indigo); border-top: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.28); opacity: 0; transform: translateY(-8px); transition: opacity 0.25s ease, transform 0.25s ease; pointer-events: none; }
+  .nav-mobile.is-open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .nav-mobile ul { list-style: none; padding: 0.5rem 0 1rem; }
+  .nav-mobile ul li a { display: block; padding: 14px 1.5rem; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s, background 0.2s; border-left: 2px solid transparent; }
+  .nav-mobile ul li a:hover, .nav-mobile ul li a.active { color: var(--white); background: rgba(255,255,255,0.05); border-left-color: var(--sky); }
+  .nav-mobile ul li a.nav-cta-mobile { margin: 0.75rem 1.5rem 0; padding: 13px 24px; background: var(--yellow); color: var(--indigo) !important; font-weight: 700 !important; border-radius: 4px; text-align: center; border-left: none; display: block; }
+  .nav-mobile ul li a.nav-cta-mobile:hover { opacity: 0.9; background: var(--yellow); border-left: none; }
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; height: 68px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-mobile { display: block; }
+  }
   .page-hero { background: var(--indigo); padding: 140px 4rem 80px; position: relative; overflow: hidden; }
   .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
   .page-hero-bg { position: absolute; bottom: -40px; right: -20px; font-family: 'Playfair Display', serif; font-size: 220px; font-weight: 900; color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none; }
@@ -53,17 +70,12 @@
   .page-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(40px, 5vw, 64px); color: var(--white); line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 1.25rem; }
   .page-title em { font-style: italic; color: var(--sky); }
   .page-subtitle { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.8; max-width: 560px; font-weight: 300; }
-
-
-
-  /* ROLES */
   .roles-section { padding: 6rem 4rem; background: var(--white); }
   .roles-inner { max-width: 1160px; margin: 0 auto; }
   .roles-header { margin-bottom: 3rem; }
   .section-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--carmine); font-weight: 700; margin-bottom: 1rem; }
   .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 900; color: var(--indigo); line-height: 1.2; }
   .section-title em { font-style: italic; color: var(--sky); }
-
   .roles-grid { display: flex; flex-direction: column; gap: 2px; background: var(--gray); border-radius: 12px; overflow: hidden; }
   .role-card { background: var(--white); cursor: pointer; }
   .role-card-header { padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; transition: background 0.2s; }
@@ -102,8 +114,6 @@
   .role-meta-value.green { color: var(--green); }
   .apply-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px; border: none; cursor: pointer; margin-top: 1.5rem; transition: opacity 0.2s; }
   .apply-btn:hover { opacity: 0.9; }
-
-  /* VERIFY */
   .verify-section { background: var(--light); padding: 6rem 4rem; }
   .verify-inner { max-width: 700px; margin: 0 auto; text-align: center; }
   .verify-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--indigo); margin-bottom: 1rem; }
@@ -123,8 +133,6 @@
   .verify-btn { width: 100%; padding: 16px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; transition: opacity 0.2s; opacity: 0.35; pointer-events: none; }
   .verify-btn.enabled { opacity: 1; pointer-events: all; }
   .verify-btn.enabled:hover { opacity: 0.88; }
-
-  /* RESULT STATES */
   .verify-result { display: none; margin-top: 1.5rem; border-radius: 10px; padding: 1.75rem; }
   .verify-result.state-green { background: rgba(22,163,74,0.07); border: 1px solid rgba(22,163,74,0.25); }
   .verify-result.state-yellow { background: rgba(217,119,6,0.07); border: 1px solid rgba(217,119,6,0.25); }
@@ -142,8 +150,6 @@
   .result-mailto.green-btn { background: var(--indigo); color: var(--white); }
   .result-mailto.yellow-btn { background: var(--orange); color: var(--white); }
   .result-mailto.gray-btn { background: #555; color: var(--white); }
-
-  /* TERMS POPUP */
   .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(10,20,50,0.75); z-index: 200; align-items: center; justify-content: center; padding: 2rem; backdrop-filter: blur(4px); }
   .popup-overlay.active { display: flex; }
   .popup-box { background: var(--white); border-radius: 16px; max-width: 680px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; }
@@ -164,8 +170,6 @@
   .popup-accept { background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 28px; border-radius: 6px; border: none; cursor: pointer; transition: opacity 0.2s; }
   .popup-accept:hover { opacity: 0.9; }
   .popup-decline { background: transparent; color: var(--muted); font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 600; padding: 14px 20px; border-radius: 6px; border: 1px solid var(--gray); cursor: pointer; }
-
-  /* FOOTER */
   footer { background: var(--indigo); padding: 3.5rem 4rem 2rem; border-top: 3px solid rgba(255,255,255,0.06); }
   .footer-logos { display: flex; align-items: center; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .footer-logo-divider { width: 1px; height: 64px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
@@ -181,15 +185,10 @@
   .footer-social a:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.4); }
   .footer-social svg { width: 15px; height: 15px; fill: rgba(255,255,255,0.75); }
   .footer-social a:hover svg { fill: var(--white); }
-
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .fade-up { animation: fadeUp 0.7s ease both; }
-
   @media (max-width: 768px) {
-    nav { padding: 0 1.5rem; height: 68px; }
-    .nav-links { display: none; }
     .page-hero { padding: 110px 1.5rem 60px; }
-    .exclusive-banner { padding: 1rem 1.5rem; }
     .roles-section { padding: 4rem 1.5rem; }
     .role-card-header { padding: 1.5rem; flex-wrap: wrap; gap: 1rem; }
     .role-body { padding: 0 1.5rem 1.5rem; }
@@ -201,28 +200,43 @@
     .popup-footer { padding: 1rem 1.5rem; flex-direction: column; }
     .popup-accept, .popup-decline { width: 100%; text-align: center; }
     footer { padding: 2.5rem 1.5rem 1.5rem; }
+    .footer-logos { gap: 2rem; }
     .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
   }
 </style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXKFG2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
     <img src="images/logo-cca.webp" alt="Call Centers Academy & BPO">
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">About</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="candidates.html">Candidates</a></li>
     <li><a href="companies.html">Companies</a></li>
     <li><a href="the-call-center.html">The Call Center</a></li>
     <li><a href="resources.html">Resources</a></li>
     <li><a href="blog/" class="nav-cta">Blog</a></li>
   </ul>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="navMobile" aria-hidden="true">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="candidates.html">Candidates</a></li>
+    <li><a href="companies.html">Companies</a></li>
+    <li><a href="the-call-center.html">The Call Center</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog/" class="nav-cta-mobile">Blog</a></li>
+  </ul>
+</div>
 <!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">CCA</div>
@@ -232,9 +246,6 @@
     <p class="page-subtitle">These positions are exclusively reserved for former CCA students from 2018 to 2023. If you were part of CCA, this is your next chapter.</p>
   </div>
 </section>
-
-
-
 <!-- ROLES -->
 <section class="roles-section">
   <div class="roles-inner">
@@ -243,15 +254,14 @@
       <h2 class="section-title">3 positions <em>open now.</em></h2>
     </div>
     <div class="roles-grid">
-
       <!-- QEA -->
       <div class="role-card" onclick="toggleRole(this)">
         <div class="role-card-header">
           <div class="role-left">
             <div class="role-num">01</div>
             <div class="role-info">
-              <div class="role-code">QEA · Remote</div>
-              <div class="role-title">Quality & Enrichment Analyst</div>
+              <div class="role-code">QEA &middot; Remote</div>
+              <div class="role-title">Quality &amp; Enrichment Analyst</div>
               <div class="role-tags"><span class="role-tag tag-remote">Remote</span><span class="role-tag tag-weekly">Weekly Pay</span></div>
             </div>
           </div>
@@ -269,16 +279,16 @@
                 <li>Power backup for uninterrupted work sessions</li>
                 <li>Patience with focused, repetitive judgment work</li>
                 <li>Updated CV</li>
-                <li>Former CCA student (2018–2023)</li>
-                <li>Agreement to CCA's Terms & Conditions</li>
+                <li>Former CCA student (2018&ndash;2023)</li>
+                <li>Agreement to CCA's Terms &amp; Conditions</li>
                 <li><strong>"Based on your experience, why would you recommend CCA?" — video, audio, or written (required)</strong></li>
               </ul>
-              <button class="apply-btn" onclick="openTerms(event, 'QEA')">Read Terms & Apply →</button>
+              <button class="apply-btn" onclick="openTerms(event, 'QEA')">Read Terms &amp; Apply &rarr;</button>
             </div>
             <div>
               <div class="role-meta-block">
-                <div class="role-meta-row"><span class="role-meta-label">Compensation</span><span class="role-meta-value green">$10–$15 / hr</span></div>
-                <div class="role-meta-row"><span class="role-meta-label">Payment</span><span class="role-meta-value">Weekly · USD</span></div>
+                <div class="role-meta-row"><span class="role-meta-label">Compensation</span><span class="role-meta-value green">$10&ndash;$15 / hr</span></div>
+                <div class="role-meta-row"><span class="role-meta-label">Payment</span><span class="role-meta-value">Weekly &middot; USD</span></div>
                 <div class="role-meta-row"><span class="role-meta-label">Schedule</span><span class="role-meta-value">4 days / week</span></div>
                 <div class="role-meta-row"><span class="role-meta-label">Part-Time</span><span class="role-meta-value green">Available</span></div>
                 <div class="role-meta-row"><span class="role-meta-label">Location</span><span class="role-meta-value">100% Remote</span></div>
@@ -289,14 +299,13 @@
           </div>
         </div>
       </div>
-
       <!-- SEA -->
       <div class="role-card" onclick="toggleRole(this)">
         <div class="role-card-header">
           <div class="role-left">
             <div class="role-num">02</div>
             <div class="role-info">
-              <div class="role-code">SEA · Remote</div>
+              <div class="role-code">SEA &middot; Remote</div>
               <div class="role-title">Student Experience Associate</div>
               <div class="role-tags"><span class="role-tag tag-remote">Remote</span><span class="role-tag tag-weekly">Weekly Pay</span></div>
             </div>
@@ -315,16 +324,16 @@
                 <li>Power backup for uninterrupted call sessions</li>
                 <li>Comfort with call documentation and follow-up</li>
                 <li>Updated CV</li>
-                <li>Former CCA student (2018–2023)</li>
-                <li>Agreement to CCA's Terms & Conditions</li>
+                <li>Former CCA student (2018&ndash;2023)</li>
+                <li>Agreement to CCA's Terms &amp; Conditions</li>
                 <li><strong>"Based on your experience, why would you recommend CCA?" — video, audio, or written (required)</strong></li>
               </ul>
-              <button class="apply-btn" onclick="openTerms(event, 'SEA')">Read Terms & Apply →</button>
+              <button class="apply-btn" onclick="openTerms(event, 'SEA')">Read Terms &amp; Apply &rarr;</button>
             </div>
             <div>
               <div class="role-meta-block">
-                <div class="role-meta-row"><span class="role-meta-label">Compensation</span><span class="role-meta-value green">$10–$15 / hr</span></div>
-                <div class="role-meta-row"><span class="role-meta-label">Payment</span><span class="role-meta-value">Weekly · USD</span></div>
+                <div class="role-meta-row"><span class="role-meta-label">Compensation</span><span class="role-meta-value green">$10&ndash;$15 / hr</span></div>
+                <div class="role-meta-row"><span class="role-meta-label">Payment</span><span class="role-meta-value">Weekly &middot; USD</span></div>
                 <div class="role-meta-row"><span class="role-meta-label">Schedule</span><span class="role-meta-value">4 days / week</span></div>
                 <div class="role-meta-row"><span class="role-meta-label">Part-Time</span><span class="role-meta-value green">Available</span></div>
                 <div class="role-meta-row"><span class="role-meta-label">Location</span><span class="role-meta-value">100% Remote</span></div>
@@ -335,15 +344,14 @@
           </div>
         </div>
       </div>
-
       <!-- BFR -->
       <div class="role-card" onclick="toggleRole(this)">
         <div class="role-card-header">
           <div class="role-left">
             <div class="role-num">03</div>
             <div class="role-info">
-              <div class="role-code">BFR · Hybrid</div>
-              <div class="role-title">Brand Ambassador — Field Representative</div>
+              <div class="role-code">BFR &middot; Hybrid</div>
+              <div class="role-title">Brand Ambassador &mdash; Field Representative</div>
               <div class="role-tags"><span class="role-tag tag-hybrid">Hybrid</span><span class="role-tag tag-weekly">Weekly Pay</span></div>
             </div>
           </div>
@@ -361,19 +369,19 @@
                 <li>Power backup</li>
                 <li>Bilingual preferred (English and Spanish)</li>
                 <li>Updated CV</li>
-                <li>Former CCA student (2018–2023)</li>
-                <li>Agreement to CCA's Terms & Conditions</li>
+                <li>Former CCA student (2018&ndash;2023)</li>
+                <li>Agreement to CCA's Terms &amp; Conditions</li>
                 <li><strong>"Based on your experience, why would you recommend CCA?" — video, audio, or written (required)</strong></li>
               </ul>
-              <button class="apply-btn" onclick="openTerms(event, 'BFR')">Read Terms & Apply →</button>
+              <button class="apply-btn" onclick="openTerms(event, 'BFR')">Read Terms &amp; Apply &rarr;</button>
             </div>
             <div>
               <div class="role-meta-block">
-                <div class="role-meta-row"><span class="role-meta-label">Compensation</span><span class="role-meta-value green">$10–$15 / hr</span></div>
-                <div class="role-meta-row"><span class="role-meta-label">Payment</span><span class="role-meta-value">Weekly · USD</span></div>
+                <div class="role-meta-row"><span class="role-meta-label">Compensation</span><span class="role-meta-value green">$10&ndash;$15 / hr</span></div>
+                <div class="role-meta-row"><span class="role-meta-label">Payment</span><span class="role-meta-value">Weekly &middot; USD</span></div>
                 <div class="role-meta-row"><span class="role-meta-label">Schedule</span><span class="role-meta-value">4 days / week</span></div>
                 <div class="role-meta-row"><span class="role-meta-label">Part-Time</span><span class="role-meta-value green">Available</span></div>
-                <div class="role-meta-row"><span class="role-meta-label">Location</span><span class="role-meta-value">Hybrid · Field</span></div>
+                <div class="role-meta-row"><span class="role-meta-label">Location</span><span class="role-meta-value">Hybrid &middot; Field</span></div>
                 <div class="role-meta-row"><span class="role-meta-label">Language</span><span class="role-meta-value">Bilingual Preferred</span></div>
                 <div class="role-meta-row"><span class="role-meta-label">Eligibility</span><span class="role-meta-value">CCA Alumni Only</span></div>
               </div>
@@ -381,11 +389,9 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- VERIFY -->
 <section class="verify-section">
   <div class="verify-inner">
@@ -412,96 +418,55 @@
       <div class="terms-row">
         <input type="checkbox" class="terms-checkbox" id="termsCheck" onchange="toggleVerifyBtn()">
         <label class="terms-label" for="termsCheck">
-          I have read and agree to CCA's <a onclick="openTermsFromVerify()">Terms & Conditions</a>. I understand that submitting this form logs my information for internal review purposes.
+          I have read and agree to CCA's <a onclick="openTermsFromVerify()">Terms &amp; Conditions</a>. I understand that submitting this form logs my information for internal review purposes.
         </label>
       </div>
       <button class="verify-btn" id="verifyBtn" onclick="verifyAlumni()">Check My Eligibility</button>
-
-      <!-- STATE: GREEN — Verified -->
       <div class="verify-result state-green" id="resultGreen">
-        <div class="result-icon">✅</div>
+        <div class="result-icon">&#9989;</div>
         <div class="result-title green">You're verified. We can't wait to have you back.</div>
         <div class="result-text">Your CCA record is confirmed. To complete your application, email <a href="mailto:jobs@callcentersacademy.com">jobs@callcentersacademy.com</a> with your personal email and your answer to: <strong>"Based on your experience, why would you recommend CCA to anyone?"</strong> Our team will take it from there.</div>
-        <a class="result-mailto green-btn" href="mailto:jobs@callcentersacademy.com?subject=Alumni Application&body=Hi, my CCA alumni status has been verified. My name is: [Your Full Name]. I am applying for the position of: [Role Code]. My answer to the testimonial question is below.">Send Your Application →</a>
+        <a class="result-mailto green-btn" href="mailto:jobs@callcentersacademy.com?subject=Alumni Application&body=Hi, my CCA alumni status has been verified. My name is: [Your Full Name]. I am applying for the position of: [Role Code]. My answer to the testimonial question is below.">Send Your Application &rarr;</a>
       </div>
-
-      <!-- STATE: YELLOW — Manual Review -->
       <div class="verify-result state-yellow" id="resultYellow">
-        <div class="result-icon">⚠️</div>
+        <div class="result-icon">&#9888;&#65039;</div>
         <div class="result-title yellow">Your record was found — but your application needs a manual review.</div>
         <div class="result-text">We found your name in our records, but there's something in your file that requires our team to take a closer look before we can move forward. Reach out directly with your full name and the year you attended and we'll review it personally.</div>
-        <a class="result-mailto yellow-btn" href="mailto:lucille.lara@callcentersacademy.com?subject=Manual Review Request&body=Hi Lucille, I completed the alumni verification and was told my application needs a manual review. My name is: [Your Full Name]. Year attended: [Year].">Contact Lucille →</a>
+        <a class="result-mailto yellow-btn" href="mailto:lucille.lara@callcentersacademy.com?subject=Manual Review Request&body=Hi Lucille, I completed the alumni verification and was told my application needs a manual review. My name is: [Your Full Name]. Year attended: [Year].">Contact Lucille &rarr;</a>
       </div>
-
-      <!-- STATE: GRAY — No Match -->
       <div class="verify-result state-gray" id="resultGray">
-        <div class="result-icon">🔍</div>
+        <div class="result-icon">&#128269;</div>
         <div class="result-title gray">We couldn't find a match for that information.</div>
         <div class="result-text">The email and year you entered don't match our records. If you believe this is an error — or if you used a different email during your CCA training — reach out to our records team and we'll look into it manually.</div>
-        <a class="result-mailto gray-btn" href="mailto:ruth.carrion@callcentersacademy.com?subject=Record Not Found - Alumni Verification&body=Hi Ruth, I tried to verify my CCA alumni status and my information was not found. My name is: [Your Full Name]. Email used during training: [Email]. Year attended: [Year].">Contact Ruth →</a>
+        <a class="result-mailto gray-btn" href="mailto:ruth.carrion@callcentersacademy.com?subject=Record Not Found - Alumni Verification&body=Hi Ruth, I tried to verify my CCA alumni status and my information was not found. My name is: [Your Full Name]. Email used during training: [Email]. Year attended: [Year].">Contact Ruth &rarr;</a>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- TERMS POPUP -->
 <div class="popup-overlay" id="termsPopup">
   <div class="popup-box">
     <div class="popup-header">
-      <div class="popup-title">Terms & Conditions</div>
+      <div class="popup-title">Terms &amp; Conditions</div>
       <div class="popup-subtitle" id="popupRoleLabel">CCA Employment Agreement</div>
-      <button class="popup-close" onclick="closeTerms()">×</button>
+      <button class="popup-close" onclick="closeTerms()">&times;</button>
     </div>
     <div class="popup-body">
-      <div class="popup-step">
-        <div class="popup-step-num">1</div>
-        <div class="popup-step-title">Confidentiality & Non-Disclosure</div>
-        <div class="popup-step-text">All client information, proprietary methodology, internal processes, and operational data accessed during your role with CCA are strictly confidential. You may not disclose, share, or reproduce any of this information during or after your engagement. <strong>Violation of this clause results in immediate termination and potential legal action.</strong></div>
-      </div>
-      <div class="popup-step">
-        <div class="popup-step-num">2</div>
-        <div class="popup-step-title">Non-Compete Agreement</div>
-        <div class="popup-step-text">During your engagement with CCA, you may not work for, consult for, or assist any direct competitor operating within CCA's market. You are free to have other unrelated employment. This clause is limited in scope and does not restrict your general career beyond CCA's direct market.</div>
-      </div>
-      <div class="popup-step">
-        <div class="popup-step-num">3</div>
-        <div class="popup-step-title">Media Release & Recording Consent</div>
-        <div class="popup-step-text">All training sessions, calls, performance reviews, and interactions conducted within your role may be recorded. <strong>You authorize CCA to use these recordings for educational, quality assurance, and promotional purposes.</strong> This consent is a condition of employment and cannot be revoked once the contract is active.</div>
-      </div>
-      <div class="popup-step">
-        <div class="popup-step-num">4</div>
-        <div class="popup-step-title">Scope of Work & Weekly Compensation</div>
-        <div class="popup-step-text">Your role, responsibilities, compensation rate ($10–$15/hr depending on account and client), schedule, and deliverables will be defined in your individual contract. <strong>Payment is weekly in USD.</strong> Scope changes require written agreement from both parties.</div>
-      </div>
-      <div class="popup-step">
-        <div class="popup-step-num">5</div>
-        <div class="popup-step-title">Exit Clause & Termination</div>
-        <div class="popup-step-text">Either party may terminate the engagement with reasonable written notice as defined in your individual contract. CCA reserves the right to immediate termination for NDA violations, conduct issues, or failure to meet performance standards.</div>
-      </div>
-      <div class="popup-step">
-        <div class="popup-step-num">6</div>
-        <div class="popup-step-title">Technical Requirements</div>
-        <div class="popup-step-text">You are responsible for maintaining <strong>your own laptop, reliable internet connection, and power backup</strong> throughout your engagement. CCA does not provide equipment.</div>
-      </div>
-      <div class="popup-step">
-        <div class="popup-step-num">7</div>
-        <div class="popup-step-title">Application Process</div>
-        <div class="popup-step-text">Accepting these terms initiates your application. Our team will review your submission, conduct an interview, and follow up on next steps. A final contract will be prepared and signed before any work begins. These terms are a summary — the binding document is the individual contract.</div>
-      </div>
-      <div class="popup-step">
-        <div class="popup-step-num">8</div>
-        <div class="popup-step-title">Your Testimonial — Required to Apply</div>
-        <div class="popup-step-text">Before your application can be reviewed, you must submit a testimonial. Include your <strong>name</strong>, the <strong>year you attended CCA</strong>, and your answer to: <strong>"Based on your experience, why would you recommend CCA?"</strong><br><br>Submit as a video, audio recording, or written email. Send to <strong>jobs@callcentersacademy.com</strong> with subject: <strong>[Role Code] - Testimonial - Your Full Name</strong>. Applications without this submission will not be processed.</div>
-      </div>
+      <div class="popup-step"><div class="popup-step-num">1</div><div class="popup-step-title">Confidentiality &amp; Non-Disclosure</div><div class="popup-step-text">All client information, proprietary methodology, internal processes, and operational data accessed during your role with CCA are strictly confidential. You may not disclose, share, or reproduce any of this information during or after your engagement. <strong>Violation of this clause results in immediate termination and potential legal action.</strong></div></div>
+      <div class="popup-step"><div class="popup-step-num">2</div><div class="popup-step-title">Non-Compete Agreement</div><div class="popup-step-text">During your engagement with CCA, you may not work for, consult for, or assist any direct competitor operating within CCA's market. You are free to have other unrelated employment. This clause is limited in scope and does not restrict your general career beyond CCA's direct market.</div></div>
+      <div class="popup-step"><div class="popup-step-num">3</div><div class="popup-step-title">Media Release &amp; Recording Consent</div><div class="popup-step-text">All training sessions, calls, performance reviews, and interactions conducted within your role may be recorded. <strong>You authorize CCA to use these recordings for educational, quality assurance, and promotional purposes.</strong> This consent is a condition of employment and cannot be revoked once the contract is active.</div></div>
+      <div class="popup-step"><div class="popup-step-num">4</div><div class="popup-step-title">Scope of Work &amp; Weekly Compensation</div><div class="popup-step-text">Your role, responsibilities, compensation rate ($10&ndash;$15/hr depending on account and client), schedule, and deliverables will be defined in your individual contract. <strong>Payment is weekly in USD.</strong> Scope changes require written agreement from both parties.</div></div>
+      <div class="popup-step"><div class="popup-step-num">5</div><div class="popup-step-title">Exit Clause &amp; Termination</div><div class="popup-step-text">Either party may terminate the engagement with reasonable written notice as defined in your individual contract. CCA reserves the right to immediate termination for NDA violations, conduct issues, or failure to meet performance standards.</div></div>
+      <div class="popup-step"><div class="popup-step-num">6</div><div class="popup-step-title">Technical Requirements</div><div class="popup-step-text">You are responsible for maintaining <strong>your own laptop, reliable internet connection, and power backup</strong> throughout your engagement. CCA does not provide equipment.</div></div>
+      <div class="popup-step"><div class="popup-step-num">7</div><div class="popup-step-title">Application Process</div><div class="popup-step-text">Accepting these terms initiates your application. Our team will review your submission, conduct an interview, and follow up on next steps. A final contract will be prepared and signed before any work begins. These terms are a summary — the binding document is the individual contract.</div></div>
+      <div class="popup-step"><div class="popup-step-num">8</div><div class="popup-step-title">Your Testimonial — Required to Apply</div><div class="popup-step-text">Before your application can be reviewed, you must submit a testimonial. Include your <strong>name</strong>, the <strong>year you attended CCA</strong>, and your answer to: <strong>"Based on your experience, why would you recommend CCA?"</strong><br><br>Submit as a video, audio recording, or written email. Send to <strong>jobs@callcentersacademy.com</strong> with subject: <strong>[Role Code] - Testimonial - Your Full Name</strong>. Applications without this submission will not be processed.</div></div>
     </div>
     <div class="popup-footer">
       <button class="popup-decline" onclick="closeTerms()">Decline</button>
-      <button class="popup-accept" onclick="acceptTerms()">I Understand & I Want to Apply →</button>
+      <button class="popup-accept" onclick="acceptTerms()">I Understand &amp; I Want to Apply &rarr;</button>
     </div>
   </div>
 </div>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-logos">
@@ -510,7 +475,7 @@
     <div class="footer-logo-bpo"><img src="images/logo-bpo.webp" alt="CCA BPO"></div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-meta">Call Centers Academy & BPO · Est. 2018<br>Santo Domingo, Dominican Republic · RNC: 1-32-71135-1</div>
+    <div class="footer-meta">Call Centers Academy &amp; BPO &middot; Est. 2018<br>Santo Domingo, Dominican Republic &middot; RNC: 1-32-71135-1</div>
     <div class="footer-social">
       <a href="https://www.facebook.com/callcentersacademy" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
       <a href="https://www.instagram.com/callcentersacademy" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="rgba(255,255,255,0.75)" stroke="none"/></svg></a>
@@ -524,27 +489,39 @@
       <li><a href="privacy.html">Privacy</a></li>
       <li><a href="terms.html">Terms</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="careers.html">Careers</a></li>
+      <li><a href="careers.html" class="active">Careers</a></li>
     </ul>
   </div>
 </footer>
-
+<!-- COOKIE BANNER -->
+<div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent" style="position:fixed;bottom:24px;left:24px;z-index:9999;max-width:320px;background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 8px 32px rgba(0,0,0,0.15);font-size:13px;line-height:1.55;display:flex;flex-direction:column;gap:14px;border:1px solid #e8e8e8;font-family:'Josefin Sans',sans-serif;">
+  <p style="margin:0;color:#333;">We use cookies to understand how visitors use our site. See our <a href="privacy.html" style="color:#00A1DE;text-decoration:underline;">Privacy Policy</a>.</p>
+  <div style="display:flex;gap:8px;">
+    <button onclick="ccaDecline()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#e8e8e8;color:#555;">Decline</button>
+    <button onclick="ccaAccept()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#00A1DE;color:#fff;">Accept</button>
+  </div>
+</div>
 <script>
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_NhKaHlwvolgqJ7EkIQJ58XOyVDb9JlRh6hDBJkY2bgoM2aqZdK2tS8LzlnHbjnM9pw/exec';
-
+  (function(){var c=localStorage.getItem("cca_cookie_consent");if(c){var b=document.getElementById("cca-cookie-banner");if(b){b.style.opacity="0";b.style.pointerEvents="none";}}})();
+  function ccaAccept(){localStorage.setItem("cca_cookie_consent","accepted");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";if(window.dataLayer)dataLayer.push({event:"cookie_consent_accepted"});}
+  function ccaDecline(){localStorage.setItem("cca_cookie_consent","declined");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";}
+</script>
+<!-- CHATBOT WIDGET -->
+<script src="blog/cca-chatbot-widget.js"></script>
+<script>window.LOCALE='en';var AUTOHIDE=Boolean(0);</script>
+<!-- PAGE SCRIPTS -->
+<script>
+  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_NhKaHlwvolgqJ7EkIQJ58XOyVDb9JlRh6hDBJkY2bgoM2aqZdK2tS8LzlnHbjnM9pw/exec';
   function toggleRole(card) {
-    const isOpen = card.classList.contains('open');
-    document.querySelectorAll('.role-card').forEach(c => c.classList.remove('open'));
+    var isOpen = card.classList.contains('open');
+    document.querySelectorAll('.role-card').forEach(function(c){ c.classList.remove('open'); });
     if (!isOpen) card.classList.add('open');
   }
-
   function toggleVerifyBtn() {
-    const checked = document.getElementById('termsCheck').checked;
+    var checked = document.getElementById('termsCheck').checked;
     document.getElementById('verifyBtn').classList.toggle('enabled', checked);
   }
-
-  let currentRole = '';
-
+  var currentRole = '';
   function openTerms(e, role) {
     e.stopPropagation();
     currentRole = role;
@@ -552,62 +529,71 @@
     document.getElementById('termsPopup').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-
   function openTermsFromVerify() {
     document.getElementById('popupRoleLabel').textContent = 'CCA Employment Agreement';
     document.getElementById('termsPopup').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-
   function closeTerms() {
     document.getElementById('termsPopup').classList.remove('active');
     document.body.style.overflow = '';
   }
-
   function acceptTerms() {
     closeTerms();
     document.querySelector('.verify-section').scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => { document.getElementById('verifyEmail').focus(); }, 600);
+    setTimeout(function(){ document.getElementById('verifyEmail').focus(); }, 600);
   }
-
   async function verifyAlumni() {
-    const email = document.getElementById('verifyEmail').value.trim().toLowerCase();
-    const year  = document.getElementById('verifyYear').value;
-    const btn   = document.getElementById('verifyBtn');
-
+    var email = document.getElementById('verifyEmail').value.trim().toLowerCase();
+    var year  = document.getElementById('verifyYear').value;
+    var btn   = document.getElementById('verifyBtn');
     document.getElementById('resultGreen').style.display  = 'none';
     document.getElementById('resultYellow').style.display = 'none';
     document.getElementById('resultGray').style.display   = 'none';
-
-    if (!email || !year) {
-      alert('Please enter your CCA email and select your year.');
-      return;
-    }
-
-    const originalText = btn.textContent;
+    if (!email || !year) { alert('Please enter your CCA email and select your year.'); return; }
+    var originalText = btn.textContent;
     btn.textContent = 'Checking...';
-
     try {
-      const res  = await fetch(`${APPS_SCRIPT_URL}?email=${encodeURIComponent(email)}&year=${encodeURIComponent(year)}`);
-      const data = await res.json();
-
-      if (data.status === 'positive') {
-        document.getElementById('resultGreen').style.display = 'block';
-      } else if (data.status === 'negative') {
-        document.getElementById('resultYellow').style.display = 'block';
-      } else {
-        document.getElementById('resultGray').style.display = 'block';
-      }
-    } catch (err) {
-      document.getElementById('resultGray').style.display = 'block';
-    }
-
+      var res  = await fetch(APPS_SCRIPT_URL + '?email=' + encodeURIComponent(email) + '&year=' + encodeURIComponent(year));
+      var data = await res.json();
+      if (data.status === 'positive') { document.getElementById('resultGreen').style.display = 'block'; }
+      else if (data.status === 'negative') { document.getElementById('resultYellow').style.display = 'block'; }
+      else { document.getElementById('resultGray').style.display = 'block'; }
+    } catch(err) { document.getElementById('resultGray').style.display = 'block'; }
     btn.textContent = originalText;
   }
-
-  document.getElementById('termsPopup').addEventListener('click', function(e) {
-    if (e.target === this) closeTerms();
-  });
+  document.getElementById('termsPopup').addEventListener('click', function(e){ if (e.target === this) closeTerms(); });
+</script>
+<!-- HAMBURGER SCRIPT -->
+<script>
+  (function () {
+    var btn = document.querySelector('.nav-hamburger');
+    var menu = document.getElementById('navMobile');
+    function openMenu() {
+      btn.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Close menu');
+      menu.classList.add('is-open');
+      menu.setAttribute('aria-hidden', 'false');
+      document.addEventListener('click', outsideClick);
+    }
+    function closeMenu() {
+      btn.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
+      menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('click', outsideClick);
+    }
+    function outsideClick(e) {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) { closeMenu(); }
+    }
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      btn.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+    menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
+  })();
 </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Candidates — Call Centers Academy & BPO</title>
 <meta name="description" content="Preparing for a call center interview? Just got hired? CCA has free tools, training, and guidance for every stage of your call center career.">
+<link rel="canonical" href="https://callcentersacademy.com/candidates.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://callcentersacademy.com/candidates.html">
 <meta property="og:title" content="For Candidates — Call Centers Academy & BPO">
@@ -19,6 +20,7 @@
 <meta name="twitter:title" content="For Candidates — Call Centers Academy & BPO">
 <meta name="twitter:description" content="Preparing for a call center interview? Just got hired? CCA has free tools, training, and guidance for every stage of your call center career.">
 <meta name="twitter:image" content="https://callcentersacademy.com/images/og-image.webp">
+<link rel="canonical" href="https://callcentersacademy.com/candidates.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23253166'/><path d='M7 22 Q7 10 16 10 Q25 10 25 22' stroke='%2300A1DE' stroke-width='2.5' fill='none' stroke-linecap='round'/><line x1='7' y1='22' x2='25' y2='22' stroke='%23FFCC00' stroke-width='2.5' stroke-linecap='round'/><line x1='16' y1='10' x2='16' y2='8' stroke='%2300A1DE' stroke-width='2' stroke-linecap='round'/></svg>" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJXKFG2L');</script>
@@ -38,6 +40,26 @@
   .nav-links a { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-decoration: none; font-weight: 600; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--white); }
   .nav-cta { background: var(--yellow) !important; color: var(--indigo) !important; padding: 11px 24px; border-radius: 4px; font-weight: 700 !important; letter-spacing: 0.08em !important; }
+  .nav-cta:hover { opacity: 0.9; }
+  .nav-hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 4px; border-radius: 4px; transition: background 0.2s; flex-shrink: 0; }
+  .nav-hamburger:hover { background: rgba(255,255,255,0.08); }
+  .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease; transform-origin: center; }
+  .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.is-open span:nth-child(2) { opacity: 0; width: 0; }
+  .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile { display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99; background: var(--indigo); border-top: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.28); opacity: 0; transform: translateY(-8px); transition: opacity 0.25s ease, transform 0.25s ease; pointer-events: none; }
+  .nav-mobile.is-open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .nav-mobile ul { list-style: none; padding: 0.5rem 0 1rem; }
+  .nav-mobile ul li a { display: block; padding: 14px 1.5rem; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s, background 0.2s; border-left: 2px solid transparent; }
+  .nav-mobile ul li a:hover, .nav-mobile ul li a.active { color: var(--white); background: rgba(255,255,255,0.05); border-left-color: var(--sky); }
+  .nav-mobile ul li a.nav-cta-mobile { margin: 0.75rem 1.5rem 0; padding: 13px 24px; background: var(--yellow); color: var(--indigo) !important; font-weight: 700 !important; border-radius: 4px; text-align: center; border-left: none; display: block; }
+  .nav-mobile ul li a.nav-cta-mobile:hover { opacity: 0.9; background: var(--yellow); border-left: none; }
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; height: 68px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-mobile { display: block; }
+  }
   .page-hero { background: var(--indigo); padding: 140px 4rem 80px; position: relative; overflow: hidden; }
   .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
   .page-hero-bg { position: absolute; bottom: -40px; right: -20px; font-family: 'Playfair Display', serif; font-size: 220px; font-weight: 900; color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none; }
@@ -62,7 +84,6 @@
   .audience-card.reverse .card-content { order: 1; }
   .card-image { position: relative; overflow: hidden; }
   .card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .card-image-placeholder { width: 100%; height: 100%; background: var(--light); display: flex; align-items: center; justify-content: center; }
   .card-content { padding: 2.5rem 3rem; display: flex; flex-direction: column; justify-content: center; }
   .card-tag { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem; }
   .card-tag.newbie { color: var(--sky); }
@@ -110,8 +131,6 @@
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .fade-up { animation: fadeUp 0.7s ease both; }
   @media (max-width: 768px) {
-    nav { padding: 0 1.5rem; height: 68px; }
-    .nav-links { display: none; }
     .page-hero { padding: 110px 1.5rem 60px; }
     .audience-section { padding: 4rem 1.5rem; }
     .audience-card { grid-template-columns: 1fr; min-height: auto; }
@@ -120,6 +139,7 @@
     .card-image { height: 200px; }
     .card-content { padding: 2rem 1.5rem; }
     footer { padding: 2.5rem 1.5rem 1.5rem; }
+    .footer-logos { gap: 2rem; }
     .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
   }
 </style>
@@ -132,14 +152,30 @@
     <img src="images/logo-cca.webp" alt="Call Centers Academy & BPO">
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">About</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="candidates.html" class="active">Candidates</a></li>
     <li><a href="companies.html">Companies</a></li>
     <li><a href="the-call-center.html">The Call Center</a></li>
     <li><a href="resources.html">Resources</a></li>
     <li><a href="blog/" class="nav-cta">Blog</a></li>
   </ul>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="navMobile" aria-hidden="true">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="candidates.html" class="active">Candidates</a></li>
+    <li><a href="companies.html">Companies</a></li>
+    <li><a href="the-call-center.html">The Call Center</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog/" class="nav-cta-mobile">Blog</a></li>
+  </ul>
+</div>
 <!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">CCA</div>
@@ -161,74 +197,74 @@
       <!-- CARD 1 — The Newbie -->
       <div class="audience-card">
         <div class="card-image">
-          <img src="images/post-01.webp" alt="Call center candidate">
+          <img src="images/candidate-interview.webp" alt="Call center candidate preparing for interview">
         </div>
         <div class="card-content">
           <div class="card-tag newbie">For You</div>
           <h3 class="card-headline">I want to apply to a call center. I'm not sure if my English is good enough.</h3>
           <p class="card-body">You don't need perfect English. You need <strong>real English</strong> — the kind that gets you through an interview and keeps you on the floor. The blog has everything you need to walk in prepared and confident.</p>
           <div class="card-ctas">
-            <a href="blog/your-english-is-good-enough.html" class="card-cta-primary sky">Start Here →</a>
-            <a href="resources.html" class="card-cta-secondary">Free call center training and materials →</a>
+            <a href="blog/your-english-is-good-enough.html" class="card-cta-primary sky">Start Here &rarr;</a>
+            <a href="resources.html" class="card-cta-secondary">Free call center training and materials &rarr;</a>
           </div>
         </div>
       </div>
       <!-- CARD 2 — Spanish Speaker -->
       <div class="audience-card spanish-card reverse">
         <div class="card-image">
-          <img src="images/post-02.webp" alt="Candidato de call center">
+          <img src="images/candidate-spanish.webp" alt="Candidato de call center en Republica Dominicana">
         </div>
         <div class="card-content">
-          <div class="card-tag" style="color:var(--yellow)">Para Ti</div>
-          <h3 class="card-headline">Quiero aprender inglés para trabajar en un call center.</h3>
-          <p class="card-body">Estamos tomando grupos pequeños por orden de prioridad en clases <strong>100% virtuales</strong>. Programa intensivo de 6 meses. <strong>US$200 mensuales.</strong> Incluye clases de inglés intensivas desde cero, entrenamiento para call center y pasantía pagada en nuestro call center. Únete a la lista de espera y serás contactado en orden de prioridad.</p>
+          <div class="card-tag">Para Ti</div>
+          <h3 class="card-headline">Quiero aprender ingl&eacute;s para trabajar en un call center.</h3>
+          <p class="card-body">Estamos tomando grupos peque&ntilde;os por orden de prioridad en clases <strong>100% virtuales</strong>. Programa intensivo de 6 meses. <strong>US$200 mensuales.</strong> Incluye clases de ingl&eacute;s intensivas desde cero, entrenamiento para call center y pasant&iacute;a pagada en nuestro call center. &Uacute;nete a la lista de espera y ser&aacute;s contactado en orden de prioridad.</p>
           <div class="card-ctas">
-            <a href="waitlist.html" class="card-cta-primary yellow">Únete a la Lista de Espera →</a>
-            <a href="resources.html" class="card-cta-secondary">Acceso gratuito a materiales de entrenamiento →</a>
+            <a href="waitlist.html" class="card-cta-primary yellow">&Uacute;nete a la Lista de Espera &rarr;</a>
+            <a href="resources.html" class="card-cta-secondary">Acceso gratuito a materiales de entrenamiento &rarr;</a>
           </div>
         </div>
       </div>
       <!-- CARD 3 — Already Hired -->
       <div class="audience-card">
         <div class="card-image">
-          <img src="images/post-09.webp" alt="Agent already working">
+          <img src="images/candidate-floor.webp" alt="Agent already working in a call center">
         </div>
         <div class="card-content">
           <div class="card-tag hired">You Got The Job</div>
           <h3 class="card-headline">I got hired but I need to improve my English on the floor.</h3>
           <p class="card-body">First — breathe. You got hired because someone saw something in you. Now it's about improving while you perform. The blog has a post written specifically for you, and the resources page has the tools to back it up.</p>
           <div class="card-ctas">
-            <a href="blog/you-got-hired.html" class="card-cta-primary indigo">Read This First →</a>
-            <a href="resources.html" class="card-cta-secondary">Free call center training and materials →</a>
+            <a href="blog/you-got-hired-now-relax.html" class="card-cta-primary indigo">Read This First &rarr;</a>
+            <a href="resources.html" class="card-cta-secondary">Free call center training and materials &rarr;</a>
           </div>
         </div>
       </div>
-      <!-- CARD 4 — The Burnout -->
+      <!-- CARD 4 — Experienced -->
       <div class="audience-card reverse">
         <div class="card-image">
-          <img src="images/post-19.webp" alt="Experienced call center agent">
+          <img src="images/candidate-experienced.webp" alt="Experienced call center agent">
         </div>
         <div class="card-content">
           <div class="card-tag burnout">Been Around</div>
           <h3 class="card-headline">I have call center experience and I want to work for CCA.</h3>
           <p class="card-body">You've been in the industry long enough to know exactly what's wrong with it. So have we. Before you make your next move, there's one post on this blog you need to read — it's the most honest thing anyone in this industry has written about the best and worst places to work in the DR.</p>
           <div class="card-ctas">
-            <a href="blog/best-and-worst-call-centers-dr.html" class="card-cta-primary muted">Read It →</a>
+            <a href="blog/best-and-worst-call-centers-dr.html" class="card-cta-primary muted">Read It &rarr;</a>
           </div>
         </div>
       </div>
-      <!-- CARD 5 — Former CCA Student -->
+      <!-- CARD 5 — CCA Alumni -->
       <div class="audience-card alumni-card">
         <div class="card-image">
-          <img src="images/cca-student.webp" alt="Former CCA student">
+          <img src="images/candidate-alumni.webp" alt="Former CCA student">
         </div>
         <div class="card-content">
           <div class="card-tag alumni">CCA Alumni</div>
           <h3 class="card-headline">I studied with CCA and I'm looking for a job.</h3>
           <p class="card-body">There are open positions exclusively for former CCA students from 2018 to 2023. Remote work, weekly pay in USD, and a chance to be part of what CCA is building next. Verify your alumni status and apply on the careers page.</p>
           <div class="card-ctas">
-            <a href="careers.html" class="card-cta-primary indigo">See Open Positions →</a>
-            <a href="resources.html" class="card-cta-secondary">Free call center training and materials →</a>
+            <a href="careers.html" class="card-cta-primary indigo">See Open Positions &rarr;</a>
+            <a href="resources.html" class="card-cta-secondary">Free call center training and materials &rarr;</a>
           </div>
         </div>
       </div>
@@ -243,7 +279,7 @@
     <div class="footer-logo-bpo"><img src="images/logo-bpo.webp" alt="CCA BPO"></div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-meta">Call Centers Academy & BPO · Est. 2018<br>Santo Domingo, Dominican Republic · RNC: 1-32-71135-1</div>
+    <div class="footer-meta">Call Centers Academy &amp; BPO &middot; Est. 2018<br>Santo Domingo, Dominican Republic &middot; RNC: 1-32-71135-1</div>
     <div class="footer-social">
       <a href="https://www.facebook.com/callcentersacademy" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
       <a href="https://www.instagram.com/callcentersacademy" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="rgba(255,255,255,0.75)" stroke="none"/></svg></a>
@@ -261,5 +297,52 @@
     </ul>
   </div>
 </footer>
+<!-- COOKIE BANNER -->
+<div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent" style="position:fixed;bottom:24px;left:24px;z-index:9999;max-width:320px;background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 8px 32px rgba(0,0,0,0.15);font-size:13px;line-height:1.55;display:flex;flex-direction:column;gap:14px;border:1px solid #e8e8e8;font-family:'Josefin Sans',sans-serif;">
+  <p style="margin:0;color:#333;">We use cookies to understand how visitors use our site. See our <a href="privacy.html" style="color:#00A1DE;text-decoration:underline;">Privacy Policy</a>.</p>
+  <div style="display:flex;gap:8px;">
+    <button onclick="ccaDecline()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#e8e8e8;color:#555;">Decline</button>
+    <button onclick="ccaAccept()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#00A1DE;color:#fff;">Accept</button>
+  </div>
+</div>
+<script>
+  (function(){var c=localStorage.getItem("cca_cookie_consent");if(c){var b=document.getElementById("cca-cookie-banner");if(b){b.style.opacity="0";b.style.pointerEvents="none";}}})();
+  function ccaAccept(){localStorage.setItem("cca_cookie_consent","accepted");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";if(window.dataLayer)dataLayer.push({event:"cookie_consent_accepted"});}
+  function ccaDecline(){localStorage.setItem("cca_cookie_consent","declined");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";}
+</script>
+<!-- CHATBOT WIDGET -->
+<script src="blog/cca-chatbot-widget.js"></script>
+<script>window.LOCALE='en';var AUTOHIDE=Boolean(0);</script>
+<!-- HAMBURGER SCRIPT -->
+<script>
+  (function () {
+    var btn = document.querySelector('.nav-hamburger');
+    var menu = document.getElementById('navMobile');
+    function openMenu() {
+      btn.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Close menu');
+      menu.classList.add('is-open');
+      menu.setAttribute('aria-hidden', 'false');
+      document.addEventListener('click', outsideClick);
+    }
+    function closeMenu() {
+      btn.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
+      menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('click', outsideClick);
+    }
+    function outsideClick(e) {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) { closeMenu(); }
+    }
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      btn.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+    menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
+  })();
+</script>
 </body>
 </html>

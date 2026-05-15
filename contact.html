@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Call Centers Academy & BPO</title>
 <meta name="description" content="Every inquiry has a channel. Find the right way to reach Call Centers Academy & BPO.">
+<link rel="canonical" href="https://callcentersacademy.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://callcentersacademy.com/contact.html">
+<meta property="og:title" content="Contact — Call Centers Academy & BPO">
+<meta property="og:description" content="Every inquiry has a channel. Find the right way to reach Call Centers Academy & BPO.">
+<meta property="og:image" content="https://callcentersacademy.com/images/og-image.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Call Centers Academy & BPO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://callcentersacademy.com/contact.html">
+<meta name="twitter:title" content="Contact — Call Centers Academy & BPO">
+<meta name="twitter:description" content="Every inquiry has a channel. Find the right way to reach Call Centers Academy & BPO.">
+<meta name="twitter:image" content="https://callcentersacademy.com/images/og-image.webp">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23253166'/><path d='M7 22 Q7 10 16 10 Q25 10 25 22' stroke='%2300A1DE' stroke-width='2.5' fill='none' stroke-linecap='round'/><line x1='7' y1='22' x2='25' y2='22' stroke='%23FFCC00' stroke-width='2.5' stroke-linecap='round'/><line x1='16' y1='10' x2='16' y2='8' stroke='%2300A1DE' stroke-width='2' stroke-linecap='round'/></svg>" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJXKFG2L');</script>
@@ -17,8 +32,6 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Josefin Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
-
-  /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 4rem; height: 76px; background: var(--indigo); }
   .nav-logo { text-decoration: none; display: flex; align-items: center; }
   .nav-logo img { height: 64px; width: auto; display: block; }
@@ -26,8 +39,26 @@
   .nav-links a { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-decoration: none; font-weight: 600; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--white); }
   .nav-cta { background: var(--yellow) !important; color: var(--indigo) !important; padding: 11px 24px; border-radius: 4px; font-weight: 700 !important; letter-spacing: 0.08em !important; }
-
-  /* HERO */
+  .nav-cta:hover { opacity: 0.9; }
+  .nav-hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 4px; border-radius: 4px; transition: background 0.2s; flex-shrink: 0; }
+  .nav-hamburger:hover { background: rgba(255,255,255,0.08); }
+  .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease; transform-origin: center; }
+  .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.is-open span:nth-child(2) { opacity: 0; width: 0; }
+  .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile { display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99; background: var(--indigo); border-top: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.28); opacity: 0; transform: translateY(-8px); transition: opacity 0.25s ease, transform 0.25s ease; pointer-events: none; }
+  .nav-mobile.is-open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .nav-mobile ul { list-style: none; padding: 0.5rem 0 1rem; }
+  .nav-mobile ul li a { display: block; padding: 14px 1.5rem; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s, background 0.2s; border-left: 2px solid transparent; }
+  .nav-mobile ul li a:hover, .nav-mobile ul li a.active { color: var(--white); background: rgba(255,255,255,0.05); border-left-color: var(--sky); }
+  .nav-mobile ul li a.nav-cta-mobile { margin: 0.75rem 1.5rem 0; padding: 13px 24px; background: var(--yellow); color: var(--indigo) !important; font-weight: 700 !important; border-radius: 4px; text-align: center; border-left: none; display: block; }
+  .nav-mobile ul li a.nav-cta-mobile:hover { opacity: 0.9; background: var(--yellow); border-left: none; }
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; height: 68px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-mobile { display: block; }
+  }
   .page-hero { background: var(--indigo); padding: 140px 4rem 80px; position: relative; overflow: hidden; }
   .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
   .page-hero-bg { position: absolute; bottom: -40px; right: -20px; font-family: 'Playfair Display', serif; font-size: 220px; font-weight: 900; color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none; }
@@ -38,8 +69,6 @@
   .page-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(40px, 5vw, 64px); color: var(--white); line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 1.25rem; }
   .page-title em { font-style: italic; color: var(--sky); }
   .page-subtitle { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.8; max-width: 520px; font-weight: 300; font-style: italic; }
-
-  /* CHANNELS */
   .channels-section { padding: 6rem 4rem; background: var(--white); }
   .channels-inner { max-width: 1160px; margin: 0 auto; }
   .channels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--gray); border-radius: 16px; overflow: hidden; margin-bottom: 3rem; }
@@ -66,13 +95,9 @@
   .channel-card.training .channel-cta { background: var(--carmine); color: var(--white); }
   .channel-card.alumni .channel-cta { background: var(--indigo); color: var(--white); }
   .channel-card.general .channel-cta { background: var(--light); color: var(--indigo); border: 1px solid var(--gray); }
-
-  /* SOCIAL NOTE */
   .social-note { background: var(--light); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1.25rem; border-left: 3px solid var(--gray); margin-bottom: 2rem; }
   .social-note-text { font-size: 15px; color: var(--muted); line-height: 1.7; font-weight: 400; font-style: italic; }
   .social-note-text strong { color: var(--text); font-style: normal; font-weight: 600; }
-
-  /* SOCIAL ROW */
   .social-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
   .social-row-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-right: 0.5rem; white-space: nowrap; }
   .social-icon-link { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--gray); transition: border-color 0.2s, transform 0.2s; text-decoration: none; }
@@ -84,8 +109,6 @@
   .social-icon-link.tt svg { fill: #010101; }
   .social-icon-link.wa svg { fill: #25d366; }
   .social-icon-link.yt svg { fill: #ff0000; }
-
-  /* FOOTER */
   footer { background: var(--indigo); padding: 3.5rem 4rem 2rem; border-top: 3px solid rgba(255,255,255,0.06); }
   .footer-logos { display: flex; align-items: center; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .footer-logo-divider { width: 1px; height: 64px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
@@ -101,39 +124,50 @@
   .footer-social a:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.4); }
   .footer-social svg { width: 15px; height: 15px; fill: rgba(255,255,255,0.75); }
   .footer-social a:hover svg { fill: var(--white); }
-
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .fade-up { animation: fadeUp 0.7s ease both; }
-
   @media (max-width: 768px) {
-    nav { padding: 0 1.5rem; height: 68px; }
-    .nav-links { display: none; }
     .page-hero { padding: 110px 1.5rem 60px; }
     .channels-section { padding: 4rem 1.5rem; }
     .channels-grid { grid-template-columns: 1fr; }
     footer { padding: 2.5rem 1.5rem 1.5rem; }
+    .footer-logos { gap: 2rem; }
     .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
   }
 </style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXKFG2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
     <img src="images/logo-cca.webp" alt="Call Centers Academy & BPO">
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">About</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="candidates.html">Candidates</a></li>
     <li><a href="companies.html">Companies</a></li>
     <li><a href="the-call-center.html">The Call Center</a></li>
     <li><a href="resources.html">Resources</a></li>
     <li><a href="blog/" class="nav-cta">Blog</a></li>
   </ul>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="navMobile" aria-hidden="true">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="candidates.html">Candidates</a></li>
+    <li><a href="companies.html">Companies</a></li>
+    <li><a href="the-call-center.html">The Call Center</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog/" class="nav-cta-mobile">Blog</a></li>
+  </ul>
+</div>
 <!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">CCA</div>
@@ -143,7 +177,6 @@
     <p class="page-subtitle">Social media is where we share — not where we manage requests. Use the right channel below and we'll get back to you.</p>
   </div>
 </section>
-
 <!-- CHANNELS -->
 <section class="channels-section">
   <div class="channels-inner">
@@ -152,39 +185,37 @@
         <div class="channel-who">Candidates</div>
         <div class="channel-title">Looking to train or join CCA?</div>
         <div class="channel-desc">Start with the blog and resources — most of your questions are already answered there. When you're ready, the waitlist is your next step.</div>
-        <a href="waitlist.html" class="channel-cta">Join the Waitlist →</a>
+        <a href="waitlist.html" class="channel-cta">Join the Waitlist &rarr;</a>
       </div>
       <div class="channel-card company">
         <div class="channel-who">Companies</div>
-        <div class="channel-title">Partnerships & business inquiries?</div>
+        <div class="channel-title">Partnerships &amp; business inquiries?</div>
         <div class="channel-desc">Talent pool access, corporate training, or any business collaboration. Reach out directly and our team will follow up.</div>
-        <a href="mailto:corporate@callcentersacademy.com" class="channel-cta">corporate@ →</a>
+        <a href="mailto:corporate@callcentersacademy.com" class="channel-cta">corporate@ &rarr;</a>
       </div>
       <div class="channel-card training">
         <div class="channel-who">Training</div>
         <div class="channel-title">Questions about our programs?</div>
         <div class="channel-desc">Curriculum, schedules, formats, pricing — anything training-related goes here. We'll route your inquiry to the right person.</div>
-        <a href="mailto:training@callcentersacademy.com" class="channel-cta">training@ →</a>
+        <a href="mailto:training@callcentersacademy.com" class="channel-cta">training@ &rarr;</a>
       </div>
       <div class="channel-card alumni">
         <div class="channel-who">Former Students</div>
         <div class="channel-title">Trained with CCA between 2018 and 2023?</div>
         <div class="channel-desc">We have open positions exclusively for CCA alumni. Verify your status and apply through the careers page.</div>
-        <a href="careers.html" class="channel-cta">See Open Roles →</a>
+        <a href="careers.html" class="channel-cta">See Open Roles &rarr;</a>
       </div>
       <div class="channel-card general">
-        <div class="channel-who">General & Media</div>
+        <div class="channel-who">General &amp; Media</div>
         <div class="channel-title">Everything else.</div>
         <div class="channel-desc">Press inquiries, general questions, or anything that doesn't fit the categories above.</div>
-        <a href="mailto:info@callcentersacademy.com" class="channel-cta">info@ →</a>
+        <a href="mailto:info@callcentersacademy.com" class="channel-cta">info@ &rarr;</a>
       </div>
     </div>
-
     <div class="social-note">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b7194" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       <p class="social-note-text"><strong>A note on social media:</strong> our accounts are active and we'd love for you to follow along — but DMs and comments are not monitored for inquiries. Use the channels above to make sure your message reaches the right person.</p>
     </div>
-
     <div class="social-row">
       <span class="social-row-label">Follow us</span>
       <a href="https://www.facebook.com/callcentersacademy" target="_blank" class="social-icon-link fb" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
@@ -197,7 +228,6 @@
     </div>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-logos">
@@ -206,7 +236,7 @@
     <div class="footer-logo-bpo"><img src="images/logo-bpo.webp" alt="CCA BPO"></div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-meta">Call Centers Academy & BPO · Est. 2018<br>Santo Domingo, Dominican Republic · RNC: 1-32-71135-1</div>
+    <div class="footer-meta">Call Centers Academy &amp; BPO &middot; Est. 2018<br>Santo Domingo, Dominican Republic &middot; RNC: 1-32-71135-1</div>
     <div class="footer-social">
       <a href="https://www.facebook.com/callcentersacademy" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
       <a href="https://www.instagram.com/callcentersacademy" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="rgba(255,255,255,0.75)" stroke="none"/></svg></a>
@@ -219,11 +249,57 @@
     <ul class="footer-links">
       <li><a href="privacy.html">Privacy</a></li>
       <li><a href="terms.html">Terms</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
       <li><a href="careers.html">Careers</a></li>
     </ul>
   </div>
 </footer>
-
+<!-- COOKIE BANNER -->
+<div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent" style="position:fixed;bottom:24px;left:24px;z-index:9999;max-width:320px;background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 8px 32px rgba(0,0,0,0.15);font-size:13px;line-height:1.55;display:flex;flex-direction:column;gap:14px;border:1px solid #e8e8e8;font-family:'Josefin Sans',sans-serif;">
+  <p style="margin:0;color:#333;">We use cookies to understand how visitors use our site. See our <a href="privacy.html" style="color:#00A1DE;text-decoration:underline;">Privacy Policy</a>.</p>
+  <div style="display:flex;gap:8px;">
+    <button onclick="ccaDecline()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#e8e8e8;color:#555;">Decline</button>
+    <button onclick="ccaAccept()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#00A1DE;color:#fff;">Accept</button>
+  </div>
+</div>
+<script>
+  (function(){var c=localStorage.getItem("cca_cookie_consent");if(c){var b=document.getElementById("cca-cookie-banner");if(b){b.style.opacity="0";b.style.pointerEvents="none";}}})();
+  function ccaAccept(){localStorage.setItem("cca_cookie_consent","accepted");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";if(window.dataLayer)dataLayer.push({event:"cookie_consent_accepted"});}
+  function ccaDecline(){localStorage.setItem("cca_cookie_consent","declined");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";}
+</script>
+<!-- CHATBOT WIDGET -->
+<script src="blog/cca-chatbot-widget.js"></script>
+<script>window.LOCALE='en';var AUTOHIDE=Boolean(0);</script>
+<!-- HAMBURGER SCRIPT -->
+<script>
+  (function () {
+    var btn = document.querySelector('.nav-hamburger');
+    var menu = document.getElementById('navMobile');
+    function openMenu() {
+      btn.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Close menu');
+      menu.classList.add('is-open');
+      menu.setAttribute('aria-hidden', 'false');
+      document.addEventListener('click', outsideClick);
+    }
+    function closeMenu() {
+      btn.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
+      menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('click', outsideClick);
+    }
+    function outsideClick(e) {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) { closeMenu(); }
+    }
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      btn.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+    menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
+  })();
+</script>
 </body>
 </html>

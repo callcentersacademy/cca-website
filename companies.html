@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hire Pre-Trained Call Center Candidates — CCA BPO</title>
 <meta name="description" content="Stop paying to train candidates who don't stay. CCA places bilingual, pre-trained call center professionals ready to perform from day one.">
+<link rel="canonical" href="https://callcentersacademy.com/companies.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://callcentersacademy.com/companies.html">
 <meta property="og:title" content="Hire Pre-Trained Call Center Candidates — CCA BPO">
@@ -31,8 +32,6 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Josefin Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
-
-  /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 4rem; height: 76px; background: var(--indigo); }
   .nav-logo { text-decoration: none; display: flex; align-items: center; }
   .nav-logo img { height: 64px; width: auto; display: block; }
@@ -40,8 +39,26 @@
   .nav-links a { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-decoration: none; font-weight: 600; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--white); }
   .nav-cta { background: var(--yellow) !important; color: var(--indigo) !important; padding: 11px 24px; border-radius: 4px; font-weight: 700 !important; letter-spacing: 0.08em !important; }
-
-  /* HERO */
+  .nav-cta:hover { opacity: 0.9; }
+  .nav-hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 4px; border-radius: 4px; transition: background 0.2s; flex-shrink: 0; }
+  .nav-hamburger:hover { background: rgba(255,255,255,0.08); }
+  .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease; transform-origin: center; }
+  .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.is-open span:nth-child(2) { opacity: 0; width: 0; }
+  .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile { display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99; background: var(--indigo); border-top: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.28); opacity: 0; transform: translateY(-8px); transition: opacity 0.25s ease, transform 0.25s ease; pointer-events: none; }
+  .nav-mobile.is-open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .nav-mobile ul { list-style: none; padding: 0.5rem 0 1rem; }
+  .nav-mobile ul li a { display: block; padding: 14px 1.5rem; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s, background 0.2s; border-left: 2px solid transparent; }
+  .nav-mobile ul li a:hover, .nav-mobile ul li a.active { color: var(--white); background: rgba(255,255,255,0.05); border-left-color: var(--sky); }
+  .nav-mobile ul li a.nav-cta-mobile { margin: 0.75rem 1.5rem 0; padding: 13px 24px; background: var(--yellow); color: var(--indigo) !important; font-weight: 700 !important; border-radius: 4px; text-align: center; border-left: none; display: block; }
+  .nav-mobile ul li a.nav-cta-mobile:hover { opacity: 0.9; background: var(--yellow); border-left: none; }
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; height: 68px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-mobile { display: block; }
+  }
   .page-hero { background: var(--indigo); padding: 140px 4rem 80px; position: relative; overflow: hidden; }
   .page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
   .page-hero-bg { position: absolute; bottom: -40px; right: -20px; font-family: 'Playfair Display', serif; font-size: 220px; font-weight: 900; color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none; }
@@ -54,15 +71,11 @@
   .page-subtitle { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.8; font-weight: 300; margin-bottom: 1.75rem; }
   .hero-blog-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--sky); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(0,161,222,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
   .hero-blog-link:hover { border-color: var(--sky); }
-
-  /* HERO RIGHT — data cards */
   .hero-right { display: flex; flex-direction: column; gap: 1rem; }
   .data-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.75rem 2rem; }
   .data-card-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 0.6rem; }
   .data-card-value { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--yellow); line-height: 1; margin-bottom: 0.4rem; }
   .data-card-desc { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300; line-height: 1.6; }
-
-  /* THE MATH — white, corporate */
   .math-section { background: var(--white); padding: 7rem 4rem; border-top: 1px solid var(--gray); }
   .math-inner { max-width: 1160px; margin: 0 auto; }
   .section-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sky); font-weight: 700; margin-bottom: 1rem; }
@@ -70,8 +83,6 @@
   .section-title em { font-style: italic; color: var(--sky); }
   .section-intro { font-size: 17px; color: #1f2937; line-height: 1.85; font-weight: 400; max-width: 760px; margin-bottom: 3.5rem; }
   .section-intro strong { color: var(--indigo); font-weight: 700; }
-
-  /* MATH TABLE */
   .math-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
   .math-table thead tr { border-bottom: 2px solid var(--indigo); }
   .math-table thead th { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo); font-weight: 700; padding: 0 1.5rem 1rem 0; text-align: left; }
@@ -83,19 +94,14 @@
   .math-row-name { font-size: 16px; font-weight: 700; color: var(--indigo); margin-bottom: 4px; }
   .math-row-desc { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 400; }
   .math-cost { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--indigo); }
-
-  /* TOTAL ROW */
   .math-total-row { background: var(--indigo); border-radius: 10px; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 1rem; }
   .math-total-label { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.7; font-weight: 300; max-width: 580px; }
   .math-total-label strong { color: var(--white); font-weight: 700; }
   .math-total-value { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--yellow); white-space: nowrap; flex-shrink: 0; }
-
-  /* THE DIFFERENCE */
   .diff-section { background: var(--light); padding: 7rem 4rem; }
   .diff-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
   .diff-body { font-size: 17px; color: #1f2937; line-height: 1.85; font-weight: 400; margin-bottom: 1.25rem; }
   .diff-body strong { color: var(--indigo); font-weight: 700; }
-
   .comparison-table { width: 100%; border-collapse: collapse; }
   .comparison-table thead tr { border-bottom: 2px solid var(--gray); }
   .comparison-table thead th { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; padding: 0 0 1rem 0; text-align: left; }
@@ -105,8 +111,6 @@
   .comparison-table tbody tr:last-child { border-bottom: none; }
   .comparison-table tbody td { padding: 1.25rem 1rem 1.25rem 0; vertical-align: top; font-size: 15px; color: #374151; line-height: 1.65; font-weight: 400; }
   .comparison-table tbody td.good { color: var(--indigo); font-weight: 600; }
-
-  /* OFFERS */
   .offers-section { background: var(--white); padding: 7rem 4rem; border-top: 1px solid var(--gray); }
   .offers-inner { max-width: 1160px; margin: 0 auto; }
   .offers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--gray); border-radius: 16px; overflow: hidden; margin-top: 3rem; }
@@ -132,8 +136,6 @@
   .offer-cta:hover { opacity: 0.88; }
   .offer-card.talent .offer-cta { background: var(--indigo); color: var(--white); }
   .offer-card.training .offer-cta { background: var(--yellow); color: var(--indigo); }
-
-  /* FORM */
   .form-section { background: var(--light); padding: 7rem 4rem; }
   .form-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 6rem; align-items: start; }
   .form-left-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sky); font-weight: 700; margin-bottom: 1rem; }
@@ -150,8 +152,6 @@
   .form-submit { width: 100%; padding: 18px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; border-radius: 6px; cursor: pointer; transition: opacity 0.2s; margin-top: 0.5rem; }
   .form-submit:hover { opacity: 0.88; }
   .form-disclaimer { font-size: 12px; color: var(--muted); text-align: center; margin-top: 1rem; line-height: 1.6; }
-
-  /* FOOTER */
   footer { background: var(--indigo); padding: 3.5rem 4rem 2rem; border-top: 3px solid rgba(255,255,255,0.06); }
   .footer-logos { display: flex; align-items: center; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .footer-logo-divider { width: 1px; height: 64px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
@@ -167,13 +167,9 @@
   .footer-social a:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.4); }
   .footer-social svg { width: 15px; height: 15px; fill: rgba(255,255,255,0.75); }
   .footer-social a:hover svg { fill: var(--white); }
-
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .fade-up { animation: fadeUp 0.7s ease both; }
-
   @media (max-width: 768px) {
-    nav { padding: 0 1.5rem; height: 68px; }
-    .nav-links { display: none; }
     .page-hero { padding: 110px 1.5rem 60px; }
     .page-hero-inner { grid-template-columns: 1fr; gap: 3rem; }
     .math-section, .diff-section, .offers-section, .form-section { padding: 5rem 1.5rem; }
@@ -184,28 +180,43 @@
     .inquiry-form { padding: 2rem 1.5rem; }
     .math-total-row { flex-direction: column; gap: 1rem; text-align: center; }
     footer { padding: 2.5rem 1.5rem 1.5rem; }
+    .footer-logos { gap: 2rem; }
     .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
   }
 </style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXKFG2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
     <img src="images/logo-cca.webp" alt="Call Centers Academy & BPO">
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">About</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="candidates.html">Candidates</a></li>
     <li><a href="companies.html" class="active">Companies</a></li>
     <li><a href="the-call-center.html">The Call Center</a></li>
     <li><a href="resources.html">Resources</a></li>
     <li><a href="blog/" class="nav-cta">Blog</a></li>
   </ul>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="navMobile" aria-hidden="true">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="candidates.html">Candidates</a></li>
+    <li><a href="companies.html" class="active">Companies</a></li>
+    <li><a href="the-call-center.html">The Call Center</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="blog/" class="nav-cta-mobile">Blog</a></li>
+  </ul>
+</div>
 <!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">B2B</div>
@@ -214,7 +225,7 @@
       <div class="page-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">For Companies</span></div>
       <h1 class="page-title">You've posted<br>the job. Again.<br><em>We know.</em></h1>
       <p class="page-subtitle">Ghosted candidates. Referral bonuses paid to people who left after 90 days. Ads running on stations your ICP doesn't listen to. The pipeline is broken — and the math proves it.</p>
-      <a href="blog/you-want-10-years-experience-for-4-dollar.html" class="hero-blog-link">Sound familiar? We wrote about it. →</a>
+      <a href="blog/you-want-10-years-experience-for-4-dollar.html" class="hero-blog-link">Sound familiar? We wrote about it. &rarr;</a>
     </div>
     <div class="hero-right">
       <div class="data-card">
@@ -230,14 +241,12 @@
     </div>
   </div>
 </section>
-
 <!-- THE MATH -->
 <section class="math-section">
   <div class="math-inner">
     <p class="section-eyebrow">Cost Per Hire Analysis</p>
     <h2 class="section-title">The real cost of one hire.<br><em>Add it up.</em></h2>
     <p class="section-intro">Every time a candidate doesn't work out, you absorb the full cost of finding the next one. Most operations run this cycle without ever addressing the root cause. <strong>The issue isn't your process. It's where your candidates are coming from.</strong></p>
-
     <table class="math-table">
       <thead>
         <tr>
@@ -248,35 +257,33 @@
       </thead>
       <tbody>
         <tr>
-          <td><div class="math-row-name">Radio & TV Advertising</div></td>
-          <td><div class="math-row-desc">Reaching an audience that isn't your ICP — and won't stay for entry-level pay anyway.</div></td>
+          <td><div class="math-row-name">Radio &amp; TV Advertising</div><div class="math-row-desc">Reaching an audience that isn't your ICP — and won't stay for entry-level pay anyway.</div></td>
+          <td></td>
           <td><div class="math-cost">$500+</div></td>
         </tr>
         <tr>
-          <td><div class="math-row-name">Digital Advertising</div></td>
-          <td><div class="math-row-desc">Job boards, social posts, boosted listings — all competing for the same unqualified pool.</div></td>
+          <td><div class="math-row-name">Digital Advertising</div><div class="math-row-desc">Job boards, social posts, boosted listings — all competing for the same unqualified pool.</div></td>
+          <td></td>
           <td><div class="math-cost">$300+</div></td>
         </tr>
         <tr>
-          <td><div class="math-row-name">Referral Bonuses</div></td>
-          <td><div class="math-row-desc">Paid in installments to retain candidates long enough — but they leave after they collect.</div></td>
+          <td><div class="math-row-name">Referral Bonuses</div><div class="math-row-desc">Paid in installments to retain candidates long enough — but they leave after they collect.</div></td>
+          <td></td>
           <td><div class="math-cost">$300+</div></td>
         </tr>
         <tr>
-          <td><div class="math-row-name">Hiring Bonuses</div></td>
-          <td><div class="math-row-desc">Structured to incentivize retention — still not enough to keep someone who was never ready for the job.</div></td>
+          <td><div class="math-row-name">Hiring Bonuses</div><div class="math-row-desc">Structured to incentivize retention — still not enough to keep someone who was never ready for the job.</div></td>
+          <td></td>
           <td><div class="math-cost">$1,000+</div></td>
         </tr>
       </tbody>
     </table>
-
     <div class="math-total-row">
       <div class="math-total-label">That's <strong>over $2,100 per candidate</strong> — before training time, supervisor hours, and the productivity lost while a seat stays empty. Multiply by your annual attrition rate and you have your real number.</div>
       <div class="math-total-value">$2,100+</div>
     </div>
   </div>
 </section>
-
 <!-- THE DIFFERENCE -->
 <section class="diff-section">
   <div class="diff-inner">
@@ -287,7 +294,6 @@
       <p class="diff-body">They went through CCA's full curriculum — interview prep, induction, training, nesting, and live accounts at CCA BPO. By the time they reach your floor, they know what a KPI is, what a call flow looks like, and what it feels like to handle a real customer.</p>
       <p class="diff-body">That's the difference between a candidate and a professional. And the difference between filling a seat and keeping it filled.</p>
     </div>
-
     <div>
       <table class="comparison-table">
         <thead>
@@ -314,7 +320,6 @@
     </div>
   </div>
 </section>
-
 <!-- OFFERS -->
 <section class="offers-section" id="offers">
   <div class="offers-inner">
@@ -335,7 +340,7 @@
         </ul>
         <div class="offer-price">$5,000<span> / year</span></div>
         <div class="offer-price-note">Unlimited placements. No per-hire cost. No referral fees.</div>
-        <a href="#inquiry-form" class="offer-cta">Get Partner Access →</a>
+        <a href="#inquiry-form" class="offer-cta">Get Partner Access &rarr;</a>
       </div>
       <div class="offer-card training">
         <div class="offer-num">02</div>
@@ -349,12 +354,11 @@
           <li>Available for any team size</li>
         </ul>
         <p class="offer-price-inquiry">Pricing depends on modality, number of agents, and session structure. Inquire below and we'll put together a proposal.</p>
-        <a href="#inquiry-form" class="offer-cta">Request a Proposal →</a>
+        <a href="#inquiry-form" class="offer-cta">Request a Proposal &rarr;</a>
       </div>
     </div>
   </div>
 </section>
-
 <!-- FORM -->
 <section class="form-section" id="inquiry-form">
   <div class="form-inner">
@@ -401,13 +405,12 @@
             </select>
           </div>
         </div>
-        <button type="submit" class="form-submit">Submit Inquiry →</button>
+        <button type="submit" class="form-submit">Submit Inquiry &rarr;</button>
         <p class="form-disclaimer">By submitting this form you agree to be contacted by the CCA team regarding your inquiry.</p>
       </form>
     </div>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-logos">
@@ -416,7 +419,7 @@
     <div class="footer-logo-bpo"><img src="images/logo-bpo.webp" alt="CCA BPO"></div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-meta">Call Centers Academy & BPO · Est. 2018<br>Santo Domingo, Dominican Republic · RNC: 1-32-71135-1</div>
+    <div class="footer-meta">Call Centers Academy &amp; BPO &middot; Est. 2018<br>Santo Domingo, Dominican Republic &middot; RNC: 1-32-71135-1</div>
     <div class="footer-social">
       <a href="https://www.facebook.com/callcentersacademy" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
       <a href="https://www.instagram.com/callcentersacademy" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="rgba(255,255,255,0.75)" stroke="none"/></svg></a>
@@ -434,6 +437,52 @@
     </ul>
   </div>
 </footer>
-
+<!-- COOKIE BANNER -->
+<div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent" style="position:fixed;bottom:24px;left:24px;z-index:9999;max-width:320px;background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 8px 32px rgba(0,0,0,0.15);font-size:13px;line-height:1.55;display:flex;flex-direction:column;gap:14px;border:1px solid #e8e8e8;font-family:'Josefin Sans',sans-serif;">
+  <p style="margin:0;color:#333;">We use cookies to understand how visitors use our site. See our <a href="privacy.html" style="color:#00A1DE;text-decoration:underline;">Privacy Policy</a>.</p>
+  <div style="display:flex;gap:8px;">
+    <button onclick="ccaDecline()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#e8e8e8;color:#555;">Decline</button>
+    <button onclick="ccaAccept()" style="flex:1;padding:8px;border:none;border-radius:5px;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;background:#00A1DE;color:#fff;">Accept</button>
+  </div>
+</div>
+<script>
+  (function(){var c=localStorage.getItem("cca_cookie_consent");if(c){var b=document.getElementById("cca-cookie-banner");if(b){b.style.opacity="0";b.style.pointerEvents="none";}}})();
+  function ccaAccept(){localStorage.setItem("cca_cookie_consent","accepted");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";if(window.dataLayer)dataLayer.push({event:"cookie_consent_accepted"});}
+  function ccaDecline(){localStorage.setItem("cca_cookie_consent","declined");var b=document.getElementById("cca-cookie-banner");b.style.opacity="0";b.style.pointerEvents="none";}
+</script>
+<!-- CHATBOT WIDGET -->
+<script src="blog/cca-chatbot-widget.js"></script>
+<script>window.LOCALE='en';var AUTOHIDE=Boolean(0);</script>
+<!-- HAMBURGER SCRIPT -->
+<script>
+  (function () {
+    var btn = document.querySelector('.nav-hamburger');
+    var menu = document.getElementById('navMobile');
+    function openMenu() {
+      btn.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Close menu');
+      menu.classList.add('is-open');
+      menu.setAttribute('aria-hidden', 'false');
+      document.addEventListener('click', outsideClick);
+    }
+    function closeMenu() {
+      btn.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
+      menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('click', outsideClick);
+    }
+    function outsideClick(e) {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) { closeMenu(); }
+    }
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      btn.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+    menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
+  })();
+</script>
 </body>
 </html>
