@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CCA Learning Campus — Call Centers Academy &amp; BPO</title>
-<meta name="description" content="The free call center training platform from Call Centers Academy. Tools, training, and everything the industry won't tell you.">
+<title>CCA Resources — Call Centers Academy &amp; BPO</title>
+<meta name="description" content="Free guides, templates, and training resources from Call Centers Academy. No signup. No paywall.">
 <link rel="canonical" href="https://callcentersacademy.com/resources.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://callcentersacademy.com/resources.html">
-<meta property="og:title" content="CCA Learning Campus — Free Call Center Training">
-<meta property="og:description" content="Free call center training tools, AI-powered CV builder, salary calculator, and more from Call Centers Academy.">
+<meta property="og:title" content="CCA Resources — Free Call Center Training Materials">
+<meta property="og:description" content="Free guides, templates, and training resources from Call Centers Academy. No signup. No paywall.">
 <meta property="og:image" content="https://callcentersacademy.com/images/og-image.webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -17,13 +17,13 @@
 <meta property="og:site_name" content="Call Centers Academy &amp; BPO">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://callcentersacademy.com/resources.html">
-<meta name="twitter:title" content="CCA Learning Campus — Free Call Center Training">
-<meta name="twitter:description" content="Free call center training tools, AI-powered CV builder, salary calculator, and more from Call Centers Academy.">
+<meta name="twitter:title" content="CCA Resources — Free Call Center Training Materials">
+<meta name="twitter:description" content="Free guides, templates, and training resources from Call Centers Academy. No signup. No paywall.">
 <meta name="twitter:image" content="https://callcentersacademy.com/images/og-image.webp">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23253166'/><path d='M7 22 Q7 10 16 10 Q25 10 25 22' stroke='%2300A1DE' stroke-width='2.5' fill='none' stroke-linecap='round'/><line x1='7' y1='22' x2='25' y2='22' stroke='%23FFCC00' stroke-width='2.5' stroke-linecap='round'/><line x1='16' y1='10' x2='16' y2='8' stroke='%2300A1DE' stroke-width='2' stroke-linecap='round'/></svg>" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MJXKFG2L');</script>
-<script src="https://unpkg.com/docx@8.5.0/build/index.js"></script>
+<script src="https://unpkg.com/docx@8.5.0/build/index.js" defer></script>
 <style>
 :root {
   --indigo: #253166; --sky: #00a1de; --carmine: #cd171a;
@@ -34,13 +34,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color: var(--text); overflow-x: hidden; }
-/* ══ LOADING SCREEN ══ */
-#loading-screen {
-  position: fixed; inset: 0; z-index: 9999;
+
+/* ══ CAMPUS LOADING SCREEN ══ */
+#campus-loading {
+  display: none; position: fixed; inset: 0; z-index: 9999;
   background: var(--indigo);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 2rem;
+  flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
 }
+#campus-loading.show { display: flex; }
 .loader-logo { position: relative; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; }
 .loader-ring { position: absolute; border-radius: 50%; border: 2.5px solid transparent; }
 .loader-ring-1 { width: 120px; height: 120px; border-top-color: var(--sky); border-right-color: var(--sky); animation: spin 1.2s linear infinite; }
@@ -56,10 +57,10 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .loader-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--white); margin-bottom: 6px; text-align: center; }
 .loader-sub { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); text-align: center; }
 .loader-bar-wrap { width: 200px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 999px; overflow: hidden; }
-.loader-bar-fill { height: 100%; background: linear-gradient(90deg, var(--sky), var(--yellow)); border-radius: 999px; animation: loadBar 5s ease-in-out forwards; }
-@keyframes loadBar { from { width: 0%; } to { width: 100%; } }
-#loading-screen.fade-out { animation: fadeOut 0.5s ease forwards; }
+.loader-bar-fill { height: 100%; background: linear-gradient(90deg, var(--sky), var(--yellow)); border-radius: 999px; width: 0%; transition: width 5s ease-in-out; }
+#campus-loading.fade-out { animation: fadeOut 0.5s ease forwards; }
 @keyframes fadeOut { to { opacity: 0; pointer-events: none; } }
+
 /* ══ AD BLOCKER WALL ══ */
 #adblocker-wall { display: none; position: fixed; inset: 0; z-index: 9998; background: var(--dark); align-items: center; justify-content: center; padding: 2rem; }
 #adblocker-wall.show { display: flex; }
@@ -76,54 +77,64 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .ab-step-text { font-size: 15px; color: rgba(255,255,255,0.75); font-weight: 400; line-height: 1.5; }
 .ab-btn { width: 100%; padding: 16px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; }
 .ab-btn:hover { opacity: 0.9; }
-/* ══ LEVEL 1 — LOBBY ══ */
-#lobby { display: none; min-height: 100vh; flex-direction: column; }
-#lobby.show { display: flex; }
-.lobby-nav { height: 64px; flex-shrink: 0; background: var(--indigo); display: flex; align-items: center; padding: 0 2.5rem; gap: 1rem; position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,0.06); }
-.lobby-nav-logo { text-decoration: none; display: flex; align-items: center; }
-.lobby-nav-logo img { height: 40px; width: auto; }
-.lobby-nav-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
-.lobby-nav-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700; }
-.lobby-nav-back { margin-left: auto; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; font-weight: 600; transition: color 0.2s; }
-.lobby-nav-back:hover { color: var(--white); }
-.dashboard-header { background: var(--indigo); padding: 2.5rem 2.5rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.07); position: relative; }
-.dashboard-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
-.dashboard-header-inner { max-width: 1200px; margin: 0 auto; }
-.dashboard-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 900; color: var(--white); margin-bottom: 0.75rem; }
-.dashboard-intro { font-size: 17px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.8; max-width: 820px; }
-.dashboard-body { background: var(--light); flex: 1; padding: 2rem 2.5rem; }
-.dashboard-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-.dash-card { background: var(--white); border-radius: 16px; border: 1px solid var(--gray); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
-.dash-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,49,102,0.12); border-color: #c0c4d8; }
-.dash-card-visual { height: 140px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.dash-card-glow { position: absolute; inset: 0; }
-.dash-card-icon { font-size: 52px; position: relative; z-index: 1; }
-.dash-card-content { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
-.dash-card-tool-name { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-bottom: 0.6rem; }
-.dash-card-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--indigo); line-height: 1.25; margin-bottom: 0.85rem; }
-.dash-card-body { font-size: 17px; color: #374151; line-height: 1.85; font-weight: 400; flex: 1; margin-bottom: 1.5rem; }
-.dash-btn { display: inline-block; width: 100%; padding: 16px 24px; border-radius: 10px; border: none; font-family: 'Josefin Sans', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; text-align: center; transition: opacity 0.2s, transform 0.15s; margin-top: auto; }
-.dash-btn:hover { opacity: 0.88; transform: translateY(-1px); }
-.dash-btn-sky { background: var(--sky); color: var(--white); }
-.dash-btn-yellow { background: var(--yellow); color: var(--indigo); }
-.dash-btn-indigo { background: var(--indigo); color: var(--white); }
-.dash-btn-carmine { background: var(--carmine); color: var(--white); }
-.dash-card-training { grid-column: 1 / -1; flex-direction: row; min-height: 180px; }
-.dash-card-training:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,49,102,0.15); }
-.dash-card-training-visual { width: 300px; flex-shrink: 0; background: var(--indigo); position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; padding: 1.5rem; }
-.dash-training-glow-1 { position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle, rgba(0,161,222,0.2) 0%, transparent 70%); }
-.dash-training-glow-2 { position: absolute; bottom: -30px; left: -30px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(255,204,0,0.15) 0%, transparent 70%); }
-.dash-training-dots { display: flex; gap: 8px; position: relative; z-index: 1; }
-.dash-training-dot { width: 12px; height: 12px; border-radius: 50%; }
-.dash-training-stages { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 600; position: relative; z-index: 1; text-align: center; line-height: 1.6; }
-.dash-card-training-content { padding: 2rem 2.25rem; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.dash-training-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--indigo); margin-bottom: 0.75rem; }
-.dash-training-body { font-size: 17px; color: #374151; line-height: 1.85; font-weight: 400; margin-bottom: 1.5rem; max-width: 620px; }
-.lobby-footer { max-width: 1200px; margin: 0 auto; padding: 1.5rem 0 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--gray); margin-top: 1.25rem; }
-.lobby-footer-meta { font-size: 12px; color: var(--muted); }
-.lobby-footer-links { display: flex; gap: 1.5rem; }
-.lobby-footer-link { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-.lobby-footer-link:hover { color: var(--indigo); }
+
+/* ══ RESOURCES LOBBY ══ */
+#resources-lobby { display: none; min-height: 100vh; flex-direction: column; }
+#resources-lobby.show { display: flex; }
+.res-nav { height: 64px; flex-shrink: 0; background: var(--indigo); display: flex; align-items: center; padding: 0 2.5rem; gap: 1rem; position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.res-nav-logo { text-decoration: none; display: flex; align-items: center; }
+.res-nav-logo img { height: 40px; width: auto; }
+.res-nav-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
+.res-nav-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700; }
+.res-nav-back { margin-left: auto; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+.res-nav-back:hover { color: var(--white); }
+.res-hero { background: var(--indigo); padding: 2.5rem 2.5rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.07); position: relative; }
+.res-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+.res-hero-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.res-hero-title { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 900; color: var(--white); margin-bottom: 0.75rem; }
+.res-hero-intro { font-size: 17px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.8; max-width: 780px; }
+.res-hero-cta { flex-shrink: 0; }
+.res-cta-btn { display: inline-block; padding: 16px 32px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 10px; cursor: pointer; transition: opacity 0.2s, transform 0.15s; white-space: nowrap; }
+.res-cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.res-body { flex: 1; padding: 2rem 2.5rem; }
+.res-inner { max-width: 1200px; margin: 0 auto; }
+.res-section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--gray); }
+
+/* ══ DOWNLOAD CARDS ══ */
+.downloads-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
+.dl-card { background: var(--white); border-radius: 14px; border: 1px solid var(--gray); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+.dl-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,49,102,0.1); border-color: #c0c4d8; }
+.dl-card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.dl-card-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--indigo); line-height: 1.25; }
+.dl-card-intro { font-size: 14px; color: #374151; line-height: 1.75; flex: 1; }
+.dl-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 12px; font-family: 'Josefin Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; text-decoration: none; margin-top: auto; }
+.dl-btn:hover { opacity: 0.88; }
+.dl-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+.dl-btn-sky { background: var(--sky); color: var(--white); }
+.dl-btn-indigo { background: var(--indigo); color: var(--white); }
+.dl-btn-carmine { background: var(--carmine); color: var(--white); }
+.dl-btn-yellow { background: var(--yellow); color: var(--indigo); }
+.dl-btn-dark { background: var(--dark); color: var(--white); }
+
+/* ══ CAMPUS STRIP ══ */
+.campus-strip { background: var(--indigo); border-radius: 16px; padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; position: relative; overflow: hidden; margin-bottom: 1.5rem; }
+.campus-strip::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
+.campus-strip-glow { position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(0,161,222,0.15) 0%, transparent 70%); }
+.campus-strip-left { position: relative; z-index: 1; }
+.campus-strip-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); font-weight: 700; margin-bottom: 0.5rem; }
+.campus-strip-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--white); margin-bottom: 0.5rem; }
+.campus-strip-sub { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.7; font-weight: 300; max-width: 560px; }
+.campus-strip-pills { display: flex; gap: 8px; margin-top: 1rem; flex-wrap: wrap; }
+.campus-pill { font-size: 11px; padding: 4px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.4); font-weight: 600; letter-spacing: 0.08em; }
+.campus-strip-right { position: relative; z-index: 1; flex-shrink: 0; }
+
+/* ══ LOBBY FOOTER ══ */
+.res-footer { max-width: 1200px; margin: 0 auto; padding: 1.5rem 0 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--gray); }
+.res-footer-meta { font-size: 12px; color: var(--muted); }
+.res-footer-links { display: flex; gap: 1.5rem; }
+.res-footer-link { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.res-footer-link:hover { color: var(--indigo); }
+
 /* ══ LEVEL 2 — COURSE SELECTION ══ */
 #level2 { display: none; min-height: 100vh; flex-direction: column; background: var(--light); }
 #level2.show { display: flex; }
@@ -145,6 +156,7 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .course-card { background: var(--white); border-radius: 16px; border: 1px solid var(--gray); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; cursor: pointer; }
 .course-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(37,49,102,0.14); border-color: #c0c4d8; }
 .course-card-visual { height: 160px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.course-card-glow { position: absolute; inset: 0; }
 .course-card-icon { font-size: 60px; position: relative; z-index: 1; }
 .course-card-content { padding: 2rem; flex: 1; display: flex; flex-direction: column; }
 .course-card-name { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-bottom: 0.6rem; }
@@ -155,6 +167,7 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .btn-sky { background: var(--sky); color: var(--white); }
 .btn-indigo { background: var(--indigo); color: var(--white); }
 .btn-carmine { background: var(--carmine); color: var(--white); }
+
 /* ══ LEVEL 3 — CLASSROOM ══ */
 #classroom { display: none; height: 100vh; flex-direction: column; position: fixed; inset: 0; z-index: 100; background: var(--white); }
 #classroom.show { display: flex; }
@@ -164,10 +177,6 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .pnav-divider { width: 1px; height: 24px; background: var(--gray); flex-shrink: 0; }
 .pnav-course-name { font-size: 13px; font-weight: 700; color: var(--indigo); letter-spacing: 0.06em; }
 .pnav-right { margin-left: auto; display: flex; align-items: center; gap: 1.25rem; }
-.pnav-progress-wrap { display: flex; align-items: center; gap: 10px; }
-.pnav-progress-label { font-size: 12px; color: var(--muted); font-weight: 600; white-space: nowrap; }
-.pnav-progress-bar { width: 100px; height: 4px; background: var(--gray); border-radius: 999px; overflow: hidden; }
-.pnav-progress-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--sky), var(--indigo)); transition: width 0.4s ease; }
 .pnav-back-btn { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); background: none; border: 1px solid var(--gray); border-radius: 6px; padding: 8px 16px; cursor: pointer; font-family: 'Josefin Sans', sans-serif; font-weight: 700; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
 .pnav-back-btn:hover { border-color: var(--indigo); color: var(--indigo); }
 .hamburger-btn { display: none; width: 36px; height: 36px; border: none; background: none; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border-radius: 6px; flex-shrink: 0; }
@@ -198,14 +207,9 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .lesson-list { overflow: hidden; }
 .lesson-item { display: flex; align-items: center; gap: 8px; padding: 9px 1.25rem 9px 1.75rem; cursor: pointer; transition: background 0.15s; position: relative; }
 .lesson-item:hover { background: rgba(255,255,255,0.04); }
-.lesson-item.active { background: rgba(0,161,222,0.15); border-left: 2px solid var(--sky); padding-left: calc(1.75rem - 2px); }
-.lesson-item.completed::after { content: '✓'; position: absolute; right: 1rem; font-size: 12px; color: #4ade80; font-weight: 700; }
-.li-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.3; }
-.lesson-item.active .li-icon { opacity: 1; }
+.li-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.25; }
 .li-icon svg { width: 16px; height: 16px; stroke: var(--white); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.lesson-item.active .li-icon svg { stroke: var(--sky); }
-.li-text { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.4; flex: 1; }
-.lesson-item.active .li-text { color: var(--white); font-weight: 600; }
+.li-text { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.4; flex: 1; }
 .li-lock { font-size: 11px; color: rgba(255,255,255,0.2); flex-shrink: 0; }
 .glossary-entry { margin: 8px 1rem; background: rgba(255,204,0,0.06); border: 1px solid rgba(255,204,0,0.15); border-radius: 10px; padding: 1rem 1.25rem; }
 .glossary-entry-title { font-size: 12px; font-weight: 700; color: var(--yellow); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
@@ -214,81 +218,14 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .glossary-entry-btn:hover { background: rgba(255,204,0,0.25); }
 .sb-foot { padding: 1rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.07); flex-shrink: 0; }
 .sb-foot-label { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 7px; font-weight: 600; }
-.sb-progress-bar { height: 4px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; }
-.sb-progress-fill { height: 100%; border-radius: 999px; background: var(--sky); transition: width 0.4s ease; }
 .campus-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; background: var(--white); min-width: 0; }
 .main-topbar { padding: 0.75rem 1.5rem; border-bottom: 1px solid var(--gray); display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .breadcrumb { font-size: 13px; color: #999; display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; }
 .bc-sep { color: #ddd; }
 .bc-cur { color: var(--indigo); font-weight: 700; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.bc-tag-free { font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 700; background: rgba(22,163,74,0.1); color: #16a34a; flex-shrink: 0; }
 .lesson-body { flex: 1; overflow-y: auto; padding: 2rem 1.5rem; }
-.lesson-body::-webkit-scrollbar { width: 4px; }
-.lesson-body::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 999px; }
-.l-thumb { width: 100%; height: 180px; background: var(--indigo); border-radius: 12px; margin-bottom: 1.5rem; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.l-thumb-gradient { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,161,222,0.4) 0%, rgba(37,49,102,0.9) 100%); }
-.l-thumb-inner { position: relative; z-index: 1; text-align: center; }
-.l-thumb-icon { font-size: 40px; display: block; margin-bottom: 10px; }
-.l-thumb-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); }
-.l-thumb-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
-.l-thumb-play { position: absolute; bottom: 12px; right: 12px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; background: var(--sky); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
-.l-thumb-play:hover { transform: scale(1.1); }
-.l-thumb-play svg { width: 16px; height: 16px; fill: var(--white); margin-left: 2px; }
-.tags-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1rem; }
-.tag { font-size: 13px; padding: 4px 12px; border-radius: 999px; font-weight: 600; }
-.tag-sky { background: rgba(0,161,222,0.1); color: #0a5f80; }
-.tag-gray { background: var(--light); color: var(--muted); }
-.tag-green { background: rgba(22,163,74,0.1); color: #16a34a; }
-.l-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--indigo); margin-bottom: 0.6rem; line-height: 1.3; }
-.l-desc { font-size: 17px; color: #374151; line-height: 1.85; margin-bottom: 1.5rem; font-weight: 400; }
-.audio-section-title { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--indigo); font-weight: 700; margin-bottom: 0.75rem; }
-.audio-card { background: var(--light); border: 1px solid var(--gray); border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; transition: border-color 0.2s; }
-.audio-card:hover { border-color: var(--sky); }
-.play-btn { width: 40px; height: 40px; border-radius: 50%; background: var(--indigo); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, transform 0.15s; }
-.play-btn:hover { background: var(--sky); transform: scale(1.05); }
-.play-btn.playing { background: var(--sky); }
-.play-btn svg { width: 13px; height: 13px; fill: var(--white); margin-left: 2px; }
-.a-info { flex: 1; min-width: 0; }
-.a-name { font-size: 15px; font-weight: 700; color: var(--indigo); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.a-meta { font-size: 13px; color: #999; margin-top: 3px; }
-.a-bar { height: 3px; background: var(--gray); border-radius: 999px; margin-top: 8px; cursor: pointer; }
-.a-progress { height: 100%; border-radius: 999px; background: var(--sky); transition: width 0.1s; }
-.a-time { font-size: 13px; color: #999; flex-shrink: 0; }
-.quiz-wrap { border: 1px solid var(--gray); border-radius: 12px; overflow: hidden; margin-top: 1.5rem; }
-.quiz-head { background: var(--indigo); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 8px; }
-.quiz-head-title { font-size: 16px; font-weight: 700; color: var(--white); flex: 1; }
-.quiz-head-count { font-size: 13px; color: rgba(255,255,255,0.5); }
-.quiz-body { padding: 1.5rem; }
-.quiz-q { font-size: 18px; font-weight: 700; color: var(--indigo); margin-bottom: 1.1rem; line-height: 1.55; }
-.option { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border: 1px solid var(--gray); border-radius: 8px; margin-bottom: 8px; cursor: pointer; font-size: 16px; color: #374151; line-height: 1.5; transition: all 0.15s; font-weight: 400; }
-.option:hover { background: var(--light); border-color: #c0c4d8; }
-.option.selected { border-color: var(--sky); background: rgba(0,161,222,0.07); color: var(--indigo); }
-.option.correct { border-color: #16a34a; background: rgba(22,163,74,0.07); color: #14532d; }
-.option.wrong { border-color: var(--carmine); background: rgba(205,23,26,0.07); color: #7f1d1d; }
-.opt-letter { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--gray); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; color: #aaa; transition: all 0.15s; }
-.option.selected .opt-letter { background: var(--sky); border-color: var(--sky); color: var(--white); }
-.option.correct .opt-letter { background: #16a34a; border-color: #16a34a; color: var(--white); }
-.quiz-submit { width: 100%; padding: 14px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; margin-top: 0.75rem; transition: opacity 0.2s; }
-.quiz-submit:hover { opacity: 0.88; }
-.lesson-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--gray); display: flex; gap: 8px; flex-shrink: 0; background: var(--white); }
-.lesson-nav-btn { flex: 1; padding: 14px; border: 1px solid var(--gray); border-radius: 8px; font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: var(--white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.15s; }
-.lesson-nav-btn:hover { background: var(--light); border-color: #c0c4d8; color: var(--indigo); }
-.lesson-nav-btn.primary { background: var(--indigo); color: var(--white); border-color: var(--indigo); }
-.lesson-nav-btn.primary:hover { background: #1a2452; }
-/* ══ MODULE COMPLETION POPUP ══ */
-#completion-popup { display: none; position: fixed; inset: 0; z-index: 9000; background: rgba(10,22,40,0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 2rem; }
-#completion-popup.show { display: flex; animation: fadeIn 0.3s ease; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.completion-box { background: var(--indigo); border-radius: 24px; padding: 3.5rem; max-width: 480px; width: 100%; text-align: center; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
-.completion-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--carmine), var(--sky), var(--yellow)); }
-.completion-cap { font-size: 72px; display: block; margin-bottom: 1rem; animation: bounce 0.6s ease; }
-@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
-.completion-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--white); margin-bottom: 0.75rem; }
-.completion-sub { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.7; font-weight: 300; margin-bottom: 2rem; }
-.completion-next { width: 100%; padding: 16px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; margin-bottom: 0.75rem; transition: opacity 0.2s; }
-.completion-next:hover { opacity: 0.9; }
-.completion-dismiss { background: none; border: none; color: rgba(255,255,255,0.3); font-family: 'Josefin Sans', sans-serif; font-size: 13px; cursor: pointer; padding: 8px; }
-/* ══ LOCK WALL MODAL ══ */
+
+/* ══ LOCK WALL ══ */
 #lock-wall { display: none; position: fixed; inset: 0; z-index: 8000; background: rgba(10,22,40,0.85); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 2rem; }
 #lock-wall.show { display: flex; }
 .lock-box { background: var(--indigo); border-radius: 20px; padding: 3rem; max-width: 460px; width: 100%; text-align: center; border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden; animation: modalIn 0.3s ease; }
@@ -300,127 +237,29 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 .lock-btn { width: 100%; padding: 16px; background: var(--yellow); color: var(--indigo); font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; margin-bottom: 0.75rem; transition: opacity 0.2s; text-decoration: none; display: block; }
 .lock-btn:hover { opacity: 0.9; }
 .lock-dismiss { background: none; border: none; color: rgba(255,255,255,0.3); font-family: 'Josefin Sans', sans-serif; font-size: 13px; cursor: pointer; padding: 8px; }
-/* ══ TOOL MODALS ══ */
-.tool-modal-overlay { display: none; position: fixed; inset: 0; z-index: 9000; background: rgba(10,22,40,0.8); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 2rem; }
-.tool-modal-overlay.open { display: flex; }
-.tool-modal { background: var(--white); border-radius: 20px; max-width: 580px; width: 100%; max-height: 88vh; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 24px 60px rgba(0,0,0,0.4); animation: modalIn 0.3s ease; }
-.tool-modal-sm { max-width: 480px; }
-.tool-modal-header { padding: 2rem; flex-shrink: 0; position: relative; }
-.tool-modal-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 20px 20px 0 0; }
-.tool-modal-header.sky::before { background: var(--sky); }
-.tool-modal-header.yellow::before { background: var(--yellow); }
-.tool-modal-header.indigo::before { background: var(--indigo); }
-.tool-modal-header.carmine::before { background: var(--carmine); }
-.tool-modal-header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
-.tool-modal-eyebrow { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 4px; }
-.tool-modal-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--white); line-height: 1.2; }
-.tool-modal-sub { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; font-weight: 300; }
-.tool-modal-close { background: rgba(255,255,255,0.1); border: none; color: var(--white); width: 34px; height: 34px; border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s; }
-.tool-modal-close:hover { background: rgba(255,255,255,0.2); }
-.tool-modal-body { padding: 1.75rem; overflow-y: auto; flex: 1; }
-.tool-modal-body::-webkit-scrollbar { width: 4px; }
-.tool-modal-body::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 999px; }
-/* SALARY */
-.salary-inputs { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.25rem; }
-.salary-row { display: flex; align-items: center; gap: 10px; }
-.salary-label { font-size: 15px; color: var(--muted); font-weight: 600; flex: 1; }
-.salary-input { width: 130px; padding: 10px 12px; border: 1px solid var(--gray); border-radius: 6px; font-family: 'Josefin Sans', sans-serif; font-size: 15px; color: var(--text); outline: none; text-align: right; transition: border-color 0.2s; }
-.salary-input:focus { border-color: var(--sky); }
-.salary-result-card { background: var(--indigo); border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
-.salary-result-label { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 600; line-height: 1.4; }
-.salary-result-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; color: var(--yellow); }
-/* AI CHAT */
-.ai-chat { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1rem; max-height: 340px; overflow-y: auto; }
-.ai-chat::-webkit-scrollbar { width: 3px; }
-.ai-chat::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 999px; }
-.chat-bubble { padding: 12px 16px; border-radius: 14px; font-size: 15px; line-height: 1.6; max-width: 90%; font-weight: 400; white-space: pre-wrap; word-break: break-word; }
-.chat-bubble.ai { background: var(--indigo); color: var(--white) !important; border-bottom-left-radius: 4px; }
-.chat-bubble.user { background: var(--light); color: var(--text) !important; border-bottom-right-radius: 4px; align-self: flex-end; border: 1px solid var(--gray); }
-.chat-input-row { display: flex; gap: 8px; margin-top: 0.75rem; }
-.chat-input { flex: 1; padding: 12px 16px; border: 1px solid var(--gray); border-radius: 10px; font-family: 'Josefin Sans', sans-serif; font-size: 15px; color: var(--text); outline: none; transition: border-color 0.2s; }
-.chat-input:focus { border-color: var(--sky); }
-.chat-send { padding: 12px 20px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; transition: opacity 0.2s; white-space: nowrap; }
-.chat-send:hover { opacity: 0.88; }
-.chat-note { font-size: 12px; color: var(--muted); margin-top: 0.5rem; font-style: italic; text-align: center; }
-.chat-typing { display: flex; align-items: center; gap: 6px; padding: 8px 0; }
-.chat-typing span { width: 8px; height: 8px; border-radius: 50%; background: var(--sky); animation: dotPulse 1.2s ease-in-out infinite; }
-.chat-typing span:nth-child(2) { animation-delay: 0.2s; }
-.chat-typing span:nth-child(3) { animation-delay: 0.4s; }
-/* CV UPLOAD */
-.cv-upload-zone { border: 2px dashed var(--gray); border-radius: 10px; padding: 1.5rem; text-align: center; margin-bottom: 1rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
-.cv-upload-zone:hover, .cv-upload-zone.drag-over { border-color: var(--sky); background: rgba(0,161,222,0.04); }
-.cv-upload-zone input[type="file"] { display: none; }
-.cv-upload-icon { font-size: 32px; margin-bottom: 0.5rem; }
-.cv-upload-label { font-size: 14px; color: var(--muted); line-height: 1.6; }
-.cv-upload-label strong { color: var(--indigo); }
-.cv-upload-status { font-size: 13px; color: #16a34a; font-weight: 600; margin-top: 0.5rem; }
-/* DOWNLOAD BUTTON */
-.download-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px 20px; background: #16a34a; color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; border: none; border-radius: 10px; cursor: pointer; margin-top: 1rem; transition: opacity 0.2s; text-decoration: none; }
-.download-btn:hover { opacity: 0.88; }
-.download-btn svg { width: 16px; height: 16px; fill: var(--white); flex-shrink: 0; }
-/* MATCHER */
-.lang-select { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-.lang-btn { flex: 1; padding: 14px; border: 2px solid var(--gray); border-radius: 10px; font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; background: var(--white); color: var(--muted); transition: all 0.2s; text-align: center; }
-.lang-btn:hover { border-color: var(--sky); color: var(--sky); }
-.lang-btn.selected { border-color: var(--sky); background: rgba(0,161,222,0.08); color: var(--indigo); }
-.matcher-intro { text-align: center; padding: 1rem 0 1.5rem; }
-.matcher-intro-icon { font-size: 52px; margin-bottom: 1rem; display: block; }
-.matcher-intro-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--indigo); margin-bottom: 0.75rem; }
-.matcher-intro-desc { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 1.75rem; }
-.matcher-start-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; padding: 16px 36px; border-radius: 10px; border: none; cursor: pointer; transition: opacity 0.2s; }
-.matcher-start-btn:hover { opacity: 0.88; }
-.matcher-q-wrap { display: none; }
-.matcher-q-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 1.75rem; }
-.matcher-q-bar { flex: 1; height: 5px; background: var(--gray); border-radius: 999px; overflow: hidden; }
-.matcher-q-fill { height: 100%; border-radius: 999px; background: var(--sky); transition: width 0.4s ease; }
-.matcher-q-label { font-size: 12px; color: var(--muted); font-weight: 700; white-space: nowrap; }
-.matcher-q-text { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--indigo); line-height: 1.4; margin-bottom: 1.5rem; }
-.matcher-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
-.matcher-option { display: flex; align-items: flex-start; gap: 12px; padding: 16px; border: 2px solid var(--gray); border-radius: 10px; cursor: pointer; font-size: 16px; color: #374151; transition: all 0.15s; font-weight: 400; line-height: 1.5; }
-.matcher-option:hover { background: var(--light); border-color: #c0c4d8; }
-.matcher-option.selected { border-color: var(--sky); background: rgba(0,161,222,0.07); color: var(--indigo); font-weight: 600; }
-.matcher-opt-letter { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--gray); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; color: #aaa; transition: all 0.15s; }
-.matcher-option.selected .matcher-opt-letter { background: var(--sky); border-color: var(--sky); color: var(--white); }
-.matcher-next-btn { width: 100%; padding: 15px; background: var(--indigo); color: var(--white); font-family: 'Josefin Sans', sans-serif; font-size: 15px; font-weight: 700; border: none; border-radius: 10px; cursor: pointer; transition: opacity 0.2s; }
-.matcher-next-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-.matcher-next-btn:not(:disabled):hover { opacity: 0.88; }
-.matcher-thinking { display: none; text-align: center; padding: 2rem 0; }
-.matcher-thinking-dots { display: flex; gap: 8px; align-items: center; justify-content: center; margin-bottom: 1rem; }
-.matcher-thinking-dots span { width: 12px; height: 12px; border-radius: 50%; animation: dotPulse 1.2s ease-in-out infinite; }
-.matcher-thinking-dots span:nth-child(1) { background: var(--sky); }
-.matcher-thinking-dots span:nth-child(2) { background: var(--carmine); animation-delay: 0.2s; }
-.matcher-thinking-dots span:nth-child(3) { background: var(--yellow); animation-delay: 0.4s; }
-.matcher-thinking-label { font-size: 15px; color: var(--muted); font-weight: 600; }
-.matcher-result { display: none; }
-.matcher-result-fit { background: rgba(22,163,74,0.07); border: 1px solid rgba(22,163,74,0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
-.matcher-result-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; }
-.fit-label { color: #16a34a; }
-.avoid-label { color: var(--carmine); }
-.matcher-result-account { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--indigo); margin-bottom: 0.6rem; }
-.matcher-result-why { font-size: 15px; color: #374151; line-height: 1.75; font-weight: 400; }
-.matcher-result-avoid { background: rgba(205,23,26,0.06); border: 1px solid rgba(205,23,26,0.15); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem; }
-.matcher-reset-btn { width: 100%; padding: 13px; background: var(--light); color: var(--muted); font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 700; border: 1px solid var(--gray); border-radius: 8px; cursor: pointer; transition: background 0.2s; }
-.matcher-reset-btn:hover { background: var(--gray); }
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 1024px) {
+  .downloads-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 768px) {
-  .dashboard-grid { grid-template-columns: 1fr; }
-  .dash-card-training { flex-direction: column; }
-  .dash-card-training-visual { width: 100%; height: 100px; }
+  .downloads-grid { grid-template-columns: 1fr; }
   .level2-grid { grid-template-columns: 1fr; }
+  .res-hero-inner { flex-direction: column; align-items: flex-start; }
+  .campus-strip { flex-direction: column; align-items: flex-start; }
   .hamburger-btn { display: flex; }
-  .pnav-progress-wrap { display: none; }
   .campus-sidebar { position: absolute; height: calc(100vh - 64px); }
-  .tool-modal-overlay { padding: 1rem; align-items: flex-end; }
-  .tool-modal { border-radius: 20px 20px 12px 12px; max-height: 92vh; }
-  .dashboard-body { padding: 1.5rem; }
-  .level2-body { padding: 2rem 1.5rem; }
+  .res-body { padding: 1.5rem; }
+  .res-nav { padding: 0 1.5rem; }
+  .res-hero { padding: 2rem 1.5rem 1.5rem; }
 }
 </style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJXKFG2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- LOADING SCREEN -->
-<div id="loading-screen">
+<!-- CAMPUS LOADING SCREEN (shown when entering training) -->
+<div id="campus-loading">
   <div class="loader-logo">
     <div class="loader-ring loader-ring-1"></div>
     <div class="loader-ring loader-ring-2"></div>
@@ -428,7 +267,7 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
     <div style="position:relative;z-index:1;"><div class="loader-dots"><div class="loader-dot"></div><div class="loader-dot"></div><div class="loader-dot"></div></div></div>
   </div>
   <div><div class="loader-title">CCA Learning Campus</div><div class="loader-sub">Loading your training resources</div></div>
-  <div class="loader-bar-wrap"><div class="loader-bar-fill"></div></div>
+  <div class="loader-bar-wrap"><div class="loader-bar-fill" id="campusLoaderBar"></div></div>
 </div>
 
 <!-- AD BLOCKER WALL -->
@@ -436,7 +275,7 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
   <div class="ab-box">
     <span class="ab-icon">🚫</span>
     <h2 class="ab-title">Please disable your<br><em>ad blocker</em></h2>
-    <p class="ab-body">This platform is <strong>completely free</strong>. Ads are how we keep it that way. Disable your ad blocker for this site and you'll have full access to every tool and lesson.</p>
+    <p class="ab-body">This platform is <strong>completely free</strong>. Ads are how we keep it that way. Disable your ad blocker for this site and you'll have full access to every resource and lesson.</p>
     <div class="ab-steps">
       <div class="ab-step"><div class="ab-step-num">1</div><div class="ab-step-text">Click your ad blocker extension in your browser toolbar</div></div>
       <div class="ab-step"><div class="ab-step-num">2</div><div class="ab-step-text">Select "Disable for this site" or "Pause on this page"</div></div>
@@ -446,103 +285,142 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
   </div>
 </div>
 
-<!-- LEVEL 1 — LOBBY -->
-<div id="lobby">
-  <nav class="lobby-nav">
-    <a href="index.html" class="lobby-nav-logo"><img src="images/logo-cca.webp" alt="Call Centers Academy &amp; BPO"></a>
-    <div class="lobby-nav-divider"></div>
-    <span class="lobby-nav-label">Learning Campus</span>
-    <a href="index.html" class="lobby-nav-back">&larr; Back to site</a>
+<!-- RESOURCES LOBBY -->
+<div id="resources-lobby">
+  <nav class="res-nav">
+    <a href="index.html" class="res-nav-logo"><img src="images/logo-cca.webp" alt="Call Centers Academy &amp; BPO"></a>
+    <div class="res-nav-divider"></div>
+    <span class="res-nav-label">CCA Resources</span>
+    <a href="index.html" class="res-nav-back">&larr; Back to site</a>
   </nav>
-  <div class="dashboard-header">
-    <div class="dashboard-header-inner">
-      <h1 class="dashboard-title">CCA Learning Campus</h1>
-      <p class="dashboard-intro">Call Centers Academy has been training call center professionals in the Dominican Republic since 2018. This campus is the free version of everything we teach — the tools, the language, the real calls, and the knowledge the industry assumes you already have but never gives you. No signup. No paywall.</p>
+  <div class="res-hero">
+    <div class="res-hero-inner">
+      <div>
+        <h1 class="res-hero-title">CCA Resources</h1>
+        <p class="res-hero-intro">Call Centers Academy has been training call center professionals in the Dominican Republic since 2018. This is the free version of everything we teach — the tools, the language, the real calls, and the knowledge the industry assumes you already have but never gives you. No signup. No paywall.</p>
+      </div>
+      <div class="res-hero-cta">
+        <button class="res-cta-btn" onclick="startCampus()">Start free training</button>
+      </div>
     </div>
   </div>
-  <div class="dashboard-body">
-    <div class="dashboard-grid">
-      <!-- CALL CENTER MATCHER -->
-      <div class="dash-card">
-        <div class="dash-card-visual" style="background:linear-gradient(135deg,#253166 0%,#1a2452 100%)">
-          <div class="dash-card-glow" style="background:radial-gradient(circle at 30% 60%, rgba(0,161,222,0.35) 0%, transparent 65%)"></div>
-          <span class="dash-card-icon">🎯</span>
+  <div class="res-body">
+    <div class="res-inner">
+
+      <!-- DOWNLOADS SECTION -->
+      <div class="res-section-label">Free downloads — guides and templates to get you ready</div>
+      <div class="downloads-grid">
+
+        <div class="dl-card">
+          <div class="dl-card-icon" style="background:rgba(0,161,222,0.1);">📄</div>
+          <div class="dl-card-name">CV — with experience</div>
+          <div class="dl-card-intro">You have worked with customers before but never in a call center. Here is how to present what you already have so recruiters see it.</div>
+          <a href="downloads/CCA_CV_Erika_Experienced.docx" class="dl-btn dl-btn-sky" download>
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download
+          </a>
         </div>
-        <div class="dash-card-content">
-          <div class="dash-card-tool-name">Call Center Matcher</div>
-          <h2 class="dash-card-title">Find the account you belong in — and the one you should avoid</h2>
-          <p class="dash-card-body">Most candidates apply to whatever is open and end up in an account that is wrong for their personality. This tool presents real scenarios — two options each — and based on your honest answers, it tells you which account fits who you are and which one would hurt you. And it tells you exactly why.</p>
-          <button class="dash-btn dash-btn-sky" onclick="openModal('matcherModal')">Find my account</button>
+
+        <div class="dl-card">
+          <div class="dl-card-icon" style="background:rgba(37,49,102,0.08);">📄</div>
+          <div class="dl-card-name">CV — no call center experience</div>
+          <div class="dl-card-intro">You want to apply but you have never worked in a call center. That does not disqualify you. This is exactly how your resume should look.</div>
+          <a href="downloads/CCA_CV_Pablo_NoExperience.docx" class="dl-btn dl-btn-indigo" download>
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download
+          </a>
         </div>
+
+        <div class="dl-card">
+          <div class="dl-card-icon" style="background:rgba(205,23,26,0.08);">✉️</div>
+          <div class="dl-card-name">Cover letter template</div>
+          <div class="dl-card-intro">Most candidates skip the cover letter. The ones who send one stand out. Here is what it looks like when it is done right.</div>
+          <a href="downloads/CCA_Cover_Letter_Sample.docx" class="dl-btn dl-btn-carmine" download>
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download
+          </a>
+        </div>
+
+        <div class="dl-card">
+          <div class="dl-card-icon" style="background:rgba(255,204,0,0.15);">📋</div>
+          <div class="dl-card-name">Ultimate Interview Guide</div>
+          <div class="dl-card-intro">Before the interview, during the interview, after the interview. Everything you need to walk in ready and walk out with the job.</div>
+          <a href="downloads/CCA_Ultimate_Interview_Guide.docx" class="dl-btn dl-btn-yellow" download>
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download
+          </a>
+        </div>
+
+        <div class="dl-card">
+          <div class="dl-card-icon" style="background:rgba(0,161,222,0.1);">🗣️</div>
+          <div class="dl-card-name">Customer Service English Phrases</div>
+          <div class="dl-card-intro">The exact phrases to use on every type of call. Opening, empathy, hold, transfer, closing. Read them. Say them out loud. Use them.</div>
+          <a href="downloads/CCA_Customer_Service_English_Phrases.docx" class="dl-btn dl-btn-sky" download>
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download
+          </a>
+        </div>
+
+        <div class="dl-card">
+          <div class="dl-card-icon" style="background:rgba(37,49,102,0.08);">📊</div>
+          <div class="dl-card-name">Decoding Call Center KPIs</div>
+          <div class="dl-card-intro">KPIs are what your supervisor watches every day. Know what they mean before your first day so none of it catches you off guard.</div>
+          <a href="downloads/CCA_Decoding_Call_Center_KPIs.docx" class="dl-btn dl-btn-indigo" download>
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download
+          </a>
+        </div>
+
+        <div class="dl-card">
+          <div class="dl-card-icon" style="background:rgba(205,23,26,0.08);">🎯</div>
+          <div class="dl-card-name">Call Center Matcher Guide</div>
+          <div class="dl-card-intro">Stop asking which call center. Start asking which account fits your personality, your lifestyle, and your current situation. This guide shows you how.</div>
+          <a href="downloads/CCA_Call_Center_Matcher_Guide.docx" class="dl-btn dl-btn-carmine" download>
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download
+          </a>
+        </div>
+
+        <div class="dl-card">
+          <div class="dl-card-icon" style="background:rgba(255,204,0,0.15);">💰</div>
+          <div class="dl-card-name">Salary Calculator Guide</div>
+          <div class="dl-card-intro">Before anyone gives you a number, you need to know your number. This guide walks you through calculating the minimum hourly rate your life requires.</div>
+          <a href="downloads/CCA_Salary_Calculator_Guide.docx" class="dl-btn dl-btn-yellow" download>
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download
+          </a>
+        </div>
+
       </div>
-      <!-- SALARY CALCULATOR -->
-      <div class="dash-card">
-        <div class="dash-card-visual" style="background:linear-gradient(135deg,#1a3a1a 0%,#0f2a0f 100%)">
-          <div class="dash-card-glow" style="background:radial-gradient(circle at 70% 40%, rgba(255,204,0,0.25) 0%, transparent 65%)"></div>
-          <span class="dash-card-icon">💰</span>
-        </div>
-        <div class="dash-card-content">
-          <div class="dash-card-tool-name">Salary Calculator</div>
-          <h2 class="dash-card-title">Know the minimum you should accept before anyone gives you a number</h2>
-          <p class="dash-card-body">Enter your real monthly expenses — rent, food, transport, phone, everything — and this tool calculates the exact hourly rate you need to actually cover your life. Use it before any interview so you never accept less than what you need.</p>
-          <button class="dash-btn dash-btn-yellow" onclick="openModal('salaryModal')">Calculate my minimum</button>
-        </div>
-      </div>
-      <!-- CV BUILDER -->
-      <div class="dash-card">
-        <div class="dash-card-visual" style="background:linear-gradient(135deg,#1a1a3a 0%,#0f0f2a 100%)">
-          <div class="dash-card-glow" style="background:radial-gradient(circle at 50% 50%, rgba(168,85,247,0.25) 0%, transparent 65%)"></div>
-          <span class="dash-card-icon">🤖</span>
-        </div>
-        <div class="dash-card-content">
-          <div class="dash-card-tool-name">CV Builder &middot; AI-Powered</div>
-          <h2 class="dash-card-title">Turn your work history into a CV that gets you called back</h2>
-          <p class="dash-card-body">Upload your existing CV or start from scratch. The AI reads your background and builds a professional call center CV ready to download as a Word document. Works even if you have never worked in a call center before.</p>
-          <button class="dash-btn dash-btn-indigo" onclick="openModal('cvModal')">Build my CV</button>
-        </div>
-      </div>
-      <!-- LETTER WRITER -->
-      <div class="dash-card">
-        <div class="dash-card-visual" style="background:linear-gradient(135deg,#3a1a1a 0%,#2a0f0f 100%)">
-          <div class="dash-card-glow" style="background:radial-gradient(circle at 60% 40%, rgba(205,23,26,0.2) 0%, transparent 65%)"></div>
-          <span class="dash-card-icon">✉️</span>
-        </div>
-        <div class="dash-card-content">
-          <div class="dash-card-tool-name">Letter Writer &middot; AI-Powered</div>
-          <h2 class="dash-card-title">Write any professional letter related to your call center job</h2>
-          <p class="dash-card-body">Resignation letter, vacation request, cover letter, letter to reapply — whatever you need to write for your call center job, this AI-powered tool will ask you the right questions and give you a professional letter ready to download as a Word document. In English or Spanish.</p>
-          <button class="dash-btn dash-btn-carmine" onclick="openModal('letterModal')">Write my letter</button>
-        </div>
-      </div>
-      <!-- START TRAINING -->
-      <div class="dash-card dash-card-training">
-        <div class="dash-card-training-visual">
-          <div class="dash-training-glow-1"></div>
-          <div class="dash-training-glow-2"></div>
-          <div class="dash-training-dots">
-            <div class="dash-training-dot" style="background:var(--yellow)"></div>
-            <div class="dash-training-dot" style="background:var(--sky)"></div>
-            <div class="dash-training-dot" style="background:rgba(255,255,255,0.3)"></div>
-            <div class="dash-training-dot" style="background:#5dcaa5"></div>
-            <div class="dash-training-dot" style="background:#f0997b"></div>
+
+      <!-- CAMPUS STRIP -->
+      <div class="campus-strip">
+        <div class="campus-strip-glow"></div>
+        <div class="campus-strip-left">
+          <div class="campus-strip-eyebrow">CCA Learning Campus</div>
+          <div class="campus-strip-title">The full training is waiting for you.</div>
+          <div class="campus-strip-sub">Three complete courses. Everything the industry assumes you already know but never teaches you. At your own pace. Completely free.</div>
+          <div class="campus-strip-pills">
+            <span class="campus-pill">English Skills</span>
+            <span class="campus-pill">Computer Skills</span>
+            <span class="campus-pill">Call Center Skills</span>
           </div>
-          <div class="dash-training-stages">English Skills &middot; Computer Skills &middot; Call Center Skills</div>
         </div>
-        <div class="dash-card-training-content">
-          <div class="dash-card-tool-name" style="color:var(--muted)">CCA Training Platform</div>
-          <h2 class="dash-training-title">Start my free training</h2>
-          <p class="dash-training-body">Three complete courses built from 12 years of call center training experience. Everything the industry teaches in two rushed weeks — explained properly, at your own pace. English Skills. Computer Skills. Call Center Skills.</p>
-          <button class="dash-btn dash-btn-yellow" onclick="enterLevel2()">Enter the campus</button>
+        <div class="campus-strip-right">
+          <button class="res-cta-btn" onclick="startCampus()">Start free training</button>
         </div>
       </div>
-    </div>
-    <div class="lobby-footer">
-      <span class="lobby-footer-meta">Call Centers Academy &amp; BPO &middot; Est. 2018 &middot; Santo Domingo, DR</span>
-      <div class="lobby-footer-links">
-        <a href="index.html" class="lobby-footer-link">Main site</a>
-        <a href="blog/" class="lobby-footer-link">Blog</a>
-        <a href="privacy.html" class="lobby-footer-link">Privacy</a>
+
+      <!-- FOOTER -->
+      <div class="res-footer">
+        <span class="res-footer-meta">Call Centers Academy &amp; BPO &middot; Est. 2018 &middot; Santo Domingo, DR</span>
+        <div class="res-footer-links">
+          <a href="index.html" class="res-footer-link">Main site</a>
+          <a href="blog/" class="res-footer-link">Blog</a>
+          <a href="privacy.html" class="res-footer-link">Privacy</a>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -551,9 +429,9 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 <div id="level2">
   <nav class="level2-nav">
     <a href="#" class="level2-nav-logo" onclick="exitLevel2(); return false;"><img src="images/logo-cca.webp" alt="Call Centers Academy &amp; BPO"></a>
-    <div class="lobby-nav-divider"></div>
+    <div class="level2-nav-divider" style="width:1px;height:24px;background:rgba(255,255,255,0.15);flex-shrink:0;"></div>
     <span class="level2-nav-label">Learning Campus</span>
-    <button class="level2-nav-back" onclick="exitLevel2()">&larr; Back to tools</button>
+    <button class="level2-nav-back" onclick="exitLevel2()">&larr; Back to resources</button>
   </nav>
   <div class="level2-header">
     <div class="level2-header-inner">
@@ -565,7 +443,7 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
     <div class="level2-grid">
       <div class="course-card" onclick="enterClassroom('english')">
         <div class="course-card-visual" style="background:linear-gradient(135deg,#253166 0%,#1a2452 100%)">
-          <div class="dash-card-glow" style="position:absolute;inset:0;background:radial-gradient(circle at 40% 60%, rgba(0,161,222,0.3) 0%, transparent 65%)"></div>
+          <div class="course-card-glow" style="background:radial-gradient(circle at 40% 60%,rgba(0,161,222,0.3) 0%,transparent 65%)"></div>
           <span class="course-card-icon">🎧</span>
         </div>
         <div class="course-card-content">
@@ -577,7 +455,7 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
       </div>
       <div class="course-card" onclick="enterClassroom('computer')">
         <div class="course-card-visual" style="background:linear-gradient(135deg,#1a3a1a 0%,#0f2a0f 100%)">
-          <div class="dash-card-glow" style="position:absolute;inset:0;background:radial-gradient(circle at 60% 40%, rgba(255,204,0,0.2) 0%, transparent 65%)"></div>
+          <div class="course-card-glow" style="background:radial-gradient(circle at 60% 40%,rgba(255,204,0,0.2) 0%,transparent 65%)"></div>
           <span class="course-card-icon">💻</span>
         </div>
         <div class="course-card-content">
@@ -589,7 +467,7 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
       </div>
       <div class="course-card" onclick="enterClassroom('callcenter')">
         <div class="course-card-visual" style="background:linear-gradient(135deg,#3a1a0a 0%,#2a0f05 100%)">
-          <div class="dash-card-glow" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(205,23,26,0.2) 0%, transparent 65%)"></div>
+          <div class="course-card-glow" style="background:radial-gradient(circle at 50% 50%,rgba(205,23,26,0.2) 0%,transparent 65%)"></div>
           <span class="course-card-icon">📞</span>
         </div>
         <div class="course-card-content">
@@ -611,10 +489,6 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
     <div class="pnav-divider"></div>
     <span class="pnav-course-name" id="pnavCourseName">English Skills</span>
     <div class="pnav-right">
-      <div class="pnav-progress-wrap">
-        <span class="pnav-progress-label" id="navProgressLabel">0 lessons completed</span>
-        <div class="pnav-progress-bar"><div class="pnav-progress-fill" id="navProgressFill" style="width:0%"></div></div>
-      </div>
       <button class="pnav-back-btn" onclick="exitClassroom()">&larr; Courses</button>
     </div>
   </nav>
@@ -628,38 +502,21 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
       <div class="sb-search"><input type="text" placeholder="Search lessons..." oninput="searchLessons(this.value)"></div>
       <nav class="sb-nav" id="sbNav"></nav>
       <div class="sb-foot">
-        <div class="sb-foot-label" id="sbFootLabel">Select a lesson to begin</div>
-        <div class="sb-progress-bar"><div class="sb-progress-fill" id="sbProgressFill" style="width:0%"></div></div>
+        <div class="sb-foot-label">Join the waitlist to access all lessons</div>
       </div>
     </aside>
     <main class="campus-main">
       <div class="main-topbar">
         <div class="breadcrumb"><span id="bcStage">English Skills</span><span class="bc-sep">›</span><span class="bc-cur" id="bcLesson">Select a lesson</span></div>
-        <span class="bc-tag-free" id="bcTag">Free</span>
       </div>
       <div class="lesson-body" id="lessonBody">
         <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:3rem;">
           <div style="font-size:64px;margin-bottom:1.5rem;">📚</div>
           <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:var(--indigo);margin-bottom:1rem;">Choose a lesson from the sidebar</h2>
-          <p style="font-size:17px;color:var(--muted);line-height:1.8;max-width:420px;">Select any lesson on the left to begin. Open lessons load immediately. Active students have access to everything.</p>
+          <p style="font-size:17px;color:var(--muted);line-height:1.8;max-width:420px;">Select any lesson on the left to see what the full training covers. All content is available for active CCA students.</p>
         </div>
       </div>
-      <div class="lesson-footer" id="lessonFooter" style="display:none">
-        <button class="lesson-nav-btn" id="prevBtn" onclick="navLesson('prev')">&larr; Previous</button>
-        <button class="lesson-nav-btn primary" id="nextBtn" onclick="navLesson('next')">Next &rarr;</button>
-      </div>
     </main>
-  </div>
-</div>
-
-<!-- MODULE COMPLETION POPUP -->
-<div id="completion-popup">
-  <div class="completion-box">
-    <span class="completion-cap">🎓</span>
-    <h2 class="completion-title" id="completionTitle">Module Complete!</h2>
-    <p class="completion-sub" id="completionSub">You've completed this module. Ready for the next one?</p>
-    <button class="completion-next" id="completionNextBtn" onclick="goToNextCourse()">Continue to next course</button>
-    <button class="completion-dismiss" onclick="closeCompletion()">I'll continue later</button>
   </div>
 </div>
 
@@ -674,150 +531,6 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
   </div>
 </div>
 
-<!-- MATCHER MODAL -->
-<div class="tool-modal-overlay" id="matcherModal" onclick="closeModalOutside(event,'matcherModal')">
-  <div class="tool-modal">
-    <div class="tool-modal-header sky" style="background:var(--indigo)">
-      <div class="tool-modal-header-top">
-        <div><div class="tool-modal-eyebrow">Call Center Matcher</div><div class="tool-modal-title">Find your ideal account</div></div>
-        <button class="tool-modal-close" onclick="closeModal('matcherModal')">&times;</button>
-      </div>
-      <p class="tool-modal-sub">Real scenarios. Honest answers. Two results: the account that fits you and the one you should avoid.</p>
-    </div>
-    <div class="tool-modal-body">
-      <div id="matcherLangSelect">
-        <p style="font-size:16px;color:var(--muted);margin-bottom:1rem;font-weight:600;">Select your language / Selecciona tu idioma</p>
-        <div class="lang-select">
-          <button class="lang-btn" onclick="selectLang('en', this)">&#127482;&#127480; English</button>
-          <button class="lang-btn" onclick="selectLang('es', this)">&#127465;&#127476; Espa&ntilde;ol</button>
-        </div>
-      </div>
-      <div class="matcher-intro" id="matcherIntro" style="display:none">
-        <span class="matcher-intro-icon">🎯</span>
-        <h3 class="matcher-intro-title" id="matcherIntroTitle">Before your next interview.</h3>
-        <p class="matcher-intro-desc" id="matcherIntroDesc">We will present some scenarios. For each one, choose the option that is closest to who you are. Be honest — there are no wrong answers, only the truth about your personality.</p>
-        <button class="matcher-start-btn" id="matcherStartBtn" onclick="startMatcher()">Start the test &rarr;</button>
-      </div>
-      <div class="matcher-q-wrap" id="matcherQWrap">
-        <div class="matcher-q-progress">
-          <div class="matcher-q-bar"><div class="matcher-q-fill" id="matcherQFill" style="width:0%"></div></div>
-          <span class="matcher-q-label" id="matcherQLabel">Question 1 of 15</span>
-        </div>
-        <div class="matcher-q-text" id="matcherQText"></div>
-        <div class="matcher-options" id="matcherOptions"></div>
-        <button class="matcher-next-btn" id="matcherNextBtn" onclick="nextMatcherQ()" disabled>Next &rarr;</button>
-      </div>
-      <div class="matcher-thinking" id="matcherThinking">
-        <div class="matcher-thinking-dots"><span></span><span></span><span></span></div>
-        <div class="matcher-thinking-label" id="matcherThinkingLabel">Analyzing your answers...</div>
-      </div>
-      <div class="matcher-result" id="matcherResult">
-        <div class="matcher-result-fit">
-          <div class="matcher-result-label fit-label" id="matcherFitLabel">Your best fit</div>
-          <div class="matcher-result-account" id="matcherFitAccount"></div>
-          <div class="matcher-result-why" id="matcherFitWhy"></div>
-        </div>
-        <div class="matcher-result-avoid">
-          <div class="matcher-result-label avoid-label" id="matcherAvoidLabel">Approach with caution</div>
-          <div class="matcher-result-account" id="matcherAvoidAccount"></div>
-          <div class="matcher-result-why" id="matcherAvoidWhy"></div>
-        </div>
-        <button class="matcher-reset-btn" onclick="resetMatcher()" id="matcherResetBtn">Take it again</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SALARY MODAL -->
-<div class="tool-modal-overlay" id="salaryModal" onclick="closeModalOutside(event,'salaryModal')">
-  <div class="tool-modal tool-modal-sm">
-    <div class="tool-modal-header yellow" style="background:#1a3a1a">
-      <div class="tool-modal-header-top">
-        <div><div class="tool-modal-eyebrow">Salary Calculator</div><div class="tool-modal-title">What do you actually need?</div></div>
-        <button class="tool-modal-close" onclick="closeModal('salaryModal')">&times;</button>
-      </div>
-      <p class="tool-modal-sub">Enter your real monthly expenses. Get the minimum hourly rate you must earn before you say yes to any offer.</p>
-    </div>
-    <div class="tool-modal-body">
-      <div class="salary-inputs">
-        <div class="salary-row"><span class="salary-label">Rent / Housing</span><input class="salary-input" type="number" id="sal-rent" value="12000" oninput="calcSalary()"></div>
-        <div class="salary-row"><span class="salary-label">Transportation</span><input class="salary-input" type="number" id="sal-transport" value="4500" oninput="calcSalary()"></div>
-        <div class="salary-row"><span class="salary-label">Food</span><input class="salary-input" type="number" id="sal-food" value="8000" oninput="calcSalary()"></div>
-        <div class="salary-row"><span class="salary-label">Phone / Internet</span><input class="salary-input" type="number" id="sal-phone" value="1200" oninput="calcSalary()"></div>
-        <div class="salary-row"><span class="salary-label">Other expenses</span><input class="salary-input" type="number" id="sal-other" value="3000" oninput="calcSalary()"></div>
-      </div>
-      <div class="salary-result-card">
-        <div><div class="salary-result-label">Minimum you must earn</div><div style="color:rgba(255,255,255,0.35);font-size:12px;margin-top:3px;">Before you say yes to anything</div></div>
-        <div><div class="salary-result-num" id="salaryResult">RD$ 233/hr</div></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CV MODAL -->
-<div class="tool-modal-overlay" id="cvModal" onclick="closeModalOutside(event,'cvModal')">
-  <div class="tool-modal tool-modal-sm">
-    <div class="tool-modal-header indigo" style="background:#1a1a3a">
-      <div class="tool-modal-header-top">
-        <div><div class="tool-modal-eyebrow">CV Builder &middot; AI-Powered</div><div class="tool-modal-title">Build your call center CV</div></div>
-        <button class="tool-modal-close" onclick="closeModal('cvModal')">&times;</button>
-      </div>
-      <p class="tool-modal-sub">Upload your existing CV or start from scratch. The AI builds your professional call center CV and you download it as a Word document.</p>
-    </div>
-    <div class="tool-modal-body">
-      <!-- Upload zone -->
-      <div class="cv-upload-zone" id="cvUploadZone" onclick="document.getElementById('cvFileInput').click()" ondragover="cvDragOver(event)" ondragleave="cvDragLeave(event)" ondrop="cvDrop(event)">
-        <input type="file" id="cvFileInput" accept=".pdf,.doc,.docx,.txt" onchange="handleCvFile(this.files[0])">
-        <div class="cv-upload-icon">📄</div>
-        <div class="cv-upload-label"><strong>Upload your existing CV</strong> (optional)<br>PDF, Word, or text file — or just start chatting below</div>
-        <div class="cv-upload-status" id="cvUploadStatus"></div>
-      </div>
-      <!-- Chat -->
-      <div class="ai-chat" id="cvChat">
-        <div class="chat-bubble ai">Are you uploading an existing CV for me to improve, or would you like to build one from scratch? Either way, I'll ask you a few questions and then produce your call center CV.</div>
-      </div>
-      <div class="chat-input-row">
-        <input class="chat-input" type="text" id="cvInput" placeholder="Type your answer..." onkeydown="if(event.key==='Enter')sendCvMessage()">
-        <button class="chat-send" id="cvSendBtn" onclick="sendCvMessage()">Send</button>
-      </div>
-      <p class="chat-note">AI-powered &middot; Your data is not stored &middot; Free</p>
-      <!-- Download button (hidden until CV is ready) -->
-      <button class="download-btn" id="cvDownloadBtn" style="display:none" onclick="downloadCvDocx()">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        Download CV as Word document
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- LETTER MODAL -->
-<div class="tool-modal-overlay" id="letterModal" onclick="closeModalOutside(event,'letterModal')">
-  <div class="tool-modal tool-modal-sm">
-    <div class="tool-modal-header carmine" style="background:#3a1a1a">
-      <div class="tool-modal-header-top">
-        <div><div class="tool-modal-eyebrow">Letter Writer &middot; AI-Powered</div><div class="tool-modal-title">Write your professional letter</div></div>
-        <button class="tool-modal-close" onclick="closeModal('letterModal')">&times;</button>
-      </div>
-      <p class="tool-modal-sub">Tell me what you need. I'll ask the right questions and give you a professional letter ready to download as a Word document.</p>
-    </div>
-    <div class="tool-modal-body">
-      <div class="ai-chat" id="letterChat">
-        <div class="chat-bubble ai">I'm here to help you write letters related to your call center job. I can help you with a cover letter, a vacation request letter, a resignation letter, or a letter to reapply to a call center you used to work at. I will ask you some questions to gather context and then give you the letter ready to download. What document do you want help writing today?</div>
-      </div>
-      <div class="chat-input-row">
-        <input class="chat-input" type="text" id="letterInput" placeholder="Type your answer..." onkeydown="if(event.key==='Enter')sendLetterMessage()">
-        <button class="chat-send" id="letterSendBtn" onclick="sendLetterMessage()">Send</button>
-      </div>
-      <p class="chat-note">AI-powered &middot; Your data is not stored &middot; Free</p>
-      <!-- Download button (hidden until letter is ready) -->
-      <button class="download-btn" id="letterDownloadBtn" style="display:none" onclick="downloadLetterDocx()">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        Download letter as Word document
-      </button>
-    </div>
-  </div>
-</div>
-
 <!-- COOKIE BANNER -->
 <div id="cca-cookie-banner" role="dialog" aria-label="Cookie consent" style="position:fixed;bottom:24px;left:24px;z-index:99999;max-width:320px;background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 8px 32px rgba(0,0,0,0.15);font-size:13px;line-height:1.55;display:flex;flex-direction:column;gap:14px;border:1px solid #e8e8e8;font-family:'Josefin Sans',sans-serif;">
   <p style="margin:0;color:#333;">We use cookies to understand how visitors use our site. See our <a href="privacy.html" style="color:#00A1DE;text-decoration:underline;">Privacy Policy</a>.</p>
@@ -829,127 +542,14 @@ body { font-family: 'Josefin Sans', sans-serif; background: var(--light); color:
 
 <!-- CHATBOT -->
 <script src="cca-chatbot-widget.js"></script>
-
 <script>
 /* ══ COOKIE BANNER ══ */
 (function(){
   var c = localStorage.getItem('cca_cookie_consent');
-  if (c) { var b = document.getElementById('cca-cookie-banner'); if (b) { b.style.opacity = '0'; b.style.pointerEvents = 'none'; } }
+  if (c) { var b = document.getElementById('cca-cookie-banner'); if (b) { b.style.opacity='0'; b.style.pointerEvents='none'; } }
 })();
-function ccaAccept() { localStorage.setItem('cca_cookie_consent','accepted'); var b = document.getElementById('cca-cookie-banner'); b.style.opacity='0'; b.style.pointerEvents='none'; if(window.dataLayer) dataLayer.push({event:'cookie_consent_accepted'}); }
-function ccaDecline() { localStorage.setItem('cca_cookie_consent','declined'); var b = document.getElementById('cca-cookie-banner'); b.style.opacity='0'; b.style.pointerEvents='none'; }
-
-/* ══ API ══ */
-var API_URL = 'https://cca-claude-proxy.callcentersacademy.workers.dev';
-var MODEL   = 'claude-sonnet-4-5';
-
-/* ══ SYSTEM PROMPTS ══ */
-var CV_SYSTEM = 'You are CCA\'s Call Center Resume Builder, created by Call Centers Academy & BPO in the Dominican Republic. You ONLY help users build or improve call center resumes.\n\nRULES:\n- If the user says they do NOT want a call center resume, respond ONLY with: "SESSION_END" — nothing else.\n- Never include photos, cedula numbers, full addresses, or national ID in any resume.\n- Always confirm the language they want the resume in (English or Spanish).\n- Ask questions one at a time — never overwhelm.\n- Never assume work history — always ask.\n- If asked about anything unrelated to call center resumes, say: "I am only here to help with call center resumes. For anything else, continue the conversation here: https://claude.ai/new"\n- Keep responses concise and professional.\n- When the CV is fully built, output the complete CV text clearly formatted, then on a new line write exactly: [CV_READY]';
-
-var LETTER_SYSTEM = 'You are CCA\'s Professional Letter Writer, created by Call Centers Academy & BPO in the Dominican Republic. You ONLY write professional letters related to call center employment.\n\nLetters you can write:\n1. Cover letter (for applying to a call center)\n2. Vacation request letter\n3. Resignation letter\n4. Letter to reapply to a call center you previously worked at\n\nRULES:\n- Ask what document they need first.\n- If they ask for something you cannot write (like a work letter or employment verification), explain: "Only your call center can provide that document." Then offer your four options.\n- Always ask: "What language do you want this letter in — English or Spanish?"\n- Always gather full context before writing — never assume.\n- If someone asks for something completely unrelated, say: "This is outside what I can help with. For anything else: https://claude.ai/new"\n- If user is disrespectful or off-topic after one redirect, respond ONLY with: "SESSION_END"\n- Keep responses professional and warm.\n- When the letter is fully written, output the complete letter text clearly formatted, then on a new line write exactly: [LETTER_READY]';
-
-/* ══ PROGRESS ══ */
-var LS_PROGRESS = 'cca_campus_progress';
-var LS_VISITED  = 'cca_campus_visited';
-function getProgress() { try { return JSON.parse(localStorage.getItem(LS_PROGRESS)) || { completed: {}, currentCourse: null }; } catch(e) { return { completed: {}, currentCourse: null }; } }
-function saveProgress(p) { try { localStorage.setItem(LS_PROGRESS, JSON.stringify(p)); } catch(e) {} }
-function markCompleted(courseId, lessonId) {
-  var p = getProgress();
-  if (!p.completed[courseId]) p.completed[courseId] = [];
-  if (!p.completed[courseId].includes(lessonId)) p.completed[courseId].push(lessonId);
-  saveProgress(p); updateProgressUI(courseId);
-  var item = document.querySelector('[data-lesson="' + lessonId + '"]');
-  if (item) item.classList.add('completed');
-}
-function updateProgressUI(courseId) {
-  var p = getProgress(); var course = COURSES[courseId]; if (!course) return;
-  var total = course.lessons.reduce(function(a,s){ return a + s.items.length; }, 0);
-  var done = (p.completed[courseId] || []).length;
-  var pct = total > 0 ? Math.round((done / total) * 100) : 0;
-  var navFill = document.getElementById('navProgressFill'); var navLabel = document.getElementById('navProgressLabel'); var sbFill = document.getElementById('sbProgressFill');
-  if (navFill) navFill.style.width = pct + '%';
-  if (navLabel) navLabel.textContent = done + ' lesson' + (done !== 1 ? 's' : '') + ' completed';
-  if (sbFill) sbFill.style.width = pct + '%';
-}
-
-/* ══ COURSE DATA ══ */
-var COURSES = {
-  english: { name: 'English Skills', color: 'var(--sky)', lessons: [
-    { name: 'English Levels', dot: 'var(--yellow)', items: [
-      { id: 'en-01', title: 'Basic, Intermediate and Advanced — what is the difference?', open: true },
-      { id: 'en-02', title: 'Listen: the same introduction at three levels', open: true },
-      { id: 'en-03', title: 'Why Basic English is the only level you need right now', open: true }
-    ]},
-    { name: 'Reading', dot: 'var(--sky)', items: [
-      { id: 'en-04', title: 'Reading for the floor — how to read a script without sounding like you are reading', open: true },
-      { id: 'en-05', title: 'Practice: read this out loud', open: false }
-    ]},
-    { name: 'Writing', dot: 'rgba(255,255,255,0.3)', items: [
-      { id: 'en-06', title: 'Writing basics for call center documentation', open: false },
-      { id: 'en-07', title: 'Common phrases you will need to write every day', open: false }
-    ]},
-    { name: 'Speaking', dot: '#5dcaa5', items: [
-      { id: 'en-08', title: 'Pronunciation tips for the interview', open: false },
-      { id: 'en-09', title: "Phrases to use when you don't understand the customer", open: false },
-      { id: 'en-10', title: 'Listen: a Basic speaker doing the interview confidently', open: false }
-    ]}
-  ]},
-  computer: { name: 'Computer Skills', color: 'var(--indigo)', lessons: [
-    { name: 'The Hardware', dot: 'var(--yellow)', items: [
-      { id: 'co-01', title: 'Laptop vs Desktop — what is the difference and which one do you need?', open: false },
-      { id: 'co-02', title: 'Headset, power backup, powerbank — the equipment the job requires', open: false },
-      { id: 'co-03', title: 'Mac vs PC — what call centers use and why it matters', open: false }
-    ]},
-    { name: 'The Software', dot: 'var(--sky)', items: [
-      { id: 'co-04', title: 'Email — how to use it professionally', open: false },
-      { id: 'co-05', title: 'Calendar — scheduling, meetings, and managing your time', open: false },
-      { id: 'co-06', title: 'System updates — how to know when your computer needs one', open: false },
-      { id: 'co-07', title: 'Passwords — how to manage them without losing your job', open: false }
-    ]},
-    { name: 'The Floor Reality', dot: '#5dcaa5', items: [
-      { id: 'co-08', title: 'Multiple screens and multiple windows — how to manage them', open: false },
-      { id: 'co-09', title: 'What is a virtual computer and how to use it', open: false },
-      { id: 'co-10', title: 'Basic IT troubleshooting — what to do when nothing works', open: false }
-    ]}
-  ]},
-  callcenter: { name: 'Call Center Skills', color: 'var(--carmine)', lessons: [
-    { name: 'The CV', dot: 'var(--yellow)', items: [
-      { id: 'cc-01', title: 'Why you need an English CV', open: false },
-      { id: 'cc-02', title: 'What a call center CV should and should not include', open: false },
-      { id: 'cc-03', title: 'Video resume, audio resume, and LinkedIn', open: false }
-    ]},
-    { name: 'The Application', dot: 'var(--sky)', items: [
-      { id: 'cc-04', title: 'Every way to apply — website, Instagram, walk-in, referral', open: false },
-      { id: 'cc-05', title: 'The process has changed — what to expect now', open: false }
-    ]},
-    { name: 'The Interview', dot: 'rgba(255,255,255,0.3)', items: [
-      { id: 'cc-06', title: 'The questions they always ask', open: false },
-      { id: 'cc-07', title: 'Listen: a Basic speaker doing it confidently', open: false },
-      { id: 'cc-08', title: 'Listen: a Basic speaker doing it poorly', open: false }
-    ]},
-    { name: 'You Got Hired', dot: '#5dcaa5', items: [
-      { id: 'cc-09', title: 'What comes next: Induction, Training, Nesting, Production', open: false },
-      { id: 'cc-10', title: 'What supervisors watch for in your first week', open: false }
-    ]},
-    { name: 'The Accounts', dot: '#f0997b', items: [
-      { id: 'cc-11', title: 'Customer Service — what it really is', open: false },
-      { id: 'cc-12', title: 'Collections — inbound, outbound, soft, hard, write-off', open: false },
-      { id: 'cc-13', title: 'Sales — inbound, outbound, telemarketing, and why the label matters', open: false },
-      { id: 'cc-14', title: 'Retention — saving the relationship before it walks out', open: false },
-      { id: 'cc-15', title: 'Tech Support — structured troubleshooting', open: false },
-      { id: 'cc-16', title: 'Back Office — non-voice and why it requires different skills', open: false }
-    ]}
-  ]}
-};
-
-/* ══ LESSON CONTENT ══ */
-function getLessonContent(lessonId) {
-  if (lessonId === 'en-01') return '<div class="l-thumb"><div class="l-thumb-gradient"></div><div class="l-thumb-inner"><span class="l-thumb-icon">🎧</span><div class="l-thumb-title">English Levels — What Is the Difference?</div><div class="l-thumb-sub">CCA English Skills · Module 01</div></div></div><div class="tags-row"><span class="tag tag-sky">English</span><span class="tag tag-green">Open Lesson</span></div><h2 class="l-title">Basic, Intermediate and Advanced — what is the difference?</h2><p class="l-desc">The call center industry talks about English levels like they are a wall. Either you have enough English or you don\'t. That is not true. The truth is simpler — and more useful.</p><p class="l-desc">According to the CEFR — the international standard for measuring English — a Basic speaker can handle every day tasks including work. That includes your job at a call center. What separates Basic from Intermediate from Advanced is not quality. It is not perfection. It is one thing only: the amount of words and vocabulary you know.</p><p class="l-desc">A Basic speaker introducing themselves uses fewer words. An Intermediate speaker uses more. An Advanced speaker uses even more. But all three use the same verb to be, the same pronouns, the same numbers, the same foundation. The difference is vocabulary — nothing else.</p><p class="l-desc" style="background:rgba(0,161,222,0.07);border-left:3px solid var(--sky);padding:1.25rem;border-radius:0 8px 8px 0;"><strong style="color:var(--indigo)">The bottom line:</strong> Your "two pesos of English" is enough. The next lesson will let you hear exactly what that sounds like — the same introduction delivered by three different speakers at three different levels. Listen and feel it yourself.</p>';
-  if (lessonId === 'en-02') return '<div class="l-thumb"><div class="l-thumb-gradient"></div><div class="l-thumb-inner"><span class="l-thumb-icon">🎧</span><div class="l-thumb-title">Listen: Three Levels, Same Introduction</div><div class="l-thumb-sub">CCA English Skills · Module 01</div></div><button class="l-thumb-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button></div><div class="tags-row"><span class="tag tag-sky">Listening</span><span class="tag tag-gray">3 audio clips</span><span class="tag tag-green">Open Lesson</span></div><h2 class="l-title">Listen: the same introduction at three levels</h2><p class="l-desc">Three speakers. Same introduction. Three different vocabulary levels. Listen to each one carefully — not to judge, but to recognize where you are and feel confident about it.</p><div class="audio-section-title">Three speakers — one introduction</div><div class="audio-card"><button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button><div class="a-info"><div class="a-name">Speaker 1 — Basic English level</div><div class="a-meta">CCA English Skills · 0:32 · English</div><div class="a-bar"><div class="a-progress" style="width:0%"></div></div></div><div class="a-time">0:32</div></div><div class="audio-card"><button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button><div class="a-info"><div class="a-name">Speaker 2 — Intermediate English level</div><div class="a-meta">CCA English Skills · 0:48 · English</div><div class="a-bar"><div class="a-progress" style="width:0%"></div></div></div><div class="a-time">0:48</div></div><div class="audio-card"><button class="play-btn" onclick="togglePlay(this)"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button><div class="a-info"><div class="a-name">Speaker 3 — Advanced English level</div><div class="a-meta">CCA English Skills · 1:04 · English</div><div class="a-bar"><div class="a-progress" style="width:0%"></div></div></div><div class="a-time">1:04</div></div><p class="l-desc" style="margin-top:1.5rem;">Notice: all three speakers communicate clearly. All three would pass a call center interview. The difference is not confidence — it is vocabulary. And vocabulary grows with practice, not with fear.</p>';
-  if (lessonId === 'en-03') return '<div class="l-thumb"><div class="l-thumb-gradient"></div><div class="l-thumb-inner"><span class="l-thumb-icon">✅</span><div class="l-thumb-title">Why Basic English Is Enough</div><div class="l-thumb-sub">CCA English Skills · Module 01</div></div></div><div class="tags-row"><span class="tag tag-sky">English</span><span class="tag tag-green">Open Lesson</span></div><h2 class="l-title">Why Basic English is the only level you need right now</h2><p class="l-desc">Stop waiting until your English is "better." Better than what? Better according to whom? The call center industry hires Basic English speakers every single day. What they need from you is clarity, not perfection.</p><p class="l-desc">Here is what Basic English gives you: the ability to greet a customer, follow a script, ask clarifying questions, document what happened, and close the interaction professionally. That is the job. Basic English covers all of it.</p><p class="l-desc">Words you will use at work every single day — KPI, nesting, adherence, CSAT — are not English words you learn in school. They are industry vocabulary. A native English speaker walking into a call center for the first time does not know them either. You learn them on the job, in any language.</p><div class="quiz-wrap"><div class="quiz-head"><div class="quiz-head-title">Quick check</div><div class="quiz-head-count">1 question</div></div><div class="quiz-body"><div class="quiz-q">According to the CEFR, what is the main difference between English levels?</div><div class="option" onclick="selectOption(this)"><div class="opt-letter">A</div>Grammar rules and sentence structure</div><div class="option" onclick="selectOption(this)"><div class="opt-letter">B</div>Vocabulary — the amount of words you know</div><div class="option" onclick="selectOption(this)"><div class="opt-letter">C</div>Pronunciation and accent</div><div class="option" onclick="selectOption(this)"><div class="opt-letter">D</div>Speed of speaking</div><button class="quiz-submit" onclick="submitQuiz(\'en-03\', 1)">Check answer</button></div></div>';
-  if (lessonId === 'en-04') return '<div class="l-thumb"><div class="l-thumb-gradient"></div><div class="l-thumb-inner"><span class="l-thumb-icon">📖</span><div class="l-thumb-title">Reading for the Floor</div><div class="l-thumb-sub">CCA English Skills · Reading</div></div></div><div class="tags-row"><span class="tag tag-sky">Reading</span><span class="tag tag-green">Open Lesson</span></div><h2 class="l-title">Reading for the floor — how to read a script without sounding like you are reading</h2><p class="l-desc">In a call center you will spend most of your time reading. Reading a script, reading a customer\'s account, reading instructions on your screen. The skill is not just reading — it is reading while sounding natural.</p><p class="l-desc">A customer should never know you are reading. The moment they feel like they are talking to someone reading from a page, the connection is gone. This lesson teaches you how to practice reading out loud so it sounds like conversation.</p><p class="l-desc" style="background:rgba(0,161,222,0.07);border-left:3px solid var(--sky);padding:1.25rem;border-radius:0 8px 8px 0;"><strong style="color:var(--indigo)">Practice tip:</strong> Read the sentence. Look away from the page. Say it. Look back. Check. Repeat until you can say it without looking. That is how you read without sounding like you are reading.</p>';
-  return null;
-}
+function ccaAccept() { localStorage.setItem('cca_cookie_consent','accepted'); var b=document.getElementById('cca-cookie-banner'); b.style.opacity='0'; b.style.pointerEvents='none'; if(window.dataLayer) dataLayer.push({event:'cookie_consent_accepted'}); }
+function ccaDecline() { localStorage.setItem('cca_cookie_consent','declined'); var b=document.getElementById('cca-cookie-banner'); b.style.opacity='0'; b.style.pointerEvents='none'; }
 
 /* ══ AD BLOCKER ══ */
 function detectAdBlocker(cb) {
@@ -958,81 +558,191 @@ function detectAdBlocker(cb) {
   bait.style.cssText = 'width:1px;height:1px;position:absolute;left:-9999px;top:-9999px;';
   document.body.appendChild(bait);
   setTimeout(function() {
-    var blocked = !bait.offsetParent || bait.offsetHeight === 0 || bait.offsetWidth === 0;
+    var blocked = !bait.offsetParent || bait.offsetHeight===0 || bait.offsetWidth===0;
     document.body.removeChild(bait); cb(blocked);
   }, 150);
 }
 function checkAdBlocker() {
   detectAdBlocker(function(blocked) {
-    if (!blocked) { document.getElementById('adblocker-wall').classList.remove('show'); showLobby(); }
-    else { var btn = document.querySelector('.ab-btn'); var orig = btn.textContent; btn.textContent = 'Ad blocker still active — please try again'; setTimeout(function(){ btn.textContent = orig; }, 2500); }
+    if (!blocked) { document.getElementById('adblocker-wall').classList.remove('show'); showResources(); }
+    else { var btn=document.querySelector('.ab-btn'); var orig=btn.textContent; btn.textContent='Ad blocker still active — please try again'; setTimeout(function(){ btn.textContent=orig; },2500); }
   });
 }
-function showLobby() { document.getElementById('lobby').classList.add('show'); document.body.style.overflow = ''; calcSalary(); }
+function showResources() { document.getElementById('resources-lobby').classList.add('show'); document.body.style.overflow=''; }
 
 /* ══ BOOT ══ */
+var LS_VISITED = 'cca_resources_visited';
 window.addEventListener('load', function() {
-  var isReturn = localStorage.getItem(LS_VISITED) === 'true';
-  if (isReturn) {
-    document.getElementById('loading-screen').style.display = 'none';
-    detectAdBlocker(function(blocked) { if (blocked) document.getElementById('adblocker-wall').classList.add('show'); else showLobby(); });
-  } else {
-    localStorage.setItem(LS_VISITED, 'true');
-    setTimeout(function() {
-      var screen = document.getElementById('loading-screen');
-      screen.classList.add('fade-out');
-      setTimeout(function() {
-        screen.style.display = 'none';
-        detectAdBlocker(function(blocked) { if (blocked) document.getElementById('adblocker-wall').classList.add('show'); else showLobby(); });
-      }, 500);
-    }, 5200);
-  }
+  detectAdBlocker(function(blocked) {
+    if (blocked) document.getElementById('adblocker-wall').classList.add('show');
+    else showResources();
+  });
 });
 
+/* ══ START CAMPUS — 5 second loading then level 2 ══ */
+function startCampus() {
+  var loader = document.getElementById('campus-loading');
+  var bar = document.getElementById('campusLoaderBar');
+  loader.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ bar.style.width = '100%'; }, 50);
+  setTimeout(function() {
+    loader.classList.add('fade-out');
+    setTimeout(function() {
+      loader.classList.remove('show');
+      loader.classList.remove('fade-out');
+      bar.style.width = '0%';
+      bar.style.transition = 'none';
+      setTimeout(function(){ bar.style.transition = 'width 5s ease-in-out'; }, 50);
+      document.getElementById('resources-lobby').classList.remove('show');
+      document.getElementById('level2').classList.add('show');
+      document.body.style.overflow = '';
+      window.scrollTo(0,0);
+    }, 500);
+  }, 5500);
+}
+
 /* ══ NAVIGATION ══ */
-function enterLevel2() { document.getElementById('lobby').classList.remove('show'); document.getElementById('level2').classList.add('show'); window.scrollTo(0,0); }
-function exitLevel2() { document.getElementById('level2').classList.remove('show'); document.getElementById('lobby').classList.add('show'); window.scrollTo(0,0); }
-var currentCourse = null; var currentLessonId = null;
+function exitLevel2() {
+  document.getElementById('level2').classList.remove('show');
+  document.getElementById('resources-lobby').classList.add('show');
+  window.scrollTo(0,0);
+}
+var currentCourse = null;
 function enterClassroom(courseId) {
-  currentCourse = courseId; var course = COURSES[courseId];
-  document.getElementById('level2').classList.remove('show'); document.getElementById('classroom').classList.add('show'); document.body.style.overflow = 'hidden';
-  document.getElementById('pnavCourseName').textContent = course.name; document.getElementById('sbHeadTitle').textContent = course.name; document.getElementById('bcStage').textContent = course.name;
-  buildSidebar(courseId); updateProgressUI(courseId);
+  currentCourse = courseId;
+  var course = COURSES[courseId];
+  document.getElementById('level2').classList.remove('show');
+  document.getElementById('classroom').classList.add('show');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('pnavCourseName').textContent = course.name;
+  document.getElementById('sbHeadTitle').textContent = course.name;
+  document.getElementById('bcStage').textContent = course.name;
+  buildSidebar(courseId);
   if (window.innerWidth < 768) document.getElementById('campusSidebar').classList.add('collapsed');
 }
-function exitClassroom() { document.getElementById('classroom').classList.remove('show'); document.getElementById('level2').classList.add('show'); document.body.style.overflow = ''; currentCourse = null; currentLessonId = null; }
-function goToNextCourse() { closeCompletion(); exitClassroom(); }
+function exitClassroom() {
+  document.getElementById('classroom').classList.remove('show');
+  document.getElementById('level2').classList.add('show');
+  document.body.style.overflow = '';
+  currentCourse = null;
+}
 
-/* ══ SIDEBAR ══ */
+/* ══ COURSE DATA — all lessons locked ══ */
+var COURSES = {
+  english: { name: 'English Skills', lessons: [
+    { name: 'English Levels', dot: 'var(--yellow)', items: [
+      { id: 'en-01', title: 'Basic, Intermediate and Advanced — what is the difference?' },
+      { id: 'en-02', title: 'Listen: the same introduction at three levels' },
+      { id: 'en-03', title: 'Why Basic English is the only level you need right now' }
+    ]},
+    { name: 'Reading', dot: 'var(--sky)', items: [
+      { id: 'en-04', title: 'Reading for the floor — how to read a script without sounding like you are reading' },
+      { id: 'en-05', title: 'Practice: read this out loud' }
+    ]},
+    { name: 'Writing', dot: 'rgba(255,255,255,0.3)', items: [
+      { id: 'en-06', title: 'Writing basics for call center documentation' },
+      { id: 'en-07', title: 'Common phrases you will need to write every day' }
+    ]},
+    { name: 'Speaking', dot: '#5dcaa5', items: [
+      { id: 'en-08', title: 'Pronunciation tips for the interview' },
+      { id: 'en-09', title: "Phrases to use when you don't understand the customer" },
+      { id: 'en-10', title: 'Listen: a Basic speaker doing the interview confidently' }
+    ]}
+  ]},
+  computer: { name: 'Computer Skills', lessons: [
+    { name: 'The Hardware', dot: 'var(--yellow)', items: [
+      { id: 'co-01', title: 'Laptop vs Desktop — what is the difference and which one do you need?' },
+      { id: 'co-02', title: 'Headset, power backup, powerbank — the equipment the job requires' },
+      { id: 'co-03', title: 'Mac vs PC — what call centers use and why it matters' }
+    ]},
+    { name: 'The Software', dot: 'var(--sky)', items: [
+      { id: 'co-04', title: 'Email — how to use it professionally' },
+      { id: 'co-05', title: 'Calendar — scheduling, meetings, and managing your time' },
+      { id: 'co-06', title: 'System updates — how to know when your computer needs one' },
+      { id: 'co-07', title: 'Passwords — how to manage them without losing your job' }
+    ]},
+    { name: 'The Floor Reality', dot: '#5dcaa5', items: [
+      { id: 'co-08', title: 'Multiple screens and multiple windows — how to manage them' },
+      { id: 'co-09', title: 'What is a virtual computer and how to use it' },
+      { id: 'co-10', title: 'Basic IT troubleshooting — what to do when nothing works' }
+    ]}
+  ]},
+  callcenter: { name: 'Call Center Skills', lessons: [
+    { name: 'The CV', dot: 'var(--yellow)', items: [
+      { id: 'cc-01', title: 'Why you need an English CV' },
+      { id: 'cc-02', title: 'What a call center CV should and should not include' },
+      { id: 'cc-03', title: 'Video resume, audio resume, and LinkedIn' }
+    ]},
+    { name: 'The Application', dot: 'var(--sky)', items: [
+      { id: 'cc-04', title: 'Every way to apply — website, Instagram, walk-in, referral' },
+      { id: 'cc-05', title: 'The process has changed — what to expect now' }
+    ]},
+    { name: 'The Interview', dot: 'rgba(255,255,255,0.3)', items: [
+      { id: 'cc-06', title: 'The questions they always ask' },
+      { id: 'cc-07', title: 'Listen: a Basic speaker doing it confidently' },
+      { id: 'cc-08', title: 'Listen: a Basic speaker doing it poorly' }
+    ]},
+    { name: 'You Got Hired', dot: '#5dcaa5', items: [
+      { id: 'cc-09', title: 'What comes next: Induction, Training, Nesting, Production' },
+      { id: 'cc-10', title: 'What supervisors watch for in your first week' }
+    ]},
+    { name: 'The Accounts', dot: '#f0997b', items: [
+      { id: 'cc-11', title: 'Customer Service — what it really is' },
+      { id: 'cc-12', title: 'Collections — inbound, outbound, soft, hard, write-off' },
+      { id: 'cc-13', title: 'Sales — inbound, outbound, telemarketing, and why the label matters' },
+      { id: 'cc-14', title: 'Retention — saving the relationship before it walks out' },
+      { id: 'cc-15', title: 'Tech Support — structured troubleshooting' },
+      { id: 'cc-16', title: 'Back Office — non-voice and why it requires different skills' }
+    ]}
+  ]}
+};
+
+/* ══ SIDEBAR — all lessons locked ══ */
 function buildSidebar(courseId) {
-  var course = COURSES[courseId]; var p = getProgress(); var completed = p.completed[courseId] || [];
-  var nav = document.getElementById('sbNav'); nav.innerHTML = '';
+  var course = COURSES[courseId];
+  var nav = document.getElementById('sbNav');
+  nav.innerHTML = '';
   course.lessons.forEach(function(stage, si) {
-    var stageRow = document.createElement('div'); stageRow.className = 'stage-row';
+    var stageRow = document.createElement('div');
+    stageRow.className = 'stage-row';
     stageRow.innerHTML = '<div class="stage-dot" style="background:' + stage.dot + '"></div><span class="stage-name active" id="sname-' + si + '">' + stage.name + '</span><span class="stage-count">' + stage.items.length + '</span><span class="stage-chev open" id="schev-' + si + '">▸</span>';
     stageRow.onclick = function() { toggleStage('slist-' + si, si); };
     nav.appendChild(stageRow);
-    var list = document.createElement('div'); list.className = 'lesson-list'; list.id = 'slist-' + si;
+    var list = document.createElement('div');
+    list.className = 'lesson-list';
+    list.id = 'slist-' + si;
     stage.items.forEach(function(item) {
       var div = document.createElement('div');
-      div.className = 'lesson-item' + (completed.includes(item.id) ? ' completed' : '');
-      div.setAttribute('data-lesson', item.id); div.setAttribute('data-open', item.open);
-      div.innerHTML = '<div class="li-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="li-text">' + item.title + '</span>' + (!item.open ? '<span class="li-lock">🔒</span>' : '');
-      div.onclick = function() { handleLessonClick(item.id, item.open); };
+      div.className = 'lesson-item';
+      div.setAttribute('data-lesson', item.id);
+      div.innerHTML = '<div class="li-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="li-text">' + item.title + '</span><span class="li-lock">🔒</span>';
+      div.onclick = function() { showLockWall(); };
       list.appendChild(div);
     });
     nav.appendChild(list);
   });
-  var glossaryDiv = document.createElement('div'); glossaryDiv.className = 'glossary-entry';
-  glossaryDiv.innerHTML = '<div class="glossary-entry-title">📖 The Glossary</div><div class="glossary-entry-desc">Every word you will encounter in a call center world, explained with real examples from the floor.</div><button class="glossary-entry-btn" onclick="showLockWall()">Access the Glossary</button>';
+  var glossaryDiv = document.createElement('div');
+  glossaryDiv.className = 'glossary-entry';
+  glossaryDiv.innerHTML = '<div class="glossary-entry-title">📖 The Glossary</div><div class="glossary-entry-desc">Every word you will encounter in a call center, explained with real examples from the floor.</div><button class="glossary-entry-btn" onclick="showLockWall()">Access the Glossary</button>';
   nav.appendChild(glossaryDiv);
 }
+
 function toggleStage(id, si) {
-  var el = document.getElementById(id); var chev = document.getElementById('schev-' + si); var name = document.getElementById('sname-' + si);
-  var isOpen = el.style.display !== 'none'; el.style.display = isOpen ? 'none' : 'block';
-  if (chev) chev.classList.toggle('open', !isOpen); if (name) name.classList.toggle('active', !isOpen);
+  var el = document.getElementById(id);
+  var chev = document.getElementById('schev-' + si);
+  var name = document.getElementById('sname-' + si);
+  var isOpen = el.style.display !== 'none';
+  el.style.display = isOpen ? 'none' : 'block';
+  if (chev) chev.classList.toggle('open', !isOpen);
+  if (name) name.classList.toggle('active', !isOpen);
 }
-function toggleSidebar() { document.getElementById('campusSidebar').classList.toggle('collapsed'); document.getElementById('sidebarOverlay').classList.toggle('show'); }
+
+function toggleSidebar() {
+  document.getElementById('campusSidebar').classList.toggle('collapsed');
+  document.getElementById('sidebarOverlay').classList.toggle('show');
+}
+
 function searchLessons(val) {
   var q = val.toLowerCase();
   document.querySelectorAll('.lesson-item').forEach(function(item) {
@@ -1041,328 +751,11 @@ function searchLessons(val) {
   });
 }
 
-/* ══ LESSON LOADING ══ */
-function handleLessonClick(lessonId, isOpen) { if (!isOpen) { showLockWall(); return; } loadLesson(lessonId); }
-function loadLesson(lessonId) {
-  currentLessonId = lessonId;
-  document.querySelectorAll('.lesson-item').forEach(function(i) { i.classList.remove('active'); });
-  var item = document.querySelector('[data-lesson="' + lessonId + '"]');
-  if (item) item.classList.add('active');
-  var content = getLessonContent(lessonId); var body = document.getElementById('lessonBody'); var footer = document.getElementById('lessonFooter');
-  if (content) {
-    body.innerHTML = content; footer.style.display = 'flex';
-    document.getElementById('bcLesson').textContent = item ? item.querySelector('.li-text').textContent : lessonId;
-    document.getElementById('bcTag').textContent = 'Free';
-  } else {
-    body.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:3rem;"><div style="font-size:64px;margin-bottom:1.5rem;">📝</div><h2 style="font-family:\'Playfair Display\',serif;font-size:26px;color:var(--indigo);margin-bottom:1rem;">Content coming soon</h2><p style="font-size:17px;color:var(--muted);line-height:1.8;max-width:400px;">This lesson is being produced. Join the waitlist to be notified when it goes live.</p><a href="waitlist.html" style="margin-top:1.5rem;padding:14px 32px;background:var(--yellow);color:var(--indigo);font-family:\'Josefin Sans\',sans-serif;font-size:14px;font-weight:700;border-radius:10px;text-decoration:none;">Join the waitlist</a></div>';
-    footer.style.display = 'none';
-  }
-  markCompleted(currentCourse, lessonId); checkCourseCompletion();
-}
-function checkCourseCompletion() {
-  if (!currentCourse) return; var course = COURSES[currentCourse]; var p = getProgress(); var completed = p.completed[currentCourse] || [];
-  var openLessons = course.lessons.reduce(function(a,s){ return a.concat(s.items.filter(function(i){ return i.open; }).map(function(i){ return i.id; })); }, []);
-  if (openLessons.length > 0 && openLessons.every(function(id){ return completed.includes(id); })) setTimeout(function(){ showCompletion(currentCourse); }, 800);
-}
-function navLesson(dir) {
-  if (!currentCourse || !currentLessonId) return;
-  var course = COURSES[currentCourse]; var allOpen = course.lessons.reduce(function(a,s){ return a.concat(s.items.filter(function(i){ return i.open; })); }, []);
-  var idx = allOpen.findIndex(function(i){ return i.id === currentLessonId; });
-  if (dir === 'next' && idx < allOpen.length - 1) loadLesson(allOpen[idx+1].id);
-  if (dir === 'prev' && idx > 0) loadLesson(allOpen[idx-1].id);
-}
-
 /* ══ LOCK WALL ══ */
 function showLockWall() { document.getElementById('lock-wall').classList.add('show'); }
 function closeLock() { document.getElementById('lock-wall').classList.remove('show'); }
 document.getElementById('lock-wall').addEventListener('click', function(e) { if (e.target === this) closeLock(); });
 
-/* ══ COMPLETION ══ */
-function showCompletion(courseId) {
-  var names = { english: 'English Skills', computer: 'Computer Skills', callcenter: 'Call Center Skills' };
-  var next  = { english: 'Computer Skills', computer: 'Call Center Skills', callcenter: null };
-  document.getElementById('completionTitle').textContent = names[courseId] + ' — Complete!';
-  document.getElementById('completionSub').textContent = next[courseId] ? 'You have finished the open lessons in ' + names[courseId] + '. The next course is ' + next[courseId] + '.' : 'You have completed all open lessons in ' + names[courseId] + '. Join the waitlist for full access.';
-  var btn = document.getElementById('completionNextBtn');
-  if (next[courseId]) { btn.textContent = 'Continue to ' + next[courseId]; btn.style.display = 'block'; } else { btn.style.display = 'none'; }
-  document.getElementById('completion-popup').classList.add('show');
-}
-function closeCompletion() { document.getElementById('completion-popup').classList.remove('show'); }
-
-/* ══ QUIZ ══ */
-function selectOption(el) { document.querySelectorAll('.option').forEach(function(o){ o.classList.remove('selected'); }); el.classList.add('selected'); }
-function submitQuiz(lessonId, correctIdx) {
-  document.querySelectorAll('.option').forEach(function(o,i){ if(i===correctIdx) o.classList.add('correct'); else if(o.classList.contains('selected')) o.classList.add('wrong'); });
-  if (currentCourse && lessonId) markCompleted(currentCourse, lessonId);
-}
-
-/* ══ AUDIO ══ */
-function togglePlay(btn) {
-  btn.classList.toggle('playing');
-  var svg = btn.querySelector('svg');
-  svg.innerHTML = btn.classList.contains('playing') ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>' : '<polygon points="5 3 19 12 5 21 5 3"/>';
-}
-
-/* ══ MODALS ══ */
-function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; if (id === 'salaryModal') calcSalary(); }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
-function closeModalOutside(e, id) { if (e.target === document.getElementById(id)) closeModal(id); }
-
-/* ══ SALARY ══ */
-function calcSalary() {
-  var ids = ['sal-rent','sal-transport','sal-food','sal-phone','sal-other'];
-  var total = ids.reduce(function(a,id){ var el = document.getElementById(id); return a + (el ? parseFloat(el.value)||0 : 0); }, 0);
-  var min = Math.ceil((total / 160) * 1.2);
-  var el = document.getElementById('salaryResult'); if (el) el.textContent = 'RD$ ' + min.toLocaleString() + '/hr';
-}
-
-/* ══ AI HELPER ══ */
-async function callClaude(systemPrompt, messages) {
-  try {
-    var response = await fetch(API_URL, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: MODEL, max_tokens: 1500, system: systemPrompt, messages: messages })
-    });
-    var data = await response.json();
-    return data.content && data.content[0] ? data.content[0].text : '';
-  } catch(e) { return 'Something went wrong. Please try again.'; }
-}
-function appendBubble(chatId, text, role) {
-  var chat = document.getElementById(chatId); var div = document.createElement('div');
-  div.className = 'chat-bubble ' + role; div.textContent = text; chat.appendChild(div); chat.scrollTop = chat.scrollHeight;
-  return div;
-}
-function showTyping(chatId) {
-  var chat = document.getElementById(chatId); var div = document.createElement('div');
-  div.className = 'chat-typing'; div.id = chatId + '-typing'; div.innerHTML = '<span></span><span></span><span></span>'; chat.appendChild(div); chat.scrollTop = chat.scrollHeight;
-}
-function removeTyping(chatId) { var el = document.getElementById(chatId + '-typing'); if (el) el.remove(); }
-
-/* ══ DOCX GENERATOR ══ */
-function buildDocx(title, bodyText) {
-  var docx = window.docx;
-  var lines = bodyText.split('\n');
-  var children = [];
-  lines.forEach(function(line) {
-    var trimmed = line.trim();
-    if (!trimmed) { children.push(new docx.Paragraph({ children: [] })); return; }
-    var isBold = trimmed.match(/^[A-Z][A-Z\s]+:/) || trimmed.match(/^\*\*(.+)\*\*/);
-    children.push(new docx.Paragraph({
-      children: [new docx.TextRun({ text: trimmed.replace(/^\*\*|\*\*$/g,''), bold: !!isBold, font: 'Arial', size: 22 })]
-    }));
-  });
-  var doc = new docx.Document({
-    styles: { default: { document: { run: { font: 'Arial', size: 22 } } } },
-    sections: [{
-      properties: { page: { size: { width: 12240, height: 15840 }, margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 } } },
-      children: [
-        new docx.Paragraph({
-          children: [new docx.TextRun({ text: title, bold: true, font: 'Arial', size: 32 })],
-          spacing: { after: 400 }
-        })
-      ].concat(children)
-    }]
-  });
-  return docx.Packer.toBlob(doc);
-}
-function triggerDownload(blob, filename) {
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a'); a.href = url; a.download = filename;
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
-}
-
-/* ══ CV BUILDER ══ */
-var cvHistory = [];
-var cvFileText = '';
-var cvReadyText = '';
-
-function cvDragOver(e) { e.preventDefault(); document.getElementById('cvUploadZone').classList.add('drag-over'); }
-function cvDragLeave(e) { document.getElementById('cvUploadZone').classList.remove('drag-over'); }
-function cvDrop(e) { e.preventDefault(); document.getElementById('cvUploadZone').classList.remove('drag-over'); var files = e.dataTransfer.files; if (files.length) handleCvFile(files[0]); }
-
-function handleCvFile(file) {
-  if (!file) return;
-  var status = document.getElementById('cvUploadStatus');
-  status.textContent = 'Reading ' + file.name + '...';
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    cvFileText = e.target.result;
-    if (cvFileText.length > 8000) cvFileText = cvFileText.substring(0, 8000);
-    status.textContent = '✓ ' + file.name + ' loaded';
-    document.getElementById('cvUploadZone').style.borderColor = '#16a34a';
-    var intro = 'I have uploaded my existing CV. Please review it and help me improve it for call center jobs.';
-    appendBubble('cvChat', intro, 'user');
-    var msgWithFile = 'The user has uploaded their existing CV. Here is the content:\n\n' + cvFileText + '\n\nPlease acknowledge that you have read it and ask what they want to improve or what call center role they are targeting.';
-    cvHistory.push({ role: 'user', content: msgWithFile });
-    sendCvToClaude();
-  };
-  reader.onerror = function() { status.textContent = 'Could not read file. Please try a different format.'; };
-  if (file.name.endsWith('.pdf') || file.name.endsWith('.doc') || file.name.endsWith('.docx')) {
-    reader.readAsText(file);
-  } else {
-    reader.readAsText(file);
-  }
-}
-
-async function sendCvToClaude() {
-  showTyping('cvChat');
-  var reply = await callClaude(CV_SYSTEM, cvHistory);
-  removeTyping('cvChat');
-  var isReady = reply.indexOf('[CV_READY]') !== -1;
-  var cleanReply = reply.replace('[CV_READY]', '').trim();
-  if (cleanReply === 'SESSION_END') {
-    appendBubble('cvChat', 'This session is now closed. For anything else, visit claude.ai/new', 'ai');
-    document.getElementById('cvInput').disabled = true; document.getElementById('cvSendBtn').disabled = true; return;
-  }
-  appendBubble('cvChat', cleanReply, 'ai');
-  cvHistory.push({ role: 'assistant', content: cleanReply });
-  if (isReady) { cvReadyText = cleanReply; document.getElementById('cvDownloadBtn').style.display = 'flex'; }
-}
-
-async function sendCvMessage() {
-  var input = document.getElementById('cvInput'); var val = input.value.trim(); if (!val) return;
-  appendBubble('cvChat', val, 'user'); input.value = '';
-  cvHistory.push({ role: 'user', content: val });
-  await sendCvToClaude();
-}
-
-function downloadCvDocx() {
-  buildDocx('Call Center CV', cvReadyText).then(function(blob) {
-    triggerDownload(blob, 'call-center-cv.docx');
-  });
-}
-
-/* ══ LETTER WRITER ══ */
-var letterOpeningMessage = "I'm here to help you write letters related to your call center job. I can help you with a cover letter, a vacation request letter, a resignation letter, or a letter to reapply to a call center you used to work at. I will ask you some questions to gather context and then give you the letter ready to download. What document do you want help writing today?";
-var letterHistory = [{ role: 'assistant', content: letterOpeningMessage }];
-var letterReadyText = '';
-
-async function sendLetterMessage() {
-  var input = document.getElementById('letterInput'); var val = input.value.trim(); if (!val) return;
-  appendBubble('letterChat', val, 'user'); input.value = '';
-  letterHistory.push({ role: 'user', content: val });
-  showTyping('letterChat');
-  var reply = await callClaude(LETTER_SYSTEM, letterHistory);
-  removeTyping('letterChat');
-  var isReady = reply.indexOf('[LETTER_READY]') !== -1;
-  var cleanReply = reply.replace('[LETTER_READY]', '').trim();
-  if (cleanReply === 'SESSION_END') {
-    appendBubble('letterChat', 'This session is now closed. For anything else, visit claude.ai/new', 'ai');
-    document.getElementById('letterInput').disabled = true; document.getElementById('letterSendBtn').disabled = true; return;
-  }
-  appendBubble('letterChat', cleanReply, 'ai');
-  letterHistory.push({ role: 'assistant', content: cleanReply });
-  if (isReady) { letterReadyText = cleanReply; document.getElementById('letterDownloadBtn').style.display = 'flex'; }
-}
-
-function downloadLetterDocx() {
-  buildDocx('Professional Letter', letterReadyText).then(function(blob) {
-    triggerDownload(blob, 'professional-letter.docx');
-  });
-}
-
-/* ══ MATCHER ══ */
-var matcherLang = 'en'; var matcherStep = 0; var matcherAnswers = []; var matcherSelectedOpt = -1;
-var MATCHER_QUESTIONS = {
-  en: [
-    { q: "Imagine a customer calls you crying about a problem. How does that affect you?", opts: ["A) It doesn't really affect me — I stay focused on solving the problem.", "B) I think I could cry or at least feel bad for them."] },
-    { q: "You call someone and that person curses at you, yells, and hangs up abruptly. How do you feel?", opts: ["A) I will feel bad. That kind of call stays with me.", "B) I don't care. I hang up and make the next call."] },
-    { q: "The customer is really slow following your instructions. What happens inside you?", opts: ["A) I get desperate and want to get rid of that call as fast as possible.", "B) It's fine. I am here to help and I will take the time they need."] },
-    { q: "Someone tells you they can't pay their bill because they lost their job and have kids at home.", opts: ["A) I understand the situation but I still need to do my job and collect.", "B) That breaks my heart. I find it very hard to push forward."] },
-    { q: "Which best describes how you solve problems?", opts: ["A) I follow a process step by step until I find the answer.", "B) I improvise and adapt based on what the person is telling me."] },
-    { q: "Which one are you closer to?", opts: ["A) Introverted — I prefer working quietly and independently.", "B) Extroverted — I get energy from talking to people."] },
-    { q: "Do you enjoy talking to people for long periods of time?", opts: ["A) Yes — I could talk all day.", "B) No — it drains me after a while."] },
-    { q: "A customer has a technical issue and needs you to walk them through fixing it step by step. They are not tech-savvy at all.", opts: ["A) I'm comfortable. I explain things clearly and patiently.", "B) I get frustrated when people don't understand basic technology."] },
-    { q: "How do you feel about being measured by numbers — calls per hour, handle time, customer satisfaction scores?", opts: ["A) It motivates me. I want to see my numbers and improve them.", "B) It stresses me. I prefer to focus on quality over quantity."] },
-    { q: "A customer wants to cancel their service. Your job is to convince them to stay. How do you feel about that?", opts: ["A) I like the challenge. I want to save the account.", "B) I feel uncomfortable pushing someone to stay if they want to leave."] },
-    { q: "You are making outbound calls to people who did not ask to be contacted. Some hang up, some are rude.", opts: ["A) That's fine. I keep going. Every call is a new opportunity.", "B) Rejection from strangers bothers me more than it probably should."] },
-    { q: "Which kind of work sounds more like you?", opts: ["A) Processing documents, reviewing information, making sure everything is accurate.", "B) Talking to customers, solving their problems, building the interaction."] },
-    { q: "A customer is pushing back on a payment arrangement you offered. How do you handle it?", opts: ["A) I hold firm and negotiate. I know what I can and can't offer.", "B) I get uncomfortable with conflict and tend to give more than I should."] },
-    { q: "How do you feel about repetitive work — doing the same type of task hundreds of times a day?", opts: ["A) Fine with it. Consistency is good and I find my rhythm.", "B) I get bored quickly. I need variety to stay engaged."] },
-    { q: "You are about to start this job. What matters most to you?", opts: ["A) The salary, the commissions, the performance bonuses.", "B) The schedule, the environment, the people I will work with."] }
-  ],
-  es: [
-    { q: "Imagina que un cliente te llama llorando por un problema. ¿Cómo te afecta eso?", opts: ["A) No me afecta mucho — me concentro en resolver el problema.", "B) Creo que podría llorar o al menos sentirme mal por esa persona."] },
-    { q: "Llamas a alguien y esa persona te insulta, te grita y cuelga abruptamente. ¿Cómo te sientes?", opts: ["A) Me va a afectar. Ese tipo de llamada se me queda en la cabeza.", "B) No me importa. Cuelgo y marco el siguiente."] },
-    { q: "El cliente es muy lento siguiendo tus instrucciones. ¿Qué pasa dentro de ti?", opts: ["A) Me desespero y quiero terminar esa llamada lo más rápido posible.", "B) No hay problema. Estoy aquí para ayudar y tomaré el tiempo que necesiten."] },
-    { q: "Alguien te dice que no puede pagar su factura porque perdió su trabajo y tiene hijos en casa.", opts: ["A) Entiendo la situación pero igual tengo que hacer mi trabajo y cobrar.", "B) Eso me rompe el corazón. Me cuesta mucho seguir adelante."] },
-    { q: "¿Cuál describe mejor cómo resuelves problemas?", opts: ["A) Sigo un proceso paso a paso hasta encontrar la respuesta.", "B) Improviso y me adapto según lo que me dice la persona."] },
-    { q: "¿Con cuál te identificas más?", opts: ["A) Introvertido/a — prefiero trabajar tranquilo/a e independiente.", "B) Extrovertido/a — me da energía hablar con personas."] },
-    { q: "¿Disfrutas hablar con personas por largos períodos de tiempo?", opts: ["A) Sí — podría hablar todo el día.", "B) No — me agota después de un rato."] },
-    { q: "Un cliente tiene un problema técnico y necesitas guiarlo paso a paso. No sabe nada de tecnología.", opts: ["A) Me siento cómodo/a. Explico las cosas con claridad y paciencia.", "B) Me frustra cuando las personas no entienden tecnología básica."] },
-    { q: "¿Cómo te sientes siendo medido/a por números — llamadas por hora, tiempo de manejo, satisfacción del cliente?", opts: ["A) Me motiva. Quiero ver mis números y mejorarlos.", "B) Me estresa. Prefiero concentrarme en la calidad."] },
-    { q: "Un cliente quiere cancelar su servicio. Tu trabajo es convencerlo de quedarse. ¿Cómo te sientes?", opts: ["A) Me gusta el reto. Quiero salvar la cuenta.", "B) Me incomoda presionar a alguien para que se quede si quiere irse."] },
-    { q: "Estás haciendo llamadas salientes a personas que no pidieron ser contactadas. Algunos cuelgan, otros son groseros.", opts: ["A) Está bien. Sigo adelante. Cada llamada es una nueva oportunidad.", "B) El rechazo de extraños me afecta más de lo que debería."] },
-    { q: "¿Cuál tipo de trabajo se parece más a ti?", opts: ["A) Procesar documentos, revisar información, asegurarme de que todo esté correcto.", "B) Hablar con clientes, resolver sus problemas, construir la interacción."] },
-    { q: "Un cliente rechaza el acuerdo de pago que ofreciste. ¿Cómo lo manejas?", opts: ["A) Me mantengo firme y negocio. Sé lo que puedo y no puedo ofrecer.", "B) El conflicto me incomoda y tiendo a dar más de lo que debería."] },
-    { q: "¿Cómo te sientes con trabajo repetitivo — hacer el mismo tipo de tarea cientos de veces al día?", opts: ["A) Bien. La consistencia es buena y encuentro mi ritmo.", "B) Me aburro rápido. Necesito variedad para mantenerme activo/a."] },
-    { q: "Estás a punto de empezar este trabajo. ¿Qué te importa más?", opts: ["A) El salario, las comisiones, los bonos por desempeño.", "B) El horario, el ambiente, las personas con quienes voy a trabajar."] }
-  ]
-};
-var MATCHER_RESULTS = {
-  en: [
-    { fit: "Customer Service", fitWhy: "Your warmth and patience under pressure make you exceptional at inbound customer service. You genuinely want to help — and customers feel that immediately.", avoid: "Collections", avoidWhy: "Your empathy is a strength everywhere except collections. Hearing 'I can't pay, I lost my son' would break you every day. That account needs emotional distance you don't have — and shouldn't want." },
-    { fit: "Collections", fitWhy: "Your emotional resilience and comfort with difficult money conversations are exactly what collections accounts demand. You separate the business from the person — that's how this account works.", avoid: "Customer Service", avoidWhy: "Standard inbound service will bore you. You are built for high-stakes conversations, not routine inquiries." },
-    { fit: "Tech Support", fitWhy: "Your methodical, process-driven thinking is what structured troubleshooting requires. You follow the path, don't improvise, and that's what resolves technical issues correctly.", avoid: "Sales", avoidWhy: "Sales requires constant improvisation. Your preference for clear processes will frustrate you when a customer goes off-script and you need to adapt in real time." },
-    { fit: "Retention", fitWhy: "You stay calm under pressure and know how to read people emotionally. Saving a relationship that's about to walk out the door is exactly the kind of challenge that brings out your best.", avoid: "Collections", avoidWhy: "Collections is confrontational by nature. Your strengths live in persuasion and connection — not in firm recovery conversations with resistant customers." },
-    { fit: "Sales", fitWhy: "Your drive for results and comfort with rejection make you effective in sales environments. You close because you want to win — and that energy is contagious.", avoid: "Back Office", avoidWhy: "You need energy and human interaction to perform. Silent, repetitive non-voice work will drain you fast." },
-    { fit: "Back Office", fitWhy: "Your need for independence and clear processes makes back office work deeply satisfying. You deliver results without needing an audience — and your accuracy is where you shine.", avoid: "Sales", avoidWhy: "Sales is unpredictable and people-driven. You perform best when the rules are consistent. An account where success depends on personality every call will exhaust you." }
-  ],
-  es: [
-    { fit: "Servicio al Cliente", fitWhy: "Tu calidez y paciencia bajo presión te hacen excepcional en servicio al cliente entrante. Genuinamente quieres ayudar — y los clientes lo sienten de inmediato.", avoid: "Cobros", avoidWhy: "Tu empatía es una fortaleza en todos lados excepto en cobros. Escuchar 'no puedo pagar, perdí a mi hijo' te rompería todos los días. Esa cuenta necesita distancia emocional que tú no tienes — y no deberías tener." },
-    { fit: "Cobros", fitWhy: "Tu resiliencia emocional y comodidad con conversaciones difíciles de dinero son exactamente lo que las cuentas de cobro exigen. Separas el negocio de la persona — así funciona esa cuenta.", avoid: "Servicio al Cliente", avoidWhy: "El servicio entrante estándar te va a aburrir. Estás hecho/a para conversaciones de alto riesgo, no para consultas de rutina." },
-    { fit: "Soporte Técnico", fitWhy: "Tu pensamiento metódico y orientado a procesos es lo que requiere el soporte técnico estructurado. Sigues el camino, no improvisas, y eso es lo que resuelve los problemas técnicos correctamente.", avoid: "Ventas", avoidWhy: "Las ventas requieren improvisación constante. Tu preferencia por procesos claros te frustrará cuando un cliente se salga del guión." },
-    { fit: "Retención", fitWhy: "Te mantienes calmado/a bajo presión y sabes leer a las personas emocionalmente. Salvar una relación que está a punto de irse es exactamente el tipo de reto que saca lo mejor de ti.", avoid: "Cobros", avoidWhy: "Cobros es confrontacional por naturaleza. Tus fortalezas viven en la persuasión y la conexión — no en conversaciones de recuperación con clientes resistentes." },
-    { fit: "Ventas", fitWhy: "Tu impulso por resultados y tu comodidad con el rechazo te hacen efectivo/a en entornos de ventas. Cierras porque quieres ganar — y esa energía es contagiosa.", avoid: "Back Office", avoidWhy: "Necesitas energía e interacción humana para rendir. El trabajo no vocal, silencioso y repetitivo te va a agotar rápido." },
-    { fit: "Back Office", fitWhy: "Tu necesidad de independencia y procesos claros hace que el trabajo de back office sea profundamente satisfactorio. Entregas resultados sin necesitar audiencia — y tu precisión es donde brillas.", avoid: "Ventas", avoidWhy: "Las ventas son impredecibles y orientadas a personas. Rindes mejor cuando las reglas son consistentes. Una cuenta donde el éxito depende de la personalidad en cada llamada te agotará." }
-  ]
-};
-function selectLang(lang, btn) {
-  matcherLang = lang; document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.remove('selected'); }); btn.classList.add('selected');
-  document.getElementById('matcherLangSelect').style.display = 'none'; document.getElementById('matcherIntro').style.display = 'block';
-  if (lang === 'es') { document.getElementById('matcherIntroTitle').textContent = 'Antes de tu próxima entrevista.'; document.getElementById('matcherIntroDesc').textContent = 'Te presentaremos algunos escenarios. Para cada uno, elige la opción que más se acerque a quien eres. Sé honesto/a — no hay respuestas incorrectas, solo la verdad sobre tu personalidad.'; document.getElementById('matcherStartBtn').textContent = 'Comenzar el test →'; }
-}
-function startMatcher() {
-  matcherStep = 0; matcherAnswers = []; matcherSelectedOpt = -1;
-  document.getElementById('matcherIntro').style.display = 'none'; document.getElementById('matcherQWrap').style.display = 'block'; renderMatcherQ();
-}
-function renderMatcherQ() {
-  var qs = MATCHER_QUESTIONS[matcherLang]; var q = qs[matcherStep];
-  var pct = Math.round((matcherStep / qs.length) * 100);
-  document.getElementById('matcherQFill').style.width = pct + '%';
-  document.getElementById('matcherQLabel').textContent = (matcherLang === 'es' ? 'Pregunta ' : 'Question ') + (matcherStep+1) + (matcherLang === 'es' ? ' de ' : ' of ') + qs.length;
-  document.getElementById('matcherQText').textContent = q.q;
-  var container = document.getElementById('matcherOptions');
-  container.innerHTML = q.opts.map(function(opt,i){ return '<div class="matcher-option" onclick="selectMatcherOpt(this,' + i + ')"><div class="matcher-opt-letter">' + String.fromCharCode(65+i) + '</div>' + opt.substring(3) + '</div>'; }).join('');
-  matcherSelectedOpt = -1; document.getElementById('matcherNextBtn').disabled = true;
-  document.getElementById('matcherNextBtn').textContent = matcherStep < MATCHER_QUESTIONS[matcherLang].length-1 ? (matcherLang === 'es' ? 'Siguiente →' : 'Next →') : (matcherLang === 'es' ? 'Ver resultados →' : 'See results →');
-}
-function selectMatcherOpt(el, idx) {
-  document.querySelectorAll('.matcher-option').forEach(function(o){ o.classList.remove('selected'); }); el.classList.add('selected'); matcherSelectedOpt = idx; document.getElementById('matcherNextBtn').disabled = false;
-}
-function nextMatcherQ() {
-  if (matcherSelectedOpt === -1) return; matcherAnswers.push(matcherSelectedOpt); matcherStep++;
-  if (matcherStep >= MATCHER_QUESTIONS[matcherLang].length) {
-    document.getElementById('matcherQWrap').style.display = 'none'; document.getElementById('matcherThinking').style.display = 'block';
-    document.getElementById('matcherThinkingLabel').textContent = matcherLang === 'es' ? 'Analizando tus respuestas...' : 'Analyzing your answers...';
-    setTimeout(showMatcherResult, 2500);
-  } else { renderMatcherQ(); }
-}
-function showMatcherResult() {
-  var sum = matcherAnswers.reduce(function(a,b){ return a+b; }, 0); var idx = sum % MATCHER_RESULTS[matcherLang].length; var result = MATCHER_RESULTS[matcherLang][idx];
-  document.getElementById('matcherFitAccount').textContent = result.fit; document.getElementById('matcherFitWhy').textContent = result.fitWhy;
-  document.getElementById('matcherAvoidAccount').textContent = result.avoid; document.getElementById('matcherAvoidWhy').textContent = result.avoidWhy;
-  if (matcherLang === 'es') { document.getElementById('matcherFitLabel').textContent = 'Tu mejor opción'; document.getElementById('matcherAvoidLabel').textContent = 'Acércate con cuidado'; document.getElementById('matcherResetBtn').textContent = 'Tomar el test de nuevo'; }
-  document.getElementById('matcherThinking').style.display = 'none'; document.getElementById('matcherResult').style.display = 'block';
-}
-function resetMatcher() {
-  matcherStep = 0; matcherAnswers = []; matcherSelectedOpt = -1;
-  document.getElementById('matcherResult').style.display = 'none'; document.getElementById('matcherThinking').style.display = 'none';
-  document.getElementById('matcherQWrap').style.display = 'none'; document.getElementById('matcherIntro').style.display = 'none';
-  document.getElementById('matcherLangSelect').style.display = 'block';
-  document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.remove('selected'); });
-}
 </script>
 </body>
 </html>
